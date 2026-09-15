@@ -42,24 +42,10 @@ Abre [http://localhost:3000](http://localhost:3000).
 - `main`: rama estable / producción.
 - `development`: rama de trabajo. Todo el desarrollo se hace aquí (o en ramas de feature que mergean a `development`), y se promueve a `main` vía PR cuando está listo para producción.
 
-## CI/CD (GitHub Actions)
+## CI/CD
 
-- **`.github/workflows/ci.yml`**: en cada push/PR a `main` o `development` corre lint, typecheck, tests unitarios, build y tests e2e con Playwright.
-- **`.github/workflows/deploy.yml`**: despliega a Vercel.
-  - Push a `main` → deploy de producción.
-  - Pull request → deploy preview (con comentario automático en el PR con la URL).
-
-### Secrets necesarios para el deploy
-
-Configura estos secrets en **GitHub → Settings → Secrets and variables → Actions**:
-
-| Secret | Cómo obtenerlo |
-| --- | --- |
-| `VERCEL_TOKEN` | Vercel → Account Settings → Tokens |
-| `VERCEL_ORG_ID` | Ejecuta `vercel link` en local (crea `.vercel/project.json`) o Vercel → Team Settings |
-| `VERCEL_PROJECT_ID` | Igual que arriba, en `.vercel/project.json` |
-
-Sin estos secrets el workflow de deploy fallará; el de CI (lint/test/build) funciona sin configuración adicional.
+- **`.github/workflows/ci.yml`** (GitHub Actions): en cada push/PR a `main` o `development` corre lint, typecheck, tests unitarios, build y tests e2e con Playwright.
+- **Deploy**: lo gestiona la integración nativa de Vercel (proyecto `young-digisoft`, repo importado directamente desde GitHub). Cada push a `main` genera un deploy de producción, y cualquier otra rama o PR genera un deploy preview — no hace falta ningún workflow de GitHub Actions para esto. Los secrets `VERCEL_ORG_ID`/`VERCEL_PROJECT_ID` quedaron guardados en GitHub → Settings → Secrets and variables → Actions por si en el futuro se necesita un workflow custom, pero hoy no los usa nada.
 
 ## Variables de entorno
 
