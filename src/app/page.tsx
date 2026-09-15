@@ -1,21 +1,40 @@
-import Image from "next/image";
+import dynamic from "next/dynamic";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { Hero } from "@/components/sections/Hero";
+import { Services } from "@/components/sections/Services";
+import { WhyUs } from "@/components/sections/WhyUs";
+import { CtaBanner } from "@/components/sections/CtaBanner";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { Contact } from "@/components/sections/Contact";
+
+const BackToTop = dynamic(() =>
+  import("@/components/layout/BackToTop").then((mod) => mod.BackToTop)
+);
+const ExitIntentModal = dynamic(() =>
+  import("@/components/forms/ExitIntentModal").then((mod) => mod.ExitIntentModal)
+);
 
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-6 px-6 py-24 text-center">
-      <Image
-        src="/logo.png"
-        alt="Young Digisoft"
-        width={270}
-        height={84}
-        priority
-      />
-      <h1 className="max-w-xl font-heading text-3xl text-foreground sm:text-4xl">
-        Landing en construcción
-      </h1>
-      <p className="max-w-md text-foreground/70">
-        Estamos preparando el sitio. Vuelve pronto.
-      </p>
-    </main>
+    <>
+      <Header />
+      <main className="flex-1">
+        <Hero />
+        <Services />
+        <WhyUs />
+        <div className="py-20">
+          <CtaBanner
+            heading="¿Listo para digitalizar tu negocio?"
+            description="Escríbenos y te preparamos una propuesta a medida, sin compromiso."
+          />
+        </div>
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
+      <BackToTop />
+      <ExitIntentModal />
+    </>
   );
 }

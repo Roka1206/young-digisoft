@@ -61,6 +61,24 @@ Configura estos secrets en **GitHub → Settings → Secrets and variables → A
 
 Sin estos secrets el workflow de deploy fallará; el de CI (lint/test/build) funciona sin configuración adicional.
 
+## Variables de entorno
+
+Copia estas variables en `.env.local` (desarrollo) y en Vercel → Project Settings → Environment Variables (producción/preview):
+
+| Variable | Descripción |
+| --- | --- |
+| `RESEND_API_KEY` | API key de [Resend](https://resend.com) usada por `src/app/api/contact/route.ts` para enviar el email del formulario de contacto. Sin ella, el formulario muestra el estado de error. |
+| `CONTACT_TO_EMAIL` | Email que recibe los mensajes del formulario. Por defecto `1206roka@gmail.com` si no se define. |
+| `NEXT_PUBLIC_SITE_URL` | URL pública del sitio, usada en metadata (OpenGraph), `robots.txt` y `sitemap.xml`. Actualizar cuando se tenga el dominio definitivo. |
+
+El remitente del email (`from`) usa el dominio de pruebas `onboarding@resend.dev` de Resend; para enviar desde un dominio propio (ej. `contacto@youngdigisoft.com`) hay que verificarlo en el panel de Resend y actualizar `src/app/api/contact/route.ts`.
+
 ## Marca
 
 El logo fuente vive en `assets/brand/young-digisoft-logo-source.png`. Al ser un PNG de baja resolución (368x239px), los íconos generados a tamaños grandes (icon.png, apple-icon.png) pueden verse algo suaves. Si se consigue una versión vectorial (SVG/AI) del logo, reemplazar el source y volver a ejecutar `pnpm generate:brand-assets` para mejor nitidez.
+
+## Pendientes de contenido
+
+- **Redes sociales**: los enlaces en `src/content/site.ts` (`socialLinks`) son placeholders (`#`, salvo WhatsApp que ya es real). Reemplazar por las URLs reales cuando se tengan.
+- **Testimonios**: `src/content/testimonials.ts` tiene datos de ejemplo. Reemplazar por testimonios reales de clientes.
+- **LinkedIn**: no se incluyó un botón de LinkedIn porque ni `lucide-react` ni `simple-icons` distribuyen ya ese ícono (lo retiraron ambos proyectos). Si se quiere añadir, hay que conseguir el SVG oficial y añadirlo a `src/components/ui/BrandIcons.tsx`.
