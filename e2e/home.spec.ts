@@ -10,14 +10,20 @@ test("mobile navigation opens and closes", async ({ page, isMobile }) => {
   test.skip(!isMobile, "Solo aplica al proyecto/viewport mobile");
   await page.goto("/");
 
-  // En viewport mobile el nav de escritorio está oculto vía CSS, así que el único
-  // link "Contacto" accesible es el del panel móvil.
-  const menuButton = page.getByRole("button", { name: /abrir menú/i });
-  await menuButton.click();
-  await expect(page.getByRole("link", { name: "Contacto" })).toHaveCount(1);
+  // Se escopa al <header> porque el Footer también renderiza un link "Contacto"
+  // (siempre presente), y contarlo junto al del header daba falsos positivos.
+  const header = page.getByRole("banner");
+  const menuButton = header.getByRole("button", { name: /abrir menú/i });
 
-  await page.getByRole("button", { name: /cerrar menú/i }).click();
-  await expect(page.getByRole("link", { name: "Contacto" })).toHaveCount(0);
+  // En viewport mobile el nav de escritorio está oculto vía CSS, así que dentro
+  // del header no hay ningún link "Contacto" visible hasta abrir el panel móvil.
+  await expect(header.getByRole("link", { name: "Contacto" })).toHaveCount(0);
+
+  await menuButton.click();
+  await expect(header.getByRole("link", { name: "Contacto" })).toHaveCount(1);
+
+  await header.getByRole("button", { name: /cerrar menú/i }).click();
+  await expect(header.getByRole("link", { name: "Contacto" })).toHaveCount(0);
 });
 
 test("back to top button appears after scrolling and returns to the top", async ({ page }) => {
