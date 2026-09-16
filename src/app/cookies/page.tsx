@@ -5,6 +5,11 @@ import { cookiesSections } from "@/content/legal";
 
 export const metadata: Metadata = {
   title: "Política de cookies",
+  description:
+    "Qué tecnologías de almacenamiento local y analítica utiliza el sitio web de Young Digisoft, y por qué no requieren consentimiento.",
+  alternates: {
+    canonical: "/cookies",
+  },
 };
 
 export default function CookiesPage() {

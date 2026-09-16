@@ -5,6 +5,11 @@ import { privacidadSections } from "@/content/legal";
 
 export const metadata: Metadata = {
   title: "Política de privacidad",
+  description:
+    "Cómo trata Young Digisoft los datos personales recogidos en el formulario de contacto: finalidad, conservación y derechos del usuario.",
+  alternates: {
+    canonical: "/privacidad",
+  },
 };
 
 export default function PrivacidadPage() {

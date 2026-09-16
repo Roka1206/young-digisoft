@@ -10,7 +10,13 @@ export function Footer() {
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[2fr_1fr_1fr] lg:px-8">
         <div className="flex flex-col gap-4">
-          <Image src="/logo.png" alt={site.name} width={135} height={42} className="h-9 w-auto" />
+          <Image
+            src="/logo.png"
+            alt={site.name}
+            width={135}
+            height={42}
+            className="h-9 w-auto self-start"
+          />
           <p className="max-w-sm text-sm text-muted">{site.tagline}</p>
           <SocialLinks />
         </div>

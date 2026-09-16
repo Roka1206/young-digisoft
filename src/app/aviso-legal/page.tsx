@@ -5,6 +5,11 @@ import { avisoLegalSections } from "@/content/legal";
 
 export const metadata: Metadata = {
   title: "Aviso legal",
+  description:
+    "Aviso legal de Young Digisoft: datos identificativos, condiciones de uso y propiedad intelectual del sitio web.",
+  alternates: {
+    canonical: "/aviso-legal",
+  },
 };
 
 export default function AvisoLegalPage() {
