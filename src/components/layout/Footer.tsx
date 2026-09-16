@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { contact, navLinks, site } from "@/content/site";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 
@@ -9,7 +10,13 @@ export function Footer() {
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[2fr_1fr_1fr] lg:px-8">
         <div className="flex flex-col gap-4">
-          <Image src="/logo.png" alt={site.name} width={135} height={42} className="h-9 w-auto" />
+          <Image
+            src="/logo.png"
+            alt={site.name}
+            width={135}
+            height={42}
+            className="h-9 w-auto self-start"
+          />
           <p className="max-w-sm text-sm text-muted">{site.tagline}</p>
           <SocialLinks />
         </div>
@@ -49,12 +56,15 @@ export function Footer() {
             © {year} {site.name}. Todos los derechos reservados.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="transition-colors hover:text-brand">
+            <Link href="/aviso-legal" className="transition-colors hover:text-brand">
               Aviso legal
-            </a>
-            <a href="#" className="transition-colors hover:text-brand">
+            </Link>
+            <Link href="/privacidad" className="transition-colors hover:text-brand">
               Privacidad
-            </a>
+            </Link>
+            <Link href="/cookies" className="transition-colors hover:text-brand">
+              Cookies
+            </Link>
           </div>
         </div>
       </div>

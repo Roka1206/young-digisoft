@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     template: `%s — ${site.name}`,
   },
   description: site.description,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
@@ -34,6 +37,14 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "es_ES",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
+  },
+  verification: {
+    google: "U7n98bB_imQkDR-LW5hXE5MAn9HjJGSebxGptgJrRpk",
   },
 };
 
