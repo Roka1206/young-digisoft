@@ -43,6 +43,9 @@ export const metadata: Metadata = {
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
   },
+  verification: {
+    google: "U7n98bB_imQkDR-LW5hXE5MAn9HjJGSebxGptgJrRpk",
+  },
 };
 
 const localBusinessJsonLd = {
