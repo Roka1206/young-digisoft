@@ -28,6 +28,7 @@ test("mobile navigation opens and closes", async ({ page, isMobile }) => {
 
 test("back to top button appears after scrolling and returns to the top", async ({ page }) => {
   await page.goto("/");
+  await page.getByRole("button", { name: "Rechazar" }).click();
   const backToTop = page.getByRole("button", { name: /volver arriba/i });
   await expect(backToTop).toBeHidden();
 

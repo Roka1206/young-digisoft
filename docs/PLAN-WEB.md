@@ -67,7 +67,7 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 2. **Problemas que resolvemos** (3 tarjetas): «No me encuentran en Google», «Pierdo tiempo con tareas repetitivas», «No sé qué herramientas necesito».
 3. **Nuestras 4 ofertas** con precio «desde», qué incluye y plazo.
 4. **Cómo trabajamos** (4 pasos): hablamos → propuesta con precio cerrado → lo construimos y lo revisas → lo publicamos y te damos soporte.
-5. **Por qué Young Digisoft:** ingeniería de software real (código propio, no plantillas pesadas), precio cerrado, trato directo, presencial en A Coruña.
+5. **Por qué Young Digisoft:** ingeniería de software real (código propio, no plantillas pesadas), precio cerrado, trato directo, toda España con sede en A Coruña.
 6. **Portfolio** (condicional): se muestra solo si `portfolio.ts` tiene casos con permiso de publicación.
 7. **Preguntas frecuentes:** ¿cuánto tarda?, ¿qué incluye el precio?, ¿el dominio y el hosting son míos?, ¿qué pasa después de publicar?, ¿trabajáis fuera de A Coruña?
 8. **Cierre con llamada a la acción** y botón de WhatsApp.
@@ -88,18 +88,18 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 - [x] Envío por una ruta de servidor a un servicio de email transaccional (propuesta: Resend, nivel gratuito). Variables de entorno: `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`. **Nunca subir claves al repositorio.** Las tres son obligatorias: el código no tiene direcciones por defecto.
 - [x] Estados claros: enviando, enviado con éxito (sin plazo concreto, por decisión del propietario), error con alternativa por WhatsApp.
 - [x] **Tests obligatorios** de la validación y de la ruta de envío: datos válidos, campos inválidos, consentimiento sin marcar, honeypot relleno, límite de envíos y fallo del servicio de email.
-- [ ] Botón de WhatsApp con mensaje prellenado según la página de origen.
-- [ ] Enlace «Reservar diagnóstico» que lleve al formulario o a WhatsApp con el servicio preseleccionado. `[PENDIENTE: valorar un sistema de citas gratuito como Cal.com más adelante]`.
+- [x] Botón de WhatsApp con mensaje prellenado según la página de origen (en las páginas de servicio nombra el servicio).
+- [x] Enlace «Reservar diagnóstico» que lleve al formulario o a WhatsApp con el servicio preseleccionado. `[PENDIENTE: valorar un sistema de citas gratuito como Cal.com más adelante]`.
 
 ## Fase 4: SEO local y técnico (día 5 a 7)
 
-- [ ] Metadatos únicos por página (`title`, `description`, canonical) y Open Graph con imagen de marca.
-- [ ] `sitemap.xml` y `robots.txt` generados desde Next.js.
+- [x] Metadatos únicos por página (`title`, `description`, canonical) y Open Graph con imagen de marca.
+- [x] `sitemap.xml` y `robots.txt` generados desde Next.js.
 - [ ] Datos estructurados JSON-LD: `ProfessionalService` con zona de servicio A Coruña y toda España, contacto y logotipo, más `FAQPage` en las páginas con preguntas frecuentes.
 - [ ] Página `/diseno-web-a-coruna` con contenido útil y no duplicado (a quién ayudamos, proceso, precios «desde», preguntas locales). Enlazarla desde la portada y el pie.
 - [ ] Enlazado interno entre servicios y contacto; texto alternativo en imágenes; una sola etiqueta `h1` por página.
 - [ ] Rendimiento: `next/image`, fuentes optimizadas, sin JavaScript innecesario en cliente.
-- [ ] Analítica sin cookies (Vercel Web Analytics o Plausible) para no necesitar banner; si se usa otra herramienta, añadir consentimiento previo.
+- [x] Analítica: Vercel Web Analytics (sin cookies) y Google Analytics 4 solo tras aceptar el banner de cookies, con «Configurar cookies» en el pie. `[PENDIENTE: plazo de conservación de datos configurado en GA4, para /privacidad]`
 
 ## Fase 5: Páginas legales (día 6 a 7)
 

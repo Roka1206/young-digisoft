@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Contact } from "@/components/sections/Contact";
 import { PageHero } from "@/components/ui/PageHero";
 import { contactPage } from "@/content/contact";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: contactPage.metaTitle,
   description: contactPage.description,
-  alternates: { canonical: "/contacto" },
-};
+  path: "/contacto",
+});
 
 export default function ContactPage() {
   return (

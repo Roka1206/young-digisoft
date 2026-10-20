@@ -1,17 +1,15 @@
-import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
 import { privacidadSections } from "@/content/legal";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Política de privacidad",
   description:
     "Cómo trata Young Digisoft los datos personales recogidos en el formulario de contacto: finalidad, conservación y derechos del usuario.",
-  alternates: {
-    canonical: "/privacidad",
-  },
-};
+  path: "/privacidad",
+});
 
 export default function PrivacidadPage() {
   return (

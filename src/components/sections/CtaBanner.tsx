@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 
-export function CtaBanner() {
+export function CtaBanner({ whatsappHref = contact.whatsappHref }: { whatsappHref?: string }) {
   return (
     <section className="py-20">
       <Container>
@@ -16,7 +16,7 @@ export function CtaBanner() {
               {hero.primaryCta}
             </Button>
             <Button
-              href={contact.whatsappHref}
+              href={whatsappHref}
               variant="secondary"
               size="lg"
               className="border-ink text-ink hover:bg-ink/10"

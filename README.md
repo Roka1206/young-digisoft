@@ -56,6 +56,7 @@ Copia estas variables en `.env.local` (desarrollo) y en Vercel → Project Setti
 | `RESEND_API_KEY` | API key de [Resend](https://resend.com) usada por `src/lib/email.ts` para enviar el email del formulario de contacto. Obligatoria. |
 | `CONTACT_TO_EMAIL` | Email que recibe los mensajes del formulario, por ejemplo `info@youngdigisoft.es`. Obligatoria. |
 | `CONTACT_FROM_EMAIL` | Remitente del email, por ejemplo `Young Digisoft <info@youngdigisoft.es>`. Debe ser de un dominio verificado en Resend (`youngdigisoft.es` ya lo está). Obligatoria. |
+| `NEXT_PUBLIC_GA_ID` | ID de medición de Google Analytics 4 (`G-…`). GA4 solo se carga si existe y el visitante acepta las cookies. Opcional: sin ella no se carga GA4. |
 
 El código no tiene direcciones de email por defecto: si falta alguna de las tres variables de email, el formulario muestra el error con la alternativa de WhatsApp y el servidor registra qué variable falta.
 

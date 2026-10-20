@@ -8,7 +8,9 @@ import { PageHero } from "@/components/ui/PageHero";
 import { PriceCard } from "@/components/ui/PriceCard";
 import { Section } from "@/components/ui/Section";
 import { servicePageText, services } from "@/content/services";
+import { pageMetadata } from "@/lib/metadata";
 import { findService } from "@/lib/services";
+import { serviceWhatsappHref } from "@/lib/whatsapp-links";
 
 export const dynamicParams = false;
 
@@ -19,11 +21,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/servicios/[slug]">): Promise<Metadata> {
   const service = findService(services, (await params).slug);
   if (!service) return {};
-  return {
-    title: service.name,
-    description: service.summary,
-    alternates: { canonical: `/servicios/${service.slug}` },
-  };
+  return pageMetadata({ title: service.name, description: service.summary, path: `/servicios/${service.slug}` });
 }
 
 export default async function ServicePage({ params }: PageProps<"/servicios/[slug]">) {
@@ -66,7 +64,7 @@ export default async function ServicePage({ params }: PageProps<"/servicios/[slu
           </div>
         </Section>
 
-        <CtaBanner />
+        <CtaBanner whatsappHref={serviceWhatsappHref(service.name)} />
       </main>
       <Footer />
     </>

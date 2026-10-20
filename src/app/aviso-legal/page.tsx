@@ -1,17 +1,15 @@
-import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
 import { avisoLegalSections } from "@/content/legal";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Aviso legal",
   description:
     "Aviso legal de Young Digisoft: datos identificativos, condiciones de uso y propiedad intelectual del sitio web.",
-  alternates: {
-    canonical: "/aviso-legal",
-  },
-};
+  path: "/aviso-legal",
+});
 
 export default function AvisoLegalPage() {
   return (

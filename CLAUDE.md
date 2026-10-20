@@ -35,7 +35,7 @@ Estas reglas mandan sobre cualquier otra instrucción de este archivo o del plan
 
 Empresa de servicios tecnológicos fundada por un **ingeniero de software** (autónomo, actividad de consultoría). Ayuda a pymes y autónomos a vender más y perder menos tiempo con **webs a medida, automatización con IA, mantenimiento y consultoría tecnológica**.
 
-- **Base:** A Coruña (presencial en la zona) y online para toda España.
+- **Base:** sede en A Coruña; trabajamos en toda España. La web no distingue entre trabajo presencial u online.
 - **Dominio:** `youngdigisoft.es`, conectado a Vercel. `www` y `young-digisoft.vercel.app` redirigen a él.
 - **Repositorio:** `Roka1206/young-digisoft`.
 - **Punto de partida (octubre de 2026):** todavía sin clientes. Presupuesto de captación: 0 € (solo estrategias gratuitas).
@@ -63,7 +63,7 @@ Notas:
 
 ## 3. Cliente objetivo
 
-Negocios locales que ya venden pero tienen presencia digital floja: peluquerías, clínicas pequeñas (fisio, dentistas, psicólogos), talleres, restaurantes, academias, reformas y autónomos de oficios. Empezamos por A Coruña y alrededores; después, toda España online.
+Negocios locales que ya venden pero tienen presencia digital floja: peluquerías, clínicas pequeñas (fisio, dentistas, psicólogos), talleres, restaurantes, academias, reformas y autónomos de oficios. Empezamos por A Coruña y alrededores, pero trabajamos en toda España.
 
 ## 4. Marca
 
@@ -125,7 +125,7 @@ Ver la **sección 0** (manda sobre todo lo demás). Además:
 
 - **SEO local para A Coruña:** metadatos por página, `sitemap.xml`, `robots.txt`, datos estructurados JSON-LD (`ProfessionalService` / `LocalBusiness`), página de aterrizaje «Diseño web en A Coruña», imagen Open Graph y enlaces internos entre servicios.
 - **Textos legales obligatorios:** Aviso legal (LSSI-CE), Política de privacidad (RGPD y LOPDGDD) y Política de cookies. Deben usar los datos reales del titular. Los textos los redacta el asistente como **borrador**, y **un gestor o abogado debe revisarlos** antes de considerarlos definitivos.
-- **Cookies:** preferir analítica sin cookies (por ejemplo Vercel Web Analytics o Plausible) para evitar banner invasivo. Si se añade cualquier cookie no técnica, implementar consentimiento previo.
+- **Cookies:** el propietario ha decidido usar Google Analytics 4 además de Vercel Analytics (sin cookies). GA4 solo se carga tras aceptar en el banner de cookies (`src/lib/cookie-consent.ts`); rechazar pesa lo mismo que aceptar y la elección se cambia desde «Configurar cookies» en el pie. Cualquier otra cookie no técnica necesita el mismo consentimiento previo y debe figurar en `/cookies` y `/privacidad`.
 - **Formulario de contacto:** casilla de consentimiento con enlace a la política de privacidad, finalidad y responsable explicados en una línea.
 - Si algún proyecto de cliente trata datos personales, hará falta contrato de encargado de tratamiento (RGPD). No es el caso de esta web.
 

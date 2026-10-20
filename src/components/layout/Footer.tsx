@@ -3,6 +3,7 @@ import { contact, navLinks, site } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
 import { SocialLinks } from "@/components/ui/SocialLinks";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -50,7 +51,7 @@ export function Footer() {
           <p>
             © {year} {site.name}. Todos los derechos reservados.
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
             <Link href="/aviso-legal" className="transition-colors hover:text-action">
               Aviso legal
             </Link>
@@ -60,6 +61,7 @@ export function Footer() {
             <Link href="/cookies" className="transition-colors hover:text-action">
               Cookies
             </Link>
+            <CookieSettingsButton />
           </div>
         </Container>
       </div>
