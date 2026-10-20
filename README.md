@@ -11,14 +11,14 @@ Landing page de Young Digisoft, construida con [Next.js](https://nextjs.org) (Ap
 - **Colores de marca:** `--color-brand` (`#0197af`) y `--color-brand-light` / `--color-background` (`#f0f0f0`), definidos en `src/app/globals.css`
 - **Tests unitarios:** Vitest + Testing Library
 - **Tests e2e:** Playwright
-- **Gestor de paquetes:** pnpm
+- **Gestor de paquetes:** npm
 - **Deploy:** Vercel
 
 ## Empezar
 
 ```bash
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
 Abre [http://localhost:3000](http://localhost:3000).
@@ -27,15 +27,15 @@ Abre [http://localhost:3000](http://localhost:3000).
 
 | Script | Descripción |
 | --- | --- |
-| `pnpm dev` | Servidor de desarrollo |
-| `pnpm build` | Build de producción |
-| `pnpm start` | Sirve el build de producción |
-| `pnpm lint` | ESLint |
-| `pnpm typecheck` | Chequeo de tipos con `tsc` |
-| `pnpm test` | Tests unitarios (Vitest) |
-| `pnpm test:watch` | Tests unitarios en modo watch |
-| `pnpm test:e2e` | Tests end-to-end (Playwright). Requiere `pnpm exec playwright install` la primera vez |
-| `pnpm generate:brand-assets` | Regenera `public/logo.png`, `src/app/icon.png`, `src/app/apple-icon.png` y `src/app/favicon.ico` a partir de `assets/brand/young-digisoft-logo-source.png` |
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Build de producción |
+| `npm start` | Sirve el build de producción |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | Chequeo de tipos con `tsc` |
+| `npm test` | Tests unitarios (Vitest) |
+| `npm run test:watch` | Tests unitarios en modo watch |
+| `npm run test:e2e` | Tests end-to-end (Playwright). Requiere `npx playwright install` la primera vez |
+| `npm run generate:brand-assets` | Regenera `src/app/icon.png`, `src/app/apple-icon.png` y `src/app/favicon.ico` a partir de `public/brand/logo-mark.svg` |
 
 ## Ramas
 
@@ -54,14 +54,14 @@ Copia estas variables en `.env.local` (desarrollo) y en Vercel → Project Setti
 | Variable | Descripción |
 | --- | --- |
 | `RESEND_API_KEY` | API key de [Resend](https://resend.com) usada por `src/app/api/contact/route.ts` para enviar el email del formulario de contacto. Sin ella, el formulario muestra el estado de error. |
-| `CONTACT_TO_EMAIL` | Email que recibe los mensajes del formulario. Por defecto `1206roka@gmail.com` si no se define. |
+| `CONTACT_TO_EMAIL` | Email que recibe los mensajes del formulario. Por defecto, el email público de `src/content/site.ts` (`info@youngdigisoft.es`). |
 | `NEXT_PUBLIC_SITE_URL` | URL pública del sitio, usada en metadata (OpenGraph), `robots.txt` y `sitemap.xml`. Actualizar cuando se tenga el dominio definitivo. |
 
-El remitente del email (`from`) usa el dominio de pruebas `onboarding@resend.dev` de Resend; para enviar desde un dominio propio (ej. `contacto@youngdigisoft.com`) hay que verificarlo en el panel de Resend y actualizar `src/app/api/contact/route.ts`.
+El remitente del email (`from`) usa el dominio de pruebas `onboarding@resend.dev` de Resend; para enviar desde un dominio propio (ej. `info@youngdigisoft.es`) hay que verificarlo en el panel de Resend y actualizar `src/app/api/contact/route.ts`.
 
 ## Marca
 
-El logo fuente vive en `assets/brand/young-digisoft-logo-source.png`. Al ser un PNG de baja resolución (368x239px), los íconos generados a tamaños grandes (icon.png, apple-icon.png) pueden verse algo suaves. Si se consigue una versión vectorial (SVG/AI) del logo, reemplazar el source y volver a ejecutar `pnpm generate:brand-assets` para mejor nitidez.
+El símbolo `>_` vive en `public/brand/logo-mark.svg` (vectorial, fuente única). El original en PNG es `public/brand/logo_digisoft.png`. Colores, tipografía y uso del logo: `docs/BRAND.md`. Tras cambiar el SVG, ejecuta `npm run generate:brand-assets`.
 
 ## Pendientes de contenido
 

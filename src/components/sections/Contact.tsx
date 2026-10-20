@@ -1,40 +1,34 @@
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { contactPage } from "@/content/contact";
 import { contact } from "@/content/site";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { Card } from "@/components/ui/Card";
+import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 
 const infoItems = [
-  { icon: MessageCircle, label: "WhatsApp", value: contact.phone, href: contact.whatsappHref },
-  { icon: Phone, label: "Teléfono", value: contact.phone, href: contact.phoneHref },
-  { icon: Mail, label: "Email", value: contact.email, href: contact.emailHref },
-  { icon: MapPin, label: "Zona", value: contact.zone, href: undefined },
+  { icon: MessageCircle, label: contactPage.labels.whatsapp, value: contact.phone, href: contact.whatsappHref },
+  { icon: Phone, label: contactPage.labels.phone, value: contact.phone, href: contact.phoneHref },
+  { icon: Mail, label: contactPage.labels.email, value: contact.email, href: contact.emailHref },
+  { icon: MapPin, label: contactPage.labels.zone, value: contact.zone, href: undefined },
 ];
 
 export function Contact() {
   return (
-    <section id="contacto" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
-      <Reveal className="mx-auto max-w-2xl text-center">
-        <h2 className="font-heading text-3xl text-foreground sm:text-4xl">
-          ¿Hablamos de tu negocio?
-        </h2>
-        <p className="mt-4 text-muted">
-          Cuéntanos qué necesitas y te respondemos con una propuesta adaptada a tu presupuesto.
-        </p>
-      </Reveal>
-
-      <div className="mt-12 grid gap-10 lg:grid-cols-2">
+    <section id="contacto">
+      <Container className="grid gap-10 py-20 lg:grid-cols-2">
         <Reveal className="flex flex-col gap-6">
           {infoItems.map(({ icon: Icon, label, value, href }) => {
             const content = (
-              <div className="flex items-center gap-4 rounded-2xl border border-border bg-surface p-4">
-                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+              <Card className="flex items-center gap-4 p-4">
+                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-action/10 text-action">
                   <Icon size={20} />
                 </span>
                 <div>
                   <p className="text-xs uppercase tracking-wide text-muted">{label}</p>
                   <p className="text-sm font-medium text-foreground">{value}</p>
                 </div>
-              </div>
+              </Card>
             );
             return href ? (
               <a
@@ -55,7 +49,7 @@ export function Contact() {
         <Reveal delay={0.1}>
           <ContactForm />
         </Reveal>
-      </div>
+      </Container>
     </section>
   );
 }

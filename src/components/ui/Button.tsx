@@ -3,20 +3,20 @@ import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 active:scale-95";
+  "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-action focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 active:scale-95";
 
 const variants = {
   primary:
-    "bg-brand text-brand-foreground shadow-sm hover:shadow-md hover:brightness-110",
+    "bg-action text-action-fg shadow-sm hover:bg-action-hover",
   secondary:
-    "bg-surface text-foreground border border-border hover:border-brand hover:text-brand",
-  ghost: "bg-transparent text-foreground hover:bg-brand/10 hover:text-brand",
+    "border-2 border-action text-action hover:bg-action/10",
+  ghost: "bg-transparent text-foreground hover:bg-action/10 hover:text-action",
 } satisfies Record<string, string>;
 
 const sizes = {
   sm: "h-9 px-4 text-sm",
   md: "h-11 px-6 text-base",
-  lg: "h-13 px-8 text-lg",
+  lg: "h-13 px-8 text-base",
 } satisfies Record<string, string>;
 
 type Variant = keyof typeof variants;

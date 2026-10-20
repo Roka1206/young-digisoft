@@ -2,26 +2,35 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --color-brand: #00adb5;
+  --color-brand-fg: #f1f1f1;
+  --color-ink: #08262b;
+  --color-mist: #e6f6f7;
+  --color-error: #b91c1c;
+  --color-success: #15803d;
+}
+
 :root {
-  --background: #f0f0f0;
-  --foreground: #14181a;
-  --surface: #ffffff;
-  --border: #dcdcdc;
-  --brand: #0197af;
-  --brand-foreground: #ffffff;
-  --brand-light: #f0f0f0;
-  --muted: #5a6367;
+  --background: #ffffff;
+  --foreground: var(--color-ink);
+  --surface: var(--color-mist);
+  --border: color-mix(in srgb, var(--color-ink) 10%, transparent);
+  --muted: #4a5b5e;
+  --action: #00757b;
+  --action-hover: #005a60;
+  --action-fg: #ffffff;
 }
 
 .dark {
-  --background: #0d1417;
-  --foreground: #eef2f3;
-  --surface: #141d21;
-  --border: #253034;
-  --brand: #22b8d1;
-  --brand-foreground: #06171a;
-  --brand-light: #0d1417;
-  --muted: #93a0a4;
+  --background: var(--color-ink);
+  --foreground: var(--color-brand-fg);
+  --surface: var(--color-ink);
+  --border: color-mix(in srgb, var(--color-brand-fg) 10%, transparent);
+  --muted: color-mix(in srgb, var(--color-brand-fg) 75%, var(--color-ink));
+  --action: var(--color-brand);
+  --action-hover: color-mix(in srgb, var(--color-brand) 85%, var(--color-brand-fg));
+  --action-fg: var(--color-ink);
 }
 
 @theme inline {
@@ -29,12 +38,12 @@
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
   --color-border: var(--border);
-  --color-brand: var(--brand);
-  --color-brand-foreground: var(--brand-foreground);
-  --color-brand-light: var(--brand-light);
   --color-muted: var(--muted);
-  --font-sans: var(--font-roboto-slab);
-  --font-heading: var(--font-alata);
+  --color-action: var(--action);
+  --color-action-hover: var(--action-hover);
+  --color-action-fg: var(--action-fg);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 body {

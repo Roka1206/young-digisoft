@@ -58,17 +58,17 @@ export function ExitIntentModal() {
             aria-modal="true"
             aria-labelledby="exit-intent-title"
             onClick={(event) => event.stopPropagation()}
-            className="relative w-full max-w-sm rounded-2xl border border-border bg-surface p-6 text-center shadow-xl"
+            className="relative w-full max-w-sm rounded-xl border border-border bg-surface p-6 text-center shadow-xl"
           >
             <button
               type="button"
               onClick={close}
               aria-label="Cerrar"
-              className="absolute right-3 top-3 inline-flex size-8 items-center justify-center rounded-full text-muted transition-colors hover:bg-brand/10 hover:text-brand"
+              className="absolute right-3 top-3 inline-flex size-8 items-center justify-center rounded-full text-muted transition-colors hover:bg-action/10 hover:text-action"
             >
               <X size={16} />
             </button>
-            <h3 id="exit-intent-title" className="font-heading text-xl text-foreground">
+            <h3 id="exit-intent-title" className="font-medium text-xl text-foreground">
               ¿Ya te vas?
             </h3>
             <p className="mt-2 text-sm text-muted">

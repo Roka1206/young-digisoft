@@ -12,7 +12,7 @@ for (const { path, heading, titleFragment } of legalPages) {
 
     await expect(page).toHaveTitle(new RegExp(titleFragment));
     await expect(page.getByRole("heading", { level: 1, name: heading })).toBeVisible();
-    await expect(page.getByRole("banner").getByAltText("Young Digisoft")).toBeVisible();
+    await expect(page.getByRole("banner").getByRole("link", { name: "Young Digisoft" })).toBeVisible();
     await expect(page.getByRole("contentinfo")).toBeVisible();
   });
 }

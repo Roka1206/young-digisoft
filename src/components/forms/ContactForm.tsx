@@ -5,12 +5,13 @@ import { AlertCircle, CheckCircle2, Loader2, Send } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 import { contactSchema, serviceOptions, type ContactFormValues } from "@/lib/contact-schema";
 
 type Status = "idle" | "success" | "error";
 
 const inputClasses =
-  "w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted transition-colors focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30";
+  "w-full rounded-xl border border-muted bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted transition-colors focus:border-action focus:outline-none focus:ring-2 focus:ring-action/30";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -39,14 +40,14 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-surface p-8 text-center">
-        <CheckCircle2 className="text-brand" size={32} />
-        <p className="font-heading text-lg text-foreground">¡Mensaje enviado!</p>
+      <Card className="flex flex-col items-center gap-3 p-8 text-center">
+        <CheckCircle2 className="text-success" size={32} />
+        <p className="font-medium text-lg text-foreground">¡Mensaje enviado!</p>
         <p className="text-sm text-muted">Te responderemos lo antes posible.</p>
         <Button variant="secondary" onClick={() => setStatus("idle")}>
           Enviar otro mensaje
         </Button>
-      </div>
+      </Card>
     );
   }
 
@@ -57,7 +58,7 @@ export function ContactForm() {
           Nombre
         </label>
         <input id="name" className={inputClasses} {...register("name")} />
-        {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>}
+        {errors.name && <p className="mt-1.5 inline-flex rounded-md bg-error px-2 py-0.5 text-sm text-white">{errors.name.message}</p>}
       </div>
 
       <div>
@@ -65,7 +66,7 @@ export function ContactForm() {
           Email
         </label>
         <input id="email" type="email" className={inputClasses} {...register("email")} />
-        {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>}
+        {errors.email && <p className="mt-1.5 inline-flex rounded-md bg-error px-2 py-0.5 text-sm text-white">{errors.email.message}</p>}
       </div>
 
       <div>
@@ -73,7 +74,7 @@ export function ContactForm() {
           Teléfono (opcional)
         </label>
         <input id="phone" className={inputClasses} {...register("phone")} />
-        {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone.message}</p>}
+        {errors.phone && <p className="mt-1.5 inline-flex rounded-md bg-error px-2 py-0.5 text-sm text-white">{errors.phone.message}</p>}
       </div>
 
       <div>
@@ -95,11 +96,11 @@ export function ContactForm() {
           Mensaje
         </label>
         <textarea id="message" rows={4} className={inputClasses} {...register("message")} />
-        {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message.message}</p>}
+        {errors.message && <p className="mt-1.5 inline-flex rounded-md bg-error px-2 py-0.5 text-sm text-white">{errors.message.message}</p>}
       </div>
 
       {status === "error" && (
-        <div className="flex items-center gap-2 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-500">
+        <div className="flex items-center gap-2 rounded-xl bg-error px-4 py-3 text-sm text-white">
           <AlertCircle size={18} />
           No se pudo enviar el mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.
         </div>

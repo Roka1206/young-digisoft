@@ -1,3 +1,5 @@
+import { contact } from "./site";
+
 export const legalEntity = {
   legalName: "Young Digisoft",
   taxId: "32946796D",
@@ -14,7 +16,7 @@ export const avisoLegalSections: LegalSection[] = [
     title: "1. Datos identificativos",
     paragraphs: [
       `En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de que este sitio web es titularidad de ${legalEntity.legalName}, con NIF/CIF ${legalEntity.taxId} y domicilio en ${legalEntity.address}.`,
-      "Contacto: 655 08 73 21 · 1206roka@gmail.com.",
+      `Contacto: ${contact.phone} · ${contact.email}.`,
     ],
   },
   {
@@ -54,7 +56,7 @@ export const privacidadSections: LegalSection[] = [
     title: "1. Responsable del tratamiento",
     paragraphs: [
       `${legalEntity.legalName}, con NIF/CIF ${legalEntity.taxId} y domicilio en ${legalEntity.address}, es el responsable del tratamiento de los datos personales recogidos a través de este sitio web.`,
-      "Contacto para cuestiones de privacidad: 1206roka@gmail.com.",
+      `Contacto para cuestiones de privacidad: ${contact.email}.`,
     ],
   },
   {
@@ -85,7 +87,7 @@ export const privacidadSections: LegalSection[] = [
   {
     title: "6. Derechos del usuario",
     paragraphs: [
-      "El usuario puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad enviando un correo a 1206roka@gmail.com, indicando el derecho que desea ejercer.",
+      `El usuario puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad enviando un correo a ${contact.email}, indicando el derecho que desea ejercer.`,
       "Asimismo, tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es) si considera que el tratamiento no se ajusta a la normativa vigente.",
     ],
   },

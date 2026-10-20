@@ -7,8 +7,8 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
-  const iconBuffer = await readFile(path.join(process.cwd(), "src/app/icon.png"));
-  const iconSrc = `data:image/png;base64,${iconBuffer.toString("base64")}`;
+  const mark = await readFile(path.join(process.cwd(), "public/brand/logo-mark.svg"), "utf8");
+  const markSrc = `data:image/svg+xml;base64,${Buffer.from(mark.replace("#F1F1F1", "#00adb5")).toString("base64")}`;
 
   return new ImageResponse(
     (
@@ -20,19 +20,19 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#0197af",
+          backgroundColor: "#08262b",
           padding: "80px",
           textAlign: "center",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={iconSrc} width={140} height={140} style={{ borderRadius: 28 }} alt="" />
+        <img src={markSrc} width={168} height={144} alt="" />
         <div
           style={{
             marginTop: 40,
             fontSize: 72,
             fontWeight: 700,
-            color: "#ffffff",
+            color: "#f1f1f1",
             letterSpacing: -1,
           }}
         >
@@ -42,12 +42,12 @@ export default async function Image() {
           style={{
             marginTop: 24,
             fontSize: 32,
-            color: "#eafbff",
+            color: "#00adb5",
             maxWidth: 900,
             lineHeight: 1.4,
           }}
         >
-          {site.tagline}
+          {site.slogan}
         </div>
       </div>
     ),

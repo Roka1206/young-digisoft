@@ -28,7 +28,7 @@ export function MobileNav({
                 key={link.href}
                 href={link.href}
                 onClick={onClose}
-                className="rounded-lg px-3 py-3 text-base font-medium text-foreground/90 transition-colors hover:bg-brand/10 hover:text-brand"
+                className="rounded-lg px-3 py-3 text-base font-medium text-foreground/90 transition-colors hover:bg-action/10 hover:text-action"
               >
                 {link.label}
               </a>

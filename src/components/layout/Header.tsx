@@ -1,11 +1,13 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { contact, navLinks } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container";
+import { Logo } from "@/components/ui/Logo";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { MobileNav } from "./MobileNav";
 
@@ -33,35 +35,20 @@ export function Header() {
         "sticky top-0 z-50 border-b transition-colors duration-300",
         scrolled
           ? "border-border bg-background/85 backdrop-blur-md"
-          : "border-transparent bg-transparent"
+          : "border-transparent bg-background"
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            setOpen(false);
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          className="flex items-center gap-2"
-        >
-          <Image
-            src="/logo.png"
-            alt="Young Digisoft"
-            width={135}
-            height={42}
-            priority
-            className="h-9 w-auto"
-          />
-        </a>
+      <Container className="flex h-16 items-center justify-between">
+        <Link href="/" onClick={() => setOpen(false)}>
+          <Logo />
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-brand"
+              className="text-sm font-medium text-foreground/80 transition-colors hover:text-action"
             >
               {link.label}
             </a>
@@ -87,7 +74,7 @@ export function Header() {
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
-      </div>
+      </Container>
 
       <MobileNav open={open} onClose={() => setOpen(false)} />
     </header>

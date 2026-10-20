@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { services } from "@/content/site";
+import { services } from "@/content/services";
 
 export const contactSchema = z.object({
   name: z.string().min(2, "Introduce tu nombre"),
@@ -16,4 +16,4 @@ export const contactSchema = z.object({
 
 export type ContactFormValues = z.infer<typeof contactSchema>;
 
-export const serviceOptions = services.map((service) => service.title);
+export const serviceOptions = services.map((service) => service.name);
