@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test("homepage shows the hero and header logo", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  await expect(page.getByRole("banner").getByAltText("Young Digisoft")).toBeVisible();
+  await expect(page.getByRole("banner").getByRole("link", { name: "Young Digisoft" })).toBeVisible();
 });
 
 test("mobile navigation opens and closes", async ({ page, isMobile }) => {

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { contact, navLinks } from "@/content/site";
@@ -37,16 +38,9 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            setOpen(false);
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-        >
+        <Link href="/" onClick={() => setOpen(false)}>
           <Logo />
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (

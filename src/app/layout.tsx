@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { contact, site } from "@/content/site";
 import { siteUrl } from "@/lib/site-url";
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import "./globals.css";
 
 const inter = Inter({
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <MotionConfig reducedMotion="user">{children}</MotionConfig>
+          <WhatsAppButton />
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
