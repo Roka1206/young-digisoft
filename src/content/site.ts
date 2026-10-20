@@ -12,7 +12,7 @@ export const navLinks = [
   { label: "Servicios", href: "/#servicios" },
   { label: "Cómo trabajamos", href: "/#como-trabajamos" },
   { label: "Preguntas", href: "/#preguntas" },
-  { label: "Contacto", href: "/#contacto" },
+  { label: "Contacto", href: "/contacto" },
 ] as const;
 
 const whatsappNumber = "34655087321";

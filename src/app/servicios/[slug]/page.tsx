@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { Card } from "@/components/ui/Card";
-import { Container } from "@/components/ui/Container";
+import { PageHero } from "@/components/ui/PageHero";
 import { PriceCard } from "@/components/ui/PriceCard";
 import { Section } from "@/components/ui/Section";
 import { servicePageText, services } from "@/content/services";
@@ -34,15 +34,11 @@ export default async function ServicePage({ params }: PageProps<"/servicios/[slu
     <>
       <Header />
       <main className="flex-1">
-        <section className="dark bg-background text-foreground">
-          <Container className="flex max-w-3xl flex-col gap-6 py-20">
-            <h1 className="text-[2rem]/10 font-bold sm:text-[2.5rem]/12">{service.name}</h1>
-            <p className="text-lg leading-relaxed text-muted">{service.summary}</p>
-            <p className="leading-relaxed">
-              <strong className="font-medium text-action">{servicePageText.audience}:</strong> {service.audience}
-            </p>
-          </Container>
-        </section>
+        <PageHero title={service.name} description={service.summary}>
+          <p className="leading-relaxed">
+            <strong className="font-medium text-action">{servicePageText.audience}:</strong> {service.audience}
+          </p>
+        </PageHero>
 
         <Section title={servicePageText.plans}>
           <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">

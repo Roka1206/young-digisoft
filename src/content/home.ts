@@ -103,8 +103,3 @@ export const closing = {
   description: "Cuéntanos tu idea y te preparamos una propuesta con precio cerrado, sin compromiso.",
   whatsappCta: "Escríbenos por WhatsApp",
 };
-
-export const contactSection = {
-  title: "¿Hablamos de tu negocio?",
-  description: "Cuéntanos qué necesitas y te respondemos con una propuesta clara.",
-};

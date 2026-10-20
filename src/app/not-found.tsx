@@ -25,7 +25,7 @@ export default function NotFound() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Button href="/">Volver al inicio</Button>
-            <Button href="/#contacto" variant="secondary">
+            <Button href="/contacto" variant="secondary">
               Contactar
             </Button>
           </div>

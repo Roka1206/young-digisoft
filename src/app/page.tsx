@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Contact } from "@/components/sections/Contact";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { Faq } from "@/components/sections/Faq";
 import { Hero } from "@/components/sections/Hero";
@@ -29,7 +28,6 @@ export default function Home() {
         <Portfolio />
         <Faq />
         <CtaBanner />
-        <Contact />
       </main>
       <Footer />
       <BackToTop />

@@ -1,26 +1,22 @@
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
-import { contactSection } from "@/content/home";
+import { contactPage } from "@/content/contact";
 import { contact } from "@/content/site";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Card } from "@/components/ui/Card";
+import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { Section } from "@/components/ui/Section";
 
 const infoItems = [
-  { icon: MessageCircle, label: "WhatsApp", value: contact.phone, href: contact.whatsappHref },
-  { icon: Phone, label: "Teléfono", value: contact.phone, href: contact.phoneHref },
-  { icon: Mail, label: "Email", value: contact.email, href: contact.emailHref },
-  { icon: MapPin, label: "Zona", value: contact.zone, href: undefined },
+  { icon: MessageCircle, label: contactPage.labels.whatsapp, value: contact.phone, href: contact.whatsappHref },
+  { icon: Phone, label: contactPage.labels.phone, value: contact.phone, href: contact.phoneHref },
+  { icon: Mail, label: contactPage.labels.email, value: contact.email, href: contact.emailHref },
+  { icon: MapPin, label: contactPage.labels.zone, value: contact.zone, href: undefined },
 ];
 
 export function Contact() {
   return (
-    <Section
-      id="contacto"
-      title={contactSection.title}
-      description={contactSection.description}
-    >
-      <div className="grid gap-10 lg:grid-cols-2">
+    <section id="contacto">
+      <Container className="grid gap-10 py-20 lg:grid-cols-2">
         <Reveal className="flex flex-col gap-6">
           {infoItems.map(({ icon: Icon, label, value, href }) => {
             const content = (
@@ -53,7 +49,7 @@ export function Contact() {
         <Reveal delay={0.1}>
           <ContactForm />
         </Reveal>
-      </div>
-    </Section>
+      </Container>
+    </section>
   );
 }

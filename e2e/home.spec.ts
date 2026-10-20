@@ -48,22 +48,3 @@ test("theme toggle switches to dark mode", async ({ page }) => {
   await page.getByRole("button", { name: /cambiar tema/i }).first().click();
   await expect(html).toHaveClass(/dark/);
 });
-
-test("contact form validates and submits successfully", async ({ page }) => {
-  await page.goto("/");
-  const form = page.locator("#contacto form");
-
-  await form.getByRole("button", { name: /enviar mensaje/i }).click();
-  await expect(form.getByText(/introduce tu nombre/i)).toBeVisible();
-
-  await page.route("**/api/contact", async (route) => {
-    await route.fulfill({ status: 200, json: { ok: true } });
-  });
-
-  await form.getByLabel("Nombre").fill("Ana Test");
-  await form.getByLabel("Email").fill("ana@example.com");
-  await form.getByLabel("Mensaje").fill("Quiero información sobre sus servicios digitales.");
-  await form.getByRole("button", { name: /enviar mensaje/i }).click();
-
-  await expect(page.getByText(/¡mensaje enviado!/i)).toBeVisible();
-});

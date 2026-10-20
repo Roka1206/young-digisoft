@@ -12,7 +12,7 @@ export function CtaBanner() {
           <h2 className="text-2xl/8 font-bold sm:text-[1.75rem]/9">{closing.title}</h2>
           <p className="max-w-xl leading-relaxed">{closing.description}</p>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Button href="/#contacto" size="lg" className="bg-ink text-brand-fg hover:bg-ink/90">
+            <Button href="/contacto" size="lg" className="bg-ink text-brand-fg hover:bg-ink/90">
               {hero.primaryCta}
             </Button>
             <Button

@@ -38,7 +38,7 @@ export function Hero() {
             {site.description}
           </motion.p>
           <motion.div variants={item} className="mt-2 flex flex-col gap-4 sm:flex-row">
-            <Button href="/#contacto" size="lg">
+            <Button href="/contacto" size="lg">
               {hero.primaryCta}
             </Button>
             <Button href={contact.diagnosisHref} variant="secondary" size="lg">
