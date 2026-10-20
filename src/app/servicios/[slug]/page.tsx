@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CtaBanner } from "@/components/sections/CtaBanner";
+import { Faq } from "@/components/sections/Faq";
 import { Card } from "@/components/ui/Card";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { PageHero } from "@/components/ui/PageHero";
@@ -23,7 +24,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/servicios/[slug]">): Promise<Metadata> {
   const service = findService(services, (await params).slug);
   if (!service) return {};
-  return pageMetadata({ title: service.name, description: service.summary, path: `/servicios/${service.slug}` });
+  return pageMetadata({
+    title: service.headline ?? service.name,
+    description: service.summary,
+    path: `/servicios/${service.slug}`,
+  });
 }
 
 export default async function ServicePage({ params }: PageProps<"/servicios/[slug]">) {
@@ -35,11 +40,23 @@ export default async function ServicePage({ params }: PageProps<"/servicios/[slu
       <JsonLd data={serviceJsonLd(service)} />
       <Header />
       <main className="flex-1">
-        <PageHero title={service.name} description={service.summary}>
+        <PageHero title={service.headline ?? service.name} description={service.summary}>
           <p className="leading-relaxed">
             <strong className="font-medium text-action">{servicePageText.audience}:</strong> {service.audience}
           </p>
         </PageHero>
+
+        {service.sectors && (
+          <Section title={servicePageText.sectors} className="bg-surface">
+            <ul className="mx-auto grid max-w-4xl gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {service.sectors.map((sector) => (
+                <li key={sector}>
+                  <Card className="p-4 font-medium text-foreground">{sector}</Card>
+                </li>
+              ))}
+            </ul>
+          </Section>
+        )}
 
         <Section title={servicePageText.plans}>
           <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
@@ -66,6 +83,21 @@ export default async function ServicePage({ params }: PageProps<"/servicios/[slu
             )}
           </div>
         </Section>
+
+        {service.highlights && (
+          <Section title={service.highlights.title} className="bg-surface">
+            <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+              {service.highlights.items.map(({ title, description }) => (
+                <Card key={title} className="flex flex-col gap-3">
+                  <h3 className="text-lg font-medium text-foreground">{title}</h3>
+                  <p className="leading-relaxed text-muted">{description}</p>
+                </Card>
+              ))}
+            </div>
+          </Section>
+        )}
+
+        {service.faq && <Faq items={service.faq} title={servicePageText.faq} />}
 
         <CtaBanner whatsappHref={serviceWhatsappHref(service.name)} />
       </main>

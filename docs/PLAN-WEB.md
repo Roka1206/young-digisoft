@@ -12,7 +12,7 @@ Publicar en **`youngdigisoft.es`** una web profesional que transmita confianza y
 2. Presentar las 4 ofertas con precios «desde» y plazos claros.
 3. Generar confianza sin inventar nada (portfolio real, precio cerrado, soporte, proceso transparente).
 4. Facilitar el contacto en un clic (WhatsApp, formulario, reserva de diagnóstico).
-5. Posicionar en Google para búsquedas locales de A Coruña.
+5. Posicionar en Google para búsquedas de diseño web y servicios digitales para pymes en toda España.
 6. Cumplir la normativa española y europea (LSSI, RGPD, cookies).
 
 **Criterios de éxito (definición de terminado):**
@@ -56,7 +56,6 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 | `/servicios/automatizacion` | Automatización exprés con IA |
 | `/servicios/mantenimiento` | Mantenimiento mensual |
 | `/servicios/diagnostico-digital` | Consultoría: Diagnóstico digital (60 €/hora) |
-| `/diseno-web-a-coruna` | Página local de SEO para A Coruña |
 | `/portfolio` | Casos reales (solo si hay al menos 1 caso real) |
 | `/contacto` | Formulario, WhatsApp, teléfono y zona de servicio |
 | `/aviso-legal`, `/privacidad`, `/cookies` | Textos legales |
@@ -96,7 +95,7 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 - [x] Metadatos únicos por página (`title`, `description`, canonical) y Open Graph con imagen de marca.
 - [x] `sitemap.xml` y `robots.txt` generados desde Next.js.
 - [x] Datos estructurados JSON-LD: `ProfessionalService` (sede en la provincia de A Coruña, zona de servicio toda España, contacto, logotipo y redes), `Service` con precios «desde» en cada página de servicio y `FAQPage` donde aparecen las preguntas frecuentes.
-- [ ] Página `/diseno-web-a-coruna` con contenido útil y no duplicado (a quién ayudamos, proceso, precios «desde», preguntas locales). Enlazarla desde la portada y el pie.
+- [x] Página de «Diseño web» para toda España: en lugar de una página local de A Coruña, `/servicios/web` se titula «Diseño web para pymes y autónomos» y suma para qué negocios es, cómo te ayudamos a aparecer en Google y preguntas propias (con `FAQPage`).
 - [ ] Enlazado interno entre servicios y contacto; texto alternativo en imágenes; una sola etiqueta `h1` por página.
 - [ ] Rendimiento: `next/image`, fuentes optimizadas, sin JavaScript innecesario en cliente.
 - [x] Analítica: Vercel Web Analytics (sin cookies) y Google Analytics 4 solo tras aceptar el banner de cookies, con «Configurar cookies» en el pie. `[PENDIENTE: plazo de conservación de datos configurado en GA4, para /privacidad]`
