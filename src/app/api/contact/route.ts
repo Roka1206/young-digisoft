@@ -1,12 +1,17 @@
 import { NextResponse } from "next/server";
-import { contact } from "@/content/site";
 import { contactSchema } from "@/lib/contact-schema";
-import { getResendClient } from "@/lib/email";
+import { sendContactEmail } from "@/lib/email";
+import { createRateLimiter } from "@/lib/rate-limit";
+
+const isAllowed = createRateLimiter({ limit: 5, windowMs: 10 * 60 * 1000 });
 
 export async function POST(request: Request) {
-  const body = await request.json().catch(() => null);
-  const parsed = contactSchema.safeParse(body);
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim() || "unknown";
+  if (!isAllowed(ip)) {
+    return NextResponse.json({ error: "Demasiados envíos" }, { status: 429 });
+  }
 
+  const parsed = contactSchema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) {
     return NextResponse.json(
       { error: "Datos inválidos", issues: parsed.error.flatten().fieldErrors },
@@ -14,27 +19,11 @@ export async function POST(request: Request) {
     );
   }
 
-  const { name, email, phone, service, message } = parsed.data;
-  const to = process.env.CONTACT_TO_EMAIL ?? contact.email;
+  // Honeypot filled: answer as if it worked so bots get no signal.
+  if (parsed.data.website) return NextResponse.json({ ok: true });
 
   try {
-    const resend = getResendClient();
-    await resend.emails.send({
-      from: "Young Digisoft <onboarding@resend.dev>",
-      to,
-      replyTo: email,
-      subject: `Nuevo contacto de ${name}`,
-      text: [
-        `Nombre: ${name}`,
-        `Email: ${email}`,
-        phone ? `Teléfono: ${phone}` : null,
-        service ? `Servicio de interés: ${service}` : null,
-        "",
-        message,
-      ]
-        .filter(Boolean)
-        .join("\n"),
-    });
+    await sendContactEmail(parsed.data);
   } catch (error) {
     console.error("Error enviando email de contacto", error);
     return NextResponse.json({ error: "No se pudo enviar el mensaje" }, { status: 502 });

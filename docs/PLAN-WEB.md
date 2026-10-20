@@ -83,11 +83,11 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 
 ## Fase 3: Formulario de contacto y conversión (día 4 a 6)
 
-- [ ] Formulario con nombre, email, teléfono (opcional), servicio de interés, mensaje y **casilla de consentimiento** con enlace a la política de privacidad.
-- [ ] Validación con zod en cliente y servidor, campo honeypot y límite de envíos por IP.
-- [ ] Envío por una ruta de servidor a un servicio de email transaccional (propuesta: Resend, nivel gratuito). Variables de entorno: `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`. **Nunca subir claves al repositorio.**
-- [ ] Estados claros: enviando, enviado con éxito (con plazo de respuesta), error con alternativa por WhatsApp.
-- [ ] **Tests obligatorios** de la validación y de la ruta de envío: datos válidos, campos inválidos, consentimiento sin marcar, honeypot relleno, límite de envíos y fallo del servicio de email.
+- [x] Formulario con nombre, email, teléfono (opcional), servicio de interés, mensaje y **casilla de consentimiento** con enlace a la política de privacidad.
+- [x] Validación con zod en cliente y servidor, campo honeypot y límite de envíos por IP.
+- [x] Envío por una ruta de servidor a un servicio de email transaccional (propuesta: Resend, nivel gratuito). Variables de entorno: `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`. **Nunca subir claves al repositorio.** Las tres son obligatorias: el código no tiene direcciones por defecto.
+- [x] Estados claros: enviando, enviado con éxito (sin plazo concreto, por decisión del propietario), error con alternativa por WhatsApp.
+- [x] **Tests obligatorios** de la validación y de la ruta de envío: datos válidos, campos inválidos, consentimiento sin marcar, honeypot relleno, límite de envíos y fallo del servicio de email.
 - [ ] Botón de WhatsApp con mensaje prellenado según la página de origen.
 - [ ] Enlace «Reservar diagnóstico» que lleve al formulario o a WhatsApp con el servicio preseleccionado. `[PENDIENTE: valorar un sistema de citas gratuito como Cal.com más adelante]`.
 
@@ -115,11 +115,11 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 Pasos de Claude Code (repositorio y configuración) y pasos manuales del propietario.
 
 - [ ] **Propietario:** hacer el push y revisar el preview de Vercel con todo lo anterior.
-- [ ] **Propietario:** en Vercel (proyecto), añadir los dominios `youngdigisoft.es` y `www.youngdigisoft.es`, y copiar en el registrador los registros DNS que Vercel indique (normalmente `A` para el dominio raíz y `CNAME` para `www`).
-- [ ] Configurar `www` para redirigir al dominio raíz (o al revés, pero uno solo como canónico) y comprobar HTTPS.
-- [ ] Añadir redirección permanente `young-digisoft.vercel.app` a `youngdigisoft.es`.
-- [ ] Definir `metadataBase` y URLs canónicas con el dominio nuevo.
-- [ ] **Propietario:** crear un correo corporativo (por ejemplo `hola@youngdigisoft.es`, vía reenvío del registrador o un proveedor de correo) y actualizar `site.ts`, el formulario y los textos legales.
+- [x] **Propietario:** en Vercel (proyecto), añadir los dominios `youngdigisoft.es` y `www.youngdigisoft.es`, y copiar en el registrador los registros DNS que Vercel indique (normalmente `A` para el dominio raíz y `CNAME` para `www`).
+- [x] Configurar `www` para redirigir al dominio raíz (o al revés, pero uno solo como canónico) y comprobar HTTPS.
+- [x] Añadir redirección permanente `young-digisoft.vercel.app` a `youngdigisoft.es`.
+- [x] Definir `metadataBase` y URLs canónicas con el dominio nuevo.
+- [x] **Propietario:** crear el correo corporativo `info@youngdigisoft.es` y usarlo en `site.ts`, el formulario y los textos legales. Dominio verificado en Resend.
 - [ ] **Propietario:** dar de alta el dominio en Google Search Console y enviar el sitemap.
 
 ## Fase 7: Control de calidad y lanzamiento (día 7 a 8)

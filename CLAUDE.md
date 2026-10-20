@@ -36,7 +36,7 @@ Estas reglas mandan sobre cualquier otra instrucción de este archivo o del plan
 Empresa de servicios tecnológicos fundada por un **ingeniero de software** (autónomo, actividad de consultoría). Ayuda a pymes y autónomos a vender más y perder menos tiempo con **webs a medida, automatización con IA, mantenimiento y consultoría tecnológica**.
 
 - **Base:** A Coruña (presencial en la zona) y online para toda España.
-- **Dominio:** `youngdigisoft.es` (el despliegue actual en Vercel es `young-digisoft.vercel.app`).
+- **Dominio:** `youngdigisoft.es`, conectado a Vercel. `www` y `young-digisoft.vercel.app` redirigen a él.
 - **Repositorio:** `Roka1206/young-digisoft`.
 - **Punto de partida (octubre de 2026):** todavía sin clientes. Presupuesto de captación: 0 € (solo estrategias gratuitas).
 - **Capacidad:** 40 h/semana, hasta 3 proyectos simultáneos.
@@ -133,7 +133,7 @@ Ver la **sección 0** (manda sobre todo lo demás). Además:
 
 - WhatsApp y teléfono: 655 08 73 21.
 - Email: `info@youngdigisoft.es`.
-- Redes: Instagram, LinkedIn (página de empresa) y Google Business Profile. **Todavía no existen las cuentas.** No enlazar a `#`: si una red no existe, se oculta el icono.
+- Redes: [Instagram](https://www.instagram.com/youngdigisoft/) y [LinkedIn](https://www.linkedin.com/company/youngdigisoft). Facebook y Google Business Profile: `[PENDIENTE]` (falta la URL). No enlazar a `#`: si una red no existe, se oculta el icono.
 
 ## 9. Hoja de ruta global
 
@@ -152,9 +152,12 @@ El trabajo se hace por bloques y en este orden:
 
 - [x] Datos del titular para el aviso legal: NIF y domicilio de la actividad (confirmados en `src/content/legal.ts`).
 - [x] Correo corporativo: `info@youngdigisoft.es`.
-- [ ] Crear cuentas de Instagram, LinkedIn y Google Business Profile con el mismo nombre. `[PENDIENTE]`
+- [x] Cuentas de Instagram y LinkedIn creadas y enlazadas en la web.
+- [ ] Pasar la URL de la página de Facebook y crear Google Business Profile. `[PENDIENTE]`
 - [ ] Trabajos previos para el portfolio (nombre, sector, qué se hizo, permiso de publicación). `[PENDIENTE]`
 - [ ] Decidir si el informe del Diagnóstico digital va incluido en la hora. `[PENDIENTE]`
-- [ ] Conectar `youngdigisoft.es` al proyecto de Vercel (ver Fase 6 del plan).
+- [x] Conectar `youngdigisoft.es` al proyecto de Vercel.
+- [x] Verificar `youngdigisoft.es` en Resend.
+- [ ] Definir en Vercel `RESEND_API_KEY`, `CONTACT_FROM_EMAIL` y `CONTACT_TO_EMAIL` (sin ellas el formulario no envía). `[PENDIENTE: comprobar]`
 
 > Mantén esta sección al día: tacha lo hecho y añade lo nuevo.

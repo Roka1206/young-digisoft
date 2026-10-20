@@ -2,16 +2,29 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AlertCircle, CheckCircle2, Loader2, Send } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { WhatsAppIcon } from "@/components/ui/BrandIcons";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { contactForm } from "@/content/contact";
+import { contact } from "@/content/site";
+import { submitContact, type SubmitResult } from "@/lib/contact-client";
 import { contactSchema, serviceOptions, type ContactFormValues } from "@/lib/contact-schema";
 
-type Status = "idle" | "success" | "error";
+type Status = "idle" | SubmitResult;
 
+const { labels, consent, success } = contactForm;
+
+const labelClasses = "mb-1.5 block text-sm font-medium text-foreground";
 const inputClasses =
   "w-full rounded-xl border border-muted bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted transition-colors focus:border-action focus:outline-none focus:ring-2 focus:ring-action/30";
+
+function FieldError({ message }: { message?: string }) {
+  if (!message) return null;
+  return <p className="mt-1.5 inline-flex rounded-md bg-error px-2 py-0.5 text-sm text-white">{message}</p>;
+}
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -24,65 +37,56 @@ export function ContactForm() {
 
   const onSubmit = async (values: ContactFormValues) => {
     setStatus("idle");
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-      if (!response.ok) throw new Error("request-failed");
-      setStatus("success");
-      reset();
-    } catch {
-      setStatus("error");
-    }
+    const result = await submitContact(values);
+    setStatus(result);
+    if (result === "success") reset();
   };
 
   if (status === "success") {
     return (
-      <Card className="flex flex-col items-center gap-3 p-8 text-center">
+      <Card role="status" className="flex flex-col items-center gap-3 p-8 text-center">
         <CheckCircle2 className="text-success" size={32} />
-        <p className="font-medium text-lg text-foreground">¡Mensaje enviado!</p>
-        <p className="text-sm text-muted">Te responderemos lo antes posible.</p>
+        <p className="font-medium text-lg text-foreground">{success.title}</p>
+        <p className="text-sm text-muted">{success.description}</p>
         <Button variant="secondary" onClick={() => setStatus("idle")}>
-          Enviar otro mensaje
+          {success.again}
         </Button>
       </Card>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit(onSubmit)} noValidate aria-busy={isSubmitting} className="flex flex-col gap-4">
       <div>
-        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-foreground">
-          Nombre
+        <label htmlFor="name" className={labelClasses}>
+          {labels.name}
         </label>
         <input id="name" className={inputClasses} {...register("name")} />
-        {errors.name && <p className="mt-1.5 inline-flex rounded-md bg-error px-2 py-0.5 text-sm text-white">{errors.name.message}</p>}
+        <FieldError message={errors.name?.message} />
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">
-          Email
+        <label htmlFor="email" className={labelClasses}>
+          {labels.email}
         </label>
         <input id="email" type="email" className={inputClasses} {...register("email")} />
-        {errors.email && <p className="mt-1.5 inline-flex rounded-md bg-error px-2 py-0.5 text-sm text-white">{errors.email.message}</p>}
+        <FieldError message={errors.email?.message} />
       </div>
 
       <div>
-        <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-foreground">
-          Teléfono (opcional)
+        <label htmlFor="phone" className={labelClasses}>
+          {labels.phone}
         </label>
         <input id="phone" className={inputClasses} {...register("phone")} />
-        {errors.phone && <p className="mt-1.5 inline-flex rounded-md bg-error px-2 py-0.5 text-sm text-white">{errors.phone.message}</p>}
+        <FieldError message={errors.phone?.message} />
       </div>
 
       <div>
-        <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-foreground">
-          Servicio de interés (opcional)
+        <label htmlFor="service" className={labelClasses}>
+          {labels.service}
         </label>
         <select id="service" className={inputClasses} {...register("service")} defaultValue="">
-          <option value="">Selecciona un servicio</option>
+          <option value="">{labels.servicePlaceholder}</option>
           {serviceOptions.map((option) => (
             <option key={option} value={option}>
               {option}
@@ -92,23 +96,49 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-foreground">
-          Mensaje
+        <label htmlFor="message" className={labelClasses}>
+          {labels.message}
         </label>
         <textarea id="message" rows={4} className={inputClasses} {...register("message")} />
-        {errors.message && <p className="mt-1.5 inline-flex rounded-md bg-error px-2 py-0.5 text-sm text-white">{errors.message.message}</p>}
+        <FieldError message={errors.message?.message} />
       </div>
 
-      {status === "error" && (
-        <div className="flex items-center gap-2 rounded-xl bg-error px-4 py-3 text-sm text-white">
-          <AlertCircle size={18} />
-          No se pudo enviar el mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.
+      <div aria-hidden className="sr-only">
+        <label htmlFor="website">{labels.honeypot}</label>
+        <input id="website" tabIndex={-1} autoComplete="off" {...register("website")} />
+      </div>
+
+      <div>
+        <div className="flex items-start gap-3 text-sm text-foreground">
+          <input id="consent" type="checkbox" className="mt-0.5 size-4 shrink-0 accent-action" {...register("consent")} />
+          <label htmlFor="consent">
+            {consent.before}
+            <Link href="/privacidad" className="font-medium text-action underline underline-offset-2">
+              {consent.link}
+            </Link>
+            {consent.after}
+          </label>
+        </div>
+        <p className="mt-1.5 text-sm text-muted">{contactForm.privacyNote}</p>
+        <FieldError message={errors.consent?.message} />
+      </div>
+
+      {status !== "idle" && (
+        <div role="alert" className="flex flex-col gap-3">
+          <p className="flex items-center gap-2 rounded-xl bg-error px-4 py-3 text-sm text-white">
+            <AlertCircle size={18} className="shrink-0" />
+            {contactForm.failure[status]}
+          </p>
+          <Button href={contact.whatsappHref} variant="secondary">
+            <WhatsAppIcon aria-hidden className="size-5" />
+            {contactForm.whatsappCta}
+          </Button>
         </div>
       )}
 
       <Button type="submit" disabled={isSubmitting} className="justify-center">
         {isSubmitting ? <Loader2 className="animate-spin" size={18} /> : <Send size={18} />}
-        {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+        {isSubmitting ? contactForm.sending : contactForm.submit}
       </Button>
     </form>
   );
