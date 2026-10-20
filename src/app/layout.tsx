@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Alata, Roboto_Slab } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { MotionConfig } from "motion/react";
 import { Analytics } from "@vercel/analytics/next";
@@ -8,16 +8,16 @@ import { contact, site } from "@/content/site";
 import { siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
-const alata = Alata({
-  variable: "--font-alata",
-  subsets: ["latin"],
-  weight: "400",
-});
-
-const robotoSlab = Roboto_Slab({
-  variable: "--font-roboto-slab",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -69,7 +69,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="es"
       suppressHydrationWarning
-      className={`${alata.variable} ${robotoSlab.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
         <script

@@ -9,7 +9,7 @@ export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         “{testimonial.quote}”
       </blockquote>
       <figcaption>
-        <p className="font-heading text-sm text-foreground">{testimonial.name}</p>
+        <p className="font-medium text-sm text-foreground">{testimonial.name}</p>
         <p className="text-xs text-muted">{testimonial.role}</p>
       </figcaption>
     </figure>

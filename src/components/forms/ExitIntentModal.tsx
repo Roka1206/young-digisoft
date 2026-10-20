@@ -68,7 +68,7 @@ export function ExitIntentModal() {
             >
               <X size={16} />
             </button>
-            <h3 id="exit-intent-title" className="font-heading text-xl text-foreground">
+            <h3 id="exit-intent-title" className="font-medium text-xl text-foreground">
               ¿Ya te vas?
             </h3>
             <p className="mt-2 text-sm text-muted">

@@ -27,14 +27,14 @@ export function Hero() {
       >
         <motion.span
           variants={item}
-          className="rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-medium text-action"
+          className="rounded-full border border-border bg-surface px-4 py-1.5 font-mono text-xs text-action"
         >
           Digitalización · Tecnología · Soporte
         </motion.span>
 
         <motion.h1
           variants={item}
-          className="font-heading text-4xl leading-tight text-foreground sm:text-5xl lg:text-6xl"
+          className="font-bold text-4xl leading-tight text-foreground sm:text-5xl lg:text-6xl"
         >
           {site.tagline}
         </motion.h1>

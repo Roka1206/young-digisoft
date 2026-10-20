@@ -41,7 +41,7 @@ export function ContactForm() {
     return (
       <div className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-surface p-8 text-center">
         <CheckCircle2 className="text-success" size={32} />
-        <p className="font-heading text-lg text-foreground">¡Mensaje enviado!</p>
+        <p className="font-medium text-lg text-foreground">¡Mensaje enviado!</p>
         <p className="text-sm text-muted">Te responderemos lo antes posible.</p>
         <Button variant="secondary" onClick={() => setStatus("idle")}>
           Enviar otro mensaje

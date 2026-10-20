@@ -8,7 +8,7 @@ export function ServiceCard({ service }: { service: Service }) {
       <div className="inline-flex size-11 items-center justify-center rounded-xl bg-action/10 text-action transition-colors group-hover:bg-action group-hover:text-action-fg">
         <Icon size={22} />
       </div>
-      <h3 className="font-heading text-lg text-foreground">{service.title}</h3>
+      <h3 className="font-medium text-lg text-foreground">{service.title}</h3>
       <p className="text-sm text-muted">{service.description}</p>
     </div>
   );

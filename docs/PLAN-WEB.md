@@ -39,7 +39,7 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 ## Fase 1: Cimientos de marca y estructura (día 1 a 2)
 
 - [x] Tokens de marca: paleta de `CLAUDE.md` como tema de Tailwind (`brand`, `brand-fg`, `action`, `ink`, `mist`, `muted`).
-- [ ] Tipografías con `next/font`: Inter y JetBrains Mono.
+- [x] Tipografías con `next/font`: Inter y JetBrains Mono.
 - [ ] Logo: colocar `logo_digisoft.png` en `/public/brand/`, vectorizarlo a SVG (símbolo `>_` sobre turquesa), generar favicon, `apple-touch-icon` y versión horizontal «símbolo + Young Digisoft».
 - [ ] Layout global: cabecera (logo, navegación, botón «Pide presupuesto»), pie (contacto, legales, redes existentes) y botón flotante de WhatsApp.
 - [ ] Estructura de contenido tipado en `src/content/`: `site.ts` (nombre, descriptor, contacto), `services.ts`, `pricing.ts`, `faq.ts`, `portfolio.ts` (vacío al principio).

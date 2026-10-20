@@ -22,7 +22,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <h3 className="font-heading text-sm uppercase tracking-wide text-foreground">
+          <h3 className="font-medium text-sm uppercase tracking-wide text-foreground">
             Navegación
           </h3>
           {navLinks.map((link) => (
@@ -37,7 +37,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <h3 className="font-heading text-sm uppercase tracking-wide text-foreground">
+          <h3 className="font-medium text-sm uppercase tracking-wide text-foreground">
             Contacto
           </h3>
           <a href={contact.phoneHref} className="text-sm text-muted transition-colors hover:text-action">

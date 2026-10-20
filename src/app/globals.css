@@ -42,8 +42,8 @@
   --color-action: var(--action);
   --color-action-hover: var(--action-hover);
   --color-action-fg: var(--action-fg);
-  --font-sans: var(--font-roboto-slab);
-  --font-heading: var(--font-alata);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 body {
