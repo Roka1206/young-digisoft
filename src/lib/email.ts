@@ -1,16 +1,18 @@
 import { Resend } from "resend";
-import { contact } from "@/content/site";
 import type { ContactFormValues } from "./contact-schema";
-
-const defaultFrom = "Young Digisoft <onboarding@resend.dev>";
 
 let client: Resend | null = null;
 
-function getResendClient() {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    throw new Error("RESEND_API_KEY no está configurada");
+function requiredEnv(name: string) {
+  const value = process.env[name];
+  if (!value) {
+    throw new Error(`${name} no está configurada`);
   }
+  return value;
+}
+
+function getResendClient() {
+  const apiKey = requiredEnv("RESEND_API_KEY");
   if (!client) {
     client = new Resend(apiKey);
   }
@@ -19,8 +21,8 @@ function getResendClient() {
 
 export async function sendContactEmail({ name, email, phone, service, message }: ContactFormValues) {
   const { error } = await getResendClient().emails.send({
-    from: process.env.CONTACT_FROM_EMAIL || defaultFrom,
-    to: process.env.CONTACT_TO_EMAIL || contact.email,
+    from: requiredEnv("CONTACT_FROM_EMAIL"),
+    to: requiredEnv("CONTACT_TO_EMAIL"),
     replyTo: email,
     subject: `Nuevo contacto de ${name}`,
     text: [

@@ -53,12 +53,14 @@ Copia estas variables en `.env.local` (desarrollo) y en Vercel → Project Setti
 
 | Variable | Descripción |
 | --- | --- |
-| `RESEND_API_KEY` | API key de [Resend](https://resend.com) usada por `src/lib/email.ts` para enviar el email del formulario de contacto. Sin ella, el formulario muestra el estado de error. |
-| `CONTACT_TO_EMAIL` | Email que recibe los mensajes del formulario. Por defecto, el email público de `src/content/site.ts` (`info@youngdigisoft.es`). |
-| `CONTACT_FROM_EMAIL` | Remitente del email, por ejemplo `Young Digisoft <web@youngdigisoft.es>`. Por defecto, el dominio de pruebas `onboarding@resend.dev`, que solo entrega al dueño de la cuenta de Resend. |
-| `NEXT_PUBLIC_SITE_URL` | URL pública del sitio, usada en metadata (OpenGraph), `robots.txt` y `sitemap.xml`. Actualizar cuando se tenga el dominio definitivo. |
+| `RESEND_API_KEY` | API key de [Resend](https://resend.com) usada por `src/lib/email.ts` para enviar el email del formulario de contacto. Obligatoria. |
+| `CONTACT_TO_EMAIL` | Email que recibe los mensajes del formulario, por ejemplo `info@youngdigisoft.es`. Obligatoria. |
+| `CONTACT_FROM_EMAIL` | Remitente del email, por ejemplo `Young Digisoft <info@youngdigisoft.es>`. Debe ser de un dominio verificado en Resend (`youngdigisoft.es` ya lo está). Obligatoria. |
+| `NEXT_PUBLIC_SITE_URL` | URL pública del sitio, usada en metadata (OpenGraph), `robots.txt` y `sitemap.xml`. Por defecto `https://youngdigisoft.es`. |
 
-Para enviar desde `youngdigisoft.es` hay que verificar el dominio en el panel de Resend y definir `CONTACT_FROM_EMAIL`.
+El código no tiene direcciones de email por defecto: si falta alguna de las tres variables de email, el formulario muestra el error con la alternativa de WhatsApp y el servidor registra qué variable falta.
+
+`young-digisoft.vercel.app` redirige de forma permanente a `https://youngdigisoft.es` (ver `next.config.ts`).
 
 ## Marca
 

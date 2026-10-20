@@ -36,7 +36,7 @@ Estas reglas mandan sobre cualquier otra instrucción de este archivo o del plan
 Empresa de servicios tecnológicos fundada por un **ingeniero de software** (autónomo, actividad de consultoría). Ayuda a pymes y autónomos a vender más y perder menos tiempo con **webs a medida, automatización con IA, mantenimiento y consultoría tecnológica**.
 
 - **Base:** A Coruña (presencial en la zona) y online para toda España.
-- **Dominio:** `youngdigisoft.es` (el despliegue actual en Vercel es `young-digisoft.vercel.app`).
+- **Dominio:** `youngdigisoft.es`, conectado a Vercel. `www` y `young-digisoft.vercel.app` redirigen a él.
 - **Repositorio:** `Roka1206/young-digisoft`.
 - **Punto de partida (octubre de 2026):** todavía sin clientes. Presupuesto de captación: 0 € (solo estrategias gratuitas).
 - **Capacidad:** 40 h/semana, hasta 3 proyectos simultáneos.
@@ -156,6 +156,8 @@ El trabajo se hace por bloques y en este orden:
 - [ ] Pasar la URL de la página de Facebook y crear Google Business Profile. `[PENDIENTE]`
 - [ ] Trabajos previos para el portfolio (nombre, sector, qué se hizo, permiso de publicación). `[PENDIENTE]`
 - [ ] Decidir si el informe del Diagnóstico digital va incluido en la hora. `[PENDIENTE]`
-- [ ] Conectar `youngdigisoft.es` al proyecto de Vercel (ver Fase 6 del plan).
+- [x] Conectar `youngdigisoft.es` al proyecto de Vercel.
+- [x] Verificar `youngdigisoft.es` en Resend.
+- [ ] Definir en Vercel `RESEND_API_KEY`, `CONTACT_FROM_EMAIL` y `CONTACT_TO_EMAIL` (sin ellas el formulario no envía). `[PENDIENTE: comprobar]`
 
 > Mantén esta sección al día: tacha lo hecho y añade lo nuevo.
