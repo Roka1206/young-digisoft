@@ -67,7 +67,7 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 2. **Problemas que resolvemos** (3 tarjetas): «No me encuentran en Google», «Pierdo tiempo con tareas repetitivas», «No sé qué herramientas necesito».
 3. **Nuestras 4 ofertas** con precio «desde», qué incluye y plazo.
 4. **Cómo trabajamos** (4 pasos): hablamos → propuesta con precio cerrado → lo construimos y lo revisas → lo publicamos y te damos soporte.
-5. **Por qué Young Digisoft:** ingeniería de software real (código propio, no plantillas pesadas), precio cerrado, trato directo, presencial en A Coruña.
+5. **Por qué Young Digisoft:** ingeniería de software real (código propio, no plantillas pesadas), precio cerrado, trato directo, toda España con sede en A Coruña.
 6. **Portfolio** (condicional): se muestra solo si `portfolio.ts` tiene casos con permiso de publicación.
 7. **Preguntas frecuentes:** ¿cuánto tarda?, ¿qué incluye el precio?, ¿el dominio y el hosting son míos?, ¿qué pasa después de publicar?, ¿trabajáis fuera de A Coruña?
 8. **Cierre con llamada a la acción** y botón de WhatsApp.

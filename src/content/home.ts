@@ -82,8 +82,8 @@ export const whyUs: { title: string; items: Feature[] } = {
       icon: Handshake,
     },
     {
-      title: "Cerca de ti",
-      description: "Nos vemos en persona en A Coruña y alrededores. Si estás en otro sitio, trabajamos online.",
+      title: "En toda España",
+      description: "Tenemos la sede en A Coruña y trabajamos con negocios de toda España.",
       icon: MapPin,
     },
   ],

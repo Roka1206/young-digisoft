@@ -38,6 +38,6 @@ export const faq: FaqItem[] = [
   },
   {
     question: "¿Trabajáis fuera de A Coruña?",
-    answer: ["Sí. Trabajamos en persona en A Coruña y alrededores, y online con negocios de toda España."],
+    answer: ["Sí. Tenemos la sede en A Coruña y trabajamos con negocios de toda España."],
   },
 ];

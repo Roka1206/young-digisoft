@@ -35,7 +35,7 @@ Estas reglas mandan sobre cualquier otra instrucción de este archivo o del plan
 
 Empresa de servicios tecnológicos fundada por un **ingeniero de software** (autónomo, actividad de consultoría). Ayuda a pymes y autónomos a vender más y perder menos tiempo con **webs a medida, automatización con IA, mantenimiento y consultoría tecnológica**.
 
-- **Base:** A Coruña (presencial en la zona) y online para toda España.
+- **Base:** sede en A Coruña; trabajamos en toda España. La web no distingue entre trabajo presencial u online.
 - **Dominio:** `youngdigisoft.es`, conectado a Vercel. `www` y `young-digisoft.vercel.app` redirigen a él.
 - **Repositorio:** `Roka1206/young-digisoft`.
 - **Punto de partida (octubre de 2026):** todavía sin clientes. Presupuesto de captación: 0 € (solo estrategias gratuitas).
@@ -63,7 +63,7 @@ Notas:
 
 ## 3. Cliente objetivo
 
-Negocios locales que ya venden pero tienen presencia digital floja: peluquerías, clínicas pequeñas (fisio, dentistas, psicólogos), talleres, restaurantes, academias, reformas y autónomos de oficios. Empezamos por A Coruña y alrededores; después, toda España online.
+Negocios locales que ya venden pero tienen presencia digital floja: peluquerías, clínicas pequeñas (fisio, dentistas, psicólogos), talleres, restaurantes, academias, reformas y autónomos de oficios. Empezamos por A Coruña y alrededores, pero trabajamos en toda España.
 
 ## 4. Marca
 

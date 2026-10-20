@@ -31,7 +31,7 @@ export const contact = {
   diagnosisHref: whatsappUrl(whatsappNumber, whatsappMessages.diagnosis),
   email: "info@youngdigisoft.es",
   emailHref: "mailto:info@youngdigisoft.es",
-  zone: "A Coruña (presencial) y online en toda España",
+  zone: "Toda España, con sede en A Coruña",
 };
 
 export const socialLinks = [
