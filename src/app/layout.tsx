@@ -4,12 +4,14 @@ import { ThemeProvider } from "next-themes";
 import { MotionConfig } from "motion/react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { contact, site } from "@/content/site";
+import { site } from "@/content/site";
 import { openGraphBase } from "@/lib/metadata";
+import { businessJsonLd } from "@/lib/structured-data";
 import { siteUrl } from "@/lib/site-url";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { CookieBanner } from "@/components/layout/CookieBanner";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { JsonLd } from "@/components/ui/JsonLd";
 import "./globals.css";
 
 const inter = Inter({
@@ -50,22 +52,6 @@ export const metadata: Metadata = {
   },
 };
 
-const localBusinessJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: site.name,
-  description: site.description,
-  telephone: contact.phone,
-  email: contact.email,
-  areaServed: "ES",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "A Coruña",
-    addressCountry: "ES",
-  },
-  url: siteUrl,
-};
-
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -74,10 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
-        />
+        <JsonLd data={businessJsonLd()} />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <MotionConfig reducedMotion="user">{children}</MotionConfig>
           <WhatsAppButton />

@@ -4,12 +4,14 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { Card } from "@/components/ui/Card";
+import { JsonLd } from "@/components/ui/JsonLd";
 import { PageHero } from "@/components/ui/PageHero";
 import { PriceCard } from "@/components/ui/PriceCard";
 import { Section } from "@/components/ui/Section";
 import { servicePageText, services } from "@/content/services";
 import { pageMetadata } from "@/lib/metadata";
 import { findService } from "@/lib/services";
+import { serviceJsonLd } from "@/lib/structured-data";
 import { serviceWhatsappHref } from "@/lib/whatsapp-links";
 
 export const dynamicParams = false;
@@ -30,6 +32,7 @@ export default async function ServicePage({ params }: PageProps<"/servicios/[slu
 
   return (
     <>
+      <JsonLd data={serviceJsonLd(service)} />
       <Header />
       <main className="flex-1">
         <PageHero title={service.name} description={service.summary}>
