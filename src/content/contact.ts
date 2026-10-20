@@ -33,5 +33,9 @@ export const contactForm = {
     description: "Te responderemos lo antes posible.",
     again: "Enviar otro mensaje",
   },
-  failure: "No se pudo enviar el mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.",
+  failure: {
+    error: "No se pudo enviar el mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.",
+    rateLimited: "Has enviado varios mensajes seguidos. Espera unos minutos o escríbenos por WhatsApp.",
+  },
+  whatsappCta: "Escríbenos por WhatsApp",
 };

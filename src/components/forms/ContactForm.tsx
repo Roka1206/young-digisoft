@@ -5,12 +5,15 @@ import { AlertCircle, CheckCircle2, Loader2, Send } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { WhatsAppIcon } from "@/components/ui/BrandIcons";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { contactForm } from "@/content/contact";
+import { contact } from "@/content/site";
+import { submitContact, type SubmitResult } from "@/lib/contact-client";
 import { contactSchema, serviceOptions, type ContactFormValues } from "@/lib/contact-schema";
 
-type Status = "idle" | "success" | "error";
+type Status = "idle" | SubmitResult;
 
 const { labels, consent, success } = contactForm;
 
@@ -34,23 +37,14 @@ export function ContactForm() {
 
   const onSubmit = async (values: ContactFormValues) => {
     setStatus("idle");
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-      if (!response.ok) throw new Error("request-failed");
-      setStatus("success");
-      reset();
-    } catch {
-      setStatus("error");
-    }
+    const result = await submitContact(values);
+    setStatus(result);
+    if (result === "success") reset();
   };
 
   if (status === "success") {
     return (
-      <Card className="flex flex-col items-center gap-3 p-8 text-center">
+      <Card role="status" className="flex flex-col items-center gap-3 p-8 text-center">
         <CheckCircle2 className="text-success" size={32} />
         <p className="font-medium text-lg text-foreground">{success.title}</p>
         <p className="text-sm text-muted">{success.description}</p>
@@ -62,7 +56,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit(onSubmit)} noValidate aria-busy={isSubmitting} className="flex flex-col gap-4">
       <div>
         <label htmlFor="name" className={labelClasses}>
           {labels.name}
@@ -129,10 +123,16 @@ export function ContactForm() {
         <FieldError message={errors.consent?.message} />
       </div>
 
-      {status === "error" && (
-        <div className="flex items-center gap-2 rounded-xl bg-error px-4 py-3 text-sm text-white">
-          <AlertCircle size={18} />
-          {contactForm.failure}
+      {status !== "idle" && (
+        <div role="alert" className="flex flex-col gap-3">
+          <p className="flex items-center gap-2 rounded-xl bg-error px-4 py-3 text-sm text-white">
+            <AlertCircle size={18} className="shrink-0" />
+            {contactForm.failure[status]}
+          </p>
+          <Button href={contact.whatsappHref} variant="secondary">
+            <WhatsAppIcon aria-hidden className="size-5" />
+            {contactForm.whatsappCta}
+          </Button>
         </div>
       )}
 
