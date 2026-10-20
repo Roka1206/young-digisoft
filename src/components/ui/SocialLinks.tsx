@@ -1,11 +1,11 @@
 import { socialLinks } from "@/content/site";
 import { cn } from "@/lib/cn";
-import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "./BrandIcons";
+import { InstagramIcon, LinkedInIcon, WhatsAppIcon } from "./BrandIcons";
 
 const icons = {
   WhatsApp: WhatsAppIcon,
   Instagram: InstagramIcon,
-  Facebook: FacebookIcon,
+  LinkedIn: LinkedInIcon,
 } as const;
 
 export function SocialLinks({ className }: { className?: string }) {

@@ -30,5 +30,5 @@ export const contact = {
 export const socialLinks = [
   { name: "WhatsApp", href: contact.whatsappHref },
   { name: "Instagram", href: "https://www.instagram.com/youngdigisoft/" },
-  { name: "Facebook", href: "#" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/youngdigisoft" },
 ] as const;
