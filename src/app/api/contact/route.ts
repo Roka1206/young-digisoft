@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { contact } from "@/content/site";
 import { contactSchema } from "@/lib/contact-schema";
 import { getResendClient } from "@/lib/email";
 
@@ -14,7 +15,7 @@ export async function POST(request: Request) {
   }
 
   const { name, email, phone, service, message } = parsed.data;
-  const to = process.env.CONTACT_TO_EMAIL ?? "1206roka@gmail.com";
+  const to = process.env.CONTACT_TO_EMAIL ?? contact.email;
 
   try {
     const resend = getResendClient();
