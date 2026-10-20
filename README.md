@@ -56,11 +56,10 @@ Copia estas variables en `.env.local` (desarrollo) y en Vercel → Project Setti
 | `RESEND_API_KEY` | API key de [Resend](https://resend.com) usada por `src/lib/email.ts` para enviar el email del formulario de contacto. Obligatoria. |
 | `CONTACT_TO_EMAIL` | Email que recibe los mensajes del formulario, por ejemplo `info@youngdigisoft.es`. Obligatoria. |
 | `CONTACT_FROM_EMAIL` | Remitente del email, por ejemplo `Young Digisoft <info@youngdigisoft.es>`. Debe ser de un dominio verificado en Resend (`youngdigisoft.es` ya lo está). Obligatoria. |
-| `NEXT_PUBLIC_SITE_URL` | URL pública del sitio, usada en metadata (OpenGraph), `robots.txt` y `sitemap.xml`. Por defecto `https://youngdigisoft.es`. |
 
 El código no tiene direcciones de email por defecto: si falta alguna de las tres variables de email, el formulario muestra el error con la alternativa de WhatsApp y el servidor registra qué variable falta.
 
-`young-digisoft.vercel.app` redirige de forma permanente a `https://youngdigisoft.es` (ver `next.config.ts`).
+`young-digisoft.vercel.app` redirige de forma permanente a `https://youngdigisoft.es` (ver `next.config.ts`). La URL base del sitio (canonical, Open Graph, `robots.txt` y `sitemap.xml`) es la constante `siteUrl` de `src/lib/site-url.ts`.
 
 ## Marca
 
