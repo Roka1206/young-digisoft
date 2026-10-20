@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container";
 
 export const metadata: Metadata = {
   title: "Página no encontrada",
@@ -13,7 +14,7 @@ export default function NotFound() {
     <>
       <Header />
       <main className="flex-1">
-        <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 px-4 py-24 text-center sm:px-6 lg:px-8">
+        <Container className="flex max-w-2xl flex-col items-center gap-6 py-24 text-center">
           <span className="font-mono font-bold text-7xl text-action">404</span>
           <h1 className="font-bold text-2xl text-foreground sm:text-3xl">
             No hemos encontrado esta página
@@ -28,7 +29,7 @@ export default function NotFound() {
               Contactar
             </Button>
           </div>
-        </div>
+        </Container>
       </main>
       <Footer />
     </>

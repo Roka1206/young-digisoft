@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Container } from "@/components/ui/Container";
 import { avisoLegalSections } from "@/content/legal";
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export default function AvisoLegalPage() {
     <>
       <Header />
       <main className="flex-1">
-        <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
+        <Container className="max-w-3xl py-20">
           <h1 className="font-bold text-3xl text-foreground sm:text-4xl">Aviso legal</h1>
           <div className="mt-10 flex flex-col gap-8">
             {avisoLegalSections.map((section) => (
@@ -33,7 +34,7 @@ export default function AvisoLegalPage() {
               </section>
             ))}
           </div>
-        </div>
+        </Container>
       </main>
       <Footer />
     </>

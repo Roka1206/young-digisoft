@@ -26,3 +26,12 @@ export const launchOffer = {
     "Una reseña en Google",
   ],
 };
+
+export const priceText = {
+  from: "desde",
+  units: { oneOff: "", monthly: "/mes", hourly: "/hora" },
+  launch: "Precio de lanzamiento",
+  regular: "Precio normal",
+  until: "Hasta",
+  timeline: "Plazo estimado",
+};

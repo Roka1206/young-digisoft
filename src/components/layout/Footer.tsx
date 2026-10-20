@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { contact, navLinks, site } from "@/content/site";
+import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 
@@ -8,7 +9,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[2fr_1fr_1fr] lg:px-8">
+      <Container className="grid gap-10 py-12 lg:grid-cols-[2fr_1fr_1fr]">
         <div className="flex flex-col gap-4">
           <Logo className="self-start" />
           <p className="max-w-sm text-sm text-muted">{site.descriptor}</p>
@@ -42,10 +43,10 @@ export function Footer() {
           </a>
           <p className="text-sm text-muted">{contact.zone}</p>
         </div>
-      </div>
+      </Container>
 
       <div className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <Container className="flex flex-col gap-2 py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name}. Todos los derechos reservados.
           </p>
@@ -60,7 +61,7 @@ export function Footer() {
               Cookies
             </Link>
           </div>
-        </div>
+        </Container>
       </div>
     </footer>
   );

@@ -43,7 +43,7 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 - [x] Logo: colocar `logo_digisoft.png` en `/public/brand/`, vectorizarlo a SVG (símbolo `>_` sobre turquesa), generar favicon, `apple-touch-icon` y versión horizontal «símbolo + Young Digisoft».
 - [x] Layout global: cabecera (logo, navegación, botón «Hablemos»), pie (contacto, legales, redes existentes) y botón flotante de WhatsApp.
 - [x] Estructura de contenido tipado en `src/content/`: `site.ts` (nombre, descriptor, contacto), `services.ts`, `pricing.ts`, `faq.ts`, `portfolio.ts` (vacío al principio).
-- [ ] Componentes base: `Button`, `Section`, `Card`, `Container`, `Badge`, `FaqItem`, `PriceCard`.
+- [x] Componentes base: `Button`, `Section`, `Card`, `Container`, `Badge`, `FaqItem`, `PriceCard`.
 
 ## Fase 2: Páginas y contenido (día 2 a 5)
 

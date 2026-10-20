@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { contact, navLinks } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { MobileNav } from "./MobileNav";
@@ -37,7 +38,7 @@ export function Header() {
           : "border-transparent bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <Container className="flex h-16 items-center justify-between">
         <Link href="/" onClick={() => setOpen(false)}>
           <Logo />
         </Link>
@@ -73,7 +74,7 @@ export function Header() {
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
-      </div>
+      </Container>
 
       <MobileNav open={open} onClose={() => setOpen(false)} />
     </header>

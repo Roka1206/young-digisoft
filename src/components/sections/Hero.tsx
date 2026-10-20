@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "motion/react";
 import { contact, site } from "@/content/site";
+import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 
 const container: Variants = {
@@ -25,12 +26,9 @@ export function Hero() {
         animate="show"
         className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8"
       >
-        <motion.span
-          variants={item}
-          className="rounded-full border border-border bg-surface px-4 py-1.5 font-mono text-xs text-action"
-        >
-          Digitalización · Tecnología · Soporte
-        </motion.span>
+        <motion.div variants={item}>
+          <Badge>Digitalización · Tecnología · Soporte</Badge>
+        </motion.div>
 
         <motion.h1
           variants={item}

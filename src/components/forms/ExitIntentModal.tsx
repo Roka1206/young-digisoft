@@ -58,7 +58,7 @@ export function ExitIntentModal() {
             aria-modal="true"
             aria-labelledby="exit-intent-title"
             onClick={(event) => event.stopPropagation()}
-            className="relative w-full max-w-sm rounded-2xl border border-border bg-surface p-6 text-center shadow-xl"
+            className="relative w-full max-w-sm rounded-xl border border-border bg-surface p-6 text-center shadow-xl"
           >
             <button
               type="button"

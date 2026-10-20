@@ -16,7 +16,7 @@ const variants = {
 const sizes = {
   sm: "h-9 px-4 text-sm",
   md: "h-11 px-6 text-base",
-  lg: "h-13 px-8 text-lg",
+  lg: "h-13 px-8 text-base",
 } satisfies Record<string, string>;
 
 type Variant = keyof typeof variants;

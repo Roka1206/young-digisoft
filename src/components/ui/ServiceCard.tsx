@@ -1,15 +1,16 @@
 import type { Service } from "@/content/site";
+import { Card } from "./Card";
 
 export function ServiceCard({ service }: { service: Service }) {
   const Icon = service.icon;
 
   return (
-    <div className="group flex h-full flex-col gap-4 rounded-2xl border border-border bg-surface p-6 transition-all duration-200 hover:-translate-y-1 hover:border-action hover:shadow-lg">
+    <Card className="group flex h-full flex-col gap-4 transition-all duration-200 hover:-translate-y-1 hover:border-action hover:shadow-lg">
       <div className="inline-flex size-11 items-center justify-center rounded-xl bg-action/10 text-action transition-colors group-hover:bg-action group-hover:text-action-fg">
         <Icon size={22} />
       </div>
       <h3 className="font-medium text-lg text-foreground">{service.title}</h3>
       <p className="text-sm text-muted">{service.description}</p>
-    </div>
+    </Card>
   );
 }
