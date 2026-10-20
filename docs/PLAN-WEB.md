@@ -93,8 +93,8 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 
 ## Fase 4: SEO local y técnico (día 5 a 7)
 
-- [ ] Metadatos únicos por página (`title`, `description`, canonical) y Open Graph con imagen de marca.
-- [ ] `sitemap.xml` y `robots.txt` generados desde Next.js.
+- [x] Metadatos únicos por página (`title`, `description`, canonical) y Open Graph con imagen de marca.
+- [x] `sitemap.xml` y `robots.txt` generados desde Next.js.
 - [ ] Datos estructurados JSON-LD: `ProfessionalService` con zona de servicio A Coruña y toda España, contacto y logotipo, más `FAQPage` en las páginas con preguntas frecuentes.
 - [ ] Página `/diseno-web-a-coruna` con contenido útil y no duplicado (a quién ayudamos, proceso, precios «desde», preguntas locales). Enlazarla desde la portada y el pie.
 - [ ] Enlazado interno entre servicios y contacto; texto alternativo en imágenes; una sola etiqueta `h1` por página.

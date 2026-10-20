@@ -5,6 +5,7 @@ import { MotionConfig } from "motion/react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { contact, site } from "@/content/site";
+import { openGraphBase } from "@/lib/metadata";
 import { siteUrl } from "@/lib/site-url";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import "./globals.css";
@@ -32,12 +33,10 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
+    ...openGraphBase,
     title: `${site.name} — ${site.descriptor}`,
     description: site.description,
-    url: siteUrl,
-    siteName: site.name,
-    locale: "es_ES",
-    type: "website",
+    url: "/",
   },
   twitter: {
     card: "summary_large_image",

@@ -1,17 +1,15 @@
-import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
 import { cookiesSections } from "@/content/legal";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Política de cookies",
   description:
     "Qué tecnologías de almacenamiento local y analítica utiliza el sitio web de Young Digisoft, y por qué no requieren consentimiento.",
-  alternates: {
-    canonical: "/cookies",
-  },
-};
+  path: "/cookies",
+});
 
 export default function CookiesPage() {
   return (
