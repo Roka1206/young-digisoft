@@ -1,4 +1,5 @@
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { contactSection } from "@/content/home";
 import { contact } from "@/content/site";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Card } from "@/components/ui/Card";
@@ -16,8 +17,8 @@ export function Contact() {
   return (
     <Section
       id="contacto"
-      title="¿Hablamos de tu negocio?"
-      description="Cuéntanos qué necesitas y te respondemos con una propuesta adaptada a tu presupuesto."
+      title={contactSection.title}
+      description={contactSection.description}
     >
       <div className="grid gap-10 lg:grid-cols-2">
         <Reveal className="flex flex-col gap-6">

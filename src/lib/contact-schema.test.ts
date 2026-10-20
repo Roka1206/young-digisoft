@@ -5,7 +5,7 @@ const validPayload = {
   name: "Ana",
   email: "ana@example.com",
   phone: "+34 655 08 73 21",
-  service: "Creación de páginas web",
+  service: "Web profesional",
   message: "Necesito una web nueva para mi negocio, ¿me pueden ayudar?",
 };
 

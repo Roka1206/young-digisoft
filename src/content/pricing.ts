@@ -18,12 +18,12 @@ export const prices: Record<PlanId, Price> = {
 };
 
 export const launchOffer = {
-  audience: "Para los primeros 3 a 5 clientes",
+  audience: "para los primeros 3 a 5 clientes",
   endsOn: "[PENDIENTE: fecha de caducidad]",
   conditions: [
-    "Un testimonio verificable con tu nombre",
-    "Permiso para mostrar el trabajo en nuestro portfolio",
-    "Una reseña en Google",
+    "un testimonio verificable con tu nombre",
+    "permiso para mostrar el trabajo en nuestro portfolio",
+    "una reseña en Google",
   ],
 };
 

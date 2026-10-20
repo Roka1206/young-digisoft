@@ -35,7 +35,7 @@ export function Header() {
         "sticky top-0 z-50 border-b transition-colors duration-300",
         scrolled
           ? "border-border bg-background/85 backdrop-blur-md"
-          : "border-transparent bg-transparent"
+          : "border-transparent bg-background"
       )}
     >
       <Container className="flex h-16 items-center justify-between">
