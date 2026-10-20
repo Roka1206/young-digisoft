@@ -88,8 +88,8 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 - [x] Envío por una ruta de servidor a un servicio de email transaccional (propuesta: Resend, nivel gratuito). Variables de entorno: `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`. **Nunca subir claves al repositorio.** Las tres son obligatorias: el código no tiene direcciones por defecto.
 - [x] Estados claros: enviando, enviado con éxito (sin plazo concreto, por decisión del propietario), error con alternativa por WhatsApp.
 - [x] **Tests obligatorios** de la validación y de la ruta de envío: datos válidos, campos inválidos, consentimiento sin marcar, honeypot relleno, límite de envíos y fallo del servicio de email.
-- [ ] Botón de WhatsApp con mensaje prellenado según la página de origen.
-- [ ] Enlace «Reservar diagnóstico» que lleve al formulario o a WhatsApp con el servicio preseleccionado. `[PENDIENTE: valorar un sistema de citas gratuito como Cal.com más adelante]`.
+- [x] Botón de WhatsApp con mensaje prellenado según la página de origen (en las páginas de servicio nombra el servicio).
+- [x] Enlace «Reservar diagnóstico» que lleve al formulario o a WhatsApp con el servicio preseleccionado. `[PENDIENTE: valorar un sistema de citas gratuito como Cal.com más adelante]`.
 
 ## Fase 4: SEO local y técnico (día 5 a 7)
 

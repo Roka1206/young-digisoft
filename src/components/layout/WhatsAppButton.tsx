@@ -1,10 +1,13 @@
-import { contact } from "@/content/site";
+"use client";
+
+import { usePathname } from "next/navigation";
 import { WhatsAppIcon } from "@/components/ui/BrandIcons";
+import { whatsappHrefForPath } from "@/lib/whatsapp-links";
 
 export function WhatsAppButton() {
   return (
     <a
-      href={contact.whatsappHref}
+      href={whatsappHrefForPath(usePathname())}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escríbenos por WhatsApp"

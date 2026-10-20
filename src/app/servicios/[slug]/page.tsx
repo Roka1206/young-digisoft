@@ -9,6 +9,7 @@ import { PriceCard } from "@/components/ui/PriceCard";
 import { Section } from "@/components/ui/Section";
 import { servicePageText, services } from "@/content/services";
 import { findService } from "@/lib/services";
+import { serviceWhatsappHref } from "@/lib/whatsapp-links";
 
 export const dynamicParams = false;
 
@@ -66,7 +67,7 @@ export default async function ServicePage({ params }: PageProps<"/servicios/[slu
           </div>
         </Section>
 
-        <CtaBanner />
+        <CtaBanner whatsappHref={serviceWhatsappHref(service.name)} />
       </main>
       <Footer />
     </>

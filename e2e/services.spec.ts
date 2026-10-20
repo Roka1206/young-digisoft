@@ -19,3 +19,9 @@ test("offer cards on the homepage link to their service page", async ({ page }) 
   await page.locator("#servicios").getByRole("link", { name: "Ver detalles" }).first().click();
   await expect(page).toHaveURL(/\/servicios\/web$/);
 });
+
+test("the floating WhatsApp button names the service on its page", async ({ page }) => {
+  await page.goto("/servicios/web");
+  const href = await page.getByRole("link", { name: "Escríbenos por WhatsApp" }).last().getAttribute("href");
+  expect(new URL(href!).searchParams.get("text")).toContain("«Web profesional»");
+});
