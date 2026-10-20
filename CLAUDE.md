@@ -22,7 +22,7 @@ Estas reglas mandan sobre cualquier otra instrucción de este archivo o del plan
    - **Arquitectura limpia:** UI en `src/components/`, contenido en `src/content/`, lógica de negocio y servicios en `src/lib/`, integraciones externas (email, analítica) aisladas en su propio módulo. Dependencias en una sola dirección, funciones pequeñas con una única responsabilidad y nada de lógica de negocio dentro de los componentes.
 5. **Tests:**
    - **Cada función nueva con lógica lleva su test**, siempre que sea posible (validaciones, utilidades, servicios, rutas de servidor, transformaciones de datos).
-   - **Obligatorios y con cobertura completa de casos límite:** la validación y el envío del formulario de contacto (datos válidos, inválidos, honeypot relleno, límite de envíos y fallo del servicio de email).
+   - **Obligatorios y con cobertura completa de casos límite:** la validación y el envío del formulario de contacto (datos válidos, inválidos, consentimiento sin marcar, honeypot relleno, límite de envíos y fallo del servicio de email).
    - **No hace falta test** para componentes puramente visuales ni para archivos de contenido (`src/content/`), salvo que contengan lógica.
    - Los tests no cuentan para la regla de «mínimo de líneas», pero deben ser concisos, legibles y sin duplicar código. Cada test se explica solo por su nombre.
    - Si el proyecto aún no tiene ejecutor de tests, propón uno (por ejemplo Vitest) y pregunta antes de instalarlo.
@@ -107,14 +107,19 @@ Negocios locales que ya venden pero tienen presencia digital floja: peluquerías
 - Rendimiento: imágenes con `next/image`, sin librerías pesadas innecesarias. Meta: Lighthouse ≥ 90 en las 4 categorías.
 - Formularios validados con **zod** en cliente y servidor, con honeypot y límite de envíos.
 - **Los comandos exactos del proyecto** (instalar, desarrollar, build, lint, test) se confirman en la Fase 0 del plan y se anotan aquí:
-  - `[PENDIENTE: completar tras la Fase 0]`
+  - Instalar: `npm install`
+  - Desarrollo: `npm run dev` (http://localhost:3000)
+  - Build y servir: `npm run build` y `npm start`
+  - Lint: `npm run lint` · Tipos: `npm run typecheck`
+  - Tests unitarios (Vitest): `npm test` (`npm run test:watch` en modo watch)
+  - Tests e2e (Playwright): `npm run test:e2e` (la primera vez, `npx playwright install`)
 
 ### Forma de trabajar
 
 Ver la **sección 0** (manda sobre todo lo demás). Además:
 
 - Una tarea cada vez, sin mezclar temas, para que cada mensaje de commit describa un solo cambio.
-- Después de cada fase: `lint`, `build` y revisión visual en móvil y escritorio.
+- Después de cada fase: `lint`, `build`, tests y revisión visual en móvil y escritorio.
 
 ## 7. SEO, legal y privacidad (España / UE)
 
@@ -145,7 +150,7 @@ El trabajo se hace por bloques y en este orden:
 
 ## 10. Estado actual y pendientes del propietario
 
-- [ ] Datos del titular para el aviso legal: nombre completo, NIF y domicilio de la actividad. `[PENDIENTE]`
+- [x] Datos del titular para el aviso legal: NIF y domicilio de la actividad (confirmados en `src/content/legal.ts`).
 - [ ] Correo corporativo `@youngdigisoft.es`. `[PENDIENTE]`
 - [ ] Crear cuentas de Instagram, LinkedIn y Google Business Profile con el mismo nombre. `[PENDIENTE]`
 - [ ] Trabajos previos para el portfolio (nombre, sector, qué se hizo, permiso de publicación). `[PENDIENTE]`

@@ -29,12 +29,12 @@ Publicar en **`youngdigisoft.es`** una web profesional que transmita confianza y
 
 Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat.
 
-- [ ] Instalar dependencias y comprobar que el proyecto compila (`build`) y pasa `lint`. Anotar en `CLAUDE.md` (sección 6) los comandos reales.
-- [ ] Listar versión de Next.js, uso de App Router o Pages Router, estilos (Tailwind u otro), dependencias y estructura de carpetas.
-- [ ] Revisar la web actual: secciones, textos, formulario (¿envía algo? ¿a dónde?), enlaces rotos (`#`), metadatos, páginas legales y accesibilidad.
-- [ ] Confirmar cómo está conectado a Vercel (rama de producción, variables de entorno existentes).
-- [ ] Comprobar si hay ejecutor de tests. Si no lo hay, proponer uno (por ejemplo Vitest) y **preguntar antes de instalarlo**. Anotar el comando de tests en `CLAUDE.md`.
-- [ ] Decidir y proponer: **reutilizar la base** o **reescribir los componentes**, conservando el repositorio y su historial. Esperar confirmación del propietario antes de la Fase 1.
+- [x] Instalar dependencias y comprobar que el proyecto compila (`build`) y pasa `lint`. Anotar en `CLAUDE.md` (sección 6) los comandos reales.
+- [x] Listar versión de Next.js, uso de App Router o Pages Router, estilos (Tailwind u otro), dependencias y estructura de carpetas.
+- [x] Revisar la web actual: secciones, textos, formulario (¿envía algo? ¿a dónde?), enlaces rotos (`#`), metadatos, páginas legales y accesibilidad.
+- [ ] Confirmar cómo está conectado a Vercel (rama de producción, variables de entorno existentes). `[PENDIENTE: el conector de Vercel da 403 en el equipo roka1206s-projects; revisarlo en el panel de Vercel]`
+- [x] Comprobar si hay ejecutor de tests. Si no lo hay, proponer uno (por ejemplo Vitest) y **preguntar antes de instalarlo**. Anotar el comando de tests en `CLAUDE.md`.
+- [x] Decidir y proponer: **reutilizar la base** o **reescribir los componentes**, conservando el repositorio y su historial. Esperar confirmación del propietario antes de la Fase 1.
 
 ## Fase 1: Cimientos de marca y estructura (día 1 a 2)
 
