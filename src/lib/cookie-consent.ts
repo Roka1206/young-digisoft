@@ -16,7 +16,7 @@ function subscribe(listener: () => void) {
   };
 }
 
-function getConsent() {
+export function getConsent() {
   if (consent === undefined) {
     try {
       const stored = localStorage.getItem(storageKey);
