@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Política de cookies",
   description:
-    "Qué tecnologías de almacenamiento local y analítica utiliza el sitio web de Young Digisoft, y por qué no requieren consentimiento.",
+    "Qué cookies y tecnologías de almacenamiento usa el sitio web de Young Digisoft, incluida Google Analytics, y cómo aceptarlas, rechazarlas o retirar el consentimiento.",
   path: "/cookies",
 });
 

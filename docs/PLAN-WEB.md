@@ -99,7 +99,7 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 - [ ] Página `/diseno-web-a-coruna` con contenido útil y no duplicado (a quién ayudamos, proceso, precios «desde», preguntas locales). Enlazarla desde la portada y el pie.
 - [ ] Enlazado interno entre servicios y contacto; texto alternativo en imágenes; una sola etiqueta `h1` por página.
 - [ ] Rendimiento: `next/image`, fuentes optimizadas, sin JavaScript innecesario en cliente.
-- [ ] Analítica sin cookies (Vercel Web Analytics o Plausible) para no necesitar banner; si se usa otra herramienta, añadir consentimiento previo.
+- [x] Analítica: Vercel Web Analytics (sin cookies) y Google Analytics 4 solo tras aceptar el banner de cookies, con «Configurar cookies» en el pie. `[PENDIENTE: plazo de conservación de datos configurado en GA4, para /privacidad]`
 
 ## Fase 5: Páginas legales (día 6 a 7)
 

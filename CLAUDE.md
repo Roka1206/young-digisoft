@@ -125,7 +125,7 @@ Ver la **sección 0** (manda sobre todo lo demás). Además:
 
 - **SEO local para A Coruña:** metadatos por página, `sitemap.xml`, `robots.txt`, datos estructurados JSON-LD (`ProfessionalService` / `LocalBusiness`), página de aterrizaje «Diseño web en A Coruña», imagen Open Graph y enlaces internos entre servicios.
 - **Textos legales obligatorios:** Aviso legal (LSSI-CE), Política de privacidad (RGPD y LOPDGDD) y Política de cookies. Deben usar los datos reales del titular. Los textos los redacta el asistente como **borrador**, y **un gestor o abogado debe revisarlos** antes de considerarlos definitivos.
-- **Cookies:** preferir analítica sin cookies (por ejemplo Vercel Web Analytics o Plausible) para evitar banner invasivo. Si se añade cualquier cookie no técnica, implementar consentimiento previo.
+- **Cookies:** el propietario ha decidido usar Google Analytics 4 además de Vercel Analytics (sin cookies). GA4 solo se carga tras aceptar en el banner de cookies (`src/lib/cookie-consent.ts`); rechazar pesa lo mismo que aceptar y la elección se cambia desde «Configurar cookies» en el pie. Cualquier otra cookie no técnica necesita el mismo consentimiento previo y debe figurar en `/cookies` y `/privacidad`.
 - **Formulario de contacto:** casilla de consentimiento con enlace a la política de privacidad, finalidad y responsable explicados en una línea.
 - Si algún proyecto de cliente trata datos personales, hará falta contrato de encargado de tratamiento (RGPD). No es el caso de esta web.
 
