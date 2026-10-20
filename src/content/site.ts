@@ -139,6 +139,6 @@ export const contact = {
 // TODO: reemplazar por las URLs reales de las redes sociales del negocio.
 export const socialLinks = [
   { name: "WhatsApp", href: contact.whatsappHref },
-  { name: "Instagram", href: "#" },
+  { name: "Instagram", href: "https://www.instagram.com/youngdigisoft/" },
   { name: "Facebook", href: "#" },
 ] as const;
