@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { offers } from "@/content/home";
 import { launchOffer, priceText } from "@/content/pricing";
 import { services } from "@/content/services";
@@ -16,6 +17,9 @@ export function Offers() {
             <Reveal key={plan.id} delay={index * 0.05}>
               <PriceCard plan={plan}>
                 {service.note && <p className="text-sm text-muted">{service.note}</p>}
+                <Link href={`/servicios/${service.slug}`} className="font-medium text-action underline hover:text-action-hover">
+                  {offers.detailsLink}
+                </Link>
               </PriceCard>
             </Reveal>
           ))

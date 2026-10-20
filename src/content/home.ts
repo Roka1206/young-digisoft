@@ -37,6 +37,7 @@ export const offers = {
   title: "Qué hacemos y cuánto cuesta",
   description: "Precios cerrados: antes de empezar te confirmamos por escrito el importe exacto de tu proyecto.",
   launchNote: "a cambio de",
+  detailsLink: "Ver detalles",
 };
 
 export const howWeWork = {
