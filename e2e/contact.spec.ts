@@ -13,6 +13,7 @@ test("contact form validates and submits successfully", async ({ page }) => {
 
   await form.getByRole("button", { name: /enviar mensaje/i }).click();
   await expect(form.getByText(/introduce tu nombre/i)).toBeVisible();
+  await expect(form.getByText(/necesitamos tu permiso/i)).toBeVisible();
 
   await page.route("**/api/contact", async (route) => {
     await route.fulfill({ status: 200, json: { ok: true } });
@@ -21,6 +22,7 @@ test("contact form validates and submits successfully", async ({ page }) => {
   await form.getByLabel("Nombre").fill("Ana Test");
   await form.getByLabel("Email").fill("ana@example.com");
   await form.getByLabel("Mensaje").fill("Quiero información sobre sus servicios digitales.");
+  await form.getByRole("checkbox", { name: /acepto la política de privacidad/i }).check();
   await form.getByRole("button", { name: /enviar mensaje/i }).click();
 
   await expect(page.getByText(/¡mensaje enviado!/i)).toBeVisible();
