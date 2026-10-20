@@ -11,14 +11,14 @@ Landing page de Young Digisoft, construida con [Next.js](https://nextjs.org) (Ap
 - **Colores de marca:** `--color-brand` (`#0197af`) y `--color-brand-light` / `--color-background` (`#f0f0f0`), definidos en `src/app/globals.css`
 - **Tests unitarios:** Vitest + Testing Library
 - **Tests e2e:** Playwright
-- **Gestor de paquetes:** pnpm
+- **Gestor de paquetes:** npm
 - **Deploy:** Vercel
 
 ## Empezar
 
 ```bash
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
 Abre [http://localhost:3000](http://localhost:3000).
@@ -27,15 +27,15 @@ Abre [http://localhost:3000](http://localhost:3000).
 
 | Script | Descripción |
 | --- | --- |
-| `pnpm dev` | Servidor de desarrollo |
-| `pnpm build` | Build de producción |
-| `pnpm start` | Sirve el build de producción |
-| `pnpm lint` | ESLint |
-| `pnpm typecheck` | Chequeo de tipos con `tsc` |
-| `pnpm test` | Tests unitarios (Vitest) |
-| `pnpm test:watch` | Tests unitarios en modo watch |
-| `pnpm test:e2e` | Tests end-to-end (Playwright). Requiere `pnpm exec playwright install` la primera vez |
-| `pnpm generate:brand-assets` | Regenera `public/logo.png`, `src/app/icon.png`, `src/app/apple-icon.png` y `src/app/favicon.ico` a partir de `assets/brand/young-digisoft-logo-source.png` |
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Build de producción |
+| `npm start` | Sirve el build de producción |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | Chequeo de tipos con `tsc` |
+| `npm test` | Tests unitarios (Vitest) |
+| `npm run test:watch` | Tests unitarios en modo watch |
+| `npm run test:e2e` | Tests end-to-end (Playwright). Requiere `npx playwright install` la primera vez |
+| `npm run generate:brand-assets` | Regenera `public/logo.png`, `src/app/icon.png`, `src/app/apple-icon.png` y `src/app/favicon.ico` a partir de `assets/brand/young-digisoft-logo-source.png` |
 
 ## Ramas
 
@@ -61,7 +61,7 @@ El remitente del email (`from`) usa el dominio de pruebas `onboarding@resend.dev
 
 ## Marca
 
-El logo fuente vive en `assets/brand/young-digisoft-logo-source.png`. Al ser un PNG de baja resolución (368x239px), los íconos generados a tamaños grandes (icon.png, apple-icon.png) pueden verse algo suaves. Si se consigue una versión vectorial (SVG/AI) del logo, reemplazar el source y volver a ejecutar `pnpm generate:brand-assets` para mejor nitidez.
+El logo fuente vive en `assets/brand/young-digisoft-logo-source.png`. Al ser un PNG de baja resolución (368x239px), los íconos generados a tamaños grandes (icon.png, apple-icon.png) pueden verse algo suaves. Si se consigue una versión vectorial (SVG/AI) del logo, reemplazar el source y volver a ejecutar `npm run generate:brand-assets` para mejor nitidez.
 
 ## Pendientes de contenido
 
