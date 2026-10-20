@@ -27,7 +27,7 @@ export function Contact() {
           {infoItems.map(({ icon: Icon, label, value, href }) => {
             const content = (
               <div className="flex items-center gap-4 rounded-2xl border border-border bg-surface p-4">
-                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-action/10 text-action">
                   <Icon size={20} />
                 </span>
                 <div>

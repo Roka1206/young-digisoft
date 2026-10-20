@@ -18,15 +18,7 @@ const item: Variants = {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            "radial-gradient(circle at top, color-mix(in oklab, var(--color-brand) 14%, transparent), transparent 60%)",
-        }}
-      />
+    <section>
       <motion.div
         variants={container}
         initial="hidden"
@@ -35,7 +27,7 @@ export function Hero() {
       >
         <motion.span
           variants={item}
-          className="rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-medium text-brand"
+          className="rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-medium text-action"
         >
           Digitalización · Tecnología · Soporte
         </motion.span>

@@ -29,7 +29,7 @@ export function Footer() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted transition-colors hover:text-brand"
+              className="text-sm text-muted transition-colors hover:text-action"
             >
               {link.label}
             </a>
@@ -40,10 +40,10 @@ export function Footer() {
           <h3 className="font-heading text-sm uppercase tracking-wide text-foreground">
             Contacto
           </h3>
-          <a href={contact.phoneHref} className="text-sm text-muted transition-colors hover:text-brand">
+          <a href={contact.phoneHref} className="text-sm text-muted transition-colors hover:text-action">
             {contact.phone}
           </a>
-          <a href={contact.emailHref} className="text-sm text-muted transition-colors hover:text-brand">
+          <a href={contact.emailHref} className="text-sm text-muted transition-colors hover:text-action">
             {contact.email}
           </a>
           <p className="text-sm text-muted">{contact.zone}</p>
@@ -56,13 +56,13 @@ export function Footer() {
             © {year} {site.name}. Todos los derechos reservados.
           </p>
           <div className="flex gap-4">
-            <Link href="/aviso-legal" className="transition-colors hover:text-brand">
+            <Link href="/aviso-legal" className="transition-colors hover:text-action">
               Aviso legal
             </Link>
-            <Link href="/privacidad" className="transition-colors hover:text-brand">
+            <Link href="/privacidad" className="transition-colors hover:text-action">
               Privacidad
             </Link>
-            <Link href="/cookies" className="transition-colors hover:text-brand">
+            <Link href="/cookies" className="transition-colors hover:text-action">
               Cookies
             </Link>
           </div>

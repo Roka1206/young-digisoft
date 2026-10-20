@@ -15,7 +15,7 @@ export function WhyUs() {
         <div className="mt-12 grid gap-8 sm:grid-cols-3">
           {whyUs.map((reason, index) => (
             <Reveal key={reason.title} delay={index * 0.1} className="flex flex-col items-center gap-3 text-center">
-              <span className="inline-flex size-12 items-center justify-center rounded-full bg-brand/10 text-brand">
+              <span className="inline-flex size-12 items-center justify-center rounded-full bg-action/10 text-action">
                 <CheckCircle2 size={24} />
               </span>
               <h3 className="font-heading text-lg text-foreground">{reason.title}</h3>

@@ -4,8 +4,8 @@ export function ServiceCard({ service }: { service: Service }) {
   const Icon = service.icon;
 
   return (
-    <div className="group flex h-full flex-col gap-4 rounded-2xl border border-border bg-surface p-6 transition-all duration-200 hover:-translate-y-1 hover:border-brand hover:shadow-lg">
-      <div className="inline-flex size-11 items-center justify-center rounded-xl bg-brand/10 text-brand transition-colors group-hover:bg-brand group-hover:text-brand-foreground">
+    <div className="group flex h-full flex-col gap-4 rounded-2xl border border-border bg-surface p-6 transition-all duration-200 hover:-translate-y-1 hover:border-action hover:shadow-lg">
+      <div className="inline-flex size-11 items-center justify-center rounded-xl bg-action/10 text-action transition-colors group-hover:bg-action group-hover:text-action-fg">
         <Icon size={22} />
       </div>
       <h3 className="font-heading text-lg text-foreground">{service.title}</h3>
