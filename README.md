@@ -35,7 +35,7 @@ Abre [http://localhost:3000](http://localhost:3000).
 | `npm test` | Tests unitarios (Vitest) |
 | `npm run test:watch` | Tests unitarios en modo watch |
 | `npm run test:e2e` | Tests end-to-end (Playwright). Requiere `npx playwright install` la primera vez |
-| `npm run generate:brand-assets` | Regenera `public/logo.png`, `src/app/icon.png`, `src/app/apple-icon.png` y `src/app/favicon.ico` a partir de `assets/brand/young-digisoft-logo-source.png` |
+| `npm run generate:brand-assets` | Regenera `src/app/icon.png`, `src/app/apple-icon.png` y `src/app/favicon.ico` a partir de `public/brand/logo-mark.svg` |
 
 ## Ramas
 
@@ -61,7 +61,7 @@ El remitente del email (`from`) usa el dominio de pruebas `onboarding@resend.dev
 
 ## Marca
 
-El logo fuente vive en `assets/brand/young-digisoft-logo-source.png`. Al ser un PNG de baja resolución (368x239px), los íconos generados a tamaños grandes (icon.png, apple-icon.png) pueden verse algo suaves. Si se consigue una versión vectorial (SVG/AI) del logo, reemplazar el source y volver a ejecutar `npm run generate:brand-assets` para mejor nitidez.
+El símbolo `>_` vive en `public/brand/logo-mark.svg` (vectorial, fuente única). El original en PNG es `public/brand/logo_digisoft.png`. Colores, tipografía y uso del logo: `docs/BRAND.md`. Tras cambiar el SVG, ejecuta `npm run generate:brand-assets`.
 
 ## Pendientes de contenido
 

@@ -7,8 +7,8 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
-  const iconBuffer = await readFile(path.join(process.cwd(), "src/app/icon.png"));
-  const iconSrc = `data:image/png;base64,${iconBuffer.toString("base64")}`;
+  const mark = await readFile(path.join(process.cwd(), "public/brand/logo-mark.svg"), "utf8");
+  const markSrc = `data:image/svg+xml;base64,${Buffer.from(mark.replace("#F1F1F1", "#00adb5")).toString("base64")}`;
 
   return new ImageResponse(
     (
@@ -26,7 +26,7 @@ export default async function Image() {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={iconSrc} width={140} height={140} style={{ borderRadius: 28 }} alt="" />
+        <img src={markSrc} width={168} height={144} alt="" />
         <div
           style={{
             marginTop: 40,

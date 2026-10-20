@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { contact, navLinks } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/ui/Logo";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { MobileNav } from "./MobileNav";
 
@@ -44,16 +44,8 @@ export function Header() {
             setOpen(false);
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="flex items-center gap-2"
         >
-          <Image
-            src="/logo.png"
-            alt="Young Digisoft"
-            width={135}
-            height={42}
-            priority
-            className="h-9 w-auto"
-          />
+          <Logo />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
