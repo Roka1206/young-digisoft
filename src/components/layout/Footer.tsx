@@ -11,7 +11,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[2fr_1fr_1fr] lg:px-8">
         <div className="flex flex-col gap-4">
           <Logo className="self-start" />
-          <p className="max-w-sm text-sm text-muted">{site.tagline}</p>
+          <p className="max-w-sm text-sm text-muted">{site.descriptor}</p>
           <SocialLinks />
         </div>
 

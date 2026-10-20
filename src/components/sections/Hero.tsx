@@ -36,7 +36,7 @@ export function Hero() {
           variants={item}
           className="font-bold text-4xl leading-tight text-foreground sm:text-5xl lg:text-6xl"
         >
-          {site.tagline}
+          {site.slogan}
         </motion.h1>
 
         <motion.p variants={item} className="max-w-2xl text-lg text-muted">

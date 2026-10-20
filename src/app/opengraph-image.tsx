@@ -47,7 +47,7 @@ export default async function Image() {
             lineHeight: 1.4,
           }}
         >
-          {site.tagline}
+          {site.slogan}
         </div>
       </div>
     ),

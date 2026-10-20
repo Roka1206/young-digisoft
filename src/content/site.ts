@@ -16,9 +16,10 @@ import {
 
 export const site = {
   name: "Young Digisoft",
-  tagline: "Digitalización, tecnología y soporte para empresas y autónomos",
+  slogan: "Tecnología que trabaja para tu negocio.",
+  descriptor: "Desarrollo web y automatización para pymes y autónomos",
   description:
-    "En Young Digisoft acompañamos a empresas y autónomos en su transformación digital: digitalizamos procesos, reparamos y mantenemos tus equipos, y creamos las herramientas web y móviles que tu negocio necesita para crecer. Soluciones cercanas, rápidas y adaptadas a cada presupuesto.",
+    "Webs, automatización y consultoría para pymes y autónomos. Precio cerrado, plazo claro y trato directo. Desde A Coruña, para toda España.",
 };
 
 export const navLinks = [

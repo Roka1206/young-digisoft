@@ -24,7 +24,7 @@ const jetBrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${site.name} — ${site.tagline}`,
+    default: `${site.name} — ${site.descriptor}`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.name} — ${site.descriptor}`,
     description: site.description,
     url: siteUrl,
     siteName: site.name,
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.name} — ${site.descriptor}`,
     description: site.description,
   },
   verification: {
