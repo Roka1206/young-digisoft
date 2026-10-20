@@ -132,7 +132,7 @@ Ver la **sección 0** (manda sobre todo lo demás). Además:
 ## 8. Contacto público actual
 
 - WhatsApp y teléfono: 655 08 73 21.
-- Email: **cambiar a un correo corporativo `@youngdigisoft.es`** cuando exista (el actual es de Gmail, `[PENDIENTE]`).
+- Email: `info@youngdigisoft.es`.
 - Redes: Instagram, LinkedIn (página de empresa) y Google Business Profile. **Todavía no existen las cuentas.** No enlazar a `#`: si una red no existe, se oculta el icono.
 
 ## 9. Hoja de ruta global
@@ -151,7 +151,7 @@ El trabajo se hace por bloques y en este orden:
 ## 10. Estado actual y pendientes del propietario
 
 - [x] Datos del titular para el aviso legal: NIF y domicilio de la actividad (confirmados en `src/content/legal.ts`).
-- [ ] Correo corporativo `@youngdigisoft.es`. `[PENDIENTE]`
+- [x] Correo corporativo: `info@youngdigisoft.es`.
 - [ ] Crear cuentas de Instagram, LinkedIn y Google Business Profile con el mismo nombre. `[PENDIENTE]`
 - [ ] Trabajos previos para el portfolio (nombre, sector, qué se hizo, permiso de publicación). `[PENDIENTE]`
 - [ ] Decidir si el informe del Diagnóstico digital va incluido en la hora. `[PENDIENTE]`

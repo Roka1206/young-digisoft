@@ -130,8 +130,8 @@ export const contact = {
   whatsappHref:
     "https://wa.me/34655087321?text=" +
     encodeURIComponent("Hola, quiero más información sobre los servicios de Young Digisoft."),
-  email: "1206roka@gmail.com",
-  emailHref: "mailto:1206roka@gmail.com",
+  email: "info@youngdigisoft.es",
+  emailHref: "mailto:info@youngdigisoft.es",
   zone: "A Coruña (presencial) y online en toda España",
 };
 
