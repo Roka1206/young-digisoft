@@ -19,7 +19,7 @@ export const prices: Record<PlanId, Price> = {
 
 export const launchOffer = {
   audience: "para los primeros 3 a 5 clientes",
-  endsOn: "[PENDIENTE: fecha de caducidad]",
+  endsOn: "el 31 de enero de 2027",
   conditions: [
     "un testimonio verificable con tu nombre",
     "permiso para mostrar el trabajo en nuestro portfolio",

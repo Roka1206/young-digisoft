@@ -57,7 +57,9 @@ Hay 4 ofertas. No añadas servicios nuevos a la web sin que el propietario lo de
 
 Notas:
 - El precio de lanzamiento tiene condiciones reales: testimonio verificable con nombre, permiso para mostrar el trabajo y reseña en Google. Debe mostrarse con fecha de caducidad.
-- El Diagnóstico digital se descuenta si el cliente contrata después una web o una automatización. **Pendiente de decidir:** si el informe escrito va incluido en la hora o se factura aparte.
+- El Diagnóstico digital se descuenta si el cliente contrata después una web o una automatización. Incluye un resumen escrito con las recomendaciones priorizadas; un informe detallado se presupuesta aparte.
+- El precio de lanzamiento es válido hasta el 31 de enero de 2027 o hasta completar 5 clientes, lo que ocurra antes.
+- Qué no incluye cada servicio y las rondas de revisión (2 en web, 1 en automatización) están en `src/content/services.ts`.
 - La web publica precios "desde". **Todos los importes viven en un único archivo** (`src/content/pricing.ts`), nunca escritos a mano en los componentes.
 - Fuera de los primeros 6 meses: apps a medida, tiendas online complejas, reparación de hardware, redes. Si llega un encargo así, se valora aparte.
 
@@ -157,9 +159,10 @@ El trabajo se hace por bloques y en este orden:
 - [x] Cuentas de Instagram y LinkedIn creadas y enlazadas en la web.
 - [ ] Pasar la URL de la página de Facebook y crear Google Business Profile. `[PENDIENTE]`
 - [ ] Trabajos previos para el portfolio (nombre, sector, qué se hizo, permiso de publicación). `[PENDIENTE]`
-- [ ] Decidir si el informe del Diagnóstico digital va incluido en la hora. `[PENDIENTE]`
+- [x] Informe del Diagnóstico digital: incluye resumen escrito; el informe detallado se presupuesta aparte.
+- [x] Fecha de fin del precio de lanzamiento, qué no incluye cada servicio y rondas de revisión.
 - [x] Conectar `youngdigisoft.es` al proyecto de Vercel.
 - [x] Verificar `youngdigisoft.es` en Resend.
-- [ ] Definir en Vercel `RESEND_API_KEY`, `CONTACT_FROM_EMAIL` y `CONTACT_TO_EMAIL` (sin ellas el formulario no envía). `[PENDIENTE: comprobar]`
+- [x] Definir en Vercel `RESEND_API_KEY`, `CONTACT_FROM_EMAIL` y `CONTACT_TO_EMAIL` (en Production, Preview y Development).
 
 > Mantén esta sección al día: tacha lo hecho y añade lo nuevo.

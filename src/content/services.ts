@@ -24,8 +24,6 @@ export type Service = {
   faq?: FaqItem[];
 };
 
-const pending = "[PENDIENTE]";
-
 const webPlans: Plan[] = [
   {
     id: "webEssential",
@@ -56,8 +54,14 @@ export const services: Service[] = [
       "Te hacemos una web profesional y rápida, y configuramos tu ficha de Google para que los clientes de tu zona te encuentren y te escriban.",
     audience: "Negocios que quieren aparecer en Google y recibir contactos desde su web.",
     plans: webPlans,
-    excludes: [pending],
-    revisionRounds: pending,
+    excludes: [
+      "El coste del dominio y del hosting: van a tu nombre y los pagas al proveedor",
+      "La redacción de textos y la sesión de fotos: los aportas tú y te ayudamos a ordenarlos",
+      "Tienda online y pagos",
+      "Versiones en otros idiomas",
+      "El mantenimiento tras la entrega, que es un servicio aparte",
+    ],
+    revisionRounds: "2 rondas de cambios incluidas antes de publicar. Los cambios extra se presupuestan aparte.",
     sectors: [
       "Peluquerías y centros de estética",
       "Clínicas de fisioterapia, dentistas y psicólogos",
@@ -124,8 +128,12 @@ export const services: Service[] = [
         timeline: "1 a 2 semanas desde el diagnóstico",
       },
     ],
-    excludes: [pending],
-    revisionRounds: pending,
+    excludes: [
+      "Las licencias de herramientas de terceros, como el CRM o WhatsApp Business",
+      "Más de una automatización",
+      "El mantenimiento tras la entrega",
+    ],
+    revisionRounds: "1 ronda de ajustes tras ponerla en marcha.",
   },
   {
     slug: "mantenimiento",
@@ -146,7 +154,11 @@ export const services: Service[] = [
         ],
       },
     ],
-    excludes: [pending],
+    excludes: [
+      "Secciones o funciones nuevas, que se presupuestan aparte",
+      "Los cambios que superen la bolsa mensual",
+      "El coste del dominio",
+    ],
   },
   {
     slug: "diagnostico-digital",
@@ -160,12 +172,15 @@ export const services: Service[] = [
         name: "Diagnóstico digital",
         includes: [
           "Sesión de 60 minutos",
-          "Recomendaciones priorizadas sobre web, Google, procesos, herramientas y seguridad",
+          "Resumen escrito con recomendaciones priorizadas sobre web, Google, procesos, herramientas y seguridad",
         ],
         timeline: "Sesión de 60 minutos y recomendaciones en pocos días",
       },
     ],
-    excludes: [pending],
+    excludes: [
+      "La puesta en marcha de las recomendaciones, que se presupuesta aparte",
+      "Un informe detallado, que se presupuesta aparte",
+    ],
     note: "Se descuenta si después contratas una web o una automatización.",
   },
 ];
