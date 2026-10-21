@@ -75,7 +75,7 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 
 - Cada oferta: para quién es, qué incluye, qué no incluye, plazo estimado, precio «desde», cuántas rondas de revisión y llamada a la acción.
 - Lenguaje claro, en plural de empresa y de tú. Sin superlativos ni promesas de resultados garantizados.
-- **Precio de lanzamiento:** mostrarlo con etiqueta clara y fecha de caducidad `[PENDIENTE: fecha]`, leyendo los importes de `pricing.ts`.
+- **Precio de lanzamiento:** mostrarlo con etiqueta clara y fecha de caducidad (31 de enero de 2027 o hasta 5 clientes, en `pricing.ts`), leyendo los importes de `pricing.ts`.
 - **Portfolio:** estructura en `portfolio.ts` (nombre, sector, qué se hizo, tecnologías, resultado verificable, enlace, permiso). Hasta que el propietario aporte casos reales, la sección no se renderiza. **No generes casos ficticios.**
 - **Testimonios:** eliminar los actuales. No añadir ninguno hasta tener opiniones reales con nombre y permiso.
 - Redes sociales: mostrar solo las que ya existan. Si no hay cuenta, ocultar el icono.
