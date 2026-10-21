@@ -20,6 +20,19 @@ describe("businessJsonLd", () => {
     });
   });
 
+  it("names the founder with his LinkedIn profile, the slogan and the areas of expertise", () => {
+    expect(business).toMatchObject({
+      slogan: "Tecnología que trabaja para tu negocio.",
+      founder: {
+        "@type": "Person",
+        name: "Ronald Fonseca",
+        jobTitle: "Ingeniero de software",
+        sameAs: ["https://www.linkedin.com/in/rfonsecah92"],
+      },
+    });
+    expect(business.knowsAbout).toContain("Automatización de procesos");
+  });
+
   it("lists only social profiles, not the WhatsApp chat link", () => {
     expect(business.sameAs).toEqual([
       "https://www.instagram.com/youngdigisoft/",

@@ -1,7 +1,7 @@
-import { contact } from "./site";
+import { contact, founder } from "./site";
 
 export const legalEntity = {
-  ownerName: "Ronald Fonseca",
+  ownerName: founder.name,
   tradeName: "Young Digisoft",
   taxId: "32946796D",
   address: "Rúa Linares Rivas 9 bajo, 15160, Sada, A Coruña",

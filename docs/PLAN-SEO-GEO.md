@@ -55,7 +55,7 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 ### 3.3 Oportunidades
 
 - [x] **`llms.txt`** en la raíz: un resumen en texto plano de quiénes somos, servicios, precios «desde», zona y contacto, con enlaces a cada página. Lo leen algunos asistentes y agentes de IA; coste mínimo. → `src/app/llms.txt/route.ts` generado desde `src/content/`.
-- [ ] **Enriquecer el JSON-LD de `ProfessionalService`:** `founder` (`Person`: Ronald Fonseca, ingeniero de software, con LinkedIn personal `[PENDIENTE: URL]`), `knowsAbout` (diseño web, SEO local, automatización, Next.js…), `priceRange`, `slogan`, `foundingDate` `[PENDIENTE]` y `openingHours` `[PENDIENTE]`. → `src/lib/structured-data.ts`.
+- [x] **Enriquecer el JSON-LD de `ProfessionalService`:** `founder` (`Person`: Ronald Fonseca, ingeniero de software, con LinkedIn personal `[PENDIENTE: URL]`), `knowsAbout` (diseño web, SEO local, automatización, Next.js…), `priceRange`, `slogan`, `foundingDate` `[PENDIENTE]` y `openingHours` `[PENDIENTE]`. → `src/lib/structured-data.ts`. Hecho: `founder` con LinkedIn, `knowsAbout` y `slogan`. Sin `priceRange` (solo admite una franja subjetiva tipo «€€»; los precios reales ya van en cada `Service`). Faltan `foundingDate` y `openingHours`.
 - [ ] **`FAQPage` en cada página de servicio** con 3 a 5 preguntas reales por servicio (precio, plazo, qué necesito aportar, qué pasa si…). Las IA citan mucho las FAQ.
 - [ ] **Blog / guías** (la oferta Web Pro incluye blog; la propia web no lo tiene). Artículos que respondan preguntas exactas de dueños de negocio, ver §5.
 - [ ] **Página «Sobre nosotros»**: quién está detrás, experiencia real, forma de trabajar. Es la señal de confianza (E-E-A-T) que más falta y la que las IA usan para describir una empresa. Solo con datos reales del propietario.
@@ -122,8 +122,8 @@ Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de pu
 - [x] `BreadcrumbList` en servicios.
 - [x] `lastmod` real o sin `lastmod` en el sitemap.
 - [x] `llms.txt` generado desde `src/content/`.
-- [ ] JSON-LD enriquecido (`founder`, `knowsAbout`, `priceRange`, `slogan`) con los datos que haya; el resto `[PENDIENTE]`.
-- [ ] Tests: el `llms.txt`, el sitemap y el JSON-LD nuevos llevan su test (regla 5 de `CLAUDE.md`).
+- [x] JSON-LD enriquecido (`founder`, `knowsAbout`, `priceRange`, `slogan`) con los datos que haya; el resto `[PENDIENTE]`. Hecho salvo `priceRange` (ver §3.3).
+- [x] Tests: el `llms.txt`, el sitemap y el JSON-LD nuevos llevan su test (regla 5 de `CLAUDE.md`).
 
 ### Fase B: presencia local (semana 1 a 2, propietario)
 

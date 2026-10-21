@@ -9,6 +9,22 @@ export const site = {
     "Webs, automatización y consultoría para pymes y autónomos. Precio cerrado, plazo claro y trato directo. Desde A Coruña, para toda España.",
 };
 
+// Founder data for structured data; the legal texts take the owner name from here.
+export const founder = {
+  name: "Ronald Fonseca",
+  jobTitle: "Ingeniero de software",
+  linkedin: "https://www.linkedin.com/in/rfonsecah92",
+};
+
+export const expertise = [
+  "Diseño web",
+  "Desarrollo web con Next.js y TypeScript",
+  "SEO local",
+  "Google Business Profile",
+  "Automatización de procesos",
+  "Consultoría tecnológica para pymes",
+];
+
 export const navLinks = [
   { label: "Servicios", href: "/#servicios" },
   { label: "Cómo trabajamos", href: "/#como-trabajamos" },

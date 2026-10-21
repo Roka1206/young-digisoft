@@ -1,7 +1,7 @@
 import type { FaqItem } from "@/content/faq";
 import { prices } from "@/content/pricing";
 import type { Service } from "@/content/services";
-import { contact, site, socialLinks } from "@/content/site";
+import { contact, expertise, founder, site, socialLinks } from "@/content/site";
 import { siteUrl } from "./site-url";
 
 const businessId = `${siteUrl}/#business`;
@@ -14,6 +14,7 @@ export function businessJsonLd() {
     "@type": "ProfessionalService",
     "@id": businessId,
     name: site.name,
+    slogan: site.slogan,
     description: site.description,
     url: siteUrl,
     logo: `${siteUrl}/icon.png`,
@@ -22,6 +23,8 @@ export function businessJsonLd() {
     email: contact.email,
     address: { "@type": "PostalAddress", addressRegion: "A Coruña", addressCountry: "ES" },
     areaServed: spain,
+    knowsAbout: expertise,
+    founder: { "@type": "Person", name: founder.name, jobTitle: founder.jobTitle, sameAs: [founder.linkedin] },
     sameAs: socialLinks.map((link) => link.href).filter((href) => !href.startsWith("https://wa.me")),
   };
 }
