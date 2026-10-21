@@ -78,7 +78,7 @@ Producción hoy solo envía `Strict-Transport-Security`. Faltan:
 
 ### 3.4 Baja
 
-- [ ] **`.pnpm-runner/` en git** (466 archivos, 48 MB, binarios y scripts de pnpm). Quedó tras `chore: migrate package manager from pnpm to npm`. Es código de terceros versionado que nadie revisa. `git rm -r --cached .pnpm-runner` y añadirlo a `.gitignore`. El historial conserva los archivos; limpiarlo del historial no compensa. **Requiere permiso del propietario** (regla 7 de `CLAUDE.md`).
+- [x] **`.pnpm-runner/` en git** (466 archivos, 48 MB, binarios y scripts de pnpm). Quedó tras `chore: migrate package manager from pnpm to npm`. Es código de terceros versionado que nadie revisa. `git rm -r --cached .pnpm-runner` y añadirlo a `.gitignore`. El historial conserva los archivos; limpiarlo del historial no compensa. **Requiere permiso del propietario** (regla 7 de `CLAUDE.md`).
 - [ ] **Límite de envíos por instancia** (`src/lib/rate-limit.ts`): con varias instancias de Vercel, el límite real es 5 × número de instancias. Opciones: Vercel Firewall (regla de *rate limit* en `/api/contact`, sin código) o un almacén compartido del Marketplace. Ya está anotado en `PLAN-WEB.md`.
 - [ ] **IP del límite de envíos:** se toma el primer valor de `x-forwarded-for`. En Vercel lo fija la plataforma, así que es fiable; si algún día se despliega fuera de Vercel, revisarlo.
 - [ ] **`/.well-known/security.txt`** con `Contact: mailto:info@youngdigisoft.es`, `Expires` y `Preferred-Languages: es, en`, para que quien encuentre un fallo sepa a quién avisar.
@@ -168,7 +168,7 @@ test("accepting cookies loads Google Analytics without CSP errors", ...);
 - [x] Endurecer `ci.yml`, añadir `npm audit` y Dependabot (§3.5).
 - [x] Medir la cobertura y fijar el umbral (§4.3): `npm run test:coverage` en el CI; 90 % global y 100 % de ramas en los archivos críticos.
 - [ ] *Smoke test* contra producción tras cada despliegue.
-- [ ] Sacar `.pnpm-runner/` de git (§3.4). **Pide permiso:** borra archivos del repositorio.
+- [x] Sacar `.pnpm-runner/` de git (§3.4). **Pide permiso:** borra archivos del repositorio.
 
 ### Fase 4: propietario (cuando pueda)
 
