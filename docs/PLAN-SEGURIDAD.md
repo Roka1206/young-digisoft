@@ -158,8 +158,8 @@ test("accepting cookies loads Google Analytics without CSP errors", ...);
 
 ### Fase 2: semana 1 (código)
 
-- [x] Cabeceras de seguridad (§3.2) y su test e2e (`e2e/security-headers.spec.ts`). La CSP se aplica en modo bloqueante: los e2e comprueban que no hay violaciones. `[PENDIENTE: confirmar GA4 con la CSP en producción]`
-- [ ] Endurecer el formulario (§3.3) con sus tests.
+- [x] Cabeceras de seguridad (§3.2) y su test e2e (`e2e/security-headers.spec.ts`). La CSP se aplica en modo bloqueante: los e2e comprueban que no hay violaciones. GA4 confirmado en producción con la CSP (Tiempo real).
+- [x] Endurecer el formulario (§3.3) con sus tests: longitudes máximas, nombre sin caracteres de control, servicio de la lista, `Origin` del mismo dominio (403) y cuerpo ≤ 32 KB (413) en `src/lib/request-guards.ts`.
 - [ ] Tests de `cookie-consent.ts` y `analytics.ts` (§4.2).
 - [ ] `security.txt`.
 
