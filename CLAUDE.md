@@ -168,9 +168,9 @@ El trabajo se hace por bloques y en este orden:
 - [x] `youngdigisoft.es` verificado en Google Search Console y sitemap enviado.
 - [x] Conservación de datos en GA4: 14 meses (recogido en `/privacidad`).
 - [x] Vista previa al compartir comprobada en LinkedIn y Meta (Facebook e Instagram).
-- [ ] Comprobar la vista previa en WhatsApp desde el móvil. `[PENDIENTE]`
+- [x] Vista previa en WhatsApp comprobada desde el móvil.
 - [x] Configuración de Vercel revisada: producción desde `main`, variables de entorno correctas.
-- [ ] Dar acceso al conector de Vercel de Claude sobre el equipo `roka1206s-projects` (hoy responde 403). `[PENDIENTE]`
+- [ ] Conector de Vercel de Claude reconectado por el propietario (21 oct 2026), pero aún responde 403 sobre `roka1206s-projects`: comprobarlo en una sesión nueva. `[PENDIENTE]`
 - **Siguiente bloque:** captación de clientes (sección 9, punto 4).
 
 > Mantén esta sección al día: tacha lo hecho y añade lo nuevo.
