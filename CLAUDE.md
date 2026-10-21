@@ -114,8 +114,8 @@ Negocios locales que ya venden pero tienen presencia digital floja: peluquerías
   - Build y servir: `npm run build` y `npm start`
   - Lint: `npm run lint` · Tipos: `npm run typecheck`
   - Formato (Prettier, con orden de clases de Tailwind): `npm run format` (aplica) y `npm run format:check` (comprueba)
-  - Tests unitarios (Vitest): `npm test` (`npm run test:watch` en modo watch)
-  - Tests e2e (Playwright): `npm run test:e2e` (la primera vez, `npx playwright install`)
+  - Tests unitarios (Vitest): `npm test` (`npm run test:watch` en modo watch; `npm run test:coverage` con umbrales, el que usa el CI)
+  - Tests e2e (Playwright): `npm run test:e2e` (la primera vez, `npx playwright install`). Fuera del CI reutiliza lo que escuche en el puerto 3000: cierra `npm run dev` antes, o probarás contra el modo desarrollo.
 
 ### Forma de trabajar
 

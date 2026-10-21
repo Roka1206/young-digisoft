@@ -12,11 +12,11 @@ const validPayload = {
 };
 
 let ipCounter = 0;
-const post = (body: unknown, ip = `10.0.0.${++ipCounter}`) =>
+const post = (body: unknown, ip = `10.0.0.${++ipCounter}`, origin = "http://localhost") =>
   POST(
     new Request("http://localhost/api/contact", {
       method: "POST",
-      headers: { "x-forwarded-for": ip },
+      headers: { "x-forwarded-for": ip, origin },
       body: typeof body === "string" ? body : JSON.stringify(body),
     }),
   );
@@ -60,6 +60,20 @@ describe("POST /api/contact", () => {
     for (let i = 0; i < 6; i++) statuses.push((await post(validPayload, "192.168.1.1")).status);
     expect(statuses).toEqual([200, 200, 200, 200, 200, 429]);
     expect(sendContactEmail).toHaveBeenCalledTimes(5);
+  });
+
+  it("still accepts a request without a forwarded IP", async () => {
+    expect((await post(validPayload, "")).status).toBe(200);
+  });
+
+  it("answers 403 without sending when the request comes from another origin", async () => {
+    expect((await post(validPayload, undefined, "https://evil.example")).status).toBe(403);
+    expect(sendContactEmail).not.toHaveBeenCalled();
+  });
+
+  it("answers 413 without sending when the body is over 32 KB", async () => {
+    expect((await post({ ...validPayload, message: "a".repeat(33_000) })).status).toBe(413);
+    expect(sendContactEmail).not.toHaveBeenCalled();
   });
 
   it("answers 502 when the email service fails", async () => {

@@ -17,6 +17,14 @@ test("the API route also gets the security headers", async ({ request }) => {
   expect(headers["x-content-type-options"]).toBe("nosniff");
 });
 
+test("security.txt tells researchers how to report a vulnerability", async ({ request }) => {
+  const response = await request.get("/.well-known/security.txt");
+  expect(response.status()).toBe(200);
+  const body = await response.text();
+  expect(body).toContain("Contact: mailto:info@youngdigisoft.es");
+  expect(new Date(body.match(/^Expires: (.+)$/m)![1]).getTime()).toBeGreaterThan(Date.now());
+});
+
 for (const path of ["/", "/contacto", "/servicios/web"]) {
   test(`${path} loads without Content Security Policy violations`, async ({ page }) => {
     const violations: string[] = [];

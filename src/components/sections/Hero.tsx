@@ -15,10 +15,10 @@ export function Hero() {
       <Container>
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 py-24 text-center sm:py-32">
           <div className={rise} style={stagger(0)}>
-            <Badge className="text-action">{hero.badge}</Badge>
+            <Badge className="text-balance text-action">{hero.badge}</Badge>
           </div>
           <h1 className={`${rise} text-[2rem]/10 font-bold sm:text-[2.5rem]/12`} style={stagger(1)}>
-            {site.slogan}
+            {site.descriptor}
           </h1>
           <p className={`${rise} max-w-2xl text-lg leading-relaxed text-muted`} style={stagger(2)}>
             {site.description}

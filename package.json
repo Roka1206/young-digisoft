@@ -12,6 +12,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "generate:brand-assets": "node scripts/generate-brand-assets.mjs"
   },
@@ -40,6 +41,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.1.1",
+    "@vitest/coverage-v8": "5.0.5",
     "eslint": "^9",
     "eslint-config-next": "16.3.8",
     "jsdom": "^30.0.1",

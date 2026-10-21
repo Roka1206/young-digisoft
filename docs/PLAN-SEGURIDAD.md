@@ -78,7 +78,7 @@ Producción hoy solo envía `Strict-Transport-Security`. Faltan:
 
 ### 3.4 Baja
 
-- [ ] **`.pnpm-runner/` en git** (466 archivos, 48 MB, binarios y scripts de pnpm). Quedó tras `chore: migrate package manager from pnpm to npm`. Es código de terceros versionado que nadie revisa. `git rm -r --cached .pnpm-runner` y añadirlo a `.gitignore`. El historial conserva los archivos; limpiarlo del historial no compensa. **Requiere permiso del propietario** (regla 7 de `CLAUDE.md`).
+- [x] **`.pnpm-runner/` en git** (466 archivos, 48 MB, binarios y scripts de pnpm). Quedó tras `chore: migrate package manager from pnpm to npm`. Es código de terceros versionado que nadie revisa. `git rm -r --cached .pnpm-runner` y añadirlo a `.gitignore`. El historial conserva los archivos; limpiarlo del historial no compensa. **Requiere permiso del propietario** (regla 7 de `CLAUDE.md`).
 - [ ] **Límite de envíos por instancia** (`src/lib/rate-limit.ts`): con varias instancias de Vercel, el límite real es 5 × número de instancias. Opciones: Vercel Firewall (regla de *rate limit* en `/api/contact`, sin código) o un almacén compartido del Marketplace. Ya está anotado en `PLAN-WEB.md`.
 - [ ] **IP del límite de envíos:** se toma el primer valor de `x-forwarded-for`. En Vercel lo fija la plataforma, así que es fiable; si algún día se despliega fuera de Vercel, revisarlo.
 - [ ] **`/.well-known/security.txt`** con `Contact: mailto:info@youngdigisoft.es`, `Expires` y `Preferred-Languages: es, en`, para que quien encuentre un fallo sepa a quién avisar.
@@ -87,19 +87,19 @@ Producción hoy solo envía `Strict-Transport-Security`. Faltan:
 
 `.github/workflows/ci.yml`:
 
-- [ ] `permissions: contents: read` a nivel de workflow (hoy usa los permisos por defecto del token).
-- [ ] `actions/checkout` y `actions/setup-node` a v5 (las v4 usan Node 20, obsoleto en GitHub Actions). Opcional: fijarlas por SHA.
-- [ ] Paso `npm audit --omit=dev --audit-level=high`, para que el CI falle si una dependencia de producción tiene un aviso alto o crítico.
-- [ ] `.github/dependabot.yml` semanal para `npm` y `github-actions`, agrupando las actualizaciones menores y de parche.
-- [ ] Activar en GitHub (*Settings → Code security*): alertas de Dependabot, *secret scanning* y *push protection*. → Propietario.
-- [ ] Protección de la rama `main`: exigir que el CI pase antes de fusionar. → Propietario.
+- [x] `permissions: contents: read` a nivel de workflow (hoy usa los permisos por defecto del token).
+- [x] `actions/checkout`, `actions/setup-node` y `actions/upload-artifact` a v7 (las v4 usaban Node 20, obsoleto en GitHub Actions). Opcional: fijarlas por SHA.
+- [x] Paso `npm audit --omit=dev --audit-level=high`, para que el CI falle si una dependencia de producción tiene un aviso alto o crítico.
+- [x] `.github/dependabot.yml` semanal para `npm` y `github-actions`, agrupando las actualizaciones menores y de parche.
+- [x] Activar en GitHub (*Settings → Code security*): alertas de Dependabot, *secret scanning* y *push protection*. → Propietario.
+- [x] Protección de la rama `main`: exigir que el CI pase antes de fusionar. → Propietario. Regla «Proteger main»: CI obligatorio, sin borrado ni force push.
 
 ### 3.6 Cuentas y servicios (propietario)
 
-- [ ] Doble factor (2FA) en GitHub, Vercel, Google (cuenta de GA4 y Search Console), Resend y el registrador del dominio.
-- [ ] Clave de Resend con permiso **solo de envío** («Sending access») y limitada al dominio `youngdigisoft.es`. `[PENDIENTE: confirmar en Resend]`
-- [ ] Bloqueo de transferencia del dominio activado en el registrador. `[PENDIENTE: confirmar]`
-- [ ] Registros SPF, DKIM y DMARC del dominio (Resend ya exige SPF y DKIM; añadir DMARC con `p=quarantine` cuando los envíos estén estables). `[PENDIENTE: comprobar el DMARC actual]`
+- [x] Doble factor (2FA) en GitHub, Vercel, Google (1206roka@gmail.com), Resend y OVH. Desactivado en las cinco al revisarlo el 21 oct 2026; activado por el propietario el mismo día (confirmado por él, no comprobado desde fuera).
+- [x] Clave de Resend: una sola (`young-digisoft`) con «Sending access». Dominio «All domains»: equivale a `youngdigisoft.es` mientras sea el único dominio en Resend; restringirla si se añade otro.
+- [x] Bloqueo de transferencia del dominio activado en OVH. DNSSEC solicitado en OVH el 21 oct 2026: la zona ya está firmada y falta que el registro `.es` publique el `DS` (hasta 24 h). `[PENDIENTE: comprobar el DS el 22 oct]`
+- [ ] SPF (`include:mx.ovh.com`), DKIM de Resend y DMARC publicados. DMARC en `p=none` (solo vigila). El correo de OVH es un MX Plan de redirección sin buzones, así que solo Resend envía como `@youngdigisoft.es`. Endurecer a `p=quarantine` cuando se confirme que ningún otro servicio envía como el dominio. El propietario envía desde Zimbra (OVH) y desde Gmail como `info@`: antes de endurecer hay que confirmar el DKIM de Zimbra y el servidor SMTP de Gmail. `[PENDIENTE: resultados del prompt de Zimbra y Gmail]`
 
 ## 4. Plan de testing
 
@@ -158,22 +158,22 @@ test("accepting cookies loads Google Analytics without CSP errors", ...);
 
 ### Fase 2: semana 1 (código)
 
-- [x] Cabeceras de seguridad (§3.2) y su test e2e (`e2e/security-headers.spec.ts`). La CSP se aplica en modo bloqueante: los e2e comprueban que no hay violaciones. `[PENDIENTE: confirmar GA4 con la CSP en producción]`
-- [ ] Endurecer el formulario (§3.3) con sus tests.
-- [ ] Tests de `cookie-consent.ts` y `analytics.ts` (§4.2).
-- [ ] `security.txt`.
+- [x] Cabeceras de seguridad (§3.2) y su test e2e (`e2e/security-headers.spec.ts`). La CSP se aplica en modo bloqueante: los e2e comprueban que no hay violaciones. GA4 confirmado en producción con la CSP (Tiempo real).
+- [x] Endurecer el formulario (§3.3) con sus tests: longitudes máximas, nombre sin caracteres de control, servicio de la lista, `Origin` del mismo dominio (403) y cuerpo ≤ 32 KB (413) en `src/lib/request-guards.ts`.
+- [x] Tests de `cookie-consent.ts` y `analytics.ts` (§4.2), validados rompiendo el código a propósito.
+- [x] `security.txt` en `public/.well-known/` (caduca el 21 oct 2027; el e2e falla si caduca).
 
 ### Fase 3: semana 2 (CI y repositorio)
 
-- [ ] Endurecer `ci.yml`, añadir `npm audit` y Dependabot (§3.5).
-- [ ] Medir la cobertura y fijar el umbral (§4.3). **Pide permiso:** dependencia nueva.
+- [x] Endurecer `ci.yml`, añadir `npm audit` y Dependabot (§3.5).
+- [x] Medir la cobertura y fijar el umbral (§4.3): `npm run test:coverage` en el CI; 90 % global y 100 % de ramas en los archivos críticos.
 - [ ] *Smoke test* contra producción tras cada despliegue.
-- [ ] Sacar `.pnpm-runner/` de git (§3.4). **Pide permiso:** borra archivos del repositorio.
+- [x] Sacar `.pnpm-runner/` de git (§3.4). **Pide permiso:** borra archivos del repositorio.
 
 ### Fase 4: propietario (cuando pueda)
 
 - [ ] 2FA en todas las cuentas, clave de Resend solo de envío, bloqueo del dominio, DMARC (§3.6).
-- [ ] *Secret scanning*, alertas de Dependabot y protección de `main` en GitHub (§3.5).
+- [x] *Secret scanning*, alertas de Dependabot y protección de `main` en GitHub (§3.5).
 - [ ] CSP en modo bloqueante tras revisar que no hay errores en la consola.
 - [ ] Límite de envíos compartido o regla en Vercel Firewall (§3.4).
 
@@ -185,3 +185,4 @@ test("accepting cookies loads Google Analytics without CSP errors", ...);
 | Cabeceras con [securityheaders.com](https://securityheaders.com) y [Mozilla Observatory](https://developer.mozilla.org/en-US/observatory) | Tras cada cambio de configuración y cada trimestre |
 | Revisión de accesos (quién tiene acceso a GitHub, Vercel, Google y Resend) y rotación de la clave de Resend | Cada 6 meses o si alguien deja de tener acceso |
 | Este plan | Cada trimestre |
+| Renovar `Expires` en `public/.well-known/security.txt` | Antes del 21 oct 2027 (el e2e avisa si caduca) |

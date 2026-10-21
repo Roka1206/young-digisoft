@@ -13,3 +13,11 @@ test("sitemap.xml only lists URLs on the production domain", async ({ request })
   expect(urls.length).toBeGreaterThan(0);
   for (const url of urls) expect(url.startsWith(siteUrl)).toBe(true);
 });
+
+test("llms.txt is served as plain text and links the production domain", async ({ request }) => {
+  const response = await request.get("/llms.txt");
+  expect(response.headers()["content-type"]).toContain("text/plain");
+  const text = await response.text();
+  expect(text.startsWith("# Young Digisoft")).toBe(true);
+  expect(text).toContain(`(${siteUrl}/servicios/web)`);
+});

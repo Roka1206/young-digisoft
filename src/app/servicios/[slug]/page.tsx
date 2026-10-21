@@ -13,7 +13,7 @@ import { servicePageText, services } from "@/content/services";
 import { pageMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/cn";
 import { findService } from "@/lib/services";
-import { serviceJsonLd } from "@/lib/structured-data";
+import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/structured-data";
 import { serviceWhatsappHref } from "@/lib/whatsapp-links";
 
 export const dynamicParams = false;
@@ -40,6 +40,12 @@ export default async function ServicePage({ params }: PageProps<"/servicios/[slu
   return (
     <>
       <JsonLd data={serviceJsonLd(service)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: servicePageText.breadcrumbHome, path: "/" },
+          { name: service.name, path: `/servicios/${service.slug}` },
+        ])}
+      />
       <Header />
       <main className="flex-1">
         <PageHero title={service.headline ?? service.name} description={service.summary}>

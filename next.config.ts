@@ -3,10 +3,13 @@ import type { NextConfig } from "next";
 const googleAnalytics =
   "https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com";
 
+// Dev only: React needs eval, and Vercel Analytics/Speed Insights load their debug scripts from this host.
+const devScripts = process.env.NODE_ENV === "development" ? " 'unsafe-eval' https://va.vercel-scripts.com" : "";
+
 // Without nonces so pages stay static; 'unsafe-inline' covers Next's and the cookie banner's inline scripts.
 const contentSecurityPolicy = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com`,
+  `script-src 'self' 'unsafe-inline'${devScripts} https://www.googletagmanager.com`,
   "style-src 'self' 'unsafe-inline'",
   `img-src 'self' data: ${googleAnalytics}`,
   "font-src 'self'",

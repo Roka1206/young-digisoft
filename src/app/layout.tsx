@@ -29,7 +29,7 @@ const jetBrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${site.name} — ${site.descriptor}`,
+    default: site.homeTitle,
     template: `%s — ${site.name}`,
   },
   description: site.description,
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
   },
   openGraph: {
     ...openGraphBase,
-    title: `${site.name} — ${site.descriptor}`,
+    title: site.homeTitle,
     description: site.description,
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.descriptor}`,
+    title: site.homeTitle,
     description: site.description,
   },
   verification: {

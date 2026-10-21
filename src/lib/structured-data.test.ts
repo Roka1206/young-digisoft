@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { faq } from "@/content/faq";
 import { services } from "@/content/services";
-import { businessJsonLd, faqJsonLd, serializeJsonLd, serviceJsonLd } from "./structured-data";
+import { breadcrumbJsonLd, businessJsonLd, faqJsonLd, serializeJsonLd, serviceJsonLd } from "./structured-data";
 
 const [webService] = services;
 const maintenance = services.find((service) => service.slug === "mantenimiento")!;
@@ -44,6 +44,24 @@ describe("serviceJsonLd", () => {
 
   it("marks recurring prices with their unit", () => {
     expect(serviceJsonLd(maintenance).offers[0].priceSpecification.unitCode).toBe("MON");
+  });
+});
+
+describe("breadcrumbJsonLd", () => {
+  it("numbers each step from 1 and turns paths into absolute URLs", () => {
+    expect(
+      breadcrumbJsonLd([
+        { name: "Inicio", path: "/" },
+        { name: "Diseño web", path: "/servicios/web" },
+      ]),
+    ).toEqual({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Inicio", item: "https://youngdigisoft.es/" },
+        { "@type": "ListItem", position: 2, name: "Diseño web", item: "https://youngdigisoft.es/servicios/web" },
+      ],
+    });
   });
 });
 

@@ -43,18 +43,18 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 
 ### 3.2 Avisos
 
-- [ ] **`h1` de la portada sin palabra clave.** Es el lema («Tecnología que trabaja para tu negocio.»). Propuesta: `h1` = «Desarrollo web y automatización para pymes y autónomos» (el descriptor) y el lema como texto destacado. → `src/components/sections/Hero.tsx:20`, `src/content/site.ts`.
-- [ ] **Título de la portada largo (71 caracteres):** Google lo corta hacia los 60. Propuesta: «Diseño web y automatización para pymes | Young Digisoft» (≈55). → `src/app/layout.tsx:41` y `src/content/site.ts`.
-- [ ] **Títulos de servicio poco descriptivos.** «Mantenimiento mensual — Young Digisoft» no dice de qué. Propuestas: «Mantenimiento web mensual para pymes», «Automatización de tareas para pymes y autónomos», «Diagnóstico digital para negocios: sesión de 60 min». Hoy el título sale del nombre del servicio: añadir un campo `metaTitle` opcional. → `src/content/services.ts`, `src/app/servicios/[slug]/page.tsx`.
-- [ ] **Descripciones cortas** en `/contacto` (se publicará con 118 caracteres), `/servicios/mantenimiento` (123) y `/aviso-legal` (111). Objetivo: 140 a 160 caracteres.
-- [ ] **`lastmod` del sitemap = fecha del build** en todas las URLs. Google ignora `lastmod` si no es fiable. Mejor una fecha real por página (o quitarlo). → `src/app/sitemap.ts:7`, `src/lib/sitemap.ts`.
-- [ ] **Sin `BreadcrumbList`** en las páginas de servicio. Ayuda a que Google muestre la ruta «Inicio › Servicios › …». → `src/app/servicios/[slug]/page.tsx`.
+- [x] **`h1` de la portada sin palabra clave.** Es el lema («Tecnología que trabaja para tu negocio.»). Propuesta: `h1` = «Desarrollo web y automatización para pymes y autónomos» (el descriptor) y el lema como texto destacado. → `src/components/sections/Hero.tsx:20`, `src/content/site.ts`. Hecho: el lema va en el badge del hero.
+- [x] **Título de la portada largo (71 caracteres):** Google lo corta hacia los 60. Propuesta: «Diseño web y automatización para pymes | Young Digisoft» (≈55). → `src/app/layout.tsx:41` y `src/content/site.ts`.
+- [x] **Títulos de servicio poco descriptivos.** «Mantenimiento mensual — Young Digisoft» no dice de qué. Propuestas: «Mantenimiento web mensual para pymes», «Automatización de tareas para pymes y autónomos», «Diagnóstico digital para negocios: sesión de 60 min». Hoy el título sale del nombre del servicio: añadir un campo `metaTitle` opcional. → `src/content/services.ts`, `src/app/servicios/[slug]/page.tsx`. Hecho con el campo `headline`, que ya existía y sirve también de `h1`: «Automatización de tareas para pymes», «Mantenimiento web mensual para pymes» y «Diagnóstico digital para tu negocio».
+- [x] **Descripciones cortas** en `/contacto` (se publicará con 118 caracteres), `/servicios/mantenimiento` (123) y `/aviso-legal` (111). Objetivo: 140 a 160 caracteres. Hecho: mantenimiento 148 y aviso legal 149; contacto se queda en 118.
+- [x] **`lastmod` del sitemap = fecha del build** en todas las URLs. Google ignora `lastmod` si no es fiable. Mejor una fecha real por página (o quitarlo). → `src/app/sitemap.ts:7`, `src/lib/sitemap.ts`.
+- [x] **Sin `BreadcrumbList`** en las páginas de servicio. Ayuda a que Google muestre la ruta «Inicio › Servicios › …». → `src/app/servicios/[slug]/page.tsx`.
 - [ ] **Los `h2` del pie** («Navegación», «Servicios», «Contacto») aparecen como encabezados en todas las páginas. No es un error, pero diluye el esquema de la página. Opción: `<p>` con el mismo estilo, o dejarlo así. → `src/components/layout/Footer.tsx:22,31,44`.
 - [ ] **Search Console detecta 4 de 9 páginas en el sitemap** (enviado el 20 oct con una versión anterior). Reenviarlo. → Propietario.
 
 ### 3.3 Oportunidades
 
-- [ ] **`llms.txt`** en la raíz: un resumen en texto plano de quiénes somos, servicios, precios «desde», zona y contacto, con enlaces a cada página. Lo leen algunos asistentes y agentes de IA; coste mínimo. → `src/app/llms.txt/route.ts` generado desde `src/content/`.
+- [x] **`llms.txt`** en la raíz: un resumen en texto plano de quiénes somos, servicios, precios «desde», zona y contacto, con enlaces a cada página. Lo leen algunos asistentes y agentes de IA; coste mínimo. → `src/app/llms.txt/route.ts` generado desde `src/content/`.
 - [ ] **Enriquecer el JSON-LD de `ProfessionalService`:** `founder` (`Person`: Ronald Fonseca, ingeniero de software, con LinkedIn personal `[PENDIENTE: URL]`), `knowsAbout` (diseño web, SEO local, automatización, Next.js…), `priceRange`, `slogan`, `foundingDate` `[PENDIENTE]` y `openingHours` `[PENDIENTE]`. → `src/lib/structured-data.ts`.
 - [ ] **`FAQPage` en cada página de servicio** con 3 a 5 preguntas reales por servicio (precio, plazo, qué necesito aportar, qué pasa si…). Las IA citan mucho las FAQ.
 - [ ] **Blog / guías** (la oferta Web Pro incluye blog; la propia web no lo tiene). Artículos que respondan preguntas exactas de dueños de negocio, ver §5.
@@ -75,7 +75,22 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 | «Cómo automatizar las citas de mi peluquería» | No aparece | Citada como fuente (guía) |
 | «Empresas que automatizan procesos para pymes en Galicia» | No aparece | Aparece entre las opciones |
 
-Competidores con los que comparar: `[PENDIENTE: el propietario indica 3 a 5 competidores locales]`.
+**Competidores** (búsqueda del 21 oct 2026; precios según sus propias webs, sin verificar):
+
+| Competidor | Qué ofrece | Por qué importa |
+|---|---|---|
+| [Nerade](https://nerade.com/diseno-web-coruna/) | Webs WordPress en A Coruña con precio cerrado, desde 350 € (sin IVA) | Mismo mensaje de «precio cerrado» y precio de entrada más bajo: diferenciarse por código propio, rendimiento y automatización |
+| [Cantonce](https://www.cantonce.es/provincias/a-coruna.html) | Freelance, webs desde 300 €, presupuesto en 24 h | Compite en precio y rapidez de respuesta |
+| [Beedigital](https://www.beedigital.es/productos/diseno-web/a-coruna/) | Web y presencia digital por cuota mensual (desde 79,90 €/mes) | Modelo de suscripción: comparar con Web Esencial + Mantenimiento |
+| [Lapriex Digital](https://lapriexdigital.com/blog/cuanto-cuesta-web-a-coruna-2026/) | Agencia; su guía «¿Cuánto cuesta una página web en A Coruña? Precios 2026» posiciona | Competidor de **contenido**: confirma que la guía de precios de §5 tiene demanda |
+| [SEO Galicia](https://seogalicia.es/paginas-web), [Agencia Pronoia](https://agenciapronoia.com/diseno-web-coruna/), [Dvesign](https://dvesign.com/diseno-web-la-coruna/), [Cristina Ferrís](https://cristinaferris.com/diseno-web-coruna/) | Diseño web local con páginas «Diseño web Coruña» | Ocupan la búsqueda local: competir con ficha de Google, reseñas y guías, no con otra página genérica |
+| IngenioLab, Javadex (n8n, agentes IA) | Automatización e IA para pymes en A Coruña o en remoto | Competencia directa de Automatización exprés; Javadex también ofrece auditoría gratuita de 30 min |
+
+Directorios donde aparecen y donde conviene darse de alta: [Páxinas Galegas](https://www.paxinasgalegas.es/dise%C3%B1o-paginas-web-a-coru%C3%B1a-2385ep_31ay.html) y [Proveedores.com](https://proveedores.com/diseno-web/a-coruna).
+
+**Diferenciación a reforzar en el contenido:** código propio (no WordPress), web rápida medida (Lighthouse ≥ 90), precio cerrado con lo que no incluye por escrito, automatización además de la web, y el dominio y el hosting a nombre del cliente.
+
+**Idea de contenido a verificar:** ayudas a la digitalización para autónomos y pymes en Galicia (Bono Autónomo de la Xunta, Kit Digital). Solo con datos de la convocatoria oficial vigente `[PENDIENTE: verificar en xunta.gal y acelerapyme.gob.es]`.
 
 **Qué mueve la aguja (por orden):**
 
@@ -102,11 +117,11 @@ Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de pu
 
 ### Fase A: ajustes rápidos (1 a 2 días, solo código)
 
-- [ ] `h1` de la portada con palabra clave y lema como subtítulo.
-- [ ] Títulos y descripciones de portada y servicios (longitudes de §3.2).
-- [ ] `BreadcrumbList` en servicios.
-- [ ] `lastmod` real o sin `lastmod` en el sitemap.
-- [ ] `llms.txt` generado desde `src/content/`.
+- [x] `h1` de la portada con palabra clave y lema como subtítulo.
+- [x] Títulos y descripciones de portada y servicios (longitudes de §3.2).
+- [x] `BreadcrumbList` en servicios.
+- [x] `lastmod` real o sin `lastmod` en el sitemap.
+- [x] `llms.txt` generado desde `src/content/`.
 - [ ] JSON-LD enriquecido (`founder`, `knowsAbout`, `priceRange`, `slogan`) con los datos que haya; el resto `[PENDIENTE]`.
 - [ ] Tests: el `llms.txt`, el sitemap y el JSON-LD nuevos llevan su test (regla 5 de `CLAUDE.md`).
 
@@ -142,8 +157,10 @@ Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de pu
 
 ## 8. Datos que faltan del propietario
 
-- `[PENDIENTE]` 3 a 5 competidores locales para comparar.
+- Competidores: recogidos en §4.
+- LinkedIn del fundador (Ronald Fonseca): <https://www.linkedin.com/in/rfonsecah92>.
+- Guías: se montan con MDX (`@next/mdx`), aprobado por el propietario.
 - `[PENDIENTE]` URL de Google Business Profile y de Facebook (cuando existan).
-- `[PENDIENTE]` LinkedIn personal del fundador, trayectoria resumida y foto (para «Sobre nosotros» y `founder`).
+- `[PENDIENTE]` Trayectoria resumida y foto del fundador (para «Sobre nosotros»; el propietario la aporta más adelante).
 - `[PENDIENTE]` Fecha de inicio de la actividad y horario de atención.
 - `[PENDIENTE]` Decidir si se publica la dirección completa en el JSON-LD (hoy solo la provincia; es un domicilio de autónomo).

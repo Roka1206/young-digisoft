@@ -4,6 +4,7 @@ export const site = {
   name: "Young Digisoft",
   slogan: "Tecnología que trabaja para tu negocio.",
   descriptor: "Desarrollo web y automatización para pymes y autónomos",
+  homeTitle: "Diseño web y automatización para pymes — Young Digisoft",
   description:
     "Webs, automatización y consultoría para pymes y autónomos. Precio cerrado, plazo claro y trato directo. Desde A Coruña, para toda España.",
 };
