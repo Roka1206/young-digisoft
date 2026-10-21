@@ -32,7 +32,7 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 - [x] Instalar dependencias y comprobar que el proyecto compila (`build`) y pasa `lint`. Anotar en `CLAUDE.md` (sección 6) los comandos reales.
 - [x] Listar versión de Next.js, uso de App Router o Pages Router, estilos (Tailwind u otro), dependencias y estructura de carpetas.
 - [x] Revisar la web actual: secciones, textos, formulario (¿envía algo? ¿a dónde?), enlaces rotos (`#`), metadatos, páginas legales y accesibilidad.
-- [ ] Confirmar cómo está conectado a Vercel (rama de producción, variables de entorno existentes). `[PENDIENTE: el conector de Vercel da 403 en el equipo roka1206s-projects; revisarlo en el panel de Vercel]`
+- [x] Confirmar cómo está conectado a Vercel (rama de producción, variables de entorno existentes). Revisado en el panel (21 oct 2026): repositorio `Roka1206/young-digisoft`, rama de producción `main`; variables `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL` y `NEXT_PUBLIC_SITE_URL` en todos los entornos y `NEXT_PUBLIC_GA_ID` solo en Production; DNS en un proveedor externo.
 - [x] Comprobar si hay ejecutor de tests. Si no lo hay, proponer uno (por ejemplo Vitest) y **preguntar antes de instalarlo**. Anotar el comando de tests en `CLAUDE.md`.
 - [x] Decidir y proponer: **reutilizar la base** o **reescribir los componentes**, conservando el repositorio y su historial. Esperar confirmación del propietario antes de la Fase 1.
 
@@ -98,7 +98,7 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 - [x] Página de «Diseño web» para toda España: en lugar de una página local de A Coruña, `/servicios/web` se titula «Diseño web para pymes y autónomos» y suma para qué negocios es, cómo te ayudamos a aparecer en Google y preguntas propias (con `FAQPage`).
 - [x] Enlazado interno entre servicios y contacto (columna «Servicios» en el pie); texto alternativo en imágenes; una sola etiqueta `h1` por página.
 - [x] Rendimiento: fuentes con `next/font`, animaciones en CSS (sin la librería `motion`) y banner de cookies renderizado en el servidor. Validación del formulario con `zod/mini` (unos 70 KiB menos de JavaScript).
-- [x] Analítica: Vercel Web Analytics (sin cookies) y Google Analytics 4 solo tras aceptar el banner de cookies, con «Configurar cookies» en el pie. `[PENDIENTE: plazo de conservación de datos configurado en GA4, para /privacidad]`
+- [x] Analítica: Vercel Web Analytics (sin cookies) y Google Analytics 4 solo tras aceptar el banner de cookies, con «Configurar cookies» en el pie. Conservación en GA4: 14 meses, renovada con cada visita (recogido en `/privacidad`).
 
 ## Fase 5: Páginas legales (día 6 a 7)
 
@@ -119,7 +119,7 @@ Pasos de Claude Code (repositorio y configuración) y pasos manuales del propiet
 - [x] Añadir redirección permanente `young-digisoft.vercel.app` a `youngdigisoft.es`.
 - [x] Definir `metadataBase` y URLs canónicas con el dominio nuevo.
 - [x] **Propietario:** crear el correo corporativo `info@youngdigisoft.es` y usarlo en `site.ts`, el formulario y los textos legales. Dominio verificado en Resend.
-- [ ] **Propietario:** dar de alta el dominio en Google Search Console y enviar el sitemap.
+- [x] **Propietario:** dar de alta el dominio en Google Search Console y enviar el sitemap (propiedad de dominio verificada; sitemap enviado el 20 oct 2026; portada indexada).
 
 ## Fase 7: Control de calidad y lanzamiento (día 7 a 8)
 
@@ -129,7 +129,7 @@ Pasos de Claude Code (repositorio y configuración) y pasos manuales del propiet
 - [x] Comprobación de contraste de todos los textos (AA). Recordar: texto blanco sobre `#00ADB5` no pasa; usar `action`.
 - [x] Probar el formulario real (recepción del email y mensaje de confirmación) y todos los enlaces (sin `#`, sin 404).
 - [x] Verificar que no queda ningún testimonio, cifra o caso inventado, y que ningún `[PENDIENTE]` sale publicado salvo acuerdo del propietario.
-- [x] Publicar en producción y revisar `sitemap.xml`, `robots.txt`, metadatos y la vista previa al compartir en WhatsApp, LinkedIn e Instagram. `[PENDIENTE: el propietario comprueba la tarjeta en cada app (LinkedIn Post Inspector y Sharing Debugger de Meta)]`
+- [x] Publicar en producción y revisar `sitemap.xml`, `robots.txt`, metadatos y la vista previa al compartir en WhatsApp, LinkedIn e Instagram. Comprobado con LinkedIn Post Inspector y el depurador de Meta: imagen, título y descripción correctos en todas las páginas.
 - [x] Actualizar la sección 10 de `CLAUDE.md` (estado actual y pendientes).
 
 ---

@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
   title: contactPage.metaTitle,
-  description: contactPage.description,
+  description: contactPage.metaDescription,
   path: "/contacto",
 });
 
