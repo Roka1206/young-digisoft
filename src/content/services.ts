@@ -114,6 +114,7 @@ export const services: Service[] = [
   {
     slug: "automatizacion",
     name: "Automatización exprés",
+    headline: "Automatización de tareas para pymes",
     summary:
       "Elegimos contigo una tarea que hoy haces a mano y la automatizamos: menos copiar y pegar, menos olvidos y más tiempo para tu negocio.",
     audience: "Negocios que pierden tiempo con tareas repetitivas.",
@@ -138,8 +139,9 @@ export const services: Service[] = [
   {
     slug: "mantenimiento",
     name: "Mantenimiento mensual",
+    headline: "Mantenimiento web mensual para pymes",
     summary:
-      "Nos ocupamos de que tu web siga funcionando: alojamiento, copias de seguridad, actualizaciones y pequeños cambios cada mes.",
+      "Nos ocupamos de que tu web siga funcionando y al día: alojamiento, copias de seguridad, monitorización, actualizaciones y pequeños cambios cada mes.",
     audience: "Negocios que quieren olvidarse de la parte técnica de su web.",
     plans: [
       {
@@ -163,6 +165,7 @@ export const services: Service[] = [
   {
     slug: "diagnostico-digital",
     name: "Diagnóstico digital",
+    headline: "Diagnóstico digital para tu negocio",
     summary:
       "En una sesión de 60 minutos revisamos tu web, tu presencia en Google, tus procesos y tus herramientas, y te damos una lista priorizada de qué mejorar.",
     audience: "Negocios que no saben qué herramientas necesitan ni por dónde empezar.",

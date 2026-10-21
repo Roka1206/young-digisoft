@@ -43,10 +43,10 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 
 ### 3.2 Avisos
 
-- [ ] **`h1` de la portada sin palabra clave.** Es el lema («Tecnología que trabaja para tu negocio.»). Propuesta: `h1` = «Desarrollo web y automatización para pymes y autónomos» (el descriptor) y el lema como texto destacado. → `src/components/sections/Hero.tsx:20`, `src/content/site.ts`.
-- [ ] **Título de la portada largo (71 caracteres):** Google lo corta hacia los 60. Propuesta: «Diseño web y automatización para pymes | Young Digisoft» (≈55). → `src/app/layout.tsx:41` y `src/content/site.ts`.
-- [ ] **Títulos de servicio poco descriptivos.** «Mantenimiento mensual — Young Digisoft» no dice de qué. Propuestas: «Mantenimiento web mensual para pymes», «Automatización de tareas para pymes y autónomos», «Diagnóstico digital para negocios: sesión de 60 min». Hoy el título sale del nombre del servicio: añadir un campo `metaTitle` opcional. → `src/content/services.ts`, `src/app/servicios/[slug]/page.tsx`.
-- [ ] **Descripciones cortas** en `/contacto` (se publicará con 118 caracteres), `/servicios/mantenimiento` (123) y `/aviso-legal` (111). Objetivo: 140 a 160 caracteres.
+- [x] **`h1` de la portada sin palabra clave.** Es el lema («Tecnología que trabaja para tu negocio.»). Propuesta: `h1` = «Desarrollo web y automatización para pymes y autónomos» (el descriptor) y el lema como texto destacado. → `src/components/sections/Hero.tsx:20`, `src/content/site.ts`. Hecho: el lema va en el badge del hero.
+- [x] **Título de la portada largo (71 caracteres):** Google lo corta hacia los 60. Propuesta: «Diseño web y automatización para pymes | Young Digisoft» (≈55). → `src/app/layout.tsx:41` y `src/content/site.ts`.
+- [x] **Títulos de servicio poco descriptivos.** «Mantenimiento mensual — Young Digisoft» no dice de qué. Propuestas: «Mantenimiento web mensual para pymes», «Automatización de tareas para pymes y autónomos», «Diagnóstico digital para negocios: sesión de 60 min». Hoy el título sale del nombre del servicio: añadir un campo `metaTitle` opcional. → `src/content/services.ts`, `src/app/servicios/[slug]/page.tsx`. Hecho con el campo `headline`, que ya existía y sirve también de `h1`: «Automatización de tareas para pymes», «Mantenimiento web mensual para pymes» y «Diagnóstico digital para tu negocio».
+- [x] **Descripciones cortas** en `/contacto` (se publicará con 118 caracteres), `/servicios/mantenimiento` (123) y `/aviso-legal` (111). Objetivo: 140 a 160 caracteres. Hecho: mantenimiento 148 y aviso legal 149; contacto se queda en 118.
 - [ ] **`lastmod` del sitemap = fecha del build** en todas las URLs. Google ignora `lastmod` si no es fiable. Mejor una fecha real por página (o quitarlo). → `src/app/sitemap.ts:7`, `src/lib/sitemap.ts`.
 - [ ] **Sin `BreadcrumbList`** en las páginas de servicio. Ayuda a que Google muestre la ruta «Inicio › Servicios › …». → `src/app/servicios/[slug]/page.tsx`.
 - [ ] **Los `h2` del pie** («Navegación», «Servicios», «Contacto») aparecen como encabezados en todas las páginas. No es un error, pero diluye el esquema de la página. Opción: `<p>` con el mismo estilo, o dejarlo así. → `src/components/layout/Footer.tsx:22,31,44`.
@@ -117,8 +117,8 @@ Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de pu
 
 ### Fase A: ajustes rápidos (1 a 2 días, solo código)
 
-- [ ] `h1` de la portada con palabra clave y lema como subtítulo.
-- [ ] Títulos y descripciones de portada y servicios (longitudes de §3.2).
+- [x] `h1` de la portada con palabra clave y lema como subtítulo.
+- [x] Títulos y descripciones de portada y servicios (longitudes de §3.2).
 - [ ] `BreadcrumbList` en servicios.
 - [ ] `lastmod` real o sin `lastmod` en el sitemap.
 - [ ] `llms.txt` generado desde `src/content/`.

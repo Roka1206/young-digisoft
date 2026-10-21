@@ -3,7 +3,7 @@ import { Code2, Compass, Handshake, MapPin, Receipt, Repeat, Search, type Lucide
 type Feature = { title: string; description: string; icon: LucideIcon };
 
 export const hero = {
-  badge: ">_ Webs · Automatización · Consultoría",
+  badge: ">_ Tecnología que trabaja para tu negocio",
   primaryCta: "Hablemos de tu negocio",
   secondaryCta: "Reserva un diagnóstico",
 };

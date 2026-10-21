@@ -1,13 +1,12 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
-import { avisoLegalSections, legalUpdatedAt } from "@/content/legal";
+import { avisoLegalSections, legalEntity, legalUpdatedAt } from "@/content/legal";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
   title: "Aviso legal",
-  description:
-    "Aviso legal de Young Digisoft: datos identificativos, condiciones de uso y propiedad intelectual del sitio web.",
+  description: `Aviso legal de ${legalEntity.tradeName} (${legalEntity.ownerName}): datos identificativos del titular, condiciones de uso, propiedad intelectual y legislación aplicable.`,
   path: "/aviso-legal",
 });
 
