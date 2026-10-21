@@ -96,10 +96,10 @@ Producción hoy solo envía `Strict-Transport-Security`. Faltan:
 
 ### 3.6 Cuentas y servicios (propietario)
 
-- [ ] Doble factor (2FA) en GitHub, Vercel, Google (cuenta de GA4 y Search Console), Resend y el registrador del dominio. `[PENDIENTE: GitHub sin 2FA a 21 oct 2026]`
-- [ ] Clave de Resend con permiso **solo de envío** («Sending access») y limitada al dominio `youngdigisoft.es`. `[PENDIENTE: confirmar en Resend]`
-- [ ] Bloqueo de transferencia del dominio activado en el registrador. `[PENDIENTE: confirmar]`
-- [ ] Registros SPF, DKIM y DMARC del dominio (Resend ya exige SPF y DKIM; añadir DMARC con `p=quarantine` cuando los envíos estén estables). `[PENDIENTE: comprobar el DMARC actual]`
+- [ ] **Doble factor (2FA) en todas las cuentas. Prioridad alta.** Comprobado el 21 oct 2026: **desactivado** en GitHub, Vercel, Google (1206roka@gmail.com), Resend y OVH. Orden recomendado: Google (recupera las demás), GitHub, Vercel, OVH y Resend. `[PENDIENTE: propietario]`
+- [x] Clave de Resend: una sola (`young-digisoft`) con «Sending access». Dominio «All domains»: equivale a `youngdigisoft.es` mientras sea el único dominio en Resend; restringirla si se añade otro.
+- [x] Bloqueo de transferencia del dominio activado en OVH. DNSSEC desactivado: activarlo en OVH (DNS gestionado por OVH, sin cambios manuales). `[PENDIENTE: propietario]`
+- [ ] SPF (`include:mx.ovh.com`), DKIM de Resend y DMARC publicados. DMARC en `p=none` (solo vigila). El correo de OVH es un MX Plan de redirección sin buzones, así que solo Resend envía como `@youngdigisoft.es`. Endurecer a `p=quarantine` cuando se confirme que ningún otro servicio envía como el dominio. `[PENDIENTE: cómo responde el propietario a los clientes]`
 
 ## 4. Plan de testing
 
