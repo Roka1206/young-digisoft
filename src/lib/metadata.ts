@@ -4,7 +4,8 @@ import { site } from "@/content/site";
 // Next.js replaces nested metadata objects instead of merging them, and drops the
 // file-based opengraph-image once a page sets its own openGraph, so every page
 // repeats the shared fields and the brand image.
-const image = { url: "/opengraph-image", width: 1200, height: 630, alt: `${site.name} — ${site.slogan}` };
+export const ogImageAlt = `${site.name} — ${site.slogan}`;
+const image = { url: "/opengraph-image", width: 1200, height: 630, alt: ogImageAlt };
 
 export const openGraphBase = { siteName: site.name, locale: "es_ES", type: "website" as const, images: [image] };
 
