@@ -54,7 +54,7 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 
 ### 3.3 Oportunidades
 
-- [ ] **`llms.txt`** en la raíz: un resumen en texto plano de quiénes somos, servicios, precios «desde», zona y contacto, con enlaces a cada página. Lo leen algunos asistentes y agentes de IA; coste mínimo. → `src/app/llms.txt/route.ts` generado desde `src/content/`.
+- [x] **`llms.txt`** en la raíz: un resumen en texto plano de quiénes somos, servicios, precios «desde», zona y contacto, con enlaces a cada página. Lo leen algunos asistentes y agentes de IA; coste mínimo. → `src/app/llms.txt/route.ts` generado desde `src/content/`.
 - [ ] **Enriquecer el JSON-LD de `ProfessionalService`:** `founder` (`Person`: Ronald Fonseca, ingeniero de software, con LinkedIn personal `[PENDIENTE: URL]`), `knowsAbout` (diseño web, SEO local, automatización, Next.js…), `priceRange`, `slogan`, `foundingDate` `[PENDIENTE]` y `openingHours` `[PENDIENTE]`. → `src/lib/structured-data.ts`.
 - [ ] **`FAQPage` en cada página de servicio** con 3 a 5 preguntas reales por servicio (precio, plazo, qué necesito aportar, qué pasa si…). Las IA citan mucho las FAQ.
 - [ ] **Blog / guías** (la oferta Web Pro incluye blog; la propia web no lo tiene). Artículos que respondan preguntas exactas de dueños de negocio, ver §5.
@@ -121,7 +121,7 @@ Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de pu
 - [x] Títulos y descripciones de portada y servicios (longitudes de §3.2).
 - [x] `BreadcrumbList` en servicios.
 - [x] `lastmod` real o sin `lastmod` en el sitemap.
-- [ ] `llms.txt` generado desde `src/content/`.
+- [x] `llms.txt` generado desde `src/content/`.
 - [ ] JSON-LD enriquecido (`founder`, `knowsAbout`, `priceRange`, `slogan`) con los datos que haya; el resto `[PENDIENTE]`.
 - [ ] Tests: el `llms.txt`, el sitemap y el JSON-LD nuevos llevan su test (regla 5 de `CLAUDE.md`).
 
