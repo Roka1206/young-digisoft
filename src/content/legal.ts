@@ -99,7 +99,7 @@ export const privacidadSections: LegalSection[] = [
     title: "5. Conservación de los datos",
     paragraphs: [
       "Los datos se conservarán únicamente durante el tiempo necesario para gestionar la consulta, salvo que exista una obligación legal de conservación superior.",
-      "Los datos de Google Analytics se conservan durante 2 años.",
+      "Los datos de Google Analytics se conservan durante 14 meses; el plazo se renueva si vuelves a visitar la web.",
     ],
   },
   {
