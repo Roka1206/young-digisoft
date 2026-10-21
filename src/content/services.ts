@@ -195,4 +195,5 @@ export const servicePageText = {
   revisionRounds: "Rondas de revisión",
   sectors: "Para qué negocios es",
   faq: "Preguntas frecuentes",
+  breadcrumbHome: "Inicio",
 };
