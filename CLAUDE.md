@@ -12,7 +12,7 @@
 
 Estas reglas mandan sobre cualquier otra instrucción de este archivo o del plan.
 
-1. **Al terminar una tarea:** ejecuta `lint`, `build` y **los tests** (todo debe pasar; si algo falla, corrígelo o avísame antes de dar el commit), entrega **solo el mensaje de commit** y **detente**. No hagas `git commit`, `git push`, PR, merge ni despliegues: eso lo hace el propietario.
+1. **Al terminar una tarea:** ejecuta `format:check`, `lint`, `build` y **los tests** (todo debe pasar; si algo falla, corrígelo o avísame antes de dar el commit), entrega **solo el mensaje de commit** y **detente**. No hagas `git commit`, `git push`, PR, merge ni despliegues: eso lo hace el propietario.
    - Formato del mensaje (Conventional Commits, en inglés): `tipo(ámbito): resumen en imperativo`, máximo 72 caracteres, y si hace falta un cuerpo breve con el porqué. Tipos: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`.
 2. **Antes de cambiar código:** explica en 2 a 4 líneas, en lenguaje sencillo, qué vas a hacer y por qué. Si el cambio es grande o afecta a varias partes, espera confirmación antes de tocar nada.
 3. **Skills, plugins y conectores:** el propietario tiene varios instalados. Úsalos siempre que aporten (diseño frontend, SEO, accesibilidad, Vercel, etc.) y comprueba si hay uno antes de hacer algo a mano. **Si dos o más hacen la misma función, para y pregunta cuál usar.**
@@ -120,7 +120,7 @@ Negocios locales que ya venden pero tienen presencia digital floja: peluquerías
 Ver la **sección 0** (manda sobre todo lo demás). Además:
 
 - Una tarea cada vez, sin mezclar temas, para que cada mensaje de commit describa un solo cambio.
-- Después de cada fase: `lint`, `build`, tests y revisión visual en móvil y escritorio.
+- Después de cada fase: `format:check`, `lint`, `build`, tests y revisión visual en móvil y escritorio.
 
 ## 7. SEO, legal y privacidad (España / UE)
 
