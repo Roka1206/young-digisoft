@@ -2,7 +2,9 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { ImageResponse } from "next/og";
 import { site } from "@/content/site";
+import { ogImageAlt } from "@/lib/metadata";
 
+export const alt = ogImageAlt;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

@@ -75,7 +75,7 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 
 - Cada oferta: para quién es, qué incluye, qué no incluye, plazo estimado, precio «desde», cuántas rondas de revisión y llamada a la acción.
 - Lenguaje claro, en plural de empresa y de tú. Sin superlativos ni promesas de resultados garantizados.
-- **Precio de lanzamiento:** mostrarlo con etiqueta clara y fecha de caducidad `[PENDIENTE: fecha]`, leyendo los importes de `pricing.ts`.
+- **Precio de lanzamiento:** mostrarlo con etiqueta clara y fecha de caducidad (31 de enero de 2027 o hasta 5 clientes, en `pricing.ts`), leyendo los importes de `pricing.ts`.
 - **Portfolio:** estructura en `portfolio.ts` (nombre, sector, qué se hizo, tecnologías, resultado verificable, enlace, permiso). Hasta que el propietario aporte casos reales, la sección no se renderiza. **No generes casos ficticios.**
 - **Testimonios:** eliminar los actuales. No añadir ninguno hasta tener opiniones reales con nombre y permiso.
 - Redes sociales: mostrar solo las que ya existan. Si no hay cuenta, ocultar el icono.
@@ -97,7 +97,7 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 - [x] Datos estructurados JSON-LD: `ProfessionalService` (sede en la provincia de A Coruña, zona de servicio toda España, contacto, logotipo y redes), `Service` con precios «desde» en cada página de servicio y `FAQPage` donde aparecen las preguntas frecuentes.
 - [x] Página de «Diseño web» para toda España: en lugar de una página local de A Coruña, `/servicios/web` se titula «Diseño web para pymes y autónomos» y suma para qué negocios es, cómo te ayudamos a aparecer en Google y preguntas propias (con `FAQPage`).
 - [x] Enlazado interno entre servicios y contacto (columna «Servicios» en el pie); texto alternativo en imágenes; una sola etiqueta `h1` por página.
-- [x] Rendimiento: fuentes con `next/font`, animaciones en CSS (sin la librería `motion`) y banner de cookies renderizado en el servidor. `[PENDIENTE: confirmar Lighthouse ≥ 90 con PageSpeed Insights tras desplegar]`
+- [x] Rendimiento: fuentes con `next/font`, animaciones en CSS (sin la librería `motion`) y banner de cookies renderizado en el servidor. Validación del formulario con `zod/mini` (unos 70 KiB menos de JavaScript).
 - [x] Analítica: Vercel Web Analytics (sin cookies) y Google Analytics 4 solo tras aceptar el banner de cookies, con «Configurar cookies» en el pie. `[PENDIENTE: plazo de conservación de datos configurado en GA4, para /privacidad]`
 
 ## Fase 5: Páginas legales (día 6 a 7)
@@ -113,7 +113,7 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 
 Pasos de Claude Code (repositorio y configuración) y pasos manuales del propietario.
 
-- [ ] **Propietario:** hacer el push y revisar el preview de Vercel con todo lo anterior.
+- [x] **Propietario:** hacer el push y revisar el preview de Vercel con todo lo anterior.
 - [x] **Propietario:** en Vercel (proyecto), añadir los dominios `youngdigisoft.es` y `www.youngdigisoft.es`, y copiar en el registrador los registros DNS que Vercel indique (normalmente `A` para el dominio raíz y `CNAME` para `www`).
 - [x] Configurar `www` para redirigir al dominio raíz (o al revés, pero uno solo como canónico) y comprobar HTTPS.
 - [x] Añadir redirección permanente `young-digisoft.vercel.app` a `youngdigisoft.es`.
@@ -125,12 +125,12 @@ Pasos de Claude Code (repositorio y configuración) y pasos manuales del propiet
 
 - [x] `format:check`, `lint`, `build` y todos los tests sin errores ni avisos relevantes.
 - [x] Revisión en móvil (375 px), tableta y escritorio. Navegación completa con teclado.
-- [ ] Lighthouse ≥ 90 en las 4 categorías (móvil). Corregir lo necesario.
+- [x] Lighthouse ≥ 90 en las 4 categorías (móvil). PageSpeed Insights, 21 oct 2026: portada 98/100/100/100, `/servicios/web` 97/100/100/100 y `/contacto` 93/100/100/100.
 - [x] Comprobación de contraste de todos los textos (AA). Recordar: texto blanco sobre `#00ADB5` no pasa; usar `action`.
-- [ ] Probar el formulario real (recepción del email y mensaje de confirmación) y todos los enlaces (sin `#`, sin 404).
+- [x] Probar el formulario real (recepción del email y mensaje de confirmación) y todos los enlaces (sin `#`, sin 404).
 - [x] Verificar que no queda ningún testimonio, cifra o caso inventado, y que ningún `[PENDIENTE]` sale publicado salvo acuerdo del propietario.
-- [ ] Publicar en producción y revisar `sitemap.xml`, `robots.txt`, metadatos y la vista previa al compartir en WhatsApp y LinkedIn.
-- [ ] Actualizar la sección 10 de `CLAUDE.md` (estado actual y pendientes).
+- [x] Publicar en producción y revisar `sitemap.xml`, `robots.txt`, metadatos y la vista previa al compartir en WhatsApp, LinkedIn e Instagram. `[PENDIENTE: el propietario comprueba la tarjeta en cada app (LinkedIn Post Inspector y Sharing Debugger de Meta)]`
+- [x] Actualizar la sección 10 de `CLAUDE.md` (estado actual y pendientes).
 
 ---
 
@@ -143,6 +143,7 @@ La captación empieza al día siguiente. La web debe apoyarla con:
 - [ ] **Páginas locales adicionales** solo si hay demanda real (por ejemplo, «Diseño web para clínicas en A Coruña»).
 - [ ] **Subir a precio normal** tras publicar el tercer caso, actualizando solo `pricing.ts`.
 - [ ] **Medición:** número de visitas, solicitudes de presupuesto y clics a WhatsApp (con analítica sin cookies) para decidir qué mejorar.
+- [ ] **Mejoras técnicas opcionales** (cuando haya tiempo): guardar el límite de envíos del formulario en un almacén compartido (hoy vive en la memoria de cada instancia) y valorar `experimental.inlineCss` para quitar el CSS que bloquea el renderizado.
 
 ## Orden de trabajo sugerido para la primera sesión
 
