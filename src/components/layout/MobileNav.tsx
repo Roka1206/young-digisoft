@@ -8,7 +8,7 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
   if (!open) return null;
 
   return (
-    <div className="border-t border-border bg-background motion-safe:animate-drop md:hidden">
+    <div className="border-t border-border bg-background motion-safe:animate-drop lg:hidden">
       <nav className="flex flex-col gap-1 px-4 py-4">
         {navLinks.map((link) => (
           <a

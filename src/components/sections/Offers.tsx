@@ -22,6 +22,7 @@ export function Offers() {
                   className="font-medium text-action underline hover:text-action-hover"
                 >
                   {offers.detailsLink}
+                  <span className="sr-only">: {service.name}</span>
                 </Link>
               </PriceCard>
             </Reveal>

@@ -123,12 +123,12 @@ Pasos de Claude Code (repositorio y configuración) y pasos manuales del propiet
 
 ## Fase 7: Control de calidad y lanzamiento (día 7 a 8)
 
-- [ ] `lint`, `build` y todos los tests sin errores ni avisos relevantes.
-- [ ] Revisión en móvil (375 px), tableta y escritorio. Navegación completa con teclado.
+- [x] `format:check`, `lint`, `build` y todos los tests sin errores ni avisos relevantes.
+- [x] Revisión en móvil (375 px), tableta y escritorio. Navegación completa con teclado.
 - [ ] Lighthouse ≥ 90 en las 4 categorías (móvil). Corregir lo necesario.
-- [ ] Comprobación de contraste de todos los textos (AA). Recordar: texto blanco sobre `#00ADB5` no pasa; usar `action`.
+- [x] Comprobación de contraste de todos los textos (AA). Recordar: texto blanco sobre `#00ADB5` no pasa; usar `action`.
 - [ ] Probar el formulario real (recepción del email y mensaje de confirmación) y todos los enlaces (sin `#`, sin 404).
-- [ ] Verificar que no queda ningún testimonio, cifra o caso inventado, y que ningún `[PENDIENTE]` sale publicado salvo acuerdo del propietario.
+- [x] Verificar que no queda ningún testimonio, cifra o caso inventado, y que ningún `[PENDIENTE]` sale publicado salvo acuerdo del propietario.
 - [ ] Publicar en producción y revisar `sitemap.xml`, `robots.txt`, metadatos y la vista previa al compartir en WhatsApp y LinkedIn.
 - [ ] Actualizar la sección 10 de `CLAUDE.md` (estado actual y pendientes).
 

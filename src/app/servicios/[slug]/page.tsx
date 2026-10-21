@@ -11,6 +11,7 @@ import { PriceCard } from "@/components/ui/PriceCard";
 import { Section } from "@/components/ui/Section";
 import { servicePageText, services } from "@/content/services";
 import { pageMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/cn";
 import { findService } from "@/lib/services";
 import { serviceJsonLd } from "@/lib/structured-data";
 import { serviceWhatsappHref } from "@/lib/whatsapp-links";
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: PageProps<"/servicios/[slug]"
 export default async function ServicePage({ params }: PageProps<"/servicios/[slug]">) {
   const service = findService(services, (await params).slug);
   if (!service) notFound();
+  const columns = service.plans.length > 1 ? "max-w-4xl md:grid-cols-2" : "max-w-xl";
 
   return (
     <>
@@ -59,14 +61,14 @@ export default async function ServicePage({ params }: PageProps<"/servicios/[slu
         )}
 
         <Section title={servicePageText.plans}>
-          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+          <div className={cn("mx-auto grid gap-6", columns)}>
             {service.plans.map((plan) => (
               <PriceCard key={plan.id} plan={plan}>
                 {service.note && <p className="text-sm text-muted">{service.note}</p>}
               </PriceCard>
             ))}
           </div>
-          <div className="mx-auto mt-6 grid max-w-4xl gap-6 md:grid-cols-2">
+          <div className={cn("mx-auto mt-6 grid gap-6", columns)}>
             <Card className="flex flex-col gap-3">
               <h3 className="text-lg font-medium text-foreground">{servicePageText.excludes}</h3>
               <ul className="list-disc pl-5 leading-relaxed text-muted">

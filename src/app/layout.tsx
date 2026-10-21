@@ -63,9 +63,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: hideChosenBannerScript }} />
         <JsonLd data={businessJsonLd()} />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          {/* First in the DOM so keyboard users reach the choice first; it is fixed to the bottom visually. */}
+          <CookieBanner />
           {children}
           <WhatsAppButton />
-          <CookieBanner />
         </ThemeProvider>
         <GoogleAnalytics />
         <Analytics />

@@ -1,5 +1,7 @@
 import { expect, test } from "@playwright/test";
 
+test.use({ storageState: { cookies: [], origins: [] } });
+
 test("the cookie banner shows on the first visit and stays hidden after choosing", async ({ page }) => {
   await page.goto("/");
   const banner = page.getByRole("region", { name: "Aviso de cookies" });
