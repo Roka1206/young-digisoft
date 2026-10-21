@@ -33,9 +33,7 @@ export function Header() {
     <header
       className={cn(
         "sticky top-0 z-50 border-b transition-colors duration-300",
-        scrolled
-          ? "border-border bg-background/85 backdrop-blur-md"
-          : "border-transparent bg-background"
+        scrolled ? "border-border bg-background/85 backdrop-blur-md" : "border-transparent bg-background",
       )}
     >
       <Container className="flex h-16 items-center justify-between">

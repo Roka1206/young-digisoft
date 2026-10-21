@@ -58,7 +58,8 @@ export const howWeWork = {
     },
     {
       title: "Lo publicamos y seguimos contigo",
-      description: "Lo ponemos en marcha y te explicamos cómo usarlo. El soporte posterior queda por escrito en el contrato.",
+      description:
+        "Lo ponemos en marcha y te explicamos cómo usarlo. El soporte posterior queda por escrito en el contrato.",
     },
   ],
 };

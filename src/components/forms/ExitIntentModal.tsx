@@ -56,11 +56,11 @@ export function ExitIntentModal() {
           type="button"
           onClick={close}
           aria-label="Cerrar"
-          className="absolute right-3 top-3 inline-flex size-8 items-center justify-center rounded-full text-muted transition-colors hover:bg-action/10 hover:text-action"
+          className="absolute top-3 right-3 inline-flex size-8 items-center justify-center rounded-full text-muted transition-colors hover:bg-action/10 hover:text-action"
         >
           <X size={16} />
         </button>
-        <h3 id="exit-intent-title" className="font-medium text-xl text-foreground">
+        <h3 id="exit-intent-title" className="text-xl font-medium text-foreground">
           ¿Ya te vas?
         </h3>
         <p className="mt-2 text-sm text-muted">

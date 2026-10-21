@@ -17,11 +17,11 @@ export default function AvisoLegalPage() {
       <Header />
       <main className="flex-1">
         <Container className="max-w-3xl py-20">
-          <h1 className="font-bold text-3xl text-foreground sm:text-4xl">Aviso legal</h1>
+          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">Aviso legal</h1>
           <div className="mt-10 flex flex-col gap-8">
             {avisoLegalSections.map((section) => (
               <section key={section.title}>
-                <h2 className="font-bold text-lg text-foreground">{section.title}</h2>
+                <h2 className="text-lg font-bold text-foreground">{section.title}</h2>
                 <div className="mt-2 flex flex-col gap-2">
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph} className="text-sm text-muted">

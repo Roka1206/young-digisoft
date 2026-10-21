@@ -6,10 +6,8 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-action focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 active:scale-95";
 
 const variants = {
-  primary:
-    "bg-action text-action-fg shadow-sm hover:bg-action-hover",
-  secondary:
-    "border-2 border-action text-action hover:bg-action/10",
+  primary: "bg-action text-action-fg shadow-sm hover:bg-action-hover",
+  secondary: "border-2 border-action text-action hover:bg-action/10",
   ghost: "bg-transparent text-foreground hover:bg-action/10 hover:text-action",
 } satisfies Record<string, string>;
 
@@ -29,11 +27,9 @@ type CommonProps = {
   children: ReactNode;
 };
 
-type ButtonAsButton = CommonProps &
-  Omit<ComponentPropsWithoutRef<"button">, keyof CommonProps> & { href?: undefined };
+type ButtonAsButton = CommonProps & Omit<ComponentPropsWithoutRef<"button">, keyof CommonProps> & { href?: undefined };
 
-type ButtonAsLink = CommonProps &
-  Omit<ComponentPropsWithoutRef<"a">, keyof CommonProps> & { href: string };
+type ButtonAsLink = CommonProps & Omit<ComponentPropsWithoutRef<"a">, keyof CommonProps> & { href: string };
 
 export function Button(props: ButtonAsButton | ButtonAsLink) {
   const { variant = "primary", size = "md", className, children, href, ...rest } = props as ButtonAsLink;

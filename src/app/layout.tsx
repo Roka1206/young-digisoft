@@ -59,7 +59,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${inter.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="flex min-h-full flex-col font-sans">
         <script dangerouslySetInnerHTML={{ __html: hideChosenBannerScript }} />
         <JsonLd data={businessJsonLd()} />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>

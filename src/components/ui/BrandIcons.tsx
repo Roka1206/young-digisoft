@@ -2,19 +2,9 @@ import type { SVGProps } from "react";
 
 // Path data sourced from the Simple Icons project (MIT licensed) and inlined
 // here so we don't ship the whole simple-icons package to the client.
-function BrandIcon({
-  path,
-  title,
-  ...props
-}: SVGProps<SVGSVGElement> & { path: string; title: string }) {
+function BrandIcon({ path, title, ...props }: SVGProps<SVGSVGElement> & { path: string; title: string }) {
   return (
-    <svg
-      role="img"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" {...props}>
       <title>{title}</title>
       <path d={path} />
     </svg>

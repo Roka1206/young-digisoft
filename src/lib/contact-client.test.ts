@@ -43,7 +43,7 @@ describe("submitContact", () => {
     await submitContact(values);
     expect(fetchMock).toHaveBeenCalledWith(
       "/api/contact",
-      expect.objectContaining({ method: "POST", body: JSON.stringify(values) })
+      expect.objectContaining({ method: "POST", body: JSON.stringify(values) }),
     );
   });
 
@@ -97,12 +97,15 @@ describe("submitContact", () => {
     expect(gtag).not.toHaveBeenCalled();
   });
 
-  it.each([undefined, "rejected" as const])("does not send generate_lead when the cookie choice is %s", async (choice) => {
-    const submitContact = await loadSubmit(choice);
-    respondWith(200);
-    await submitContact(values);
-    expect(gtag).not.toHaveBeenCalled();
-  });
+  it.each([undefined, "rejected" as const])(
+    "does not send generate_lead when the cookie choice is %s",
+    async (choice) => {
+      const submitContact = await loadSubmit(choice);
+      respondWith(200);
+      await submitContact(values);
+      expect(gtag).not.toHaveBeenCalled();
+    },
+  );
 
   it("does nothing when consent was given but gtag is not loaded", async () => {
     const submitContact = await loadSubmit("accepted");

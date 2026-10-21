@@ -15,7 +15,7 @@ describe("buildSitemap", () => {
         `${baseUrl}/aviso-legal`,
         `${baseUrl}/privacidad`,
         `${baseUrl}/cookies`,
-      ])
+      ]),
     );
   });
 

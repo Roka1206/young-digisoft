@@ -62,4 +62,9 @@ export function openCookieSettings() {
 
 // undefined on the server, so nothing consent-dependent renders before hydration.
 export const useConsent = () => useSyncExternalStore(subscribe, getConsent, () => undefined);
-export const useCookieSettingsOpen = () => useSyncExternalStore(subscribe, () => settingsOpen, () => false);
+export const useCookieSettingsOpen = () =>
+  useSyncExternalStore(
+    subscribe,
+    () => settingsOpen,
+    () => false,
+  );

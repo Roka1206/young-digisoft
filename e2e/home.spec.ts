@@ -36,9 +36,7 @@ test("back to top button appears after scrolling and returns to the top", async 
   await expect(backToTop).toBeVisible();
 
   await backToTop.click();
-  await expect
-    .poll(() => page.evaluate(() => window.scrollY))
-    .toBeLessThan(50);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(50);
 });
 
 test("theme toggle switches to dark mode", async ({ page }) => {
@@ -46,6 +44,9 @@ test("theme toggle switches to dark mode", async ({ page }) => {
   const html = page.locator("html");
   await expect(html).not.toHaveClass(/dark/);
 
-  await page.getByRole("button", { name: /cambiar tema/i }).first().click();
+  await page
+    .getByRole("button", { name: /cambiar tema/i })
+    .first()
+    .click();
   await expect(html).toHaveClass(/dark/);
 });

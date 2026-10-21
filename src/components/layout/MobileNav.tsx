@@ -4,13 +4,7 @@ import { contact, navLinks } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 
-export function MobileNav({
-  open,
-  onClose,
-}: {
-  open: boolean;
-  onClose: () => void;
-}) {
+export function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
   if (!open) return null;
 
   return (

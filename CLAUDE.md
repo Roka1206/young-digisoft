@@ -111,6 +111,7 @@ Negocios locales que ya venden pero tienen presencia digital floja: peluquerías
   - Desarrollo: `npm run dev` (http://localhost:3000)
   - Build y servir: `npm run build` y `npm start`
   - Lint: `npm run lint` · Tipos: `npm run typecheck`
+  - Formato (Prettier, con orden de clases de Tailwind): `npm run format` (aplica) y `npm run format:check` (comprueba)
   - Tests unitarios (Vitest): `npm test` (`npm run test:watch` en modo watch)
   - Tests e2e (Playwright): `npm run test:e2e` (la primera vez, `npx playwright install`)
 
