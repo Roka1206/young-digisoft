@@ -1,16 +1,16 @@
-import { faq } from "@/content/faq";
+import { faq, type FaqItem as FaqEntry } from "@/content/faq";
 import { faqSection } from "@/content/home";
 import { faqJsonLd } from "@/lib/structured-data";
 import { FaqItem } from "@/components/ui/FaqItem";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { Section } from "@/components/ui/Section";
 
-export function Faq() {
+export function Faq({ items = faq, title = faqSection.title }: { items?: FaqEntry[]; title?: string }) {
   return (
-    <Section id="preguntas" title={faqSection.title}>
-      <JsonLd data={faqJsonLd(faq)} />
+    <Section id="preguntas" title={title}>
+      <JsonLd data={faqJsonLd(items)} />
       <div className="mx-auto flex max-w-3xl flex-col gap-3">
-        {faq.map((item) => (
+        {items.map((item) => (
           <FaqItem key={item.question} item={item} />
         ))}
       </div>

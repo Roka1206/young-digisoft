@@ -31,6 +31,8 @@ Abre [http://localhost:3000](http://localhost:3000).
 | `npm run build` | Build de producción |
 | `npm start` | Sirve el build de producción |
 | `npm run lint` | ESLint |
+| `npm run format` | Formatea el código con Prettier (y ordena las clases de Tailwind) |
+| `npm run format:check` | Comprueba el formato sin cambiar nada |
 | `npm run typecheck` | Chequeo de tipos con `tsc` |
 | `npm test` | Tests unitarios (Vitest) |
 | `npm run test:watch` | Tests unitarios en modo watch |

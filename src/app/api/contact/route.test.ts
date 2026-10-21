@@ -18,7 +18,7 @@ const post = (body: unknown, ip = `10.0.0.${++ipCounter}`) =>
       method: "POST",
       headers: { "x-forwarded-for": ip },
       body: typeof body === "string" ? body : JSON.stringify(body),
-    })
+    }),
   );
 
 describe("POST /api/contact", () => {

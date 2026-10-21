@@ -15,12 +15,7 @@ export function CtaBanner({ whatsappHref = contact.whatsappHref }: { whatsappHre
             <Button href="/contacto" size="lg" className="bg-ink text-brand-fg hover:bg-ink/90">
               {hero.primaryCta}
             </Button>
-            <Button
-              href={whatsappHref}
-              variant="secondary"
-              size="lg"
-              className="border-ink text-ink hover:bg-ink/10"
-            >
+            <Button href={whatsappHref} variant="secondary" size="lg" className="border-ink text-ink hover:bg-ink/10">
               {closing.whatsappCta}
             </Button>
           </div>

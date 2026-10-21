@@ -33,9 +33,7 @@ export function Header() {
     <header
       className={cn(
         "sticky top-0 z-50 border-b transition-colors duration-300",
-        scrolled
-          ? "border-border bg-background/85 backdrop-blur-md"
-          : "border-transparent bg-background"
+        scrolled ? "border-border bg-background/85 backdrop-blur-md" : "border-transparent bg-background",
       )}
     >
       <Container className="flex h-16 items-center justify-between">
@@ -43,7 +41,7 @@ export function Header() {
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -55,14 +53,14 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <ThemeToggle />
           <Button href={contact.whatsappHref} size="sm">
             Hablemos
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle />
           <button
             type="button"

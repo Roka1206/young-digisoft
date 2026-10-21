@@ -46,7 +46,7 @@ export const howWeWork = {
   steps: [
     {
       title: "Hablamos",
-      description: "Nos cuentas qué necesitas por WhatsApp, por teléfono o en persona. Sin compromiso.",
+      description: "Nos cuentas qué necesitas por WhatsApp, por teléfono o por email. Sin compromiso.",
     },
     {
       title: "Te enviamos una propuesta",
@@ -58,7 +58,8 @@ export const howWeWork = {
     },
     {
       title: "Lo publicamos y seguimos contigo",
-      description: "Lo ponemos en marcha y te explicamos cómo usarlo. El soporte posterior queda por escrito en el contrato.",
+      description:
+        "Lo ponemos en marcha y te explicamos cómo usarlo. El soporte posterior queda por escrito en el contrato.",
     },
   ],
 };

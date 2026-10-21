@@ -13,10 +13,7 @@ export async function POST(request: Request) {
 
   const parsed = contactSchema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) {
-    return NextResponse.json(
-      { error: "Datos inválidos", issues: parsed.error.flatten().fieldErrors },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Datos inválidos", issues: parsed.error.flatten().fieldErrors }, { status: 400 });
   }
 
   // Honeypot filled: answer as if it worked so bots get no signal.

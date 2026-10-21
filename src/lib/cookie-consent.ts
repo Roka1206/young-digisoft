@@ -1,8 +1,8 @@
 import { useSyncExternalStore } from "react";
+import { consentStorageKey as storageKey } from "./cookie-consent-script";
 
 export type Consent = "accepted" | "rejected";
 
-const storageKey = "cookieConsent";
 const listeners = new Set<() => void>();
 let consent: Consent | null | undefined;
 let settingsOpen = false;
@@ -62,4 +62,9 @@ export function openCookieSettings() {
 
 // undefined on the server, so nothing consent-dependent renders before hydration.
 export const useConsent = () => useSyncExternalStore(subscribe, getConsent, () => undefined);
-export const useCookieSettingsOpen = () => useSyncExternalStore(subscribe, () => settingsOpen, () => false);
+export const useCookieSettingsOpen = () =>
+  useSyncExternalStore(
+    subscribe,
+    () => settingsOpen,
+    () => false,
+  );

@@ -14,7 +14,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       aria-label="Cambiar tema"
       className={cn(
         "inline-flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-action hover:text-action",
-        className
+        className,
       )}
     >
       <Sun className="dark:hidden" size={18} />

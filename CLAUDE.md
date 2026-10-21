@@ -12,7 +12,7 @@
 
 Estas reglas mandan sobre cualquier otra instrucción de este archivo o del plan.
 
-1. **Al terminar una tarea:** ejecuta `lint`, `build` y **los tests** (todo debe pasar; si algo falla, corrígelo o avísame antes de dar el commit), entrega **solo el mensaje de commit** y **detente**. No hagas `git commit`, `git push`, PR, merge ni despliegues: eso lo hace el propietario.
+1. **Al terminar una tarea:** ejecuta `format:check`, `lint`, `build` y **los tests** (todo debe pasar; si algo falla, corrígelo o avísame antes de dar el commit), entrega **solo el mensaje de commit** y **detente**. No hagas `git commit`, `git push`, PR, merge ni despliegues: eso lo hace el propietario.
    - Formato del mensaje (Conventional Commits, en inglés): `tipo(ámbito): resumen en imperativo`, máximo 72 caracteres, y si hace falta un cuerpo breve con el porqué. Tipos: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`.
 2. **Antes de cambiar código:** explica en 2 a 4 líneas, en lenguaje sencillo, qué vas a hacer y por qué. Si el cambio es grande o afecta a varias partes, espera confirmación antes de tocar nada.
 3. **Skills, plugins y conectores:** el propietario tiene varios instalados. Úsalos siempre que aporten (diseño frontend, SEO, accesibilidad, Vercel, etc.) y comprueba si hay uno antes de hacer algo a mano. **Si dos o más hacen la misma función, para y pregunta cuál usar.**
@@ -57,7 +57,9 @@ Hay 4 ofertas. No añadas servicios nuevos a la web sin que el propietario lo de
 
 Notas:
 - El precio de lanzamiento tiene condiciones reales: testimonio verificable con nombre, permiso para mostrar el trabajo y reseña en Google. Debe mostrarse con fecha de caducidad.
-- El Diagnóstico digital se descuenta si el cliente contrata después una web o una automatización. **Pendiente de decidir:** si el informe escrito va incluido en la hora o se factura aparte.
+- El Diagnóstico digital se descuenta si el cliente contrata después una web o una automatización. Incluye un resumen escrito con las recomendaciones priorizadas; un informe detallado se presupuesta aparte.
+- El precio de lanzamiento es válido hasta el 31 de enero de 2027 o hasta completar 5 clientes, lo que ocurra antes.
+- Qué no incluye cada servicio y las rondas de revisión (2 en web, 1 en automatización) están en `src/content/services.ts`.
 - La web publica precios "desde". **Todos los importes viven en un único archivo** (`src/content/pricing.ts`), nunca escritos a mano en los componentes.
 - Fuera de los primeros 6 meses: apps a medida, tiendas online complejas, reparación de hardware, redes. Si llega un encargo así, se valora aparte.
 
@@ -111,6 +113,7 @@ Negocios locales que ya venden pero tienen presencia digital floja: peluquerías
   - Desarrollo: `npm run dev` (http://localhost:3000)
   - Build y servir: `npm run build` y `npm start`
   - Lint: `npm run lint` · Tipos: `npm run typecheck`
+  - Formato (Prettier, con orden de clases de Tailwind): `npm run format` (aplica) y `npm run format:check` (comprueba)
   - Tests unitarios (Vitest): `npm test` (`npm run test:watch` en modo watch)
   - Tests e2e (Playwright): `npm run test:e2e` (la primera vez, `npx playwright install`)
 
@@ -119,11 +122,11 @@ Negocios locales que ya venden pero tienen presencia digital floja: peluquerías
 Ver la **sección 0** (manda sobre todo lo demás). Además:
 
 - Una tarea cada vez, sin mezclar temas, para que cada mensaje de commit describa un solo cambio.
-- Después de cada fase: `lint`, `build`, tests y revisión visual en móvil y escritorio.
+- Después de cada fase: `format:check`, `lint`, `build`, tests y revisión visual en móvil y escritorio.
 
 ## 7. SEO, legal y privacidad (España / UE)
 
-- **SEO local para A Coruña:** metadatos por página, `sitemap.xml`, `robots.txt`, datos estructurados JSON-LD (`ProfessionalService` / `LocalBusiness`), página de aterrizaje «Diseño web en A Coruña», imagen Open Graph y enlaces internos entre servicios.
+- **SEO:** metadatos por página, `sitemap.xml`, `robots.txt`, datos estructurados JSON-LD (`ProfessionalService`, `Service` y `FAQPage`), imagen Open Graph y enlaces internos entre servicios. La página de «Diseño web» es `/servicios/web`, para toda España; no hay página local de A Coruña.
 - **Textos legales obligatorios:** Aviso legal (LSSI-CE), Política de privacidad (RGPD y LOPDGDD) y Política de cookies. Deben usar los datos reales del titular. Los textos los redacta el asistente como **borrador**, y **un gestor o abogado debe revisarlos** antes de considerarlos definitivos.
 - **Cookies:** el propietario ha decidido usar Google Analytics 4 además de Vercel Analytics (sin cookies). GA4 solo se carga tras aceptar en el banner de cookies (`src/lib/cookie-consent.ts`); rechazar pesa lo mismo que aceptar y la elección se cambia desde «Configurar cookies» en el pie. Cualquier otra cookie no técnica necesita el mismo consentimiento previo y debe figurar en `/cookies` y `/privacidad`.
 - **Formulario de contacto:** casilla de consentimiento con enlace a la política de privacidad, finalidad y responsable explicados en una línea.
@@ -150,14 +153,16 @@ El trabajo se hace por bloques y en este orden:
 
 ## 10. Estado actual y pendientes del propietario
 
-- [x] Datos del titular para el aviso legal: NIF y domicilio de la actividad (confirmados en `src/content/legal.ts`).
+- [x] Datos del titular para el aviso legal: nombre (Ronald Fonseca, nombre comercial Young Digisoft), NIF y domicilio de la actividad (en `src/content/legal.ts`).
+- [ ] Revisión de los textos legales por un gestor o abogado. `[PENDIENTE]`
 - [x] Correo corporativo: `info@youngdigisoft.es`.
 - [x] Cuentas de Instagram y LinkedIn creadas y enlazadas en la web.
 - [ ] Pasar la URL de la página de Facebook y crear Google Business Profile. `[PENDIENTE]`
 - [ ] Trabajos previos para el portfolio (nombre, sector, qué se hizo, permiso de publicación). `[PENDIENTE]`
-- [ ] Decidir si el informe del Diagnóstico digital va incluido en la hora. `[PENDIENTE]`
+- [x] Informe del Diagnóstico digital: incluye resumen escrito; el informe detallado se presupuesta aparte.
+- [x] Fecha de fin del precio de lanzamiento, qué no incluye cada servicio y rondas de revisión.
 - [x] Conectar `youngdigisoft.es` al proyecto de Vercel.
 - [x] Verificar `youngdigisoft.es` en Resend.
-- [ ] Definir en Vercel `RESEND_API_KEY`, `CONTACT_FROM_EMAIL` y `CONTACT_TO_EMAIL` (sin ellas el formulario no envía). `[PENDIENTE: comprobar]`
+- [x] Definir en Vercel `RESEND_API_KEY`, `CONTACT_FROM_EMAIL` y `CONTACT_TO_EMAIL` (en Production, Preview y Development).
 
 > Mantén esta sección al día: tacha lo hecho y añade lo nuevo.

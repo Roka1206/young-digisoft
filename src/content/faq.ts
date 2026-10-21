@@ -11,7 +11,7 @@ export const faq: FaqItem[] = [
     answer: [
       "Depende del alcance de cada proyecto. Como referencia:",
       ...services.flatMap((service) =>
-        service.plans.filter((plan) => plan.timeline).map((plan) => `${plan.name}: ${plan.timeline}.`)
+        service.plans.filter((plan) => plan.timeline).map((plan) => `${plan.name}: ${plan.timeline}.`),
       ),
       "Antes de empezar te damos un plazo cerrado para tu proyecto.",
     ],

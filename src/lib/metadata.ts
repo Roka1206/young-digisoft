@@ -8,7 +8,15 @@ const image = { url: "/opengraph-image", width: 1200, height: 630, alt: `${site.
 
 export const openGraphBase = { siteName: site.name, locale: "es_ES", type: "website" as const, images: [image] };
 
-export function pageMetadata({ title, description, path }: { title: string; description: string; path: string }): Metadata {
+export function pageMetadata({
+  title,
+  description,
+  path,
+}: {
+  title: string;
+  description: string;
+  path: string;
+}): Metadata {
   const fullTitle = `${title} — ${site.name}`;
   return {
     title,

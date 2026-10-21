@@ -46,7 +46,7 @@ export function ContactForm() {
     return (
       <Card role="status" className="flex flex-col items-center gap-3 p-8 text-center">
         <CheckCircle2 className="text-success" size={32} />
-        <p className="font-medium text-lg text-foreground">{success.title}</p>
+        <p className="text-lg font-medium text-foreground">{success.title}</p>
         <p className="text-sm text-muted">{success.description}</p>
         <Button variant="secondary" onClick={() => setStatus("idle")}>
           {success.again}
@@ -110,7 +110,12 @@ export function ContactForm() {
 
       <div>
         <div className="flex items-start gap-3 text-sm text-foreground">
-          <input id="consent" type="checkbox" className="mt-0.5 size-4 shrink-0 accent-action" {...register("consent")} />
+          <input
+            id="consent"
+            type="checkbox"
+            className="mt-0.5 size-4 shrink-0 accent-action"
+            {...register("consent")}
+          />
           <label htmlFor="consent">
             {consent.before}
             <Link href="/privacidad" className="font-medium text-action underline underline-offset-2">

@@ -2,7 +2,15 @@ import type { ReactNode } from "react";
 import { Container } from "./Container";
 
 // The `dark` class applies the dark-theme tokens here: BRAND.md puts key message blocks on ink.
-export function PageHero({ title, description, children }: { title: string; description: string; children?: ReactNode }) {
+export function PageHero({
+  title,
+  description,
+  children,
+}: {
+  title: string;
+  description: string;
+  children?: ReactNode;
+}) {
   return (
     <section className="dark bg-background text-foreground">
       <Container className="flex max-w-3xl flex-col gap-6 py-20">

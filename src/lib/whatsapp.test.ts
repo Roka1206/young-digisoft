@@ -8,7 +8,7 @@ describe("whatsappUrl", () => {
 
   it("encodes spaces, accents and punctuation in the message", () => {
     expect(whatsappUrl("34600000000", "¿Diagnóstico? Sí")).toBe(
-      "https://wa.me/34600000000?text=%C2%BFDiagn%C3%B3stico%3F%20S%C3%AD"
+      "https://wa.me/34600000000?text=%C2%BFDiagn%C3%B3stico%3F%20S%C3%AD",
     );
   });
 });

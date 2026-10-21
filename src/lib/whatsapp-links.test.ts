@@ -7,7 +7,7 @@ const messageOf = (href: string) => new URL(href).searchParams.get("text");
 describe("serviceWhatsappHref", () => {
   it("names the service in the prefilled message", () => {
     expect(messageOf(serviceWhatsappHref("Web profesional"))).toBe(
-      "Hola, quiero información sobre el servicio «Web profesional»."
+      "Hola, quiero información sobre el servicio «Web profesional».",
     );
   });
 });
@@ -17,10 +17,7 @@ describe("whatsappHrefForPath", () => {
     expect(whatsappHrefForPath("/servicios/automatizacion")).toBe(serviceWhatsappHref("Automatización exprés"));
   });
 
-  it.each(["/", "/contacto", "/privacidad", "/servicios/no-existe"])(
-    "uses the general message on %s",
-    (pathname) => {
-      expect(whatsappHrefForPath(pathname)).toBe(contact.whatsappHref);
-    }
-  );
+  it.each(["/", "/contacto", "/privacidad", "/servicios/no-existe"])("uses the general message on %s", (pathname) => {
+    expect(whatsappHrefForPath(pathname)).toBe(contact.whatsappHref);
+  });
 });

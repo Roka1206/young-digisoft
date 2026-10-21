@@ -7,7 +7,8 @@ vi.mock("next/script", () => ({
 }));
 
 const gaId = "G-TEST123";
-const gaScript = () => document.querySelector(`[data-script-src="https://www.googletagmanager.com/gtag/js?id=${gaId}"]`);
+const gaScript = () =>
+  document.querySelector(`[data-script-src="https://www.googletagmanager.com/gtag/js?id=${gaId}"]`);
 
 // Fresh modules per test so the consent state read from localStorage starts clean.
 async function renderSite(envGaId = gaId) {
@@ -18,7 +19,7 @@ async function renderSite(envGaId = gaId) {
     <>
       <CookieBanner />
       <GoogleAnalytics />
-    </>
+    </>,
   );
 }
 

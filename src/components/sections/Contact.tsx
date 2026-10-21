@@ -25,7 +25,7 @@ export function Contact() {
                   <Icon size={20} />
                 </span>
                 <div>
-                  <p className="text-xs uppercase tracking-wide text-muted">{label}</p>
+                  <p className="text-xs tracking-wide text-muted uppercase">{label}</p>
                   <p className="text-sm font-medium text-foreground">{value}</p>
                 </div>
               </Card>
@@ -46,7 +46,7 @@ export function Contact() {
           })}
         </Reveal>
 
-        <Reveal delay={0.1}>
+        <Reveal>
           <ContactForm />
         </Reveal>
       </Container>

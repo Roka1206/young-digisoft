@@ -6,7 +6,7 @@ import { cardClasses } from "./Card";
 export function FaqItem({ item }: { item: FaqEntry }) {
   return (
     <details className={cn(cardClasses, "group")}>
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-xl p-5 font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-action [&::-webkit-details-marker]:hidden">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-xl p-5 font-medium text-foreground focus-visible:ring-2 focus-visible:ring-action focus-visible:outline-none [&::-webkit-details-marker]:hidden">
         {item.question}
         <ChevronDown aria-hidden className="size-5 shrink-0 text-action transition-transform group-open:rotate-180" />
       </summary>

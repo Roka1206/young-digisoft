@@ -61,6 +61,6 @@ describe("sendContactEmail", () => {
       vi.stubEnv(name, "");
       await expect(sendContactEmail(values)).rejects.toThrow(name);
       expect(send).not.toHaveBeenCalled();
-    }
+    },
   );
 });

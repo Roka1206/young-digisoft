@@ -1,10 +1,15 @@
 import { contact } from "./site";
 
 export const legalEntity = {
-  legalName: "Young Digisoft",
+  ownerName: "Ronald Fonseca",
+  tradeName: "Young Digisoft",
   taxId: "32946796D",
   address: "Rúa Linares Rivas 9 bajo, 15160, Sada, A Coruña",
 };
+
+export const legalUpdatedAt = "Última actualización: octubre de 2026";
+
+const owner = `${legalEntity.ownerName}, que actúa con el nombre comercial ${legalEntity.tradeName}, con NIF ${legalEntity.taxId} y domicilio en ${legalEntity.address}`;
 
 export type LegalSection = {
   title: string;
@@ -15,14 +20,14 @@ export const avisoLegalSections: LegalSection[] = [
   {
     title: "1. Datos identificativos",
     paragraphs: [
-      `En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de que este sitio web es titularidad de ${legalEntity.legalName}, con NIF/CIF ${legalEntity.taxId} y domicilio en ${legalEntity.address}.`,
+      `En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de que este sitio web es titularidad de ${owner}.`,
       `Contacto: ${contact.phone} · ${contact.email}.`,
     ],
   },
   {
     title: "2. Objeto",
     paragraphs: [
-      "El presente aviso legal regula el uso del sitio web, cuyo objeto es informar sobre los servicios de digitalización, tecnología y soporte ofrecidos por Young Digisoft, así como permitir el contacto con clientes potenciales.",
+      "El presente aviso legal regula el uso del sitio web, cuyo objeto es informar sobre los servicios de desarrollo web, automatización, mantenimiento y consultoría tecnológica ofrecidos por Young Digisoft, así como permitir el contacto con clientes potenciales.",
     ],
   },
   {
@@ -44,7 +49,13 @@ export const avisoLegalSections: LegalSection[] = [
     ],
   },
   {
-    title: "6. Legislación aplicable",
+    title: "6. Enlaces a sitios de terceros",
+    paragraphs: [
+      "Este sitio web contiene enlaces a servicios de terceros, como Instagram, LinkedIn o WhatsApp. Young Digisoft no controla ni se hace responsable de sus contenidos ni de sus políticas de privacidad.",
+    ],
+  },
+  {
+    title: "7. Legislación aplicable",
     paragraphs: [
       "Las presentes condiciones se rigen por la legislación española. Para cualquier controversia, las partes se someten a los juzgados y tribunales del domicilio del titular, salvo que la normativa de consumidores establezca otro fuero.",
     ],
@@ -55,7 +66,7 @@ export const privacidadSections: LegalSection[] = [
   {
     title: "1. Responsable del tratamiento",
     paragraphs: [
-      `${legalEntity.legalName}, con NIF/CIF ${legalEntity.taxId} y domicilio en ${legalEntity.address}, es el responsable del tratamiento de los datos personales recogidos a través de este sitio web.`,
+      `${owner}, es el responsable del tratamiento de los datos personales recogidos a través de este sitio web.`,
       `Contacto para cuestiones de privacidad: ${contact.email}.`,
     ],
   },
@@ -70,13 +81,16 @@ export const privacidadSections: LegalSection[] = [
     title: "3. Legitimación",
     paragraphs: [
       "La base legal para el tratamiento es el consentimiento del usuario, otorgado al enviar voluntariamente el formulario de contacto.",
+      `El usuario puede retirar ese consentimiento en cualquier momento escribiendo a ${contact.email}, sin que ello afecte a la licitud del tratamiento anterior a la retirada.`,
       "La analítica con Google Analytics se basa en el consentimiento que el usuario da al pulsar «Aceptar» en el aviso de cookies. Puede retirarlo en cualquier momento desde el enlace «Configurar cookies» del pie de página.",
     ],
   },
   {
     title: "4. Destinatarios y encargados del tratamiento",
     paragraphs: [
-      "Los datos del formulario se envían por correo electrónico mediante el proveedor Resend (servicio de envío de emails). No se ceden datos a terceros salvo obligación legal.",
+      "Para prestar el servicio se utilizan proveedores que actúan como encargados del tratamiento: Vercel Inc. (alojamiento del sitio web) y Resend (envío por correo electrónico de los mensajes del formulario).",
+      "Estos proveedores pueden tratar datos fuera del Espacio Económico Europeo, con las garantías previstas en el RGPD, como las cláusulas contractuales tipo de la Comisión Europea o el Marco de Privacidad de Datos UE-EE. UU.",
+      "No se ceden datos a terceros salvo obligación legal.",
       "El sitio web utiliza Vercel Analytics y Vercel Speed Insights para analítica de uso y rendimiento, con datos agregados y sin fines identificativos.",
       "Solo con el consentimiento del usuario, los datos de navegación se comparten con Google Ireland Ltd. como proveedor de Google Analytics. Google puede tratarlos en Estados Unidos, país con el que la Comisión Europea ha adoptado una decisión de adecuación (Marco de Privacidad de Datos UE-EE. UU.). Más información en la política de privacidad de Google: policies.google.com/privacy.",
     ],
@@ -85,7 +99,7 @@ export const privacidadSections: LegalSection[] = [
     title: "5. Conservación de los datos",
     paragraphs: [
       "Los datos se conservarán únicamente durante el tiempo necesario para gestionar la consulta, salvo que exista una obligación legal de conservación superior.",
-      "Los datos de Google Analytics se conservan durante [PENDIENTE: plazo de conservación configurado en Google Analytics].",
+      "Los datos de Google Analytics se conservan durante 2 años.",
     ],
   },
   {
@@ -148,7 +162,7 @@ export const cookiesSections: LegalSection[] = [
 export const cookieBanner = {
   label: "Aviso de cookies",
   text: "Usamos cookies de Google Analytics para saber cómo se usa la web y mejorarla. Solo se activan si las aceptas.",
-  link: "Más información",
+  link: "Ver la política de cookies",
   accept: "Aceptar",
   reject: "Rechazar",
   settings: "Configurar cookies",

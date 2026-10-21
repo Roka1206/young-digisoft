@@ -18,7 +18,7 @@ export const contactForm = {
     honeypot: "No rellenes este campo",
   },
   consent: { before: "He leído y acepto la ", link: "política de privacidad", after: "." },
-  privacyNote: `${legalEntity.legalName} usará tus datos solo para responder a tu consulta.`,
+  privacyNote: `${legalEntity.tradeName} usará tus datos solo para responder a tu consulta.`,
   errors: {
     name: "Introduce tu nombre",
     email: "Introduce un email válido",

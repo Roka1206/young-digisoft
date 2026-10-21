@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import { MotionConfig } from "motion/react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { site } from "@/content/site";
 import { openGraphBase } from "@/lib/metadata";
+import { hideChosenBannerScript } from "@/lib/cookie-consent-script";
 import { businessJsonLd } from "@/lib/structured-data";
 import { siteUrl } from "@/lib/site-url";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
@@ -59,12 +59,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${inter.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="flex min-h-full flex-col font-sans">
+        <script dangerouslySetInnerHTML={{ __html: hideChosenBannerScript }} />
         <JsonLd data={businessJsonLd()} />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-          <MotionConfig reducedMotion="user">{children}</MotionConfig>
-          <WhatsAppButton />
+          {/* First in the DOM so keyboard users reach the choice first; it is fixed to the bottom visually. */}
           <CookieBanner />
+          {children}
+          <WhatsAppButton />
         </ThemeProvider>
         <GoogleAnalytics />
         <Analytics />

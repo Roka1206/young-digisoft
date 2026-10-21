@@ -12,7 +12,7 @@ Publicar en **`youngdigisoft.es`** una web profesional que transmita confianza y
 2. Presentar las 4 ofertas con precios «desde» y plazos claros.
 3. Generar confianza sin inventar nada (portfolio real, precio cerrado, soporte, proceso transparente).
 4. Facilitar el contacto en un clic (WhatsApp, formulario, reserva de diagnóstico).
-5. Posicionar en Google para búsquedas locales de A Coruña.
+5. Posicionar en Google para búsquedas de diseño web y servicios digitales para pymes en toda España.
 6. Cumplir la normativa española y europea (LSSI, RGPD, cookies).
 
 **Criterios de éxito (definición de terminado):**
@@ -56,7 +56,6 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 | `/servicios/automatizacion` | Automatización exprés con IA |
 | `/servicios/mantenimiento` | Mantenimiento mensual |
 | `/servicios/diagnostico-digital` | Consultoría: Diagnóstico digital (60 €/hora) |
-| `/diseno-web-a-coruna` | Página local de SEO para A Coruña |
 | `/portfolio` | Casos reales (solo si hay al menos 1 caso real) |
 | `/contacto` | Formulario, WhatsApp, teléfono y zona de servicio |
 | `/aviso-legal`, `/privacidad`, `/cookies` | Textos legales |
@@ -96,19 +95,19 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 - [x] Metadatos únicos por página (`title`, `description`, canonical) y Open Graph con imagen de marca.
 - [x] `sitemap.xml` y `robots.txt` generados desde Next.js.
 - [x] Datos estructurados JSON-LD: `ProfessionalService` (sede en la provincia de A Coruña, zona de servicio toda España, contacto, logotipo y redes), `Service` con precios «desde» en cada página de servicio y `FAQPage` donde aparecen las preguntas frecuentes.
-- [ ] Página `/diseno-web-a-coruna` con contenido útil y no duplicado (a quién ayudamos, proceso, precios «desde», preguntas locales). Enlazarla desde la portada y el pie.
-- [ ] Enlazado interno entre servicios y contacto; texto alternativo en imágenes; una sola etiqueta `h1` por página.
-- [ ] Rendimiento: `next/image`, fuentes optimizadas, sin JavaScript innecesario en cliente.
+- [x] Página de «Diseño web» para toda España: en lugar de una página local de A Coruña, `/servicios/web` se titula «Diseño web para pymes y autónomos» y suma para qué negocios es, cómo te ayudamos a aparecer en Google y preguntas propias (con `FAQPage`).
+- [x] Enlazado interno entre servicios y contacto (columna «Servicios» en el pie); texto alternativo en imágenes; una sola etiqueta `h1` por página.
+- [x] Rendimiento: fuentes con `next/font`, animaciones en CSS (sin la librería `motion`) y banner de cookies renderizado en el servidor. `[PENDIENTE: confirmar Lighthouse ≥ 90 con PageSpeed Insights tras desplegar]`
 - [x] Analítica: Vercel Web Analytics (sin cookies) y Google Analytics 4 solo tras aceptar el banner de cookies, con «Configurar cookies» en el pie. `[PENDIENTE: plazo de conservación de datos configurado en GA4, para /privacidad]`
 
 ## Fase 5: Páginas legales (día 6 a 7)
 
-- [ ] Redactar como **borrador** `/aviso-legal`, `/privacidad` y `/cookies` adaptados a esta web, usando los datos reales del titular. Hasta tenerlos, dejar `[PENDIENTE]` visibles en el borrador, no inventar.
+- [x] Redactar como **borrador** `/aviso-legal`, `/privacidad` y `/cookies` adaptados a esta web, usando los datos reales del titular. Hasta tenerlos, dejar `[PENDIENTE]` visibles en el borrador, no inventar.
   - Datos del titular que hacen falta: nombre completo, NIF, domicilio de la actividad, email y teléfono de contacto.
-- [ ] Política de privacidad: responsable, finalidad (atender solicitudes), base legal (consentimiento), conservación, destinatarios (proveedor de email y de hosting), derechos y cómo ejercerlos.
-- [ ] Política de cookies coherente con lo que realmente usa la web.
-- [ ] Enlaces a los tres textos en el pie y junto al formulario.
-- [ ] Recordar al propietario que **un gestor o abogado debe revisar estos textos** antes de darlos por definitivos.
+- [x] Política de privacidad: responsable, finalidad (atender solicitudes), base legal (consentimiento), conservación, destinatarios (proveedor de email y de hosting), derechos y cómo ejercerlos.
+- [x] Política de cookies coherente con lo que realmente usa la web.
+- [x] Enlaces a los tres textos en el pie y junto al formulario.
+- [ ] Recordar al propietario que **un gestor o abogado debe revisar estos textos** antes de darlos por definitivos. `[PENDIENTE: revisión del gestor o abogado]`
 
 ## Fase 6: Dominio `youngdigisoft.es` y despliegue (día 7)
 
@@ -124,12 +123,12 @@ Pasos de Claude Code (repositorio y configuración) y pasos manuales del propiet
 
 ## Fase 7: Control de calidad y lanzamiento (día 7 a 8)
 
-- [ ] `lint`, `build` y todos los tests sin errores ni avisos relevantes.
-- [ ] Revisión en móvil (375 px), tableta y escritorio. Navegación completa con teclado.
+- [x] `format:check`, `lint`, `build` y todos los tests sin errores ni avisos relevantes.
+- [x] Revisión en móvil (375 px), tableta y escritorio. Navegación completa con teclado.
 - [ ] Lighthouse ≥ 90 en las 4 categorías (móvil). Corregir lo necesario.
-- [ ] Comprobación de contraste de todos los textos (AA). Recordar: texto blanco sobre `#00ADB5` no pasa; usar `action`.
+- [x] Comprobación de contraste de todos los textos (AA). Recordar: texto blanco sobre `#00ADB5` no pasa; usar `action`.
 - [ ] Probar el formulario real (recepción del email y mensaje de confirmación) y todos los enlaces (sin `#`, sin 404).
-- [ ] Verificar que no queda ningún testimonio, cifra o caso inventado, y que ningún `[PENDIENTE]` sale publicado salvo acuerdo del propietario.
+- [x] Verificar que no queda ningún testimonio, cifra o caso inventado, y que ningún `[PENDIENTE]` sale publicado salvo acuerdo del propietario.
 - [ ] Publicar en producción y revisar `sitemap.xml`, `robots.txt`, metadatos y la vista previa al compartir en WhatsApp y LinkedIn.
 - [ ] Actualizar la sección 10 de `CLAUDE.md` (estado actual y pendientes).
 

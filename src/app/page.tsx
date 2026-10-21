@@ -11,9 +11,7 @@ import { Process } from "@/components/sections/Process";
 import { WhyUs } from "@/components/sections/WhyUs";
 
 const BackToTop = dynamic(() => import("@/components/layout/BackToTop").then((mod) => mod.BackToTop));
-const ExitIntentModal = dynamic(() =>
-  import("@/components/forms/ExitIntentModal").then((mod) => mod.ExitIntentModal)
-);
+const ExitIntentModal = dynamic(() => import("@/components/forms/ExitIntentModal").then((mod) => mod.ExitIntentModal));
 
 export default function Home() {
   return (
