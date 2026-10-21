@@ -87,10 +87,10 @@ Producción hoy solo envía `Strict-Transport-Security`. Faltan:
 
 `.github/workflows/ci.yml`:
 
-- [ ] `permissions: contents: read` a nivel de workflow (hoy usa los permisos por defecto del token).
-- [ ] `actions/checkout` y `actions/setup-node` a v5 (las v4 usan Node 20, obsoleto en GitHub Actions). Opcional: fijarlas por SHA.
-- [ ] Paso `npm audit --omit=dev --audit-level=high`, para que el CI falle si una dependencia de producción tiene un aviso alto o crítico.
-- [ ] `.github/dependabot.yml` semanal para `npm` y `github-actions`, agrupando las actualizaciones menores y de parche.
+- [x] `permissions: contents: read` a nivel de workflow (hoy usa los permisos por defecto del token).
+- [x] `actions/checkout`, `actions/setup-node` y `actions/upload-artifact` a v7 (las v4 usaban Node 20, obsoleto en GitHub Actions). Opcional: fijarlas por SHA.
+- [x] Paso `npm audit --omit=dev --audit-level=high`, para que el CI falle si una dependencia de producción tiene un aviso alto o crítico.
+- [x] `.github/dependabot.yml` semanal para `npm` y `github-actions`, agrupando las actualizaciones menores y de parche.
 - [ ] Activar en GitHub (*Settings → Code security*): alertas de Dependabot, *secret scanning* y *push protection*. → Propietario.
 - [ ] Protección de la rama `main`: exigir que el CI pase antes de fusionar. → Propietario.
 
@@ -165,7 +165,7 @@ test("accepting cookies loads Google Analytics without CSP errors", ...);
 
 ### Fase 3: semana 2 (CI y repositorio)
 
-- [ ] Endurecer `ci.yml`, añadir `npm audit` y Dependabot (§3.5).
+- [x] Endurecer `ci.yml`, añadir `npm audit` y Dependabot (§3.5).
 - [ ] Medir la cobertura y fijar el umbral (§4.3). **Pide permiso:** dependencia nueva.
 - [ ] *Smoke test* contra producción tras cada despliegue.
 - [ ] Sacar `.pnpm-runner/` de git (§3.4). **Pide permiso:** borra archivos del repositorio.
