@@ -45,7 +45,7 @@
 | [GHSA-f87g-xv8r-7p7x](https://github.com/advisories/GHSA-f87g-xv8r-7p7x) Fuga de información en rutas de imágenes de metadatos | Moderada | `<16.3.8` | Tenemos rutas de imágenes de metadatos (`opengraph-image`, `icon`) |
 | GHSA-4jqv-mc3x-m676, GHSA-mcj8-r9mp-w47p, GHSA-3w37-wq28-93x7, GHSA-39w2-rjm5-chcv | Moderada / baja | `<16.3.8` | Caché en servidores propios, `use cache` con Draft Mode o servidor de desarrollo: no aplican en Vercel, se corrigen igualmente |
 
-- [ ] **Acción:** `npm install next@16.3.8` (misma versión menor, sin cambios de API) y, si existe la misma versión, `eslint-config-next@16.3.8`. Después, `format:check`, `lint`, `typecheck`, tests, build y e2e.
+- [x] **Acción:** `npm install next@16.3.8` (misma versión menor, sin cambios de API) y, si existe la misma versión, `eslint-config-next@16.3.8`. Después, `format:check`, `lint`, `typecheck`, tests, build y e2e.
 - [ ] Las alertas de `eslint-config-next` → `micromatch`/`braces` son de **desarrollo** (DoS por patrones anidados al hacer lint), no llegan a producción. `npm audit fix --force` propone bajar a la versión 14: **no hacerlo**. Esperar a que Next publique la corrección.
 - [ ] Opcional: desactivar el optimizador de imágenes mientras no se use (`images: { unoptimized: true }`) para cerrar esa superficie del todo.
 
@@ -154,7 +154,7 @@ test("accepting cookies loads Google Analytics without CSP errors", ...);
 
 ### Fase 1: urgente (hoy)
 
-- [ ] Actualizar `next` a 16.3.8 y pasar todas las comprobaciones (§3.1). **Pide permiso:** cambia una dependencia.
+- [x] Actualizar `next` a 16.3.8 y pasar todas las comprobaciones (§3.1). Hecho el 21 oct 2026: `npm audit --omit=dev` sin vulnerabilidades.
 
 ### Fase 2: semana 1 (código)
 
