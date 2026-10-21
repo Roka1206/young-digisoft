@@ -75,7 +75,22 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 | «Cómo automatizar las citas de mi peluquería» | No aparece | Citada como fuente (guía) |
 | «Empresas que automatizan procesos para pymes en Galicia» | No aparece | Aparece entre las opciones |
 
-Competidores con los que comparar: `[PENDIENTE: el propietario indica 3 a 5 competidores locales]`.
+**Competidores** (búsqueda del 21 oct 2026; precios según sus propias webs, sin verificar):
+
+| Competidor | Qué ofrece | Por qué importa |
+|---|---|---|
+| [Nerade](https://nerade.com/diseno-web-coruna/) | Webs WordPress en A Coruña con precio cerrado, desde 350 € (sin IVA) | Mismo mensaje de «precio cerrado» y precio de entrada más bajo: diferenciarse por código propio, rendimiento y automatización |
+| [Cantonce](https://www.cantonce.es/provincias/a-coruna.html) | Freelance, webs desde 300 €, presupuesto en 24 h | Compite en precio y rapidez de respuesta |
+| [Beedigital](https://www.beedigital.es/productos/diseno-web/a-coruna/) | Web y presencia digital por cuota mensual (desde 79,90 €/mes) | Modelo de suscripción: comparar con Web Esencial + Mantenimiento |
+| [Lapriex Digital](https://lapriexdigital.com/blog/cuanto-cuesta-web-a-coruna-2026/) | Agencia; su guía «¿Cuánto cuesta una página web en A Coruña? Precios 2026» posiciona | Competidor de **contenido**: confirma que la guía de precios de §5 tiene demanda |
+| [SEO Galicia](https://seogalicia.es/paginas-web), [Agencia Pronoia](https://agenciapronoia.com/diseno-web-coruna/), [Dvesign](https://dvesign.com/diseno-web-la-coruna/), [Cristina Ferrís](https://cristinaferris.com/diseno-web-coruna/) | Diseño web local con páginas «Diseño web Coruña» | Ocupan la búsqueda local: competir con ficha de Google, reseñas y guías, no con otra página genérica |
+| IngenioLab, Javadex (n8n, agentes IA) | Automatización e IA para pymes en A Coruña o en remoto | Competencia directa de Automatización exprés; Javadex también ofrece auditoría gratuita de 30 min |
+
+Directorios donde aparecen y donde conviene darse de alta: [Páxinas Galegas](https://www.paxinasgalegas.es/dise%C3%B1o-paginas-web-a-coru%C3%B1a-2385ep_31ay.html) y [Proveedores.com](https://proveedores.com/diseno-web/a-coruna).
+
+**Diferenciación a reforzar en el contenido:** código propio (no WordPress), web rápida medida (Lighthouse ≥ 90), precio cerrado con lo que no incluye por escrito, automatización además de la web, y el dominio y el hosting a nombre del cliente.
+
+**Idea de contenido a verificar:** ayudas a la digitalización para autónomos y pymes en Galicia (Bono Autónomo de la Xunta, Kit Digital). Solo con datos de la convocatoria oficial vigente `[PENDIENTE: verificar en xunta.gal y acelerapyme.gob.es]`.
 
 **Qué mueve la aguja (por orden):**
 
@@ -142,8 +157,10 @@ Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de pu
 
 ## 8. Datos que faltan del propietario
 
-- `[PENDIENTE]` 3 a 5 competidores locales para comparar.
+- Competidores: recogidos en §4.
+- LinkedIn del fundador (Ronald Fonseca): <https://www.linkedin.com/in/rfonsecah92>.
+- Guías: se montan con MDX (`@next/mdx`), aprobado por el propietario.
 - `[PENDIENTE]` URL de Google Business Profile y de Facebook (cuando existan).
-- `[PENDIENTE]` LinkedIn personal del fundador, trayectoria resumida y foto (para «Sobre nosotros» y `founder`).
+- `[PENDIENTE]` Trayectoria resumida y foto del fundador (para «Sobre nosotros»; el propietario la aporta más adelante).
 - `[PENDIENTE]` Fecha de inicio de la actividad y horario de atención.
 - `[PENDIENTE]` Decidir si se publica la dirección completa en el JSON-LD (hoy solo la provincia; es un domicilio de autónomo).
