@@ -148,7 +148,7 @@ export const cookiesSections: LegalSection[] = [
 export const cookieBanner = {
   label: "Aviso de cookies",
   text: "Usamos cookies de Google Analytics para saber cómo se usa la web y mejorarla. Solo se activan si las aceptas.",
-  link: "Más información",
+  link: "Ver la política de cookies",
   accept: "Aceptar",
   reject: "Rechazar",
   settings: "Configurar cookies",

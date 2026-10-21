@@ -8,12 +8,13 @@ import { saveConsent, useConsent, useCookieSettingsOpen } from "@/lib/cookie-con
 export function CookieBanner() {
   const consent = useConsent();
   const settingsOpen = useCookieSettingsOpen();
-  if (consent === undefined || (consent !== null && !settingsOpen)) return null;
+  if (consent && !settingsOpen) return null;
 
   return (
     <section
       aria-label={cookieBanner.label}
-      className="fixed inset-x-4 bottom-4 z-50 mx-auto flex max-w-3xl flex-col gap-4 rounded-xl border border-border bg-surface p-5 shadow-lg sm:flex-row sm:items-center sm:gap-6"
+      data-open={settingsOpen || undefined}
+      className="cookie-banner fixed inset-x-4 bottom-4 z-50 mx-auto flex max-w-3xl flex-col gap-4 rounded-xl border border-border bg-surface p-5 shadow-lg sm:flex-row sm:items-center sm:gap-6"
     >
       <p className="text-sm leading-relaxed text-foreground">
         {cookieBanner.text}{" "}

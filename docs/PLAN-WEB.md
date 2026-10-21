@@ -96,8 +96,8 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 - [x] `sitemap.xml` y `robots.txt` generados desde Next.js.
 - [x] Datos estructurados JSON-LD: `ProfessionalService` (sede en la provincia de A Coruña, zona de servicio toda España, contacto, logotipo y redes), `Service` con precios «desde» en cada página de servicio y `FAQPage` donde aparecen las preguntas frecuentes.
 - [x] Página de «Diseño web» para toda España: en lugar de una página local de A Coruña, `/servicios/web` se titula «Diseño web para pymes y autónomos» y suma para qué negocios es, cómo te ayudamos a aparecer en Google y preguntas propias (con `FAQPage`).
-- [ ] Enlazado interno entre servicios y contacto; texto alternativo en imágenes; una sola etiqueta `h1` por página.
-- [ ] Rendimiento: `next/image`, fuentes optimizadas, sin JavaScript innecesario en cliente.
+- [x] Enlazado interno entre servicios y contacto (columna «Servicios» en el pie); texto alternativo en imágenes; una sola etiqueta `h1` por página.
+- [x] Rendimiento: fuentes con `next/font`, animaciones en CSS (sin la librería `motion`) y banner de cookies renderizado en el servidor. `[PENDIENTE: confirmar Lighthouse ≥ 90 con PageSpeed Insights tras desplegar]`
 - [x] Analítica: Vercel Web Analytics (sin cookies) y Google Analytics 4 solo tras aceptar el banner de cookies, con «Configurar cookies» en el pie. `[PENDIENTE: plazo de conservación de datos configurado en GA4, para /privacidad]`
 
 ## Fase 5: Páginas legales (día 6 a 7)

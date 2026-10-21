@@ -1,8 +1,8 @@
 import { useSyncExternalStore } from "react";
+import { consentStorageKey as storageKey } from "./cookie-consent-script";
 
 export type Consent = "accepted" | "rejected";
 
-const storageKey = "cookieConsent";
 const listeners = new Set<() => void>();
 let consent: Consent | null | undefined;
 let settingsOpen = false;

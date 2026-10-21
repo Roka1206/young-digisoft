@@ -8,7 +8,7 @@ export function Process() {
       <ol className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
         {howWeWork.steps.map((step, index) => (
           <li key={step.title}>
-            <Reveal delay={index * 0.1} className="flex flex-col gap-2">
+            <Reveal className="flex flex-col gap-2">
               <span aria-hidden className="font-mono text-[13px]/5 text-action">
                 {String(index + 1).padStart(2, "0")}
               </span>

@@ -13,8 +13,8 @@ export function Offers() {
     <Section id="servicios" title={offers.title} description={offers.description}>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {services.flatMap((service) =>
-          service.plans.map((plan, index) => (
-            <Reveal key={plan.id} delay={index * 0.05}>
+          service.plans.map((plan) => (
+            <Reveal key={plan.id}>
               <PriceCard plan={plan}>
                 {service.note && <p className="text-sm text-muted">{service.note}</p>}
                 <Link href={`/servicios/${service.slug}`} className="font-medium text-action underline hover:text-action-hover">
