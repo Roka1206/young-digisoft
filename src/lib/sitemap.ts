@@ -3,7 +3,8 @@ import type { Service } from "@/content/services";
 
 type Frequency = NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
 
-export function buildSitemap(baseUrl: string, services: Service[], lastModified: Date): MetadataRoute.Sitemap {
+// No lastModified: there is no reliable per-page date, and Google ignores dates it cannot trust.
+export function buildSitemap(baseUrl: string, services: Service[]): MetadataRoute.Sitemap {
   const pages: [path: string, changeFrequency: Frequency, priority: number][] = [
     ["", "monthly", 1],
     ...services.map(({ slug }): [string, Frequency, number] => [`/servicios/${slug}`, "monthly", 0.8]),
@@ -14,7 +15,6 @@ export function buildSitemap(baseUrl: string, services: Service[], lastModified:
   ];
   return pages.map(([path, changeFrequency, priority]) => ({
     url: `${baseUrl}${path}`,
-    lastModified,
     changeFrequency,
     priority,
   }));

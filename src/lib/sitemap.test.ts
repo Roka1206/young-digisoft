@@ -3,8 +3,7 @@ import { services } from "@/content/services";
 import { buildSitemap } from "./sitemap";
 
 const baseUrl = "https://youngdigisoft.es";
-const lastModified = new Date("2026-10-20");
-const urls = buildSitemap(baseUrl, services, lastModified).map((entry) => entry.url);
+const urls = buildSitemap(baseUrl, services).map((entry) => entry.url);
 
 describe("buildSitemap", () => {
   it("lists the homepage, contact and legal pages", () => {
@@ -27,7 +26,11 @@ describe("buildSitemap", () => {
     expect(new Set(urls).size).toBe(urls.length);
   });
 
+  it("does not publish a lastmod date", () => {
+    for (const entry of buildSitemap(baseUrl, services)) expect(entry).not.toHaveProperty("lastModified");
+  });
+
   it("gives the homepage the highest priority", () => {
-    expect(buildSitemap(baseUrl, services, lastModified)[0]).toMatchObject({ url: baseUrl, priority: 1 });
+    expect(buildSitemap(baseUrl, services)[0]).toMatchObject({ url: baseUrl, priority: 1 });
   });
 });
