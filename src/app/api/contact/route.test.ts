@@ -62,6 +62,10 @@ describe("POST /api/contact", () => {
     expect(sendContactEmail).toHaveBeenCalledTimes(5);
   });
 
+  it("still accepts a request without a forwarded IP", async () => {
+    expect((await post(validPayload, "")).status).toBe(200);
+  });
+
   it("answers 403 without sending when the request comes from another origin", async () => {
     expect((await post(validPayload, undefined, "https://evil.example")).status).toBe(403);
     expect(sendContactEmail).not.toHaveBeenCalled();

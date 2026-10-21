@@ -91,12 +91,12 @@ Producción hoy solo envía `Strict-Transport-Security`. Faltan:
 - [x] `actions/checkout`, `actions/setup-node` y `actions/upload-artifact` a v7 (las v4 usaban Node 20, obsoleto en GitHub Actions). Opcional: fijarlas por SHA.
 - [x] Paso `npm audit --omit=dev --audit-level=high`, para que el CI falle si una dependencia de producción tiene un aviso alto o crítico.
 - [x] `.github/dependabot.yml` semanal para `npm` y `github-actions`, agrupando las actualizaciones menores y de parche.
-- [ ] Activar en GitHub (*Settings → Code security*): alertas de Dependabot, *secret scanning* y *push protection*. → Propietario.
-- [ ] Protección de la rama `main`: exigir que el CI pase antes de fusionar. → Propietario.
+- [x] Activar en GitHub (*Settings → Code security*): alertas de Dependabot, *secret scanning* y *push protection*. → Propietario.
+- [x] Protección de la rama `main`: exigir que el CI pase antes de fusionar. → Propietario. Regla «Proteger main»: CI obligatorio, sin borrado ni force push.
 
 ### 3.6 Cuentas y servicios (propietario)
 
-- [ ] Doble factor (2FA) en GitHub, Vercel, Google (cuenta de GA4 y Search Console), Resend y el registrador del dominio.
+- [ ] Doble factor (2FA) en GitHub, Vercel, Google (cuenta de GA4 y Search Console), Resend y el registrador del dominio. `[PENDIENTE: GitHub sin 2FA a 21 oct 2026]`
 - [ ] Clave de Resend con permiso **solo de envío** («Sending access») y limitada al dominio `youngdigisoft.es`. `[PENDIENTE: confirmar en Resend]`
 - [ ] Bloqueo de transferencia del dominio activado en el registrador. `[PENDIENTE: confirmar]`
 - [ ] Registros SPF, DKIM y DMARC del dominio (Resend ya exige SPF y DKIM; añadir DMARC con `p=quarantine` cuando los envíos estén estables). `[PENDIENTE: comprobar el DMARC actual]`
@@ -166,14 +166,14 @@ test("accepting cookies loads Google Analytics without CSP errors", ...);
 ### Fase 3: semana 2 (CI y repositorio)
 
 - [x] Endurecer `ci.yml`, añadir `npm audit` y Dependabot (§3.5).
-- [ ] Medir la cobertura y fijar el umbral (§4.3). **Pide permiso:** dependencia nueva.
+- [x] Medir la cobertura y fijar el umbral (§4.3): `npm run test:coverage` en el CI; 90 % global y 100 % de ramas en los archivos críticos.
 - [ ] *Smoke test* contra producción tras cada despliegue.
 - [ ] Sacar `.pnpm-runner/` de git (§3.4). **Pide permiso:** borra archivos del repositorio.
 
 ### Fase 4: propietario (cuando pueda)
 
 - [ ] 2FA en todas las cuentas, clave de Resend solo de envío, bloqueo del dominio, DMARC (§3.6).
-- [ ] *Secret scanning*, alertas de Dependabot y protección de `main` en GitHub (§3.5).
+- [x] *Secret scanning*, alertas de Dependabot y protección de `main` en GitHub (§3.5).
 - [ ] CSP en modo bloqueante tras revisar que no hay errores en la consola.
 - [ ] Límite de envíos compartido o regla en Vercel Firewall (§3.4).
 
