@@ -151,7 +151,8 @@ El trabajo se hace por bloques y en este orden:
 
 ## 10. Estado actual y pendientes del propietario
 
-- [x] Datos del titular para el aviso legal: NIF y domicilio de la actividad (confirmados en `src/content/legal.ts`).
+- [x] Datos del titular para el aviso legal: nombre (Ronald Fonseca, nombre comercial Young Digisoft), NIF y domicilio de la actividad (en `src/content/legal.ts`).
+- [ ] Revisión de los textos legales por un gestor o abogado. `[PENDIENTE]`
 - [x] Correo corporativo: `info@youngdigisoft.es`.
 - [x] Cuentas de Instagram y LinkedIn creadas y enlazadas en la web.
 - [ ] Pasar la URL de la página de Facebook y crear Google Business Profile. `[PENDIENTE]`

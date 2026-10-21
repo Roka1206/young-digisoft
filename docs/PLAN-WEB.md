@@ -102,12 +102,12 @@ Objetivo: conocer qué hay antes de tocarlo. Entrega un resumen corto en el chat
 
 ## Fase 5: Páginas legales (día 6 a 7)
 
-- [ ] Redactar como **borrador** `/aviso-legal`, `/privacidad` y `/cookies` adaptados a esta web, usando los datos reales del titular. Hasta tenerlos, dejar `[PENDIENTE]` visibles en el borrador, no inventar.
+- [x] Redactar como **borrador** `/aviso-legal`, `/privacidad` y `/cookies` adaptados a esta web, usando los datos reales del titular. Hasta tenerlos, dejar `[PENDIENTE]` visibles en el borrador, no inventar.
   - Datos del titular que hacen falta: nombre completo, NIF, domicilio de la actividad, email y teléfono de contacto.
-- [ ] Política de privacidad: responsable, finalidad (atender solicitudes), base legal (consentimiento), conservación, destinatarios (proveedor de email y de hosting), derechos y cómo ejercerlos.
-- [ ] Política de cookies coherente con lo que realmente usa la web.
-- [ ] Enlaces a los tres textos en el pie y junto al formulario.
-- [ ] Recordar al propietario que **un gestor o abogado debe revisar estos textos** antes de darlos por definitivos.
+- [x] Política de privacidad: responsable, finalidad (atender solicitudes), base legal (consentimiento), conservación, destinatarios (proveedor de email y de hosting), derechos y cómo ejercerlos.
+- [x] Política de cookies coherente con lo que realmente usa la web.
+- [x] Enlaces a los tres textos en el pie y junto al formulario.
+- [ ] Recordar al propietario que **un gestor o abogado debe revisar estos textos** antes de darlos por definitivos. `[PENDIENTE: revisión del gestor o abogado]`
 
 ## Fase 6: Dominio `youngdigisoft.es` y despliegue (día 7)
 
