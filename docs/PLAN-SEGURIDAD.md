@@ -96,10 +96,10 @@ Producción hoy solo envía `Strict-Transport-Security`. Faltan:
 
 ### 3.6 Cuentas y servicios (propietario)
 
-- [ ] **Doble factor (2FA) en todas las cuentas. Prioridad alta.** Comprobado el 21 oct 2026: **desactivado** en GitHub, Vercel, Google (1206roka@gmail.com), Resend y OVH. Orden recomendado: Google (recupera las demás), GitHub, Vercel, OVH y Resend. `[PENDIENTE: propietario]`
+- [x] Doble factor (2FA) en GitHub, Vercel, Google (1206roka@gmail.com), Resend y OVH. Desactivado en las cinco al revisarlo el 21 oct 2026; activado por el propietario el mismo día (confirmado por él, no comprobado desde fuera).
 - [x] Clave de Resend: una sola (`young-digisoft`) con «Sending access». Dominio «All domains»: equivale a `youngdigisoft.es` mientras sea el único dominio en Resend; restringirla si se añade otro.
-- [x] Bloqueo de transferencia del dominio activado en OVH. DNSSEC desactivado: activarlo en OVH (DNS gestionado por OVH, sin cambios manuales). `[PENDIENTE: propietario]`
-- [ ] SPF (`include:mx.ovh.com`), DKIM de Resend y DMARC publicados. DMARC en `p=none` (solo vigila). El correo de OVH es un MX Plan de redirección sin buzones, así que solo Resend envía como `@youngdigisoft.es`. Endurecer a `p=quarantine` cuando se confirme que ningún otro servicio envía como el dominio. `[PENDIENTE: cómo responde el propietario a los clientes]`
+- [x] Bloqueo de transferencia del dominio activado en OVH. DNSSEC solicitado en OVH el 21 oct 2026: la zona ya está firmada y falta que el registro `.es` publique el `DS` (hasta 24 h). `[PENDIENTE: comprobar el DS el 22 oct]`
+- [ ] SPF (`include:mx.ovh.com`), DKIM de Resend y DMARC publicados. DMARC en `p=none` (solo vigila). El correo de OVH es un MX Plan de redirección sin buzones, así que solo Resend envía como `@youngdigisoft.es`. Endurecer a `p=quarantine` cuando se confirme que ningún otro servicio envía como el dominio. El propietario envía desde Zimbra (OVH) y desde Gmail como `info@`: antes de endurecer hay que confirmar el DKIM de Zimbra y el servidor SMTP de Gmail. `[PENDIENTE: resultados del prompt de Zimbra y Gmail]`
 
 ## 4. Plan de testing
 
