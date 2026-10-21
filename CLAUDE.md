@@ -164,5 +164,11 @@ El trabajo se hace por bloques y en este orden:
 - [x] Conectar `youngdigisoft.es` al proyecto de Vercel.
 - [x] Verificar `youngdigisoft.es` en Resend.
 - [x] Definir en Vercel `RESEND_API_KEY`, `CONTACT_FROM_EMAIL` y `CONTACT_TO_EMAIL` (en Production, Preview y Development).
+- [x] Web publicada en `youngdigisoft.es` (21 oct 2026): formulario probado en producción (llega el email), sin enlaces rotos y Lighthouse móvil ≥ 90 en las 4 categorías.
+- [ ] Dar de alta `youngdigisoft.es` en Google Search Console y enviar el sitemap. `[PENDIENTE]`
+- [ ] Indicar el plazo de conservación de datos configurado en GA4, para `/privacidad`. `[PENDIENTE]`
+- [ ] Comprobar la vista previa al compartir en WhatsApp, LinkedIn (Post Inspector) e Instagram (Sharing Debugger de Meta). `[PENDIENTE]`
+- [ ] Revisar en el panel de Vercel la rama de producción y las variables de entorno (el conector daba 403). `[PENDIENTE]`
+- **Siguiente bloque:** captación de clientes (sección 9, punto 4).
 
 > Mantén esta sección al día: tacha lo hecho y añade lo nuevo.
