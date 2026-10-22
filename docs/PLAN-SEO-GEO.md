@@ -105,7 +105,7 @@ Directorios donde aparecen y donde conviene darse de alta: [Páxinas Galegas](ht
 Cada pieza responde a una búsqueda o pregunta concreta. Sin cifras inventadas: los precios salen de `pricing.ts` y los ejemplos, de trabajos reales.
 
 - [x] **Guía: «¿Cuánto cuesta una página web para un pequeño negocio en 2026?»** Qué influye en el precio, rangos «desde» propios, qué preguntar antes de contratar. Objetivo: búsquedas de precio y la pregunta 3 de la tabla.
-- [ ] **Guía: «Cómo aparecer en Google Maps con tu negocio: ficha de Google paso a paso».** Encaja con Web Esencial + Google.
+- [x] **Guía: «Cómo aparecer en Google Maps con tu negocio: ficha de Google paso a paso».** Encaja con Web Esencial + Google.
 - [x] **Guía: «5 tareas que un pequeño negocio puede automatizar»** (citas, presupuestos, avisos por WhatsApp, facturas). Encaja con Automatización exprés.
 - [ ] **Guía: «Qué incluye el mantenimiento de una web y cuándo lo necesitas».**
 - [ ] **Página «Sobre nosotros».** `[PENDIENTE: datos reales del fundador, trayectoria y foto]`

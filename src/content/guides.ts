@@ -10,6 +10,15 @@ export type Guide = {
 
 export const guides: Guide[] = [
   {
+    slug: "como-aparecer-en-google-maps",
+    title: "Cómo aparecer en Google Maps con tu negocio, paso a paso",
+    description:
+      "Crea y completa tu ficha de Google Business Profile: categoría, zona, verificación, fotos y reseñas, sin trucos que te puedan costar la ficha y sin pagar nada.",
+    publishedAt: "2026-10-22",
+    updatedAt: "2026-10-22",
+    serviceSlug: "web",
+  },
+  {
     slug: "tareas-que-puede-automatizar-un-pequeno-negocio",
     title: "5 tareas que un pequeño negocio puede automatizar",
     description:
