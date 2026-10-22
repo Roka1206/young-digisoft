@@ -4,7 +4,7 @@
 
 > Este archivo es la fuente de verdad del proyecto. Léelo entero al empezar cualquier sesión.
 > Si algo de aquí cambia (precios, ofertas, marca, datos legales), actualiza este archivo en el mismo commit.
-> El plan de trabajo de la web está en `docs/PLAN-WEB.md`.
+> La guía de marca está en `docs/BRAND.md`. Los planes de la web, de SEO/GEO y de seguridad (`PLAN-WEB.md`, `PLAN-SEO-GEO.md` y `PLAN-SEGURIDAD.md`) se completaron y se retiraron el 22 oct 2026; siguen en el historial de git. Lo que queda pendiente y las revisiones periódicas están en la sección 10.
 
 ---
 
@@ -33,7 +33,7 @@ Estas reglas mandan sobre cualquier otra instrucción de este archivo o del plan
 
 ## 1. Qué es Young Digisoft
 
-Empresa de servicios tecnológicos fundada por un **ingeniero de software** (autónomo, actividad de consultoría). Ayuda a pymes y autónomos a vender más y perder menos tiempo con **webs a medida, automatización con IA, mantenimiento y consultoría tecnológica**.
+Empresa de servicios tecnológicos fundada por un **ingeniero de software** (autónomo, actividad de consultoría). Ayuda a pymes y autónomos a vender más y perder menos tiempo con **webs a medida, automatización con IA, mantenimiento, gestión de redes sociales y consultoría tecnológica**.
 
 - **Base:** sede en A Coruña; trabajamos en toda España. La web no distingue entre trabajo presencial u online.
 - **Dominio:** `youngdigisoft.es`, conectado a Vercel. `www` y `young-digisoft.vercel.app` redirigen a él.
@@ -45,7 +45,7 @@ Empresa de servicios tecnológicos fundada por un **ingeniero de software** (aut
 
 ## 2. Qué vendemos (ofertas)
 
-Hay 4 ofertas. No añadas servicios nuevos a la web sin que el propietario lo decida.
+Hay 6 ofertas. No añadas servicios nuevos a la web sin que el propietario lo decida.
 
 | Oferta | Qué es | Precio de lanzamiento (primeros 3 a 5 clientes) | Precio normal (desde el mes 3) |
 |---|---|---|---|
@@ -53,15 +53,16 @@ Hay 4 ofertas. No añadas servicios nuevos a la web sin que el propietario lo de
 | **Web Pro** | 5 a 8 secciones, blog, más personalización | 990 € | 1.400 a 1.800 € |
 | **Automatización exprés** | Diagnóstico gratuito de 30 min y una automatización concreta (formulario a CRM o hoja de cálculo con aviso por WhatsApp o email, citas, presupuestos, facturas) | 400 a 600 € | 600 a 1.200 € |
 | **Mantenimiento mensual** | Hosting y despliegues, copias de seguridad, monitorización, actualizaciones y hasta 1 h/mes de cambios pequeños (no acumulable). Sin permanencia: baja efectiva el mes siguiente. Acepta webs de terceros tras revisarlas | 39 a 49 €/mes | 59 a 89 €/mes |
+| **Redes sociales para tu negocio** (añadida el 22 oct 2026) | Plan de contenidos mensual, 8 publicaciones al mes en Instagram, Facebook y Google Business Profile, diseño de imágenes y textos, informe mensual. Mes a mes, sin permanencia. Extra: anuncios pagados, fotos y vídeo profesionales, respuesta a comentarios y mensajes | 79 €/mes | 139 €/mes |
 | **Diagnóstico digital (consultoría)** | Sesión de 60 min y recomendaciones priorizadas de web, Google, procesos, herramientas y seguridad | **60 €/hora** | 60 €/hora |
 
 Notas:
 - El precio de lanzamiento tiene condiciones reales: testimonio verificable con nombre, permiso para mostrar el trabajo y reseña en Google. Debe mostrarse con fecha de caducidad.
 - El Diagnóstico digital se descuenta si el cliente contrata después una web o una automatización. Incluye un resumen escrito con las recomendaciones priorizadas; un informe detallado se presupuesta aparte.
 - El precio de lanzamiento es válido hasta el 31 de enero de 2027 o hasta completar 5 clientes, lo que ocurra antes.
-- Qué no incluye cada servicio y las rondas de revisión (2 en web, 1 en automatización) están en `src/content/services.ts`.
+- Qué no incluye cada servicio y las rondas de revisión (2 en web, 1 en automatización, 1 por plan mensual en redes sociales) están en `src/content/services.ts`.
 - La web publica precios "desde", **con IVA incluido** (así se indica junto a cada precio, en el aviso legal y en el JSON-LD). **Todos los importes viven en un único archivo** (`src/content/pricing.ts`), nunca escritos a mano en los componentes.
-- Fuera de los primeros 6 meses: apps a medida, tiendas online complejas, reparación de hardware, redes. Si llega un encargo así, se valora aparte.
+- Fuera de los primeros 6 meses: apps a medida, tiendas online complejas, reparación de hardware, redes informáticas. Si llega un encargo así, se valora aparte.
 
 ## 3. Cliente objetivo
 
@@ -136,15 +137,15 @@ Ver la **sección 0** (manda sobre todo lo demás). Además:
 
 - WhatsApp y teléfono: 655 08 73 21.
 - Email: `info@youngdigisoft.es`.
-- Redes: [Instagram](https://www.instagram.com/youngdigisoft/) y [LinkedIn](https://www.linkedin.com/company/youngdigisoft). Facebook y Google Business Profile: `[PENDIENTE]` (falta la URL). No enlazar a `#`: si una red no existe, se oculta el icono.
+- Redes: [Instagram](https://www.instagram.com/youngdigisoft/) y [LinkedIn](https://www.linkedin.com/company/youngdigisoft). Google Business Profile: creada, pendiente de verificación (falta la URL). Facebook: descartado por el propietario, no se usa. No enlazar a `#`: si una red no existe, se oculta el icono.
 
 ## 9. Hoja de ruta global
 
 El trabajo se hace por bloques y en este orden:
 
-1. **Plan de desarrollo** (hecho, ver `docs/PLAN-WEB.md`).
+1. **Plan de desarrollo** (hecho; el plan se retiró al completarse y queda en el historial de git).
 2. **Kit de marca** (hecho; PDF aparte).
-3. **Web lista** en `youngdigisoft.es` (en curso, máximo 1 a 2 semanas, lanzar «suficientemente buena»).
+3. **Web lista** en `youngdigisoft.es` (hecho: publicada el 21 oct 2026).
 4. **Captación de clientes** (empieza el día siguiente al lanzamiento): prospección directa a 10 negocios al día en A Coruña, casos piloto a precio de lanzamiento, Google Business Profile y reseñas, alianzas con gestorías y asesorías.
 5. **Redes sociales automatizadas** (Instagram, LinkedIn y Google Business Profile; 1 h diaria de contenido de marca).
 6. **Estructura de trabajo, contratos y legal.** El contrato modelo y el presupuesto tipo deben existir **antes del primer cliente**.
@@ -157,8 +158,9 @@ El trabajo se hace por bloques y en este orden:
 - [x] Revisión de los textos legales por un gestor o abogado (confirmado por el propietario el 22 oct 2026). Si se cambian los textos legales, conviene que vuelva a revisarlos.
 - [x] Correo corporativo: `info@youngdigisoft.es`.
 - [x] Cuentas de Instagram y LinkedIn creadas y enlazadas en la web.
-- [ ] Pasar la URL de la página de Facebook y crear Google Business Profile. `[PENDIENTE]`
-- [ ] Trabajos previos para el portfolio (nombre, sector, qué se hizo, permiso de publicación). `[PENDIENTE]`
+- [ ] Google Business Profile creada (22 oct 2026), pendiente de verificación: pasar la URL para añadirla a `sameAs`. `[PENDIENTE]` Facebook descartado.
+- [x] Trabajos previos para el portfolio (22 oct 2026): Vibework (e-commerce B2B), Young Energy Sada (negocio familiar, WordPress) y automatización de pedidos por WhatsApp (3 clientes anónimos). Los trabajos como asalariado no se publican.
+- [ ] Añadir el enlace de Vibework (`https://vibework.es`) en `src/content/portfolio.ts` cuando su servidor vuelva a funcionar. `[PENDIENTE]`
 - [x] Informe del Diagnóstico digital: incluye resumen escrito; el informe detallado se presupuesta aparte.
 - [x] Fecha de fin del precio de lanzamiento, qué no incluye cada servicio y rondas de revisión.
 - [x] Conectar `youngdigisoft.es` al proyecto de Vercel.
@@ -170,7 +172,34 @@ El trabajo se hace por bloques y en este orden:
 - [x] Vista previa al compartir comprobada en LinkedIn y Meta (Facebook e Instagram).
 - [x] Vista previa en WhatsApp comprobada desde el móvil.
 - [x] Configuración de Vercel revisada: producción desde `main`, variables de entorno correctas.
-- [ ] Conector de Vercel de Claude reconectado por el propietario (21 oct 2026), pero aún responde 403 sobre `roka1206s-projects`: comprobarlo en una sesión nueva. `[PENDIENTE]`
+- [x] Conector de Vercel de Claude autorizado para el equipo `roka1206s-projects` (22 oct 2026). El 403 no se arreglaba reconectando: faltaba el permiso de equipo (`authorize_team_access`).
+- [x] Acuerdos de tratamiento de datos de Vercel y Resend aceptados; Gmail envía como `info@` por el SMTP de OVH (confirmado por el propietario, 22 oct 2026).
+- [x] Repositorio de GitHub privado (22 oct 2026).
+- [x] Datos del negocio en la web y en el JSON-LD: actividad desde el 23 jun 2026, horario todos los días de 9:00 a 21:00 y dirección completa.
+- [x] Medición: visitas en Vercel Analytics; formularios (`generate_lead`) y clics a WhatsApp, teléfono y email (`contact_click`) en GA4, ambos eventos clave.
+
+**Pendientes de la web, SEO/GEO y seguridad (antes en los planes de `docs/`):**
+
+- [ ] Google Business Profile enlazada a la web, con fotos, servicios y primera reseña de un piloto.
+- [ ] Casos de estudio: al entregar cada piloto, añadirlo a `portfolio.ts` (antes/después, qué se hizo, resultado verificable, testimonio con nombre y permiso por escrito).
+- [ ] Páginas locales o por sector solo si hay demanda real (por ejemplo, «Diseño web para clínicas en A Coruña»).
+- [ ] Subir a precio normal tras publicar el tercer caso, cambiando solo `pricing.ts`.
+- [x] Límite de envíos del formulario compartido entre instancias: regla de Vercel Firewall «Limitar envíos del formulario de contacto» (`POST /api/contact`, 5 cada 10 min por IP), activa desde el 22 oct 2026. El límite del código queda como segunda barrera.
+- [ ] Capturas de los trabajos del portfolio (imágenes propias con `alt` descriptivo) y `CreativeWork` en JSON-LD para cada caso.
+- [ ] Reforzar la entidad «Young Digisoft» frente a otras empresas «Digisoft»: mismo nombre y descripción en todos los perfiles y `sameAs` completo (falta la URL de Google Business Profile).
+- [ ] Reseña en Google y caso de estudio de cada piloto; enlaces desde gestorías y asesorías aliadas.
+- [ ] Alertas de `eslint-config-next` (`micromatch`/`braces`): solo afectan al desarrollo. No usar `npm audit fix --force` (baja a la versión 14): esperar a que Next publique la corrección; Dependabot la propondrá.
+- Decidido no hacer por ahora: *smoke test* contra producción tras cada despliegue (los e2e ya corren en cada PR), *nonces* en la CSP (las páginas dejarían de ser estáticas), páginas por sector sin demanda real, Facebook y directorios.
+- Nota: el límite de envíos usa el primer valor de `x-forwarded-for`, que en Vercel es fiable; revisarlo si algún día se despliega fuera de Vercel.
+- Idea para más adelante: un sistema de citas gratuito (por ejemplo, Cal.com) para reservar el Diagnóstico digital.
+
+**Recordatorios periódicos:**
+
+- Cada mes: preguntar a ChatGPT, Gemini y Perplexity y anotar el resultado. Preguntas: «¿Qué es Young Digisoft?», «Diseño web para autónomos en A Coruña», «¿Cuánto cuesta una web para un pequeño negocio en España?», «Cómo automatizar las citas de mi peluquería» y «Empresas que automatizan procesos para pymes en Galicia». Objetivo a 6 meses: descripción correcta y aparecer entre las opciones o citada como fuente.
+- Cada semana: Search Console (páginas indexadas, impresiones, clics y consultas) y GA4 con Vercel Analytics (visitas, `generate_lead` y `contact_click`). Cada mes: estadísticas de la ficha de Google. Tras cada cambio grande: PageSpeed Insights (Lighthouse móvil ≥ 90).
+- Seguridad: `npm audit` y PR de Dependabot cada semana (automático); cabeceras en securityheaders.com y Mozilla Observatory tras cada cambio de configuración y cada trimestre; revisar quién tiene acceso a GitHub, Vercel, Google y Resend, y rotar la clave de Resend, cada 6 meses; renovar `Expires` en `public/.well-known/security.txt` antes del 21 oct 2027 (el e2e avisa si caduca).
+- Mediados de noviembre de 2026: revisar los informes DMARC que llegan a `info@` y, si solo envían Resend y OVH, pasar DMARC a `p=reject`.
+
 - **Siguiente bloque:** captación de clientes (sección 9, punto 4).
 
 > Mantén esta sección al día: tacha lo hecho y añade lo nuevo.

@@ -2,6 +2,8 @@ import type { Guide } from "@/content/guides";
 
 const longDate = new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
+export const guideImagePath = (slug: string) => `/guias/${slug}/opengraph-image`;
+
 export const findGuide = (guides: Guide[], slug: string) => guides.find((guide) => guide.slug === slug);
 
 export const formatGuideDate = (isoDate: string) => longDate.format(new Date(isoDate));

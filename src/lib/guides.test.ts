@@ -3,11 +3,13 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { type Guide, guides } from "@/content/guides";
 import { services } from "@/content/services";
-import { findGuide, formatGuideDate, guidesForService, newestFirst } from "./guides";
+import { site } from "@/content/site";
+import { findGuide, formatGuideDate, guideImagePath, guidesForService, newestFirst } from "./guides";
 
 const guide = (slug: string, updatedAt: string): Guide => ({
   slug,
   title: slug,
+  metaTitle: slug,
   description: slug,
   publishedAt: "2026-01-01",
   updatedAt,
@@ -33,6 +35,10 @@ describe("guides content", () => {
   it("links each guide to an existing service", () => {
     for (const { serviceSlug } of guides) expect(services.map((s) => s.slug)).toContain(serviceSlug);
   });
+
+  it("keeps every Google title, brand included, within 60 characters", () => {
+    for (const { metaTitle } of guides) expect(`${metaTitle} — ${site.name}`.length).toBeLessThanOrEqual(60);
+  });
 });
 
 describe("guide helpers", () => {
@@ -40,6 +46,10 @@ describe("guide helpers", () => {
     const list = [guide("a", "2026-01-01")];
     expect(findGuide(list, "a")).toBe(list[0]);
     expect(findGuide(list, "missing")).toBeUndefined();
+  });
+
+  it("points each guide to its own preview image route", () => {
+    expect(guideImagePath("precio")).toBe("/guias/precio/opengraph-image");
   });
 
   it("formats dates in Spanish without shifting the day", () => {

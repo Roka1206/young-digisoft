@@ -1,8 +1,11 @@
+import { aboutPage } from "@/content/about";
 import type { FaqItem } from "@/content/faq";
 import type { Guide } from "@/content/guides";
 import { prices } from "@/content/pricing";
-import type { Service } from "@/content/services";
-import { contact, expertise, founder, site, socialLinks } from "@/content/site";
+import type { PortfolioCase } from "@/content/portfolio";
+import { servicePageText, type Service } from "@/content/services";
+import { address, contact, expertise, founder, openingHours, site, socialLinks } from "@/content/site";
+import { guideImagePath } from "./guides";
 import { siteUrl } from "./site-url";
 
 const businessId = `${siteUrl}/#business`;
@@ -22,7 +25,21 @@ export function businessJsonLd() {
     image: `${siteUrl}/opengraph-image`,
     telephone: contact.phoneHref.replace("tel:", ""),
     email: contact.email,
-    address: { "@type": "PostalAddress", addressRegion: "A Coruña", addressCountry: "ES" },
+    foundingDate: site.foundingDate,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: address.street,
+      postalCode: address.postalCode,
+      addressLocality: address.locality,
+      addressRegion: address.region,
+      addressCountry: "ES",
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: openingHours.opens,
+      closes: openingHours.closes,
+    },
     areaServed: spain,
     knowsAbout: expertise,
     founder: { "@type": "Person", name: founder.name, jobTitle: founder.jobTitle, sameAs: [founder.linkedin] },
@@ -40,6 +57,24 @@ export function websiteJsonLd() {
     url: siteUrl,
     inLanguage: "es-ES",
     publisher: { "@id": businessId },
+  };
+}
+
+export function aboutPageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    url: `${siteUrl}${aboutPage.path}`,
+    name: aboutPage.title,
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    mainEntity: {
+      "@type": "Person",
+      name: founder.name,
+      jobTitle: founder.jobTitle,
+      image: `${siteUrl}${aboutPage.photo.src}`,
+      sameAs: [founder.linkedin],
+      worksFor: { "@id": businessId },
+    },
   };
 }
 
@@ -76,7 +111,7 @@ export function articleJsonLd(guide: Guide) {
     headline: guide.title,
     description: guide.description,
     url: `${siteUrl}/guias/${guide.slug}`,
-    image: `${siteUrl}/opengraph-image`,
+    image: `${siteUrl}${guideImagePath(guide.slug)}`,
     inLanguage: "es-ES",
     datePublished: guide.publishedAt,
     dateModified: guide.updatedAt,
@@ -85,11 +120,33 @@ export function articleJsonLd(guide: Guide) {
   };
 }
 
+// Published portfolio cases as works made by the business.
+export function portfolioJsonLd(cases: PortfolioCase[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: cases.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "CreativeWork",
+        name: item.name,
+        description: item.summary,
+        genre: item.sector,
+        url: item.url,
+        image: item.image && `${siteUrl}${item.image.src}`,
+        creator: { "@id": businessId },
+      },
+    })),
+  };
+}
+
+// Every trail starts at the home page, so callers pass only the steps after it.
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
+    itemListElement: [{ name: servicePageText.breadcrumbHome, path: "/" }, ...items].map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: item.name,

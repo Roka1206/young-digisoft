@@ -10,6 +10,7 @@ test("pages are served with the security headers", async ({ request }) => {
   expect(headers["x-frame-options"]).toBe("DENY");
   expect(headers["referrer-policy"]).toBe("strict-origin-when-cross-origin");
   expect(headers["permissions-policy"]).toContain("camera=()");
+  expect(headers["strict-transport-security"]).toBe("max-age=63072000; includeSubDomains");
 });
 
 test("the API route also gets the security headers", async ({ request }) => {

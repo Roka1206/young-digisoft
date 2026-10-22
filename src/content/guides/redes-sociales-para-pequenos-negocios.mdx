@@ -1,0 +1,65 @@
+import { prices } from "@/content/pricing";
+import { services } from "@/content/services";
+import { formatPrice } from "@/lib/pricing";
+
+export const [social] = services.find((service) => service.slug === "redes-sociales").plans;
+
+Casi todos los dueños de un negocio saben que «tendrían que publicar más en redes», pero entre el día a día y la duda de qué contar, las cuentas se quedan semanas o meses sin moverse. Te contamos para qué sirven de verdad las redes en un negocio local, en cuáles estar, qué publicar, cada cuánto y qué errores evitar.
+
+## Para qué sirven las redes en un negocio local
+
+Las redes no suelen vender solas, pero ayudan mucho a que te elijan:
+
+- **Dan confianza.** Antes de llamarte o de ir a tu local, mucha gente mira tus redes. Una cuenta activa, con fotos reales, dice que el negocio está vivo y cuida los detalles.
+- **Hacen que te recuerden.** Quien ya te conoce te ve de vez en cuando y piensa en ti cuando te necesita.
+- **Enseñan tu trabajo.** Un corte de pelo, un plato, una reparación o un local reformado convencen más que cualquier texto.
+
+Lo que no hacen es milagros: unas redes cuidadas no sustituyen a un buen servicio, a una web clara ni a una ficha de Google completa. Funcionan mejor juntas.
+
+## En qué redes estar
+
+No hace falta estar en todas. Mejor dos bien llevadas que cinco abandonadas.
+
+- **Instagram:** la más útil para negocios con algo que enseñar (peluquerías, restaurantes, tiendas, estética, reformas).
+- **Facebook:** sigue siendo útil para llegar a público adulto y local, y para eventos o avisos del barrio.
+- **Tu ficha de Google:** permite publicar novedades y fotos que aparecen cuando te buscan en Google o en Maps. Es la gran olvidada, y es justo donde te busca quien está a punto de comprar.
+- **LinkedIn:** solo si vendes a otras empresas.
+- **TikTok:** solo si te sientes cómodo grabando vídeos con frecuencia.
+
+## Qué publicar
+
+Ideas que funcionan en casi cualquier negocio:
+
+- **Tu trabajo real:** antes y después, platos del día, trabajos terminados, productos nuevos.
+- **Las personas:** quién atiende, cómo se trabaja, el equipo. La gente compra a personas.
+- **Respuestas a preguntas frecuentes:** precios orientativos, plazos, cómo pedir cita.
+- **Avisos útiles:** horarios especiales, vacaciones, novedades.
+- **Opiniones de clientes**, siempre con su permiso.
+
+Una regla sencilla: por cada publicación que vende directamente, publica varias que aporten algo (enseñar, explicar o mostrar el día a día).
+
+**Ojo con las fotos de clientes:** si aparece una persona reconocible, necesitas su permiso para publicarla.
+
+## Cada cuánto publicar
+
+La constancia importa más que la cantidad. Dos publicaciones por semana, todas las semanas, funcionan mejor que diez en un mes y luego nada durante dos. Elige un ritmo que puedas mantener y planifica el mes por adelantado para no depender de la inspiración del día.
+
+## Errores habituales
+
+- **Fotos de bancos de imágenes:** se notan y restan confianza. Mejor una foto real con el móvil, con buena luz.
+- **Hablar solo de ofertas:** las cuentas que solo venden acaban ignoradas.
+- **Desaparecer:** una última publicación de hace seis meses da sensación de negocio cerrado.
+- **Comprar seguidores:** no te compran, no interactúan y pueden perjudicar tu cuenta.
+- **No contestar:** un comentario o un mensaje sin respuesta es un cliente que se va.
+
+## Cómo saber si funciona
+
+No te obsesiones con los seguidores. Fíjate en lo que acerca a una venta: mensajes y preguntas, visitas a tu web, llamadas, peticiones de cita y personas que te dicen «te vi en Instagram». Mira estos datos cada mes y quédate con lo que mejor funcione.
+
+## ¿Lo haces tú o lo encargas?
+
+Si te gusta y tienes un par de horas a la semana, puedes llevarlo tú con un plan mensual sencillo. Si no tienes tiempo o no te sientes cómodo, encargarlo te asegura constancia y una imagen cuidada.
+
+Nuestro servicio {social.name} cuesta {formatPrice(prices.socialMedia.launch, prices.socialMedia.unit)} con precio de lanzamiento. Incluye {new Intl.ListFormat("es").format(social.includes.map((item) => item[0].toLowerCase() + item.slice(1)))}. Sin permanencia: mes a mes.
+
+Si quieres que tus redes trabajen para tu negocio, [cuéntanos a qué te dedicas](/contacto) o mira el [servicio de redes sociales](/servicios/redes-sociales).

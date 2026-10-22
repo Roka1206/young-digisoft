@@ -9,8 +9,8 @@ import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { PageHero } from "@/components/ui/PageHero";
 import { guides, guidesPageText } from "@/content/guides";
-import { servicePageText, services } from "@/content/services";
-import { findGuide, formatGuideDate } from "@/lib/guides";
+import { services } from "@/content/services";
+import { findGuide, formatGuideDate, guideImagePath } from "@/lib/guides";
 import { pageMetadata } from "@/lib/metadata";
 import { findService } from "@/lib/services";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
@@ -24,7 +24,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/guias/[slug]">): Promise<Metadata> {
   const guide = findGuide(guides, (await params).slug);
   if (!guide) return {};
-  return pageMetadata({ title: guide.title, description: guide.description, path: `/guias/${guide.slug}` });
+  return pageMetadata({
+    title: guide.metaTitle,
+    description: guide.description,
+    path: `/guias/${guide.slug}`,
+    imageOverride: { url: guideImagePath(guide.slug), alt: guide.title },
+  });
 }
 
 export default async function GuidePage({ params }: PageProps<"/guias/[slug]">) {
@@ -38,7 +43,6 @@ export default async function GuidePage({ params }: PageProps<"/guias/[slug]">) 
       <JsonLd data={articleJsonLd(guide)} />
       <JsonLd
         data={breadcrumbJsonLd([
-          { name: servicePageText.breadcrumbHome, path: "/" },
           { name: guidesPageText.breadcrumb, path: "/guias" },
           { name: guide.title, path: `/guias/${guide.slug}` },
         ])}

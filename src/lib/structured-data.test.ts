@@ -3,10 +3,12 @@ import { faq } from "@/content/faq";
 import { guides } from "@/content/guides";
 import { services } from "@/content/services";
 import {
+  aboutPageJsonLd,
   articleJsonLd,
   breadcrumbJsonLd,
   businessJsonLd,
   faqJsonLd,
+  portfolioJsonLd,
   serializeJsonLd,
   serviceJsonLd,
   websiteJsonLd,
@@ -27,6 +29,15 @@ describe("businessJsonLd", () => {
       email: "info@youngdigisoft.es",
       areaServed: { "@type": "Country", name: "España" },
     });
+  });
+
+  it("gives the full address, founding date and daily opening hours", () => {
+    expect(business).toMatchObject({
+      foundingDate: "2026-06-23",
+      address: { streetAddress: "Rúa Linares Rivas 9 bajo", postalCode: "15160", addressLocality: "Sada" },
+      openingHoursSpecification: { opens: "09:00", closes: "21:00" },
+    });
+    expect(business.openingHoursSpecification.dayOfWeek).toHaveLength(7);
   });
 
   it("names the founder with his LinkedIn profile, the slogan and the areas of expertise", () => {
@@ -57,6 +68,22 @@ describe("websiteJsonLd", () => {
       name: "Young Digisoft",
       url: "https://youngdigisoft.es",
       publisher: { "@id": "https://youngdigisoft.es/#business" },
+    });
+  });
+});
+
+describe("aboutPageJsonLd", () => {
+  it("presents the founder with his photo, LinkedIn and the business he runs", () => {
+    expect(aboutPageJsonLd()).toMatchObject({
+      "@type": "AboutPage",
+      url: "https://youngdigisoft.es/sobre-nosotros",
+      mainEntity: {
+        "@type": "Person",
+        name: "Ronald Fonseca",
+        image: "https://youngdigisoft.es/images/ronald.jpg",
+        sameAs: ["https://www.linkedin.com/in/rfonsecah92"],
+        worksFor: { "@id": "https://youngdigisoft.es/#business" },
+      },
     });
   });
 });
@@ -92,6 +119,7 @@ describe("articleJsonLd", () => {
     expect(articleJsonLd(guide)).toMatchObject({
       "@type": "Article",
       headline: guide.title,
+      image: `https://youngdigisoft.es/guias/${guide.slug}/opengraph-image`,
       url: `https://youngdigisoft.es/guias/${guide.slug}`,
       datePublished: guide.publishedAt,
       dateModified: guide.updatedAt,
@@ -101,14 +129,43 @@ describe("articleJsonLd", () => {
   });
 });
 
+describe("portfolioJsonLd", () => {
+  it("lists each case as a work by the business, with absolute image URLs and no empty fields", () => {
+    const withImage = {
+      name: "Tienda",
+      sector: "Comercio",
+      summary: "Web nueva",
+      technologies: [],
+      url: "https://tienda.es/",
+      image: { src: "/images/portfolio/tienda.webp", alt: "Tienda" },
+      publishPermission: true,
+    };
+    const anonymous = {
+      name: "Pedidos",
+      sector: "Taller",
+      summary: "Automatización",
+      technologies: [],
+      publishPermission: true,
+    };
+    const [first, second] = portfolioJsonLd([withImage, anonymous]).itemListElement;
+    expect(first).toMatchObject({
+      position: 1,
+      item: {
+        "@type": "CreativeWork",
+        name: "Tienda",
+        url: "https://tienda.es/",
+        image: "https://youngdigisoft.es/images/portfolio/tienda.webp",
+        creator: { "@id": "https://youngdigisoft.es/#business" },
+      },
+    });
+    expect(JSON.parse(JSON.stringify(second.item))).not.toHaveProperty("url");
+    expect(JSON.parse(JSON.stringify(second.item))).not.toHaveProperty("image");
+  });
+});
+
 describe("breadcrumbJsonLd", () => {
-  it("numbers each step from 1 and turns paths into absolute URLs", () => {
-    expect(
-      breadcrumbJsonLd([
-        { name: "Inicio", path: "/" },
-        { name: "Diseño web", path: "/servicios/web" },
-      ]),
-    ).toEqual({
+  it("starts at the home page, numbers each step from 1 and turns paths into absolute URLs", () => {
+    expect(breadcrumbJsonLd([{ name: "Diseño web", path: "/servicios/web" }])).toEqual({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [

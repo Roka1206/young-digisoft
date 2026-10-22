@@ -10,6 +10,7 @@ export function buildSitemap(baseUrl: string, services: Service[], guides: Guide
     ["", "monthly", 1],
     ...services.map(({ slug }): [string, Frequency, number] => [`/servicios/${slug}`, "monthly", 0.8]),
     ["/guias", "monthly", 0.7],
+    ["/sobre-nosotros", "yearly", 0.6],
     ["/contacto", "yearly", 0.7],
     ["/aviso-legal", "yearly", 0.3],
     ["/privacidad", "yearly", 0.3],

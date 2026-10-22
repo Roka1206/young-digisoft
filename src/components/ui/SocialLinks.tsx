@@ -20,9 +20,9 @@ export function SocialLinks({ className }: { className?: string }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.name}
-              className="inline-flex size-9 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-action hover:text-action"
+              className="inline-flex size-11 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-action hover:text-action"
             >
-              <Icon className="size-4" />
+              <Icon className="size-5" />
             </a>
           </li>
         );

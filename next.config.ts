@@ -28,11 +28,15 @@ const securityHeaders = [
   { key: "X-Frame-Options", value: "DENY" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), browsing-topics=()" },
+  // No subdomain serves plain HTTP (send. is mail only); no preload, which is hard to undo.
+  { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
 ];
 
 const nextConfig: NextConfig = {
   // The site renders no next/image, so keep the /_next/image optimizer endpoint off (smaller attack surface).
   images: { unoptimized: true },
+  // Tailwind CSS is small, and most visitors are first-time: inline it to drop the render-blocking request.
+  experimental: { inlineCss: true },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

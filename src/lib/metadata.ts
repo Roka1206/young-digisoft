@@ -13,17 +13,20 @@ export function pageMetadata({
   title,
   description,
   path,
+  imageOverride,
 }: {
   title: string;
   description: string;
   path: string;
+  imageOverride?: { url: string; alt: string };
 }): Metadata {
   const fullTitle = `${title} — ${site.name}`;
+  const images = [imageOverride ? { ...image, ...imageOverride } : image];
   return {
     title,
     description,
     alternates: { canonical: path },
-    openGraph: { ...openGraphBase, title: fullTitle, description, url: path },
-    twitter: { card: "summary_large_image", title: fullTitle, description, images: [image] },
+    openGraph: { ...openGraphBase, title: fullTitle, description, url: path, images },
+    twitter: { card: "summary_large_image", title: fullTitle, description, images },
   };
 }

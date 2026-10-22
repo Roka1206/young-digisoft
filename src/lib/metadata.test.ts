@@ -36,4 +36,12 @@ describe("pageMetadata", () => {
     expect(metadata.openGraph?.images).toEqual([expect.objectContaining(image)]);
     expect(metadata.twitter?.images).toEqual([expect.objectContaining(image)]);
   });
+
+  it("uses a page's own preview image in both previews when it has one", () => {
+    const imageOverride = { url: "/guias/precio/opengraph-image", alt: "Precio de una web" };
+    const withImage = pageMetadata({ title: "Precio", description: "Guía.", path: "/guias/precio", imageOverride });
+    const image = { ...imageOverride, width: 1200, height: 630 };
+    expect(withImage.openGraph?.images).toEqual([image]);
+    expect(withImage.twitter?.images).toEqual([image]);
+  });
 });
