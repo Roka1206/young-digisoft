@@ -1,3 +1,4 @@
+import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
 
 const googleAnalytics =
@@ -30,6 +31,8 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // The site renders no next/image, so keep the /_next/image optimizer endpoint off (smaller attack surface).
+  images: { unoptimized: true },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
@@ -45,4 +48,5 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// MDX is only imported by /guias/[slug] (src/content/guides), not used as pages.
+export default createMDX()(nextConfig);

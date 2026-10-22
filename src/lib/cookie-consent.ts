@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from "react";
-import { consentStorageKey as storageKey } from "./cookie-consent-script";
+import { consentMaxAgeMs, consentStorageKey as storageKey } from "./cookie-consent-script";
 
 export type Consent = "accepted" | "rejected";
 
@@ -16,11 +16,17 @@ function subscribe(listener: () => void) {
   };
 }
 
+// Stored as "<choice>:<savedAt>"; a missing, unknown or expired value means no choice.
+export function parseConsent(stored: string | null, now = Date.now()): Consent | null {
+  const [choice, savedAt] = (stored ?? "").split(":");
+  const fresh = now - Number(savedAt) < consentMaxAgeMs;
+  return fresh && (choice === "accepted" || choice === "rejected") ? choice : null;
+}
+
 export function getConsent() {
   if (consent === undefined) {
     try {
-      const stored = localStorage.getItem(storageKey);
-      consent = stored === "accepted" || stored === "rejected" ? stored : null;
+      consent = parseConsent(localStorage.getItem(storageKey));
     } catch {
       consent = null;
     }
@@ -42,7 +48,7 @@ export function saveConsent(choice: Consent) {
   consent = choice;
   settingsOpen = false;
   try {
-    localStorage.setItem(storageKey, choice);
+    localStorage.setItem(storageKey, `${choice}:${Date.now()}`);
   } catch {
     // Storage blocked (private mode): the choice lasts for this visit only.
   }

@@ -1,9 +1,10 @@
 import { describe, expect, it } from "vitest";
+import { guides } from "@/content/guides";
 import { services } from "@/content/services";
 import { buildLlmsTxt } from "./llms";
 
 const baseUrl = "https://youngdigisoft.es";
-const text = buildLlmsTxt(baseUrl, services);
+const text = buildLlmsTxt(baseUrl, services, guides);
 
 describe("buildLlmsTxt", () => {
   it("starts with the site name as the only top-level heading, then a summary quote", () => {
@@ -18,6 +19,10 @@ describe("buildLlmsTxt", () => {
     expect(text).toMatch(/Web Esencial \+ Google desde 590\s€/);
     expect(text).toMatch(/Mantenimiento mensual desde 39\s€\/mes/);
     expect(text).toMatch(/Diagnóstico digital 60\s€\/hora/);
+  });
+
+  it("links every guide with its description", () => {
+    for (const { slug, description } of guides) expect(text).toContain(`(${baseUrl}/guias/${slug}): ${description}`);
   });
 
   it("includes the contact details and the contact page", () => {

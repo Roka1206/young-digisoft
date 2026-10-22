@@ -1,7 +1,7 @@
-import { contact } from "./site";
+import { contact, founder } from "./site";
 
 export const legalEntity = {
-  ownerName: "Ronald Fonseca",
+  ownerName: founder.name,
   tradeName: "Young Digisoft",
   taxId: "32946796D",
   address: "Rúa Linares Rivas 9 bajo, 15160, Sada, A Coruña",
@@ -73,14 +73,17 @@ export const privacidadSections: LegalSection[] = [
   {
     title: "2. Finalidad del tratamiento",
     paragraphs: [
-      "Los datos facilitados a través del formulario de contacto (nombre, email, teléfono, mensaje) se utilizan exclusivamente para responder a la consulta o solicitud de presupuesto planteada por el usuario.",
+      "Los datos facilitados a través del formulario de contacto (nombre, email, teléfono, servicio de interés y mensaje) se utilizan exclusivamente para responder a la consulta o solicitud de presupuesto planteada por el usuario.",
+      "El nombre, el email y el mensaje son obligatorios para poder responder: sin ellos no es posible atender la consulta. El teléfono y el servicio de interés son opcionales.",
+      "Para evitar abusos, la dirección IP se usa de forma temporal, solo en memoria, para limitar el número de envíos del formulario. No se guarda en ninguna base de datos.",
       "Si el usuario acepta las cookies analíticas, se recogen datos de navegación (páginas visitadas, dispositivo, navegador y ubicación aproximada) mediante Google Analytics 4, con el fin de conocer de forma estadística cómo se usa el sitio web y mejorarlo.",
     ],
   },
   {
     title: "3. Legitimación",
     paragraphs: [
-      "La base legal para el tratamiento es el consentimiento del usuario, otorgado al enviar voluntariamente el formulario de contacto.",
+      "La base legal para responder al formulario es el consentimiento del usuario, otorgado al enviarlo voluntariamente, y, si solicita un presupuesto, la aplicación de medidas precontractuales a petición suya (artículo 6.1.a y b del RGPD).",
+      "El uso temporal de la dirección IP para limitar envíos se basa en el interés legítimo en proteger el sitio web frente a abusos (artículo 6.1.f del RGPD).",
       `El usuario puede retirar ese consentimiento en cualquier momento escribiendo a ${contact.email}, sin que ello afecte a la licitud del tratamiento anterior a la retirada.`,
       "La analítica con Google Analytics se basa en el consentimiento que el usuario da al pulsar «Aceptar» en el aviso de cookies. Puede retirarlo en cualquier momento desde el enlace «Configurar cookies» del pie de página.",
     ],
@@ -88,8 +91,8 @@ export const privacidadSections: LegalSection[] = [
   {
     title: "4. Destinatarios y encargados del tratamiento",
     paragraphs: [
-      "Para prestar el servicio se utilizan proveedores que actúan como encargados del tratamiento: Vercel Inc. (alojamiento del sitio web) y Resend (envío por correo electrónico de los mensajes del formulario).",
-      "Estos proveedores pueden tratar datos fuera del Espacio Económico Europeo, con las garantías previstas en el RGPD, como las cláusulas contractuales tipo de la Comisión Europea o el Marco de Privacidad de Datos UE-EE. UU.",
+      "Para prestar el servicio se utilizan proveedores que actúan como encargados del tratamiento: Vercel Inc. (alojamiento del sitio web) y Plus Five Five, Inc., que opera como Resend (envío por correo electrónico de los mensajes del formulario). Ambas tienen sede en Estados Unidos.",
+      "Ambos proveedores están adheridos al Marco de Privacidad de Datos UE-EE. UU., sobre el que la Comisión Europea ha adoptado una decisión de adecuación, y además incluyen en sus acuerdos de tratamiento de datos las cláusulas contractuales tipo de la Comisión Europea.",
       "No se ceden datos a terceros salvo obligación legal.",
       "El sitio web utiliza Vercel Analytics y Vercel Speed Insights para analítica de uso y rendimiento, con datos agregados y sin fines identificativos.",
       "Solo con el consentimiento del usuario, los datos de navegación se comparten con Google Ireland Ltd. como proveedor de Google Analytics. Google puede tratarlos en Estados Unidos, país con el que la Comisión Europea ha adoptado una decisión de adecuación (Marco de Privacidad de Datos UE-EE. UU.). Más información en la política de privacidad de Google: policies.google.com/privacy.",
@@ -98,14 +101,16 @@ export const privacidadSections: LegalSection[] = [
   {
     title: "5. Conservación de los datos",
     paragraphs: [
-      "Los datos se conservarán únicamente durante el tiempo necesario para gestionar la consulta, salvo que exista una obligación legal de conservación superior.",
+      "Los datos del formulario se conservan durante 12 meses desde la última comunicación si no se llega a contratar ningún servicio.",
+      "Si se contrata un servicio, se conservan mientras dure la relación y, después, durante los plazos que exige la ley: 6 años en materia mercantil (Código de Comercio) y 4 años en materia tributaria (Ley General Tributaria).",
       "Los datos de Google Analytics se conservan durante 14 meses; el plazo se renueva si vuelves a visitar la web.",
     ],
   },
   {
     title: "6. Derechos del usuario",
     paragraphs: [
-      `El usuario puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad enviando un correo a ${contact.email}, indicando el derecho que desea ejercer.`,
+      `El usuario puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento, portabilidad y a no ser objeto de decisiones individuales automatizadas enviando un correo a ${contact.email}, indicando el derecho que desea ejercer. Se responderá en el plazo de un mes.`,
+      "No se toman decisiones automatizadas ni se elaboran perfiles con los datos del formulario.",
       "Asimismo, tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es) si considera que el tratamiento no se ajusta a la normativa vigente.",
     ],
   },
@@ -124,7 +129,7 @@ export const cookiesSections: LegalSection[] = [
       "Este sitio web no utiliza cookies de publicidad. Emplea las siguientes tecnologías de carácter técnico y necesario para su funcionamiento:",
       "· Preferencia de tema (claro/oscuro): almacenamiento local del navegador (localStorage), sin fecha de caducidad, hasta que el usuario borre los datos del navegador.",
       "· Aviso de salida (exit-intent): almacenamiento de sesión del navegador (sessionStorage), para no mostrar el mismo aviso más de una vez por visita. Se elimina automáticamente al cerrar la pestaña o el navegador.",
-      "· Preferencia de cookies: almacenamiento local del navegador (localStorage), para recordar si el usuario ha aceptado o rechazado las cookies analíticas y no volver a preguntarle.",
+      "· Preferencia de cookies: almacenamiento local del navegador (localStorage), para recordar si el usuario ha aceptado o rechazado las cookies analíticas durante 24 meses. Pasado ese plazo, se le vuelve a preguntar.",
       "· Vercel Analytics y Vercel Speed Insights: herramientas de analítica de uso y rendimiento sin cookies, que no identifican individualmente a los usuarios.",
     ],
   },
@@ -132,8 +137,8 @@ export const cookiesSections: LegalSection[] = [
     title: "3. Cookies analíticas de Google Analytics",
     paragraphs: [
       "Solo si el usuario las acepta, el sitio web usa Google Analytics 4, un servicio de Google Ireland Ltd., para conocer de forma estadística cómo se usa la web (páginas visitadas, tiempo de visita, dispositivo y ubicación aproximada) y mejorarla. Instala estas cookies:",
-      "· _ga: distingue a los visitantes de forma estadística. Duración: 2 años.",
-      "· _ga_H40D89JXJQ: guarda el estado de la sesión. Duración: 2 años.",
+      "· _ga: cookie propia gestionada por Google. Distingue a los visitantes de forma estadística. Duración: 2 años.",
+      "· _ga_H40D89JXJQ: cookie propia gestionada por Google. Guarda el estado de la sesión. Duración: 2 años.",
       "Más información sobre cómo trata Google estos datos en policies.google.com/privacy.",
     ],
   },
@@ -161,7 +166,7 @@ export const cookiesSections: LegalSection[] = [
 
 export const cookieBanner = {
   label: "Aviso de cookies",
-  text: "Usamos cookies de Google Analytics para saber cómo se usa la web y mejorarla. Solo se activan si las aceptas.",
+  text: "Usamos cookies de Google Analytics (Google Ireland Ltd.) para saber cómo se usa la web y mejorarla. Solo se activan si las aceptas.",
   link: "Ver la política de cookies",
   accept: "Aceptar",
   reject: "Rechazar",

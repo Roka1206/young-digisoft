@@ -1,7 +1,15 @@
 import { describe, expect, it } from "vitest";
 import { faq } from "@/content/faq";
+import { guides } from "@/content/guides";
 import { services } from "@/content/services";
-import { breadcrumbJsonLd, businessJsonLd, faqJsonLd, serializeJsonLd, serviceJsonLd } from "./structured-data";
+import {
+  articleJsonLd,
+  breadcrumbJsonLd,
+  businessJsonLd,
+  faqJsonLd,
+  serializeJsonLd,
+  serviceJsonLd,
+} from "./structured-data";
 
 const [webService] = services;
 const maintenance = services.find((service) => service.slug === "mantenimiento")!;
@@ -18,6 +26,19 @@ describe("businessJsonLd", () => {
       email: "info@youngdigisoft.es",
       areaServed: { "@type": "Country", name: "España" },
     });
+  });
+
+  it("names the founder with his LinkedIn profile, the slogan and the areas of expertise", () => {
+    expect(business).toMatchObject({
+      slogan: "Tecnología que trabaja para tu negocio.",
+      founder: {
+        "@type": "Person",
+        name: "Ronald Fonseca",
+        jobTitle: "Ingeniero de software",
+        sameAs: ["https://www.linkedin.com/in/rfonsecah92"],
+      },
+    });
+    expect(business.knowsAbout).toContain("Automatización de procesos");
   });
 
   it("lists only social profiles, not the WhatsApp chat link", () => {
@@ -44,6 +65,21 @@ describe("serviceJsonLd", () => {
 
   it("marks recurring prices with their unit", () => {
     expect(serviceJsonLd(maintenance).offers[0].priceSpecification.unitCode).toBe("MON");
+  });
+});
+
+describe("articleJsonLd", () => {
+  it("credits the founder as author and the business as publisher, with real dates", () => {
+    const [guide] = guides;
+    expect(articleJsonLd(guide)).toMatchObject({
+      "@type": "Article",
+      headline: guide.title,
+      url: `https://youngdigisoft.es/guias/${guide.slug}`,
+      datePublished: guide.publishedAt,
+      dateModified: guide.updatedAt,
+      author: { "@type": "Person", name: "Ronald Fonseca" },
+      publisher: { "@id": "https://youngdigisoft.es/#business" },
+    });
   });
 });
 

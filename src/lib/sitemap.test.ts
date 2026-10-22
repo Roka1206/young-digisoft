@@ -1,9 +1,10 @@
 import { describe, expect, it } from "vitest";
+import { guides } from "@/content/guides";
 import { services } from "@/content/services";
 import { buildSitemap } from "./sitemap";
 
 const baseUrl = "https://youngdigisoft.es";
-const urls = buildSitemap(baseUrl, services).map((entry) => entry.url);
+const urls = buildSitemap(baseUrl, services, guides).map((entry) => entry.url);
 
 describe("buildSitemap", () => {
   it("lists the homepage, contact and legal pages", () => {
@@ -26,11 +27,22 @@ describe("buildSitemap", () => {
     expect(new Set(urls).size).toBe(urls.length);
   });
 
-  it("does not publish a lastmod date", () => {
-    for (const entry of buildSitemap(baseUrl, services)) expect(entry).not.toHaveProperty("lastModified");
+  it("lists the guides index and each guide with its real update date", () => {
+    const entries = buildSitemap(baseUrl, services, guides);
+    expect(urls).toContain(`${baseUrl}/guias`);
+    for (const { slug, updatedAt } of guides) {
+      expect(entries).toContainEqual(
+        expect.objectContaining({ url: `${baseUrl}/guias/${slug}`, lastModified: updatedAt }),
+      );
+    }
+  });
+
+  it("publishes lastmod only for guides", () => {
+    const dated = buildSitemap(baseUrl, services, guides).filter((entry) => "lastModified" in entry);
+    for (const { url } of dated) expect(url).toContain("/guias/");
   });
 
   it("gives the homepage the highest priority", () => {
-    expect(buildSitemap(baseUrl, services)[0]).toMatchObject({ url: baseUrl, priority: 1 });
+    expect(buildSitemap(baseUrl, services, guides)[0]).toMatchObject({ url: baseUrl, priority: 1 });
   });
 });
