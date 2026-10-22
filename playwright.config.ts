@@ -14,7 +14,7 @@ export default defineConfig({
     // Tests run as a returning visitor who already chose cookies; cookies.spec.ts starts without a choice.
     storageState: {
       cookies: [],
-      origins: [{ origin: baseURL, localStorage: [{ name: "cookieConsent", value: "rejected" }] }],
+      origins: [{ origin: baseURL, localStorage: [{ name: "cookieConsent", value: `rejected:${Date.now()}` }] }],
     },
   },
   projects: [

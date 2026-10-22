@@ -60,7 +60,7 @@ Notas:
 - El Diagnóstico digital se descuenta si el cliente contrata después una web o una automatización. Incluye un resumen escrito con las recomendaciones priorizadas; un informe detallado se presupuesta aparte.
 - El precio de lanzamiento es válido hasta el 31 de enero de 2027 o hasta completar 5 clientes, lo que ocurra antes.
 - Qué no incluye cada servicio y las rondas de revisión (2 en web, 1 en automatización) están en `src/content/services.ts`.
-- La web publica precios "desde". **Todos los importes viven en un único archivo** (`src/content/pricing.ts`), nunca escritos a mano en los componentes.
+- La web publica precios "desde", **con IVA incluido** (así se indica junto a cada precio, en el aviso legal y en el JSON-LD). **Todos los importes viven en un único archivo** (`src/content/pricing.ts`), nunca escritos a mano en los componentes.
 - Fuera de los primeros 6 meses: apps a medida, tiendas online complejas, reparación de hardware, redes. Si llega un encargo así, se valora aparte.
 
 ## 3. Cliente objetivo
@@ -127,7 +127,7 @@ Ver la **sección 0** (manda sobre todo lo demás). Además:
 ## 7. SEO, legal y privacidad (España / UE)
 
 - **SEO:** metadatos por página, `sitemap.xml`, `robots.txt`, datos estructurados JSON-LD (`ProfessionalService`, `Service` y `FAQPage`), imagen Open Graph y enlaces internos entre servicios. La página de «Diseño web» es `/servicios/web`, para toda España; no hay página local de A Coruña.
-- **Textos legales obligatorios:** Aviso legal (LSSI-CE), Política de privacidad (RGPD y LOPDGDD) y Política de cookies. Deben usar los datos reales del titular. Los textos los redacta el asistente como **borrador**, y **un gestor o abogado debe revisarlos** antes de considerarlos definitivos.
+- **Textos legales obligatorios:** Aviso legal (LSSI-CE), Política de privacidad (RGPD y LOPDGDD) y Política de cookies. Deben usar los datos reales del titular. Los textos los redacta el asistente como **borrador**, y **un gestor o abogado debe revisarlos** antes de considerarlos definitivos (la versión actual ya está revisada).
 - **Cookies:** el propietario ha decidido usar Google Analytics 4 además de Vercel Analytics (sin cookies). GA4 solo se carga tras aceptar en el banner de cookies (`src/lib/cookie-consent.ts`); rechazar pesa lo mismo que aceptar y la elección se cambia desde «Configurar cookies» en el pie. Cualquier otra cookie no técnica necesita el mismo consentimiento previo y debe figurar en `/cookies` y `/privacidad`.
 - **Formulario de contacto:** casilla de consentimiento con enlace a la política de privacidad, finalidad y responsable explicados en una línea.
 - Si algún proyecto de cliente trata datos personales, hará falta contrato de encargado de tratamiento (RGPD). No es el caso de esta web.
@@ -154,7 +154,7 @@ El trabajo se hace por bloques y en este orden:
 ## 10. Estado actual y pendientes del propietario
 
 - [x] Datos del titular para el aviso legal: nombre (Ronald Fonseca, nombre comercial Young Digisoft), NIF y domicilio de la actividad (en `src/content/legal.ts`).
-- [ ] Revisión de los textos legales por un gestor o abogado. `[PENDIENTE]`
+- [x] Revisión de los textos legales por un gestor o abogado (confirmado por el propietario el 22 oct 2026). Si se cambian los textos legales, conviene que vuelva a revisarlos.
 - [x] Correo corporativo: `info@youngdigisoft.es`.
 - [x] Cuentas de Instagram y LinkedIn creadas y enlazadas en la web.
 - [ ] Pasar la URL de la página de Facebook y crear Google Business Profile. `[PENDIENTE]`

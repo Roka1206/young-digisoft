@@ -49,7 +49,7 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 - [x] **Descripciones cortas** en `/contacto` (se publicará con 118 caracteres), `/servicios/mantenimiento` (123) y `/aviso-legal` (111). Objetivo: 140 a 160 caracteres. Hecho: mantenimiento 148 y aviso legal 149; contacto se queda en 118.
 - [x] **`lastmod` del sitemap = fecha del build** en todas las URLs. Google ignora `lastmod` si no es fiable. Mejor una fecha real por página (o quitarlo). → `src/app/sitemap.ts:7`, `src/lib/sitemap.ts`.
 - [x] **Sin `BreadcrumbList`** en las páginas de servicio. Ayuda a que Google muestre la ruta «Inicio › Servicios › …». → `src/app/servicios/[slug]/page.tsx`.
-- [ ] **Los `h2` del pie** («Navegación», «Servicios», «Contacto») aparecen como encabezados en todas las páginas. No es un error, pero diluye el esquema de la página. Opción: `<p>` con el mismo estilo, o dejarlo así. → `src/components/layout/Footer.tsx:22,31,44`.
+- [x] **Los `h2` del pie** («Navegación», «Servicios», «Contacto») aparecen como encabezados en todas las páginas. No es un error, pero diluye el esquema de la página. Opción: `<p>` con el mismo estilo, o dejarlo así. → `src/components/layout/Footer.tsx:22,31,44`. Decidido: se dejan, ayudan a navegar con lector de pantalla.
 - [ ] **Search Console detecta 4 de 9 páginas en el sitemap** (enviado el 20 oct con una versión anterior). Reenviarlo. → Propietario.
 
 ### 3.3 Oportunidades
@@ -57,7 +57,7 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 - [x] **`llms.txt`** en la raíz: un resumen en texto plano de quiénes somos, servicios, precios «desde», zona y contacto, con enlaces a cada página. Lo leen algunos asistentes y agentes de IA; coste mínimo. → `src/app/llms.txt/route.ts` generado desde `src/content/`.
 - [x] **Enriquecer el JSON-LD de `ProfessionalService`:** `founder` (`Person`: Ronald Fonseca, ingeniero de software, con LinkedIn personal `[PENDIENTE: URL]`), `knowsAbout` (diseño web, SEO local, automatización, Next.js…), `priceRange`, `slogan`, `foundingDate` `[PENDIENTE]` y `openingHours` `[PENDIENTE]`. → `src/lib/structured-data.ts`. Hecho: `founder` con LinkedIn, `knowsAbout` y `slogan`. Sin `priceRange` (solo admite una franja subjetiva tipo «€€»; los precios reales ya van en cada `Service`). Faltan `foundingDate` y `openingHours`.
 - [x] **`FAQPage` en cada página de servicio** con 3 a 5 preguntas reales por servicio (precio, plazo, qué necesito aportar, qué pasa si…). Las IA citan mucho las FAQ.
-- [ ] **Blog / guías** (la oferta Web Pro incluye blog; la propia web no lo tiene). Artículos que respondan preguntas exactas de dueños de negocio, ver §5.
+- [x] **Blog / guías** (la oferta Web Pro incluye blog; la propia web no lo tiene). Hecho: `/guias` con 4 guías, enlazadas desde su servicio. Artículos que respondan preguntas exactas de dueños de negocio, ver §5.
 - [ ] **Página «Sobre nosotros»**: quién está detrás, experiencia real, forma de trabajar. Es la señal de confianza (E-E-A-T) que más falta y la que las IA usan para describir una empresa. Solo con datos reales del propietario.
 - [ ] **Portfolio y casos de estudio** en cuanto haya pilotos (ya previsto en `portfolio.ts`): con `CreativeWork` o `Article` en JSON-LD.
 - [ ] **Páginas por sector** solo cuando haya un caso real del sector (por ejemplo «Webs para clínicas de fisioterapia»), como ya dice `PLAN-WEB.md`.
@@ -90,7 +90,7 @@ Directorios donde aparecen y donde conviene darse de alta: [Páxinas Galegas](ht
 
 **Diferenciación a reforzar en el contenido:** código propio (no WordPress), web rápida medida (Lighthouse ≥ 90), precio cerrado con lo que no incluye por escrito, automatización además de la web, y el dominio y el hosting a nombre del cliente.
 
-**Idea de contenido a verificar:** ayudas a la digitalización para autónomos y pymes en Galicia (Bono Autónomo de la Xunta, Kit Digital). Solo con datos de la convocatoria oficial vigente `[PENDIENTE: verificar en xunta.gal y acelerapyme.gob.es]`.
+**Idea de contenido a verificar:** ayudas a la digitalización para autónomos y pymes en Galicia (Bono Autónomo de la Xunta, Kit Digital). Solo con datos de la convocatoria oficial vigente. Comprobado el 22 oct 2026: **no hay ninguna abierta**, así que no se publica. El Bono Autónomo (TR341Q, sede.xunta.gal) cerró el 30 sep 2026 y suele convocarse a principios de año en el DOG. El Kit Digital Segmento III cerró el 31 oct 2025 y Red.es no ha publicado convocatoria nueva (la Orden TDF/39/2026 solo modifica las bases). Volver a revisar en enero-febrero de 2027.
 
 **Qué mueve la aguja (por orden):**
 

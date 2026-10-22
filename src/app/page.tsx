@@ -9,6 +9,8 @@ import { Portfolio } from "@/components/sections/Portfolio";
 import { Problems } from "@/components/sections/Problems";
 import { Process } from "@/components/sections/Process";
 import { WhyUs } from "@/components/sections/WhyUs";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { websiteJsonLd } from "@/lib/structured-data";
 
 const BackToTop = dynamic(() => import("@/components/layout/BackToTop").then((mod) => mod.BackToTop));
 const ExitIntentModal = dynamic(() => import("@/components/forms/ExitIntentModal").then((mod) => mod.ExitIntentModal));
@@ -16,6 +18,7 @@ const ExitIntentModal = dynamic(() => import("@/components/forms/ExitIntentModal
 export default function Home() {
   return (
     <>
+      <JsonLd data={websiteJsonLd()} />
       <Header />
       <main className="flex-1">
         <Hero />

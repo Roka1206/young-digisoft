@@ -9,6 +9,7 @@ import {
   faqJsonLd,
   serializeJsonLd,
   serviceJsonLd,
+  websiteJsonLd,
 } from "./structured-data";
 
 const [webService] = services;
@@ -49,6 +50,17 @@ describe("businessJsonLd", () => {
   });
 });
 
+describe("websiteJsonLd", () => {
+  it("names the site Young Digisoft on its own domain, published by the business", () => {
+    expect(websiteJsonLd()).toMatchObject({
+      "@type": "WebSite",
+      name: "Young Digisoft",
+      url: "https://youngdigisoft.es",
+      publisher: { "@id": "https://youngdigisoft.es/#business" },
+    });
+  });
+});
+
 describe("serviceJsonLd", () => {
   it("links the service to the business and its own page", () => {
     expect(serviceJsonLd(webService)).toMatchObject({
@@ -61,6 +73,12 @@ describe("serviceJsonLd", () => {
 
   it("publishes one 'from' price per plan, matching the pricing file", () => {
     expect(serviceJsonLd(webService).offers.map((offer) => offer.priceSpecification.minPrice)).toEqual([590, 990]);
+  });
+
+  it("states that prices include VAT", () => {
+    expect(serviceJsonLd(webService).offers.every((offer) => offer.priceSpecification.valueAddedTaxIncluded)).toBe(
+      true,
+    );
   });
 
   it("marks recurring prices with their unit", () => {

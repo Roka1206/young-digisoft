@@ -99,7 +99,7 @@ Producción hoy solo envía `Strict-Transport-Security`. Faltan:
 - [x] Doble factor (2FA) en GitHub, Vercel, Google (1206roka@gmail.com), Resend y OVH. Desactivado en las cinco al revisarlo el 21 oct 2026; activado por el propietario el mismo día (confirmado por él, no comprobado desde fuera).
 - [x] Clave de Resend: una sola (`young-digisoft`) con «Sending access». Dominio «All domains»: equivale a `youngdigisoft.es` mientras sea el único dominio en Resend; restringirla si se añade otro.
 - [x] Bloqueo de transferencia del dominio activado en OVH. DNSSEC activo: el `.es` publica el `DS` y los resolutores validan la zona (comprobado el 22 oct 2026).
-- [ ] SPF (`include:mx.ovh.com`), DKIM de Resend y DMARC publicados. DMARC en `p=none` (solo vigila). El correo de OVH es un MX Plan de redirección sin buzones, así que solo Resend envía como `@youngdigisoft.es`. Endurecer a `p=quarantine` cuando se confirme que ningún otro servicio envía como el dominio. El propietario envía desde Zimbra (OVH) y desde Gmail como `info@`: antes de endurecer hay que confirmar el DKIM de Zimbra y el servidor SMTP de Gmail. Comprobado en DNS el 22 oct 2026: SPF raíz con OVH, SPF propio de Resend en `send.`, DKIM de Resend (`resend._domainkey`) y de OVH/Zimbra (`ovhmo-selector-1` y `-2`). Gmail debe enviar como `info@` a través del SMTP de OVH (no se puede ver desde el DNS). Siguiente paso, en OVH: `v=DMARC1; p=quarantine; rua=mailto:info@youngdigisoft.es` y revisar los informes unas semanas antes de pasar a `p=reject`.
+- [x] SPF (`include:mx.ovh.com`), DKIM de Resend y DMARC publicados. DMARC en `p=none` (solo vigila). El correo de OVH es un MX Plan de redirección sin buzones, así que solo Resend envía como `@youngdigisoft.es`. Endurecer a `p=quarantine` cuando se confirme que ningún otro servicio envía como el dominio. El propietario envía desde Zimbra (OVH) y desde Gmail como `info@`: antes de endurecer hay que confirmar el DKIM de Zimbra y el servidor SMTP de Gmail. Comprobado en DNS el 22 oct 2026: SPF raíz con OVH, SPF propio de Resend en `send.`, DKIM de Resend (`resend._domainkey`) y de OVH/Zimbra (`ovhmo-selector-1` y `-2`). Gmail debe enviar como `info@` a través del SMTP de OVH (no se puede ver desde el DNS). DMARC endurecido el 22 oct 2026 a `v=DMARC1; p=quarantine; rua=mailto:info@youngdigisoft.es` (comprobado en el DNS público de Google y Cloudflare). Siguiente paso: revisar los informes unas semanas antes de pasar a `p=reject`.
 
 ## 4. Plan de testing
 
@@ -172,7 +172,7 @@ test("accepting cookies loads Google Analytics without CSP errors", ...);
 
 ### Fase 4: propietario (cuando pueda)
 
-- [ ] 2FA en todas las cuentas, clave de Resend solo de envío, bloqueo del dominio, DMARC (§3.6). Hecho salvo endurecer DMARC (hoy `p=none`).
+- [x] 2FA en todas las cuentas, clave de Resend solo de envío, bloqueo del dominio, DMARC (§3.6). DMARC en `p=quarantine` desde el 22 oct 2026.
 - [x] *Secret scanning*, alertas de Dependabot y protección de `main` en GitHub (§3.5).
 - [x] CSP en modo bloqueante tras revisar que no hay errores en la consola.
 - [ ] Límite de envíos compartido o regla en Vercel Firewall (§3.4).

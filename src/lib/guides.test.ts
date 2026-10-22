@@ -3,7 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { type Guide, guides } from "@/content/guides";
 import { services } from "@/content/services";
-import { findGuide, formatGuideDate, newestFirst } from "./guides";
+import { findGuide, formatGuideDate, guidesForService, newestFirst } from "./guides";
 
 const guide = (slug: string, updatedAt: string): Guide => ({
   slug,
@@ -50,5 +50,15 @@ describe("guide helpers", () => {
     const list = [guide("old", "2026-01-01"), guide("new", "2026-05-01")];
     expect(newestFirst(list).map((g) => g.slug)).toEqual(["new", "old"]);
     expect(list[0].slug).toBe("old");
+  });
+
+  it("returns only the guides of a service, newest first, and none for a service without guides", () => {
+    const list = [
+      guide("web-old", "2026-01-01"),
+      { ...guide("other", "2026-03-01"), serviceSlug: "mantenimiento" },
+      guide("web-new", "2026-05-01"),
+    ];
+    expect(guidesForService(list, "web").map((g) => g.slug)).toEqual(["web-new", "web-old"]);
+    expect(guidesForService(list, "diagnostico-digital")).toEqual([]);
   });
 });
