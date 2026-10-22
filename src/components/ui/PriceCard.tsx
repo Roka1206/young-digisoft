@@ -17,7 +17,7 @@ export function PriceCard({ plan, children }: { plan: Plan; children?: ReactNode
         {discounted && <Badge>{priceText.launch}</Badge>}
         <p className="mt-2 text-3xl font-bold text-foreground">
           {formatPrice(price.launch, price.unit)}{" "}
-          <span className="text-sm font-normal text-muted">{priceText.vatIncluded}</span>
+          <span className="text-sm font-normal whitespace-nowrap text-muted">{priceText.vatIncluded}</span>
         </p>
         {discounted && (
           <p className="mt-1 text-sm text-muted">

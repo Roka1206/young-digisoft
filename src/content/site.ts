@@ -6,7 +6,7 @@ export const site = {
   descriptor: "Desarrollo web y automatización para pymes y autónomos",
   homeTitle: "Diseño web y automatización para pymes — Young Digisoft",
   description:
-    "Webs, automatización y consultoría para pymes y autónomos. Precio cerrado, plazo claro y trato directo. Desde A Coruña, para toda España.",
+    "Webs, automatización, redes sociales y consultoría para pymes y autónomos. Precio cerrado, plazo claro y trato directo. Desde A Coruña, para toda España.",
   foundingDate: "2026-06-23",
 };
 
@@ -32,6 +32,7 @@ export const expertise = [
   "SEO local",
   "Google Business Profile",
   "Automatización de procesos",
+  "Gestión de redes sociales",
   "Consultoría tecnológica para pymes",
 ];
 

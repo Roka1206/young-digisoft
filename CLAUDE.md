@@ -33,7 +33,7 @@ Estas reglas mandan sobre cualquier otra instrucción de este archivo o del plan
 
 ## 1. Qué es Young Digisoft
 
-Empresa de servicios tecnológicos fundada por un **ingeniero de software** (autónomo, actividad de consultoría). Ayuda a pymes y autónomos a vender más y perder menos tiempo con **webs a medida, automatización con IA, mantenimiento y consultoría tecnológica**.
+Empresa de servicios tecnológicos fundada por un **ingeniero de software** (autónomo, actividad de consultoría). Ayuda a pymes y autónomos a vender más y perder menos tiempo con **webs a medida, automatización con IA, mantenimiento, gestión de redes sociales y consultoría tecnológica**.
 
 - **Base:** sede en A Coruña; trabajamos en toda España. La web no distingue entre trabajo presencial u online.
 - **Dominio:** `youngdigisoft.es`, conectado a Vercel. `www` y `young-digisoft.vercel.app` redirigen a él.
@@ -45,7 +45,7 @@ Empresa de servicios tecnológicos fundada por un **ingeniero de software** (aut
 
 ## 2. Qué vendemos (ofertas)
 
-Hay 4 ofertas. No añadas servicios nuevos a la web sin que el propietario lo decida.
+Hay 6 ofertas. No añadas servicios nuevos a la web sin que el propietario lo decida.
 
 | Oferta | Qué es | Precio de lanzamiento (primeros 3 a 5 clientes) | Precio normal (desde el mes 3) |
 |---|---|---|---|
@@ -53,15 +53,16 @@ Hay 4 ofertas. No añadas servicios nuevos a la web sin que el propietario lo de
 | **Web Pro** | 5 a 8 secciones, blog, más personalización | 990 € | 1.400 a 1.800 € |
 | **Automatización exprés** | Diagnóstico gratuito de 30 min y una automatización concreta (formulario a CRM o hoja de cálculo con aviso por WhatsApp o email, citas, presupuestos, facturas) | 400 a 600 € | 600 a 1.200 € |
 | **Mantenimiento mensual** | Hosting y despliegues, copias de seguridad, monitorización, actualizaciones y hasta 1 h/mes de cambios pequeños (no acumulable). Sin permanencia: baja efectiva el mes siguiente. Acepta webs de terceros tras revisarlas | 39 a 49 €/mes | 59 a 89 €/mes |
+| **Redes sociales para tu negocio** (añadida el 22 oct 2026) | Plan de contenidos mensual, 8 publicaciones al mes en Instagram, Facebook y Google Business Profile, diseño de imágenes y textos, informe mensual. Mes a mes, sin permanencia. Extra: anuncios pagados, fotos y vídeo profesionales, respuesta a comentarios y mensajes | 79 €/mes | 139 €/mes |
 | **Diagnóstico digital (consultoría)** | Sesión de 60 min y recomendaciones priorizadas de web, Google, procesos, herramientas y seguridad | **60 €/hora** | 60 €/hora |
 
 Notas:
 - El precio de lanzamiento tiene condiciones reales: testimonio verificable con nombre, permiso para mostrar el trabajo y reseña en Google. Debe mostrarse con fecha de caducidad.
 - El Diagnóstico digital se descuenta si el cliente contrata después una web o una automatización. Incluye un resumen escrito con las recomendaciones priorizadas; un informe detallado se presupuesta aparte.
 - El precio de lanzamiento es válido hasta el 31 de enero de 2027 o hasta completar 5 clientes, lo que ocurra antes.
-- Qué no incluye cada servicio y las rondas de revisión (2 en web, 1 en automatización) están en `src/content/services.ts`.
+- Qué no incluye cada servicio y las rondas de revisión (2 en web, 1 en automatización, 1 por plan mensual en redes sociales) están en `src/content/services.ts`.
 - La web publica precios "desde", **con IVA incluido** (así se indica junto a cada precio, en el aviso legal y en el JSON-LD). **Todos los importes viven en un único archivo** (`src/content/pricing.ts`), nunca escritos a mano en los componentes.
-- Fuera de los primeros 6 meses: apps a medida, tiendas online complejas, reparación de hardware, redes. Si llega un encargo así, se valora aparte.
+- Fuera de los primeros 6 meses: apps a medida, tiendas online complejas, reparación de hardware, redes informáticas. Si llega un encargo así, se valora aparte.
 
 ## 3. Cliente objetivo
 

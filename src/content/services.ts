@@ -272,6 +272,85 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "redes-sociales",
+    name: "Redes sociales para tu negocio",
+    headline: "Gestión de redes sociales para pymes",
+    summary:
+      "Nos ocupamos de tus redes cada mes: plan de contenidos, imágenes y textos con tu marca, y publicaciones en Instagram, Facebook y tu ficha de Google.",
+    audience: "Negocios que saben que deben estar en redes pero no tienen tiempo para publicar con constancia.",
+    plans: [
+      {
+        id: "socialMedia",
+        name: "Redes sociales para tu negocio",
+        includes: [
+          "Plan de contenidos mensual",
+          "8 publicaciones al mes (2 por semana) en Instagram, Facebook y tu ficha de Google",
+          "Diseño de las imágenes y redacción de los textos con tu marca",
+          "Informe mensual breve con alcance y seguidores",
+        ],
+        timeline: "Primera publicación en 1 semana desde el arranque",
+      },
+    ],
+    excludes: [
+      "Los anuncios pagados: el presupuesto y su gestión se presupuestan aparte",
+      "Sesiones de fotos y vídeos profesionales",
+      "La respuesta a comentarios y mensajes privados",
+    ],
+    revisionRounds: "1 ronda de cambios en cada plan mensual, antes de publicar.",
+    sectors: [
+      "Peluquerías y barberías",
+      "Restaurantes y cafeterías",
+      "Tiendas",
+      "Clínicas y centros de estética",
+      "Talleres",
+      "Academias",
+    ],
+    highlights: {
+      title: "Cómo trabajamos tus redes",
+      items: [
+        {
+          title: "Un plan cada mes",
+          description:
+            "Antes de empezar el mes te enseñamos qué vamos a publicar y cuándo, para que lo revises y propongas cambios.",
+        },
+        {
+          title: "Con la imagen de tu negocio",
+          description:
+            "Diseñamos las imágenes y escribimos los textos con tus colores, tu tono y tus productos o servicios.",
+        },
+        {
+          title: "Constancia sin que te ocupe tiempo",
+          description:
+            "Publicamos dos veces por semana en Instagram, Facebook y tu ficha de Google, y cada mes te contamos cómo ha ido.",
+        },
+      ],
+    },
+    faq: [
+      {
+        question: "¿Cuánto cuesta la gestión de redes sociales?",
+        answer: [
+          `Redes sociales para tu negocio cuesta ${launchPrice("socialMedia")}, con precio de lanzamiento para los primeros clientes. Incluye 8 publicaciones al mes en Instagram, Facebook y tu ficha de Google.`,
+        ],
+      },
+      {
+        question: "¿Hay permanencia?",
+        answer: ["No. Se paga mes a mes y puedes cancelarlo cuando quieras."],
+      },
+      {
+        question: "¿Tengo que darte fotos de mi negocio?",
+        answer: [
+          "Ayuda mucho: las fotos reales de tu local, tus productos o tu equipo funcionan mejor que las de bancos de imágenes. Con tus fotos diseñamos las publicaciones. Si necesitas una sesión profesional, te la presupuestamos aparte.",
+        ],
+      },
+      {
+        question: "¿Me garantizáis más seguidores o más clientes?",
+        answer: [
+          "No: nadie puede garantizarlo. Lo que sí hacemos es que tus redes estén activas, cuidadas y con tu imagen, y cada mes te enseñamos los datos de alcance y seguidores para ver cómo evolucionan.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "diagnostico-digital",
     name: "Diagnóstico digital",
     headline: "Diagnóstico digital para tu negocio",
