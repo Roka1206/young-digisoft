@@ -30,6 +30,19 @@ export function businessJsonLd() {
   };
 }
 
+// Google takes the site name shown in results from this, on the home page.
+export function websiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    name: site.name,
+    url: siteUrl,
+    inLanguage: "es-ES",
+    publisher: { "@id": businessId },
+  };
+}
+
 export function serviceJsonLd(service: Service) {
   return {
     "@context": "https://schema.org",

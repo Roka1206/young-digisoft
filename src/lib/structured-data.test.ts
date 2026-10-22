@@ -9,6 +9,7 @@ import {
   faqJsonLd,
   serializeJsonLd,
   serviceJsonLd,
+  websiteJsonLd,
 } from "./structured-data";
 
 const [webService] = services;
@@ -46,6 +47,17 @@ describe("businessJsonLd", () => {
       "https://www.instagram.com/youngdigisoft/",
       "https://www.linkedin.com/company/youngdigisoft",
     ]);
+  });
+});
+
+describe("websiteJsonLd", () => {
+  it("names the site Young Digisoft on its own domain, published by the business", () => {
+    expect(websiteJsonLd()).toMatchObject({
+      "@type": "WebSite",
+      name: "Young Digisoft",
+      url: "https://youngdigisoft.es",
+      publisher: { "@id": "https://youngdigisoft.es/#business" },
+    });
   });
 });
 
