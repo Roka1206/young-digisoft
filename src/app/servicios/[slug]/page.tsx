@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -9,7 +10,9 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { PageHero } from "@/components/ui/PageHero";
 import { PriceCard } from "@/components/ui/PriceCard";
 import { Section } from "@/components/ui/Section";
+import { guides } from "@/content/guides";
 import { servicePageText, services } from "@/content/services";
+import { guidesForService } from "@/lib/guides";
 import { pageMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/cn";
 import { findService } from "@/lib/services";
@@ -36,6 +39,7 @@ export default async function ServicePage({ params }: PageProps<"/servicios/[slu
   const service = findService(services, (await params).slug);
   if (!service) notFound();
   const columns = service.plans.length > 1 ? "max-w-4xl md:grid-cols-2" : "max-w-xl";
+  const relatedGuides = guidesForService(guides, service.slug);
 
   return (
     <>
@@ -106,6 +110,25 @@ export default async function ServicePage({ params }: PageProps<"/servicios/[slu
         )}
 
         {service.faq && <Faq items={service.faq} title={servicePageText.faq} />}
+
+        {relatedGuides.length > 0 && (
+          <Section title={servicePageText.relatedGuides} className="bg-surface">
+            <ul className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+              {relatedGuides.map((guide) => (
+                <li key={guide.slug}>
+                  <Card className="flex h-full flex-col gap-3">
+                    <h3 className="text-lg font-medium text-foreground">
+                      <Link href={`/guias/${guide.slug}`} className="hover:text-action">
+                        {guide.title}
+                      </Link>
+                    </h3>
+                    <p className="leading-relaxed text-muted">{guide.description}</p>
+                  </Card>
+                </li>
+              ))}
+            </ul>
+          </Section>
+        )}
 
         <CtaBanner whatsappHref={serviceWhatsappHref(service.name)} />
       </main>
