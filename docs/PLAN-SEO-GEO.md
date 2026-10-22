@@ -38,7 +38,7 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 ### 3.1 Importantes
 
 - [ ] **Sin Google Business Profile.** Para negocios locales es la mayor fuente de visibilidad en Google Maps y en el «paquete local», y una fuente que usan Gemini y los AI Overviews. Ya está en la hoja de ruta; es la acción de más impacto. → Propietario.
-- [ ] **Páginas de servicio con poco contenido.** `/servicios/automatizacion` (≈230 palabras), `/servicios/mantenimiento` (≈200) y `/servicios/diagnostico-digital` (≈215) frente a ≈490 de `/servicios/web`. Les falta «para quién es», ejemplos concretos, proceso y preguntas frecuentes propias. Google y las IA no tienen de dónde sacar respuestas. → `src/content/services.ts`, `src/content/faq.ts`.
+- [x] **Páginas de servicio con poco contenido.** `/servicios/automatizacion` (≈230 palabras), `/servicios/mantenimiento` (≈200) y `/servicios/diagnostico-digital` (≈215) frente a ≈490 de `/servicios/web`. Les falta «para quién es», ejemplos concretos, proceso y preguntas frecuentes propias. Google y las IA no tienen de dónde sacar respuestas. → `src/content/services.ts`, `src/content/faq.ts`.
 - [ ] **Marca ambigua para buscadores e IA.** Existen varias empresas «Digisoft» (Irlanda, India, EE. UU.). Hay que reforzar la entidad: nombre completo siempre «Young Digisoft», mismo texto descriptivo en todos los perfiles, `sameAs` completo y datos del fundador.
 
 ### 3.2 Avisos
@@ -56,7 +56,7 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 
 - [x] **`llms.txt`** en la raíz: un resumen en texto plano de quiénes somos, servicios, precios «desde», zona y contacto, con enlaces a cada página. Lo leen algunos asistentes y agentes de IA; coste mínimo. → `src/app/llms.txt/route.ts` generado desde `src/content/`.
 - [x] **Enriquecer el JSON-LD de `ProfessionalService`:** `founder` (`Person`: Ronald Fonseca, ingeniero de software, con LinkedIn personal `[PENDIENTE: URL]`), `knowsAbout` (diseño web, SEO local, automatización, Next.js…), `priceRange`, `slogan`, `foundingDate` `[PENDIENTE]` y `openingHours` `[PENDIENTE]`. → `src/lib/structured-data.ts`. Hecho: `founder` con LinkedIn, `knowsAbout` y `slogan`. Sin `priceRange` (solo admite una franja subjetiva tipo «€€»; los precios reales ya van en cada `Service`). Faltan `foundingDate` y `openingHours`.
-- [ ] **`FAQPage` en cada página de servicio** con 3 a 5 preguntas reales por servicio (precio, plazo, qué necesito aportar, qué pasa si…). Las IA citan mucho las FAQ.
+- [x] **`FAQPage` en cada página de servicio** con 3 a 5 preguntas reales por servicio (precio, plazo, qué necesito aportar, qué pasa si…). Las IA citan mucho las FAQ.
 - [ ] **Blog / guías** (la oferta Web Pro incluye blog; la propia web no lo tiene). Artículos que respondan preguntas exactas de dueños de negocio, ver §5.
 - [ ] **Página «Sobre nosotros»**: quién está detrás, experiencia real, forma de trabajar. Es la señal de confianza (E-E-A-T) que más falta y la que las IA usan para describir una empresa. Solo con datos reales del propietario.
 - [ ] **Portfolio y casos de estudio** en cuanto haya pilotos (ya previsto en `portfolio.ts`): con `CreativeWork` o `Article` en JSON-LD.
@@ -104,7 +104,7 @@ Directorios donde aparecen y donde conviene darse de alta: [Páxinas Galegas](ht
 
 Cada pieza responde a una búsqueda o pregunta concreta. Sin cifras inventadas: los precios salen de `pricing.ts` y los ejemplos, de trabajos reales.
 
-- [ ] **Guía: «¿Cuánto cuesta una página web para un pequeño negocio en 2026?»** Qué influye en el precio, rangos «desde» propios, qué preguntar antes de contratar. Objetivo: búsquedas de precio y la pregunta 3 de la tabla.
+- [x] **Guía: «¿Cuánto cuesta una página web para un pequeño negocio en 2026?»** Qué influye en el precio, rangos «desde» propios, qué preguntar antes de contratar. Objetivo: búsquedas de precio y la pregunta 3 de la tabla.
 - [ ] **Guía: «Cómo aparecer en Google Maps con tu negocio: ficha de Google paso a paso».** Encaja con Web Esencial + Google.
 - [ ] **Guía: «5 tareas que un pequeño negocio puede automatizar»** (citas, presupuestos, avisos por WhatsApp, facturas). Encaja con Automatización exprés.
 - [ ] **Guía: «Qué incluye el mantenimiento de una web y cuándo lo necesitas».**
@@ -134,7 +134,7 @@ Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de pu
 
 ### Fase C: contenido (mes 1 a 3)
 
-- [ ] Ampliar las tres páginas de servicio cortas hasta ≈450 palabras útiles, cada una con su FAQ y `FAQPage`.
+- [x] Ampliar las tres páginas de servicio cortas hasta ≈450 palabras útiles, cada una con su FAQ y `FAQPage`.
 - [ ] Sección `/guias` con las 4 guías de §5 (1 cada 2 semanas).
 - [ ] Página «Sobre nosotros» con datos reales.
 

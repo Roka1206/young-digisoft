@@ -45,6 +45,18 @@ const webPlans: Plan[] = [
   },
 ];
 
+const automationPlan: Plan = {
+  id: "automation",
+  name: "Automatización exprés",
+  includes: [
+    "Diagnóstico gratuito de 30 minutos",
+    "Una automatización concreta: del formulario a tu CRM u hoja de cálculo con aviso por WhatsApp o email, citas, presupuestos o facturas",
+  ],
+  timeline: "1 a 2 semanas desde el diagnóstico",
+};
+
+const launchPrice = (id: PlanId) => formatPrice(prices[id].launch, prices[id].unit);
+
 export const services: Service[] = [
   {
     slug: "web",
@@ -118,23 +130,59 @@ export const services: Service[] = [
     summary:
       "Elegimos contigo una tarea que hoy haces a mano y la automatizamos: menos copiar y pegar, menos olvidos y más tiempo para tu negocio.",
     audience: "Negocios que pierden tiempo con tareas repetitivas.",
-    plans: [
-      {
-        id: "automation",
-        name: "Automatización exprés",
-        includes: [
-          "Diagnóstico gratuito de 30 minutos",
-          "Una automatización concreta: del formulario a tu CRM u hoja de cálculo con aviso por WhatsApp o email, citas, presupuestos o facturas",
-        ],
-        timeline: "1 a 2 semanas desde el diagnóstico",
-      },
-    ],
+    plans: [automationPlan],
     excludes: [
       "Las licencias de herramientas de terceros, como el CRM o WhatsApp Business",
       "Más de una automatización",
       "El mantenimiento tras la entrega",
     ],
     revisionRounds: "1 ronda de ajustes tras ponerla en marcha.",
+    highlights: {
+      title: "Ejemplos de lo que podemos automatizar",
+      items: [
+        {
+          title: "Contactos que no se pierden",
+          description:
+            "Cada mensaje de tu formulario se guarda solo en tu hoja de cálculo o tu CRM, y te llega un aviso por WhatsApp o email para que respondas rápido.",
+        },
+        {
+          title: "Citas sin llamadas de ida y vuelta",
+          description:
+            "Tus clientes piden cita por su cuenta y la reserva aparece en tu agenda, sin apuntarla a mano ni cuadrar horarios por teléfono.",
+        },
+        {
+          title: "Presupuestos y facturas en menos tiempo",
+          description:
+            "Los datos que ya tienes rellenan el documento por ti, así copias y pegas menos y cometes menos errores.",
+        },
+      ],
+    },
+    faq: [
+      {
+        question: "¿Cuánto cuesta automatizar una tarea?",
+        answer: [
+          `La Automatización exprés cuesta ${launchPrice("automation")}, con precio de lanzamiento para los primeros clientes. El precio final depende de la tarea y de las herramientas que uses.`,
+          "Después del diagnóstico gratuito te damos un precio cerrado por escrito.",
+        ],
+      },
+      {
+        question: "¿Qué pasa en el diagnóstico gratuito de 30 minutos?",
+        answer: [
+          "Nos cuentas qué tarea te quita más tiempo y cómo la haces hoy. Vemos si merece la pena automatizarla y, si es así, te decimos cómo lo haríamos y cuánto costaría.",
+          "Es gratis y no te obliga a contratar nada.",
+        ],
+      },
+      {
+        question: "¿Tengo que cambiar las herramientas que uso?",
+        answer: [
+          "Siempre que sea posible, partimos de las que ya usas, como tu email, tu hoja de cálculo o WhatsApp. Si hace falta alguna nueva, te lo decimos antes y te explicamos su coste.",
+        ],
+      },
+      {
+        question: "¿Cuánto tarda?",
+        answer: [`${automationPlan.timeline}. Te confirmamos el plazo exacto en la propuesta.`],
+      },
+    ],
   },
   {
     slug: "mantenimiento",
@@ -161,6 +209,48 @@ export const services: Service[] = [
       "Los cambios que superen la bolsa mensual",
       "El coste del dominio",
     ],
+    highlights: {
+      title: "Qué hacemos por tu web cada mes",
+      items: [
+        {
+          title: "Copias de seguridad",
+          description: "Guardamos copias de tu web para poder recuperarla si algo sale mal.",
+        },
+        {
+          title: "Vigilancia",
+          description: "Si tu web deja de responder, nos llega un aviso y nos ponemos a revisarla.",
+        },
+        {
+          title: "Al día y con pequeños cambios",
+          description:
+            "Aplicamos las actualizaciones y hacemos los cambios pequeños que nos pidas, como un horario, un precio o una foto nueva.",
+        },
+      ],
+    },
+    faq: [
+      {
+        question: "¿Cuánto cuesta el mantenimiento de una web?",
+        answer: [
+          `El Mantenimiento mensual cuesta ${launchPrice("maintenance")}, con precio de lanzamiento para los primeros clientes.`,
+        ],
+      },
+      {
+        question: "¿Necesito mantenimiento para mi web?",
+        answer: [
+          "Si tu web te trae clientes y no quieres ocuparte de la parte técnica, sí te conviene. Una web sin revisar puede dejar de funcionar o quedarse desactualizada sin que te des cuenta.",
+        ],
+      },
+      {
+        question: "¿Qué pasa si mi web se cae?",
+        answer: [
+          "La vigilancia nos avisa y lo revisamos. Si hace falta, la recuperamos a partir de una copia de seguridad.",
+        ],
+      },
+      {
+        question: "¿El dominio está incluido?",
+        answer: ["No. El dominio va a tu nombre y lo pagas directamente al proveedor, para que siempre sea tuyo."],
+      },
+    ],
   },
   {
     slug: "diagnostico-digital",
@@ -185,6 +275,50 @@ export const services: Service[] = [
       "Un informe detallado, que se presupuesta aparte",
     ],
     note: "Se descuenta si después contratas una web o una automatización.",
+    highlights: {
+      title: "Cómo es el diagnóstico",
+      items: [
+        {
+          title: "Revisamos lo que tienes",
+          description: "Tu web, tu ficha de Google, las herramientas que usas y cómo trabajas en el día a día.",
+        },
+        {
+          title: "Te decimos qué mejorar primero",
+          description:
+            "Ordenamos las mejoras por impacto y esfuerzo, para que sepas por dónde empezar aunque no contrates nada más.",
+        },
+        {
+          title: "Te lo dejamos por escrito",
+          description: "Recibes un resumen con las recomendaciones priorizadas, para consultarlo cuando quieras.",
+        },
+      ],
+    },
+    faq: [
+      {
+        question: "¿Cuánto cuesta el diagnóstico digital?",
+        answer: [
+          `Cuesta ${launchPrice("diagnosis")} y la sesión dura 60 minutos. Si después contratas una web o una automatización, te lo descontamos.`,
+        ],
+      },
+      {
+        question: "¿En qué se diferencia del diagnóstico gratuito de la automatización?",
+        answer: [
+          "El diagnóstico gratuito de 30 minutos se centra en una sola tarea que quieres automatizar. El diagnóstico digital revisa todo tu negocio: web, Google, procesos, herramientas y seguridad.",
+        ],
+      },
+      {
+        question: "¿Tengo que contratar algo después?",
+        answer: [
+          "No. Las recomendaciones son tuyas y puedes ponerlas en marcha por tu cuenta o con quien quieras. Si prefieres que lo hagamos nosotros, te lo presupuestamos aparte.",
+        ],
+      },
+      {
+        question: "¿Qué recibo después de la sesión?",
+        answer: [
+          "Un resumen escrito con las recomendaciones priorizadas. Si necesitas un informe detallado, te lo presupuestamos aparte.",
+        ],
+      },
+    ],
   },
 ];
 
