@@ -6,6 +6,9 @@ import { Logo } from "@/components/ui/Logo";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 import { CookieSettingsButton } from "./CookieSettingsButton";
 
+// min-h-11 gives each legal link a 44 px touch target.
+const legalLink = "inline-flex min-h-11 items-center transition-colors hover:text-action";
+
 export function Footer() {
   const year = new Date().getFullYear();
 
@@ -53,21 +56,21 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-border">
-        <Container className="flex flex-col gap-2 py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-2 py-4 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name}. Todos los derechos reservados.
           </p>
-          <div className="flex flex-wrap gap-x-4 gap-y-2">
-            <Link href="/aviso-legal" className="transition-colors hover:text-action">
+          <div className="flex flex-wrap gap-x-6">
+            <Link href="/aviso-legal" className={legalLink}>
               Aviso legal
             </Link>
-            <Link href="/privacidad" className="transition-colors hover:text-action">
+            <Link href="/privacidad" className={legalLink}>
               Privacidad
             </Link>
-            <Link href="/cookies" className="transition-colors hover:text-action">
+            <Link href="/cookies" className={legalLink}>
               Cookies
             </Link>
-            <CookieSettingsButton />
+            <CookieSettingsButton className={legalLink} />
           </div>
         </Container>
       </div>
