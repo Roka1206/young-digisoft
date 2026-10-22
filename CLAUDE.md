@@ -182,7 +182,7 @@ El trabajo se hace por bloques y en este orden:
 - [ ] Casos de estudio: al entregar cada piloto, añadirlo a `portfolio.ts` (antes/después, qué se hizo, resultado verificable, testimonio con nombre y permiso por escrito).
 - [ ] Páginas locales o por sector solo si hay demanda real (por ejemplo, «Diseño web para clínicas en A Coruña»).
 - [ ] Subir a precio normal tras publicar el tercer caso, cambiando solo `pricing.ts`.
-- [ ] Límite de envíos del formulario compartido entre instancias (regla de Vercel Firewall o almacén compartido), ver `PLAN-SEGURIDAD.md` §3.4.
+- [x] Límite de envíos del formulario compartido entre instancias: regla de Vercel Firewall activa desde el 22 oct 2026 (ver `PLAN-SEGURIDAD.md` §3.4).
 - Idea para más adelante: un sistema de citas gratuito (por ejemplo, Cal.com) para reservar el Diagnóstico digital.
 
 **Recordatorios periódicos:**

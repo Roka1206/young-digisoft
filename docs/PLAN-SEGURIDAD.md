@@ -79,7 +79,7 @@ Producción hoy solo envía `Strict-Transport-Security`. Faltan:
 ### 3.4 Baja
 
 - [x] **`.pnpm-runner/` en git** (466 archivos, 48 MB, binarios y scripts de pnpm). Quedó tras `chore: migrate package manager from pnpm to npm`. Es código de terceros versionado que nadie revisa. `git rm -r --cached .pnpm-runner` y añadirlo a `.gitignore`. El historial conserva los archivos; limpiarlo del historial no compensa. **Requiere permiso del propietario** (regla 7 de `CLAUDE.md`).
-- [ ] **Límite de envíos por instancia** (`src/lib/rate-limit.ts`): con varias instancias de Vercel, el límite real es 5 × número de instancias. Opciones: Vercel Firewall (regla de *rate limit* en `/api/contact`, sin código) o un almacén compartido del Marketplace. Anotado en los pendientes de `CLAUDE.md` §10.
+- [x] **Límite de envíos por instancia** (`src/lib/rate-limit.ts`): con varias instancias de Vercel, el límite real es 5 × número de instancias. Opciones: Vercel Firewall (regla de *rate limit* en `/api/contact`, sin código) o un almacén compartido del Marketplace. Hecho el 22 oct 2026: regla de Vercel Firewall «Limitar envíos del formulario de contacto» (`POST /api/contact`, 5 cada 10 min por IP, ventana fija; la única regla de rate limit que permite el plan Hobby). El límite del código queda como segunda barrera.
 - [ ] **IP del límite de envíos:** se toma el primer valor de `x-forwarded-for`. En Vercel lo fija la plataforma, así que es fiable; si algún día se despliega fuera de Vercel, revisarlo.
 - [x] **`/.well-known/security.txt`** con `Contact: mailto:info@youngdigisoft.es`, `Expires` y `Preferred-Languages: es, en`, para que quien encuentre un fallo sepa a quién avisar.
 
@@ -175,7 +175,7 @@ test("accepting cookies loads Google Analytics without CSP errors", ...);
 - [x] 2FA en todas las cuentas, clave de Resend solo de envío, bloqueo del dominio, DMARC (§3.6). DMARC en `p=quarantine` desde el 22 oct 2026.
 - [x] *Secret scanning*, alertas de Dependabot y protección de `main` en GitHub (§3.5).
 - [x] CSP en modo bloqueante tras revisar que no hay errores en la consola.
-- [ ] Límite de envíos compartido o regla en Vercel Firewall (§3.4).
+- [x] Límite de envíos compartido o regla en Vercel Firewall (§3.4). Regla de Vercel Firewall activa desde el 22 oct 2026.
 
 ## 6. Revisión periódica
 
