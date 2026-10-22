@@ -8,6 +8,7 @@ import {
   breadcrumbJsonLd,
   businessJsonLd,
   faqJsonLd,
+  portfolioJsonLd,
   serializeJsonLd,
   serviceJsonLd,
   websiteJsonLd,
@@ -125,6 +126,40 @@ describe("articleJsonLd", () => {
       author: { "@type": "Person", name: "Ronald Fonseca" },
       publisher: { "@id": "https://youngdigisoft.es/#business" },
     });
+  });
+});
+
+describe("portfolioJsonLd", () => {
+  it("lists each case as a work by the business, with absolute image URLs and no empty fields", () => {
+    const withImage = {
+      name: "Tienda",
+      sector: "Comercio",
+      summary: "Web nueva",
+      technologies: [],
+      url: "https://tienda.es/",
+      image: { src: "/images/portfolio/tienda.webp", alt: "Tienda" },
+      publishPermission: true,
+    };
+    const anonymous = {
+      name: "Pedidos",
+      sector: "Taller",
+      summary: "Automatización",
+      technologies: [],
+      publishPermission: true,
+    };
+    const [first, second] = portfolioJsonLd([withImage, anonymous]).itemListElement;
+    expect(first).toMatchObject({
+      position: 1,
+      item: {
+        "@type": "CreativeWork",
+        name: "Tienda",
+        url: "https://tienda.es/",
+        image: "https://youngdigisoft.es/images/portfolio/tienda.webp",
+        creator: { "@id": "https://youngdigisoft.es/#business" },
+      },
+    });
+    expect(JSON.parse(JSON.stringify(second.item))).not.toHaveProperty("url");
+    expect(JSON.parse(JSON.stringify(second.item))).not.toHaveProperty("image");
   });
 });
 

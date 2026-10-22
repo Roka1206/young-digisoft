@@ -7,6 +7,7 @@ export type PortfolioCase = {
   technologies: string[];
   result?: string;
   url?: string;
+  image?: { src: string; alt: string };
   publishPermission: boolean;
 };
 
@@ -27,6 +28,10 @@ export const portfolio: PortfolioCase[] = [
       "Web de la tienda en Sada: categorías de productos, galería de fotos, horario y cómo llegar con Google Maps. Hecha con WordPress. Además, gestionamos sus redes sociales.",
     technologies: ["WordPress"],
     url: "https://youngenergysada.es/",
+    image: {
+      src: "/images/portfolio/young-energy-sada.webp",
+      alt: "Portada de la web de Young Energy Sada: snacks, bebidas y helados en Sada, con foto de la tienda",
+    },
     publishPermission: true,
   },
   {

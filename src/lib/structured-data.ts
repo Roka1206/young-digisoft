@@ -2,6 +2,7 @@ import { aboutPage } from "@/content/about";
 import type { FaqItem } from "@/content/faq";
 import type { Guide } from "@/content/guides";
 import { prices } from "@/content/pricing";
+import type { PortfolioCase } from "@/content/portfolio";
 import { servicePageText, type Service } from "@/content/services";
 import { address, contact, expertise, founder, openingHours, site, socialLinks } from "@/content/site";
 import { guideImagePath } from "./guides";
@@ -116,6 +117,27 @@ export function articleJsonLd(guide: Guide) {
     dateModified: guide.updatedAt,
     author: { "@type": "Person", name: founder.name, jobTitle: founder.jobTitle, sameAs: [founder.linkedin] },
     publisher: { "@id": businessId },
+  };
+}
+
+// Published portfolio cases as works made by the business.
+export function portfolioJsonLd(cases: PortfolioCase[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: cases.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "CreativeWork",
+        name: item.name,
+        description: item.summary,
+        genre: item.sector,
+        url: item.url,
+        image: item.image && `${siteUrl}${item.image.src}`,
+        creator: { "@id": businessId },
+      },
+    })),
   };
 }
 
