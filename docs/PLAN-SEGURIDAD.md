@@ -14,7 +14,7 @@
 | Media | Sin cabeceras de seguridad: CSP, protección contra *clickjacking*, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` | Añadirlas en `next.config.ts` |
 | Media | Campos del formulario sin longitud máxima, `service` acepta cualquier texto y `name` (va en el asunto del email) admite saltos de línea | Endurecer `contact-schema.ts` |
 | Baja | 466 archivos de `.pnpm-runner/` (48 MB, binarios de terceros) siguen en git tras migrar a npm | Sacarlos del repositorio y añadirlos a `.gitignore` (con permiso del propietario) |
-| Baja | Límite de envíos en memoria por instancia y sin comprobar el origen de la petición | Mejora opcional (ya anotada en `PLAN-WEB.md`) |
+| Baja | Límite de envíos en memoria por instancia y sin comprobar el origen de la petición | Mejora opcional (anotada en `CLAUDE.md` §10) |
 | Baja | CI sin auditoría de dependencias, sin Dependabot, sin `permissions` mínimos y con acciones en Node 20 (obsoleto) | Endurecer `.github/workflows/ci.yml` |
 | Info | Sin `/.well-known/security.txt` | Añadirlo |
 
@@ -79,7 +79,7 @@ Producción hoy solo envía `Strict-Transport-Security`. Faltan:
 ### 3.4 Baja
 
 - [x] **`.pnpm-runner/` en git** (466 archivos, 48 MB, binarios y scripts de pnpm). Quedó tras `chore: migrate package manager from pnpm to npm`. Es código de terceros versionado que nadie revisa. `git rm -r --cached .pnpm-runner` y añadirlo a `.gitignore`. El historial conserva los archivos; limpiarlo del historial no compensa. **Requiere permiso del propietario** (regla 7 de `CLAUDE.md`).
-- [ ] **Límite de envíos por instancia** (`src/lib/rate-limit.ts`): con varias instancias de Vercel, el límite real es 5 × número de instancias. Opciones: Vercel Firewall (regla de *rate limit* en `/api/contact`, sin código) o un almacén compartido del Marketplace. Ya está anotado en `PLAN-WEB.md`.
+- [ ] **Límite de envíos por instancia** (`src/lib/rate-limit.ts`): con varias instancias de Vercel, el límite real es 5 × número de instancias. Opciones: Vercel Firewall (regla de *rate limit* en `/api/contact`, sin código) o un almacén compartido del Marketplace. Anotado en los pendientes de `CLAUDE.md` §10.
 - [ ] **IP del límite de envíos:** se toma el primer valor de `x-forwarded-for`. En Vercel lo fija la plataforma, así que es fiable; si algún día se despliega fuera de Vercel, revisarlo.
 - [x] **`/.well-known/security.txt`** con `Contact: mailto:info@youngdigisoft.es`, `Expires` y `Preferred-Languages: es, en`, para que quien encuentre un fallo sepa a quién avisar.
 

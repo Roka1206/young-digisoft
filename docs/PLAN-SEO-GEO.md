@@ -37,7 +37,7 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 
 ### 3.1 Importantes
 
-- [ ] **Sin Google Business Profile.** Para negocios locales es la mayor fuente de visibilidad en Google Maps y en el «paquete local», y una fuente que usan Gemini y los AI Overviews. Ya está en la hoja de ruta; es la acción de más impacto. → Propietario.
+- [ ] **Sin Google Business Profile.** Creada el 22 oct 2026, pendiente de verificación. Para negocios locales es la mayor fuente de visibilidad en Google Maps y en el «paquete local», y una fuente que usan Gemini y los AI Overviews. Ya está en la hoja de ruta; es la acción de más impacto. → Propietario.
 - [x] **Páginas de servicio con poco contenido.** `/servicios/automatizacion` (≈230 palabras), `/servicios/mantenimiento` (≈200) y `/servicios/diagnostico-digital` (≈215) frente a ≈490 de `/servicios/web`. Les falta «para quién es», ejemplos concretos, proceso y preguntas frecuentes propias. Google y las IA no tienen de dónde sacar respuestas. → `src/content/services.ts`, `src/content/faq.ts`.
 - [ ] **Marca ambigua para buscadores e IA.** Existen varias empresas «Digisoft» (Irlanda, India, EE. UU.). Hay que reforzar la entidad: nombre completo siempre «Young Digisoft», mismo texto descriptivo en todos los perfiles, `sameAs` completo y datos del fundador.
 
@@ -50,7 +50,7 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 - [x] **`lastmod` del sitemap = fecha del build** en todas las URLs. Google ignora `lastmod` si no es fiable. Mejor una fecha real por página (o quitarlo). → `src/app/sitemap.ts:7`, `src/lib/sitemap.ts`.
 - [x] **Sin `BreadcrumbList`** en las páginas de servicio. Ayuda a que Google muestre la ruta «Inicio › Servicios › …». → `src/app/servicios/[slug]/page.tsx`.
 - [x] **Los `h2` del pie** («Navegación», «Servicios», «Contacto») aparecen como encabezados en todas las páginas. No es un error, pero diluye el esquema de la página. Opción: `<p>` con el mismo estilo, o dejarlo así. → `src/components/layout/Footer.tsx:22,31,44`. Decidido: se dejan, ayudan a navegar con lector de pantalla.
-- [ ] **Search Console detecta 4 de 9 páginas en el sitemap** (enviado el 20 oct con una versión anterior). Reenviarlo. → Propietario.
+- [x] **Search Console detecta 4 de 9 páginas en el sitemap** (enviado el 20 oct con una versión anterior). Reenviarlo. → Propietario. Reenviado el 22 oct 2026 con 14 páginas; falta que Google lo vuelva a leer.
 
 ### 3.3 Oportunidades
 
@@ -60,7 +60,7 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 - [x] **Blog / guías** (la oferta Web Pro incluye blog; la propia web no lo tiene). Hecho: `/guias` con 4 guías, enlazadas desde su servicio. Artículos que respondan preguntas exactas de dueños de negocio, ver §5.
 - [x] **Página «Sobre nosotros»**: quién está detrás, experiencia real, forma de trabajar. Es la señal de confianza (E-E-A-T) que más falta y la que las IA usan para describir una empresa. Solo con datos reales del propietario.
 - [ ] **Portfolio y casos de estudio** en cuanto haya pilotos (ya previsto en `portfolio.ts`): con `CreativeWork` o `Article` en JSON-LD.
-- [ ] **Páginas por sector** solo cuando haya un caso real del sector (por ejemplo «Webs para clínicas de fisioterapia»), como ya dice `PLAN-WEB.md`.
+- [ ] **Páginas por sector** solo cuando haya un caso real del sector (por ejemplo «Webs para clínicas de fisioterapia»), como ya dice `CLAUDE.md` §10.
 - [ ] **Imágenes propias.** Hecho en parte: foto del fundador en «Sobre nosotros»; faltan capturas de trabajos. La web no tiene ninguna imagen de contenido: capturas de trabajos o una foto del fundador ayudan a Google Imágenes y a la confianza. Con `next/image` y `alt` descriptivo.
 
 ## 4. GEO: cómo hacer que las IA conozcan y citen a Young Digisoft
@@ -129,9 +129,9 @@ Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de pu
 ### Fase B: presencia local (semana 1 a 2, propietario)
 
 - [ ] Crear y completar Google Business Profile: categoría «Diseñador de sitios web», servicios con precios «desde», zona de servicio, horario, fotos y enlace a la web. Después añadir su URL a `sameAs`.
-- [ ] Alta en 4 a 6 directorios gratuitos con datos idénticos (NAP: nombre, dirección o zona, teléfono).
-- [ ] Reenviar el sitemap en Search Console.
-- [ ] Página de Facebook (si se crea) y su URL en `sameAs` y en el pie.
+- [x] ~~Alta en 4 a 6 directorios gratuitos con datos idénticos (NAP: nombre, dirección o zona, teléfono).~~ Descartado por el propietario (22 oct 2026).
+- [x] Reenviar el sitemap en Search Console (22 oct 2026).
+- [x] ~~Página de Facebook (si se crea) y su URL en `sameAs` y en el pie.~~ Descartado: no se usará Facebook.
 
 ### Fase C: contenido (mes 1 a 3)
 
@@ -161,7 +161,7 @@ Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de pu
 - Competidores: recogidos en §4.
 - LinkedIn del fundador (Ronald Fonseca): <https://www.linkedin.com/in/rfonsecah92>.
 - Guías: se montan con MDX (`@next/mdx`), aprobado por el propietario.
-- `[PENDIENTE]` URL de Google Business Profile y de Facebook (cuando existan).
+- `[PENDIENTE]` URL de Google Business Profile (creada, pendiente de verificación). Facebook descartado.
 - Trayectoria y foto del fundador: en `/sobre-nosotros` (foto en `public/images/ronald.jpg`).
 - Fecha de inicio de la actividad: 23 jun 2026. Horario: todos los días, de 9:00 a 21:00 (también visible en /contacto).
 - Dirección completa publicada en el JSON-LD (decisión del propietario).

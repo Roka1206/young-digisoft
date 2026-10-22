@@ -4,7 +4,7 @@
 
 > Este archivo es la fuente de verdad del proyecto. Léelo entero al empezar cualquier sesión.
 > Si algo de aquí cambia (precios, ofertas, marca, datos legales), actualiza este archivo en el mismo commit.
-> El plan de trabajo de la web está en `docs/PLAN-WEB.md`.
+> Planes vigentes en `docs/`: `PLAN-SEO-GEO.md`, `PLAN-SEGURIDAD.md` y la marca en `BRAND.md`. El plan de desarrollo de la web (`PLAN-WEB.md`) se completó y se retiró el 22 oct 2026 (sigue en el historial de git); sus pendientes están en la sección 10.
 
 ---
 
@@ -136,15 +136,15 @@ Ver la **sección 0** (manda sobre todo lo demás). Además:
 
 - WhatsApp y teléfono: 655 08 73 21.
 - Email: `info@youngdigisoft.es`.
-- Redes: [Instagram](https://www.instagram.com/youngdigisoft/) y [LinkedIn](https://www.linkedin.com/company/youngdigisoft). Facebook y Google Business Profile: `[PENDIENTE]` (falta la URL). No enlazar a `#`: si una red no existe, se oculta el icono.
+- Redes: [Instagram](https://www.instagram.com/youngdigisoft/) y [LinkedIn](https://www.linkedin.com/company/youngdigisoft). Google Business Profile: creada, pendiente de verificación (falta la URL). Facebook: descartado por el propietario, no se usa. No enlazar a `#`: si una red no existe, se oculta el icono.
 
 ## 9. Hoja de ruta global
 
 El trabajo se hace por bloques y en este orden:
 
-1. **Plan de desarrollo** (hecho, ver `docs/PLAN-WEB.md`).
+1. **Plan de desarrollo** (hecho; el plan se retiró al completarse y queda en el historial de git).
 2. **Kit de marca** (hecho; PDF aparte).
-3. **Web lista** en `youngdigisoft.es` (en curso, máximo 1 a 2 semanas, lanzar «suficientemente buena»).
+3. **Web lista** en `youngdigisoft.es` (hecho: publicada el 21 oct 2026).
 4. **Captación de clientes** (empieza el día siguiente al lanzamiento): prospección directa a 10 negocios al día en A Coruña, casos piloto a precio de lanzamiento, Google Business Profile y reseñas, alianzas con gestorías y asesorías.
 5. **Redes sociales automatizadas** (Instagram, LinkedIn y Google Business Profile; 1 h diaria de contenido de marca).
 6. **Estructura de trabajo, contratos y legal.** El contrato modelo y el presupuesto tipo deben existir **antes del primer cliente**.
@@ -157,8 +157,8 @@ El trabajo se hace por bloques y en este orden:
 - [x] Revisión de los textos legales por un gestor o abogado (confirmado por el propietario el 22 oct 2026). Si se cambian los textos legales, conviene que vuelva a revisarlos.
 - [x] Correo corporativo: `info@youngdigisoft.es`.
 - [x] Cuentas de Instagram y LinkedIn creadas y enlazadas en la web.
-- [ ] Pasar la URL de la página de Facebook y crear Google Business Profile. `[PENDIENTE]`
-- [ ] Trabajos previos para el portfolio (nombre, sector, qué se hizo, permiso de publicación). `[PENDIENTE]`
+- [ ] Google Business Profile creada (22 oct 2026), pendiente de verificación: pasar la URL para añadirla a `sameAs`. `[PENDIENTE]` Facebook descartado.
+- [ ] Trabajos previos para el portfolio (nombre, sector, qué se hizo, permiso de publicación). El propietario los pasa al terminar los puntos en curso. `[PENDIENTE]`
 - [x] Informe del Diagnóstico digital: incluye resumen escrito; el informe detallado se presupuesta aparte.
 - [x] Fecha de fin del precio de lanzamiento, qué no incluye cada servicio y rondas de revisión.
 - [x] Conectar `youngdigisoft.es` al proyecto de Vercel.
@@ -170,7 +170,26 @@ El trabajo se hace por bloques y en este orden:
 - [x] Vista previa al compartir comprobada en LinkedIn y Meta (Facebook e Instagram).
 - [x] Vista previa en WhatsApp comprobada desde el móvil.
 - [x] Configuración de Vercel revisada: producción desde `main`, variables de entorno correctas.
-- [ ] Conector de Vercel de Claude reconectado por el propietario (21 oct 2026), pero aún responde 403 sobre `roka1206s-projects`: comprobarlo en una sesión nueva. `[PENDIENTE]`
+- [x] Conector de Vercel de Claude autorizado para el equipo `roka1206s-projects` (22 oct 2026). El 403 no se arreglaba reconectando: faltaba el permiso de equipo (`authorize_team_access`).
+- [x] Acuerdos de tratamiento de datos de Vercel y Resend aceptados; Gmail envía como `info@` por el SMTP de OVH (confirmado por el propietario, 22 oct 2026).
+- [x] Repositorio de GitHub privado (22 oct 2026).
+- [x] Datos del negocio en la web y en el JSON-LD: actividad desde el 23 jun 2026, horario todos los días de 9:00 a 21:00 y dirección completa.
+- [x] Medición: visitas en Vercel Analytics; formularios (`generate_lead`) y clics a WhatsApp, teléfono y email (`contact_click`) en GA4, ambos eventos clave.
+
+**Pendientes de la web (antes en `PLAN-WEB.md`):**
+
+- [ ] Google Business Profile enlazada a la web, con fotos, servicios y primera reseña de un piloto.
+- [ ] Casos de estudio: al entregar cada piloto, añadirlo a `portfolio.ts` (antes/después, qué se hizo, resultado verificable, testimonio con nombre y permiso por escrito).
+- [ ] Páginas locales o por sector solo si hay demanda real (por ejemplo, «Diseño web para clínicas en A Coruña»).
+- [ ] Subir a precio normal tras publicar el tercer caso, cambiando solo `pricing.ts`.
+- [ ] Límite de envíos del formulario compartido entre instancias (regla de Vercel Firewall o almacén compartido), ver `PLAN-SEGURIDAD.md` §3.4.
+- Idea para más adelante: un sistema de citas gratuito (por ejemplo, Cal.com) para reservar el Diagnóstico digital.
+
+**Recordatorios periódicos:**
+
+- Cada mes: preguntar a ChatGPT, Gemini y Perplexity por Young Digisoft (tabla del §4 de `PLAN-SEO-GEO.md`) y anotar el resultado.
+- Mediados de noviembre de 2026: revisar los informes DMARC que llegan a `info@` y, si solo envían Resend y OVH, pasar DMARC a `p=reject`.
+
 - **Siguiente bloque:** captación de clientes (sección 9, punto 4).
 
 > Mantén esta sección al día: tacha lo hecho y añade lo nuevo.
