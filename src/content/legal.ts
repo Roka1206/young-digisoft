@@ -129,7 +129,7 @@ export const cookiesSections: LegalSection[] = [
       "Este sitio web no utiliza cookies de publicidad. Emplea las siguientes tecnologías de carácter técnico y necesario para su funcionamiento:",
       "· Preferencia de tema (claro/oscuro): almacenamiento local del navegador (localStorage), sin fecha de caducidad, hasta que el usuario borre los datos del navegador.",
       "· Aviso de salida (exit-intent): almacenamiento de sesión del navegador (sessionStorage), para no mostrar el mismo aviso más de una vez por visita. Se elimina automáticamente al cerrar la pestaña o el navegador.",
-      "· Preferencia de cookies: almacenamiento local del navegador (localStorage), para recordar si el usuario ha aceptado o rechazado las cookies analíticas y no volver a preguntarle.",
+      "· Preferencia de cookies: almacenamiento local del navegador (localStorage), para recordar si el usuario ha aceptado o rechazado las cookies analíticas durante 24 meses. Pasado ese plazo, se le vuelve a preguntar.",
       "· Vercel Analytics y Vercel Speed Insights: herramientas de analítica de uso y rendimiento sin cookies, que no identifican individualmente a los usuarios.",
     ],
   },

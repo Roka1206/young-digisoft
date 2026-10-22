@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { consentMaxAgeMs, hideChosenBannerScript } from "./cookie-consent-script";
 
 // Fresh module per test: consent is cached in module state after the first read.
 const loadConsent = () => import("./cookie-consent");
@@ -23,13 +24,37 @@ describe("cookie consent", () => {
   });
 
   it("returns the stored choice", async () => {
-    localStorage.setItem("cookieConsent", "accepted");
+    localStorage.setItem("cookieConsent", `accepted:${Date.now()}`);
     expect((await loadConsent()).getConsent()).toBe("accepted");
   });
 
   it("treats an unknown stored value as no choice", async () => {
     localStorage.setItem("cookieConsent", "yes");
     expect((await loadConsent()).getConsent()).toBeNull();
+  });
+
+  it.each([
+    ["a choice saved without date (older format)", "accepted"],
+    ["a choice older than 24 months", `accepted:${Date.now() - consentMaxAgeMs - 1}`],
+  ])("asks again for %s", async (_, stored) => {
+    localStorage.setItem("cookieConsent", stored);
+    expect((await loadConsent()).getConsent()).toBeNull();
+  });
+
+  it("keeps a choice saved just under 24 months ago", async () => {
+    localStorage.setItem("cookieConsent", `rejected:${Date.now() - consentMaxAgeMs + 60_000}`);
+    expect((await loadConsent()).getConsent()).toBe("rejected");
+  });
+
+  it.each([
+    ["hides", `accepted:${Date.now()}`, ""],
+    ["keeps", `accepted:${Date.now() - consentMaxAgeMs - 1}`, undefined],
+    ["keeps", "accepted", undefined],
+  ])("the pre-paint script %s the banner for %s", (_, stored, flag) => {
+    localStorage.setItem("cookieConsent", stored);
+    delete document.documentElement.dataset.cookieConsent;
+    new Function(hideChosenBannerScript)();
+    expect(document.documentElement.dataset.cookieConsent).toBe(flag);
   });
 
   it("treats blocked storage as no choice", async () => {
@@ -43,7 +68,7 @@ describe("cookie consent", () => {
     const { getConsent, saveConsent } = await loadConsent();
     saveConsent("accepted");
     expect(getConsent()).toBe("accepted");
-    expect(localStorage.getItem("cookieConsent")).toBe("accepted");
+    expect(localStorage.getItem("cookieConsent")).toMatch(/^accepted:\d+$/);
     expect(reload).not.toHaveBeenCalled();
   });
 
@@ -57,7 +82,7 @@ describe("cookie consent", () => {
   });
 
   it("clears only the _ga cookies and reloads when consent is withdrawn", async () => {
-    localStorage.setItem("cookieConsent", "accepted");
+    localStorage.setItem("cookieConsent", `accepted:${Date.now()}`);
     document.cookie = "_ga=1; path=/";
     document.cookie = "_ga_TEST=1; path=/";
     document.cookie = "theme=dark; path=/";

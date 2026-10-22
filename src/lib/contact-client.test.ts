@@ -20,7 +20,7 @@ const respondWith = (status: number) => mockFetch(async () => new Response(null,
 async function loadSubmit(cookieChoice?: "accepted" | "rejected") {
   vi.resetModules();
   localStorage.clear();
-  if (cookieChoice) localStorage.setItem("cookieConsent", cookieChoice);
+  if (cookieChoice) localStorage.setItem("cookieConsent", `${cookieChoice}:${Date.now()}`);
   return (await import("./contact-client")).submitContact;
 }
 

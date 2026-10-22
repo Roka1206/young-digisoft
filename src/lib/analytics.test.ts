@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 const gtag = vi.fn();
 
 async function trackWith(consent: string | null, withGtag = true) {
-  if (consent) localStorage.setItem("cookieConsent", consent);
+  if (consent) localStorage.setItem("cookieConsent", `${consent}:${Date.now()}`);
   if (withGtag) window.gtag = gtag;
   const { trackEvent } = await import("./analytics");
   trackEvent("generate_lead", { form_name: "contact" });
@@ -43,7 +43,7 @@ describe("trackEvent", () => {
 describe("contact click tracking", () => {
   beforeEach(() => {
     vi.resetModules();
-    localStorage.setItem("cookieConsent", "accepted");
+    localStorage.setItem("cookieConsent", `accepted:${Date.now()}`);
     window.gtag = gtag;
   });
 
@@ -82,7 +82,7 @@ describe("contact click tracking", () => {
   });
 
   it("sends nothing when the visitor rejected cookies", async () => {
-    localStorage.setItem("cookieConsent", "rejected");
+    localStorage.setItem("cookieConsent", `rejected:${Date.now()}`);
     document.body.innerHTML = '<a id="phone" href="tel:+34655087321">Llamar</a>';
     const { trackContactClick } = await import("./analytics");
     trackContactClick(document.getElementById("phone"));
