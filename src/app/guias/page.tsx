@@ -4,10 +4,12 @@ import { Footer } from "@/components/layout/Footer";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
+import { JsonLd } from "@/components/ui/JsonLd";
 import { PageHero } from "@/components/ui/PageHero";
 import { guides, guidesPageText } from "@/content/guides";
 import { formatGuideDate, newestFirst } from "@/lib/guides";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
   title: guidesPageText.metaTitle,
@@ -18,6 +20,7 @@ export const metadata = pageMetadata({
 export default function GuidesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: guidesPageText.breadcrumb, path: "/guias" }])} />
       <Header />
       <main className="flex-1">
         <PageHero title={guidesPageText.title} description={guidesPageText.description} />

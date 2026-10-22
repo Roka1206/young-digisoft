@@ -1,11 +1,15 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
+import { JsonLd } from "@/components/ui/JsonLd";
 import { privacidadSections, legalUpdatedAt } from "@/content/legal";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
+
+const title = "Política de privacidad";
 
 export const metadata = pageMetadata({
-  title: "Política de privacidad",
+  title,
   description:
     "Cómo trata Young Digisoft los datos personales recogidos en el formulario de contacto: finalidad, conservación y derechos del usuario.",
   path: "/privacidad",
@@ -14,10 +18,11 @@ export const metadata = pageMetadata({
 export default function PrivacidadPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: title, path: "/privacidad" }])} />
       <Header />
       <main className="flex-1">
         <Container className="max-w-3xl py-20">
-          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">Política de privacidad</h1>
+          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">{title}</h1>
           <p className="mt-3 text-sm text-muted">{legalUpdatedAt}</p>
           <div className="mt-10 flex flex-col gap-8">
             {privacidadSections.map((section) => (

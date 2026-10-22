@@ -1,11 +1,15 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
+import { JsonLd } from "@/components/ui/JsonLd";
 import { avisoLegalSections, legalEntity, legalUpdatedAt } from "@/content/legal";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
+
+const title = "Aviso legal";
 
 export const metadata = pageMetadata({
-  title: "Aviso legal",
+  title,
   description: `Aviso legal de ${legalEntity.tradeName} (${legalEntity.ownerName}): datos identificativos del titular, condiciones de uso, propiedad intelectual y legislación aplicable.`,
   path: "/aviso-legal",
 });
@@ -13,10 +17,11 @@ export const metadata = pageMetadata({
 export default function AvisoLegalPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: title, path: "/aviso-legal" }])} />
       <Header />
       <main className="flex-1">
         <Container className="max-w-3xl py-20">
-          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">Aviso legal</h1>
+          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">{title}</h1>
           <p className="mt-3 text-sm text-muted">{legalUpdatedAt}</p>
           <div className="mt-10 flex flex-col gap-8">
             {avisoLegalSections.map((section) => (

@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { PageHero } from "@/components/ui/PageHero";
 import { guides, guidesPageText } from "@/content/guides";
-import { servicePageText, services } from "@/content/services";
+import { services } from "@/content/services";
 import { findGuide, formatGuideDate } from "@/lib/guides";
 import { pageMetadata } from "@/lib/metadata";
 import { findService } from "@/lib/services";
@@ -38,7 +38,6 @@ export default async function GuidePage({ params }: PageProps<"/guias/[slug]">) 
       <JsonLd data={articleJsonLd(guide)} />
       <JsonLd
         data={breadcrumbJsonLd([
-          { name: servicePageText.breadcrumbHome, path: "/" },
           { name: guidesPageText.breadcrumb, path: "/guias" },
           { name: guide.title, path: `/guias/${guide.slug}` },
         ])}

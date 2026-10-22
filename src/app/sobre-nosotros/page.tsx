@@ -7,7 +7,6 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { PageHero } from "@/components/ui/PageHero";
 import { aboutPage } from "@/content/about";
 import Body from "@/content/about.mdx";
-import { servicePageText } from "@/content/services";
 import { pageMetadata } from "@/lib/metadata";
 import { aboutPageJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 
@@ -21,12 +20,7 @@ export default function AboutPage() {
   return (
     <>
       <JsonLd data={aboutPageJsonLd()} />
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: servicePageText.breadcrumbHome, path: "/" },
-          { name: aboutPage.label, path: aboutPage.path },
-        ])}
-      />
+      <JsonLd data={breadcrumbJsonLd([{ name: aboutPage.label, path: aboutPage.path }])} />
       <Header />
       <main className="flex-1">
         <PageHero title={aboutPage.title} description={aboutPage.description}>

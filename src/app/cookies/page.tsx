@@ -1,11 +1,15 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
+import { JsonLd } from "@/components/ui/JsonLd";
 import { cookiesSections, legalUpdatedAt } from "@/content/legal";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
+
+const title = "Política de cookies";
 
 export const metadata = pageMetadata({
-  title: "Política de cookies",
+  title,
   description:
     "Qué cookies y almacenamiento usa la web de Young Digisoft, incluida Google Analytics, y cómo aceptarlas, rechazarlas o retirar tu consentimiento.",
   path: "/cookies",
@@ -14,10 +18,11 @@ export const metadata = pageMetadata({
 export default function CookiesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: title, path: "/cookies" }])} />
       <Header />
       <main className="flex-1">
         <Container className="max-w-3xl py-20">
-          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">Política de cookies</h1>
+          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">{title}</h1>
           <p className="mt-3 text-sm text-muted">{legalUpdatedAt}</p>
           <div className="mt-10 flex flex-col gap-8">
             {cookiesSections.map((section) => (

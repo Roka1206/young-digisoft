@@ -128,13 +128,8 @@ describe("articleJsonLd", () => {
 });
 
 describe("breadcrumbJsonLd", () => {
-  it("numbers each step from 1 and turns paths into absolute URLs", () => {
-    expect(
-      breadcrumbJsonLd([
-        { name: "Inicio", path: "/" },
-        { name: "Diseño web", path: "/servicios/web" },
-      ]),
-    ).toEqual({
+  it("starts at the home page, numbers each step from 1 and turns paths into absolute URLs", () => {
+    expect(breadcrumbJsonLd([{ name: "Diseño web", path: "/servicios/web" }])).toEqual({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [

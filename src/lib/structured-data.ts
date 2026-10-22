@@ -2,7 +2,7 @@ import { aboutPage } from "@/content/about";
 import type { FaqItem } from "@/content/faq";
 import type { Guide } from "@/content/guides";
 import { prices } from "@/content/pricing";
-import type { Service } from "@/content/services";
+import { servicePageText, type Service } from "@/content/services";
 import { address, contact, expertise, founder, openingHours, site, socialLinks } from "@/content/site";
 import { siteUrl } from "./site-url";
 
@@ -118,11 +118,12 @@ export function articleJsonLd(guide: Guide) {
   };
 }
 
+// Every trail starts at the home page, so callers pass only the steps after it.
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
+    itemListElement: [{ name: servicePageText.breadcrumbHome, path: "/" }, ...items].map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
