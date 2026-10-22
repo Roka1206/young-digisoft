@@ -10,6 +10,15 @@ export type Guide = {
 
 export const guides: Guide[] = [
   {
+    slug: "redes-sociales-para-pequenos-negocios",
+    title: "Redes sociales para un pequeño negocio: qué publicar y cada cuánto",
+    description:
+      "Para qué sirven las redes en un negocio local, en cuáles estar, qué publicar, cada cuánto y qué errores evitar, con ideas que puedes aplicar desde esta semana.",
+    publishedAt: "2026-10-22",
+    updatedAt: "2026-10-22",
+    serviceSlug: "redes-sociales",
+  },
+  {
     slug: "web-a-medida-wordpress-o-wix",
     title: "Web a medida, WordPress o Wix: qué le conviene a tu negocio",
     description:
