@@ -60,7 +60,7 @@ Producción hoy solo envía `Strict-Transport-Security`. Faltan:
 | `Referrer-Policy` | `strict-origin-when-cross-origin` | No filtra rutas completas a otros sitios |
 | `Permissions-Policy` | `camera=(), microphone=(), geolocation=(), browsing-topics=()` | Desactiva APIs que la web no usa |
 | `X-Frame-Options` | `DENY` | Respaldo de `frame-ancestors` para navegadores antiguos |
-| `Strict-Transport-Security` | añadir `includeSubDomains` | Solo si **todos** los subdominios (incluido el correo web, si lo hay) van por HTTPS `[PENDIENTE: confirmar]` |
+| `Strict-Transport-Security` | añadir `includeSubDomains` | Solo si **todos** los subdominios (incluido el correo web, si lo hay) van por HTTPS. Confirmado por el propietario (no hay subdominios web; `send.` es solo correo): añadido el 22 oct 2026, sin `preload` |
 
 - [x] Añadirlas con `headers()` en `next.config.ts`, empezando con la CSP en modo `Content-Security-Policy-Report-Only` durante unos días para no romper GA4 ni Vercel Analytics. Después, pasarla a modo bloqueante.
 - [ ] `'unsafe-inline'` en `script-src` hace falta por los scripts en línea (banner de cookies, inicialización de GA4 y los de Next). Más adelante se puede sustituir por *nonces* generados en `proxy.ts`, a cambio de que las páginas dejen de ser estáticas. No compensa ahora.
