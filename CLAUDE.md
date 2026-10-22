@@ -4,7 +4,7 @@
 
 > Este archivo es la fuente de verdad del proyecto. Léelo entero al empezar cualquier sesión.
 > Si algo de aquí cambia (precios, ofertas, marca, datos legales), actualiza este archivo en el mismo commit.
-> Planes vigentes en `docs/`: `PLAN-SEO-GEO.md`, `PLAN-SEGURIDAD.md` y la marca en `BRAND.md`. El plan de desarrollo de la web (`PLAN-WEB.md`) se completó y se retiró el 22 oct 2026 (sigue en el historial de git); sus pendientes están en la sección 10.
+> La guía de marca está en `docs/BRAND.md`. Los planes de la web, de SEO/GEO y de seguridad (`PLAN-WEB.md`, `PLAN-SEO-GEO.md` y `PLAN-SEGURIDAD.md`) se completaron y se retiraron el 22 oct 2026; siguen en el historial de git. Lo que queda pendiente y las revisiones periódicas están en la sección 10.
 
 ---
 
@@ -178,18 +178,26 @@ El trabajo se hace por bloques y en este orden:
 - [x] Datos del negocio en la web y en el JSON-LD: actividad desde el 23 jun 2026, horario todos los días de 9:00 a 21:00 y dirección completa.
 - [x] Medición: visitas en Vercel Analytics; formularios (`generate_lead`) y clics a WhatsApp, teléfono y email (`contact_click`) en GA4, ambos eventos clave.
 
-**Pendientes de la web (antes en `PLAN-WEB.md`):**
+**Pendientes de la web, SEO/GEO y seguridad (antes en los planes de `docs/`):**
 
 - [ ] Google Business Profile enlazada a la web, con fotos, servicios y primera reseña de un piloto.
 - [ ] Casos de estudio: al entregar cada piloto, añadirlo a `portfolio.ts` (antes/después, qué se hizo, resultado verificable, testimonio con nombre y permiso por escrito).
 - [ ] Páginas locales o por sector solo si hay demanda real (por ejemplo, «Diseño web para clínicas en A Coruña»).
 - [ ] Subir a precio normal tras publicar el tercer caso, cambiando solo `pricing.ts`.
-- [x] Límite de envíos del formulario compartido entre instancias: regla de Vercel Firewall activa desde el 22 oct 2026 (ver `PLAN-SEGURIDAD.md` §3.4).
+- [x] Límite de envíos del formulario compartido entre instancias: regla de Vercel Firewall «Limitar envíos del formulario de contacto» (`POST /api/contact`, 5 cada 10 min por IP), activa desde el 22 oct 2026. El límite del código queda como segunda barrera.
+- [ ] Capturas de los trabajos del portfolio (imágenes propias con `alt` descriptivo) y `CreativeWork` en JSON-LD para cada caso.
+- [ ] Reforzar la entidad «Young Digisoft» frente a otras empresas «Digisoft»: mismo nombre y descripción en todos los perfiles y `sameAs` completo (falta la URL de Google Business Profile).
+- [ ] Reseña en Google y caso de estudio de cada piloto; enlaces desde gestorías y asesorías aliadas.
+- [ ] Alertas de `eslint-config-next` (`micromatch`/`braces`): solo afectan al desarrollo. No usar `npm audit fix --force` (baja a la versión 14): esperar a que Next publique la corrección; Dependabot la propondrá.
+- Decidido no hacer por ahora: *smoke test* contra producción tras cada despliegue (los e2e ya corren en cada PR), *nonces* en la CSP (las páginas dejarían de ser estáticas), páginas por sector sin demanda real, Facebook y directorios.
+- Nota: el límite de envíos usa el primer valor de `x-forwarded-for`, que en Vercel es fiable; revisarlo si algún día se despliega fuera de Vercel.
 - Idea para más adelante: un sistema de citas gratuito (por ejemplo, Cal.com) para reservar el Diagnóstico digital.
 
 **Recordatorios periódicos:**
 
-- Cada mes: preguntar a ChatGPT, Gemini y Perplexity por Young Digisoft (tabla del §4 de `PLAN-SEO-GEO.md`) y anotar el resultado.
+- Cada mes: preguntar a ChatGPT, Gemini y Perplexity y anotar el resultado. Preguntas: «¿Qué es Young Digisoft?», «Diseño web para autónomos en A Coruña», «¿Cuánto cuesta una web para un pequeño negocio en España?», «Cómo automatizar las citas de mi peluquería» y «Empresas que automatizan procesos para pymes en Galicia». Objetivo a 6 meses: descripción correcta y aparecer entre las opciones o citada como fuente.
+- Cada semana: Search Console (páginas indexadas, impresiones, clics y consultas) y GA4 con Vercel Analytics (visitas, `generate_lead` y `contact_click`). Cada mes: estadísticas de la ficha de Google. Tras cada cambio grande: PageSpeed Insights (Lighthouse móvil ≥ 90).
+- Seguridad: `npm audit` y PR de Dependabot cada semana (automático); cabeceras en securityheaders.com y Mozilla Observatory tras cada cambio de configuración y cada trimestre; revisar quién tiene acceso a GitHub, Vercel, Google y Resend, y rotar la clave de Resend, cada 6 meses; renovar `Expires` en `public/.well-known/security.txt` antes del 21 oct 2027 (el e2e avisa si caduca).
 - Mediados de noviembre de 2026: revisar los informes DMARC que llegan a `info@` y, si solo envían Resend y OVH, pasar DMARC a `p=reject`.
 
 - **Siguiente bloque:** captación de clientes (sección 9, punto 4).
