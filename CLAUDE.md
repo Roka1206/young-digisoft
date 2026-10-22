@@ -158,7 +158,8 @@ El trabajo se hace por bloques y en este orden:
 - [x] Correo corporativo: `info@youngdigisoft.es`.
 - [x] Cuentas de Instagram y LinkedIn creadas y enlazadas en la web.
 - [ ] Google Business Profile creada (22 oct 2026), pendiente de verificación: pasar la URL para añadirla a `sameAs`. `[PENDIENTE]` Facebook descartado.
-- [ ] Trabajos previos para el portfolio (nombre, sector, qué se hizo, permiso de publicación). El propietario los pasa al terminar los puntos en curso. `[PENDIENTE]`
+- [x] Trabajos previos para el portfolio (22 oct 2026): Vibework (e-commerce B2B), Young Energy Sada (negocio familiar, WordPress) y automatización de pedidos por WhatsApp (3 clientes anónimos). Los trabajos como asalariado no se publican.
+- [ ] Añadir el enlace de Vibework (`https://vibework.es`) en `src/content/portfolio.ts` cuando su servidor vuelva a funcionar. `[PENDIENTE]`
 - [x] Informe del Diagnóstico digital: incluye resumen escrito; el informe detallado se presupuesta aparte.
 - [x] Fecha de fin del precio de lanzamiento, qué no incluye cada servicio y rondas de revisión.
 - [x] Conectar `youngdigisoft.es` al proyecto de Vercel.

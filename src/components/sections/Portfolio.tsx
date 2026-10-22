@@ -24,7 +24,7 @@ export function Portfolio() {
               )}
             </h3>
             <p className="leading-relaxed text-muted">{item.summary}</p>
-            <p className="text-foreground">{item.result}</p>
+            {item.result && <p className="text-foreground">{item.result}</p>}
           </Card>
         ))}
       </div>
