@@ -10,6 +10,15 @@ export type Guide = {
 
 export const guides: Guide[] = [
   {
+    slug: "web-a-medida-wordpress-o-wix",
+    title: "Web a medida, WordPress o Wix: qué le conviene a tu negocio",
+    description:
+      "Ventajas e inconvenientes de hacer tu web con un constructor como Wix, con WordPress o programada a medida, y cuatro preguntas para elegir sin equivocarte.",
+    publishedAt: "2026-10-22",
+    updatedAt: "2026-10-22",
+    serviceSlug: "web",
+  },
+  {
     slug: "que-incluye-el-mantenimiento-web",
     title: "Qué incluye el mantenimiento de una web y cuándo lo necesitas",
     description:

@@ -1,0 +1,78 @@
+import { prices } from "@/content/pricing";
+import { services } from "@/content/services";
+import { formatPrice } from "@/lib/pricing";
+
+export const [essential] = services.find((service) => service.slug === "web").plans;
+
+Si vas a hacer la web de tu negocio, tarde o temprano te encontrarás con tres caminos: hacerla tú con un constructor como Wix, encargarla en WordPress o encargarla programada a medida. Las tres sirven y ninguna es la mejor para todo el mundo. Te contamos cómo funciona cada una, qué ventajas y qué inconvenientes tiene y cómo elegir.
+
+## Constructores como Wix o Squarespace
+
+Son plataformas en las que montas la web tú mismo, arrastrando bloques sobre una plantilla, y pagas una cuota mensual o anual.
+
+**A favor:**
+
+- Puedes empezar hoy mismo, sin depender de nadie.
+- Cambias textos y fotos tú, cuando quieras.
+- El alojamiento, las actualizaciones y la seguridad los gestiona la plataforma.
+
+**En contra:**
+
+- La cuota no se acaba nunca: si dejas de pagar, la web desaparece.
+- Tu web vive dentro de la plataforma. Llevártela a otro sitio suele significar rehacerla.
+- Hacerla bien lleva tiempo: textos, estructura, ficha de Google y configuración para aparecer en las búsquedas siguen siendo trabajo tuyo.
+
+**Encaja si** tienes tiempo y ganas de hacerla tú, y te basta con una web sencilla.
+
+## WordPress
+
+Es un programa gratuito y muy extendido para crear webs. Se instala en un alojamiento que contratas tú, y se amplía con plantillas y complementos (plugins) para casi cualquier función.
+
+**A favor:**
+
+- Hay complementos para casi todo: reservas, tiendas, formularios, idiomas…
+- Muchos profesionales lo conocen, así que es fácil encontrar quien te ayude.
+- Puedes editar los contenidos tú desde un panel.
+
+**En contra:**
+
+- Hay que mantenerlo: WordPress, la plantilla y cada complemento reciben actualizaciones, muchas de seguridad, y conviene aplicarlas con cuidado para no romper nada.
+- Cuantos más complementos, más pesada puede volverse la web y más piezas hay que vigilar.
+- La calidad depende mucho de quién la haga y de qué complementos use.
+
+**Encaja si** necesitas muchas funciones distintas, quieres editar mucho contenido tú y cuentas con alguien que la mantenga.
+
+## Web programada a medida
+
+Un desarrollador escribe el código de la web para tu negocio, sin plantillas ni complementos de terceros. Es como trabajamos nosotros.
+
+**A favor:**
+
+- Solo lleva lo que necesitas, así que suele ser muy rápida, también en el móvil.
+- Hay pocas piezas de terceros que actualizar, lo que reduce el mantenimiento y los puntos débiles.
+- Se adapta del todo a tu negocio, sin pelearse con los límites de una plantilla.
+
+**En contra:**
+
+- Los cambios los hace un desarrollador. Para los pequeños (un horario, un precio, una foto) lo normal es contar con un mantenimiento mensual.
+- Si quieres una función nueva, hay que programarla, no basta con instalar un complemento.
+- Depende de que el código y el alojamiento estén a tu nombre y documentados, para que otro profesional pueda seguir con ella si algún día cambias de proveedor.
+
+**Encaja si** quieres una web rápida y que no te dé guerra, y prefieres que la parte técnica la lleve otro.
+
+## Cómo elegir
+
+Hazte estas preguntas:
+
+1. **¿Quién va a cambiar los contenidos?** Si vas a ser tú y a menudo, un constructor o WordPress te dan más autonomía. Si prefieres pedirlo, una web a medida con mantenimiento te quita ese trabajo.
+2. **¿Qué funciones necesitas de verdad?** Para enseñar tus servicios y que te contacten, cualquiera de las tres sirve. Para una tienda grande o muchas funciones, WordPress o una plataforma especializada suelen encajar mejor.
+3. **¿Cuánto tiempo quieres dedicarle?** Hacerla tú es barato en dinero, pero caro en horas.
+4. **¿Qué pasa si cambias de proveedor?** Pregunta siempre si el dominio, el alojamiento y la web estarán a tu nombre y si te los podrás llevar.
+
+Sea cual sea la opción, lo que más influye en que te encuentren y te escriban es lo mismo: textos claros, una web rápida en el móvil, tu ficha de Google bien completada y una forma fácil de contactar.
+
+## Nuestra forma de trabajar
+
+Hacemos webs programadas a medida, con el dominio y el alojamiento a tu nombre. La {essential.name} cuesta {formatPrice(prices.webEssential.launch, prices.webEssential.unit)} con precio de lanzamiento e incluye la configuración de tu ficha de Google. Si prefieres no ocuparte de los cambios, el mantenimiento mensual cuesta {formatPrice(prices.maintenance.launch, prices.maintenance.unit)}.
+
+Si no tienes claro qué te conviene, [cuéntanos qué necesitas](/contacto) y te lo decimos con franqueza, aunque la respuesta no sea trabajar con nosotros. También puedes ver el [servicio de diseño web](/servicios/web).

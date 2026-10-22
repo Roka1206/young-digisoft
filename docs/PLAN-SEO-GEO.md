@@ -108,6 +108,7 @@ Cada pieza responde a una búsqueda o pregunta concreta. Sin cifras inventadas: 
 - [x] **Guía: «Cómo aparecer en Google Maps con tu negocio: ficha de Google paso a paso».** Encaja con Web Esencial + Google.
 - [x] **Guía: «5 tareas que un pequeño negocio puede automatizar»** (citas, presupuestos, avisos por WhatsApp, facturas). Encaja con Automatización exprés.
 - [x] **Guía: «Qué incluye el mantenimiento de una web y cuándo lo necesitas».**
+- [x] **Guía: «Web a medida, WordPress o Wix: qué le conviene a tu negocio».** Fuera del plan inicial; refuerza la diferenciación (código propio) sin desprestigiar a nadie. Encaja con Diseño web.
 - [ ] **Página «Sobre nosotros».** `[PENDIENTE: datos reales del fundador, trayectoria y foto]`
 - [ ] **Casos de estudio** de cada piloto, con permiso por escrito.
 
