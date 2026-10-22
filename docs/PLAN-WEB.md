@@ -143,7 +143,7 @@ La captación empieza al día siguiente. La web debe apoyarla con:
 - [ ] **Páginas locales adicionales** solo si hay demanda real (por ejemplo, «Diseño web para clínicas en A Coruña»).
 - [ ] **Subir a precio normal** tras publicar el tercer caso, actualizando solo `pricing.ts`.
 - [ ] **Medición:** número de visitas, solicitudes de presupuesto y clics a WhatsApp (con analítica sin cookies) para decidir qué mejorar.
-- [ ] **Mejoras técnicas opcionales** (cuando haya tiempo): guardar el límite de envíos del formulario en un almacén compartido (hoy vive en la memoria de cada instancia) y valorar `experimental.inlineCss` para quitar el CSS que bloquea el renderizado.
+- [ ] **Mejoras técnicas opcionales** (cuando haya tiempo): guardar el límite de envíos del formulario en un almacén compartido (hoy vive en la memoria de cada instancia) y valorar `experimental.inlineCss` para quitar el CSS que bloquea el renderizado. `inlineCss` activado el 22 oct 2026: FCP móvil (4G lenta simulada) de 752 a 416 ms; queda el almacén compartido.
 
 ## Orden de trabajo sugerido para la primera sesión
 
