@@ -7,7 +7,17 @@ export const site = {
   homeTitle: "Diseño web y automatización para pymes — Young Digisoft",
   description:
     "Webs, automatización y consultoría para pymes y autónomos. Precio cerrado, plazo claro y trato directo. Desde A Coruña, para toda España.",
+  foundingDate: "2026-06-23",
 };
+
+export const address = {
+  street: "Rúa Linares Rivas 9 bajo",
+  postalCode: "15160",
+  locality: "Sada",
+  region: "A Coruña",
+};
+
+export const openingHours = { opens: "09:00", closes: "21:00", label: "Todos los días, de 9:00 a 21:00" };
 
 // Founder data for structured data; the legal texts take the owner name from here.
 export const founder = {

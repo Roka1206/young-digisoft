@@ -1,10 +1,10 @@
-import { contact, founder } from "./site";
+import { address, contact, founder } from "./site";
 
 export const legalEntity = {
   ownerName: founder.name,
   tradeName: "Young Digisoft",
   taxId: "32946796D",
-  address: "Rúa Linares Rivas 9 bajo, 15160, Sada, A Coruña",
+  address: `${address.street}, ${address.postalCode}, ${address.locality}, ${address.region}`,
 };
 
 export const legalUpdatedAt = "Última actualización: octubre de 2026";

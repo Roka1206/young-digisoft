@@ -55,7 +55,7 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 ### 3.3 Oportunidades
 
 - [x] **`llms.txt`** en la raíz: un resumen en texto plano de quiénes somos, servicios, precios «desde», zona y contacto, con enlaces a cada página. Lo leen algunos asistentes y agentes de IA; coste mínimo. → `src/app/llms.txt/route.ts` generado desde `src/content/`.
-- [x] **Enriquecer el JSON-LD de `ProfessionalService`:** `founder` (`Person`: Ronald Fonseca, ingeniero de software, con LinkedIn personal `[PENDIENTE: URL]`), `knowsAbout` (diseño web, SEO local, automatización, Next.js…), `priceRange`, `slogan`, `foundingDate` `[PENDIENTE]` y `openingHours` `[PENDIENTE]`. → `src/lib/structured-data.ts`. Hecho: `founder` con LinkedIn, `knowsAbout` y `slogan`. Sin `priceRange` (solo admite una franja subjetiva tipo «€€»; los precios reales ya van en cada `Service`). Faltan `foundingDate` y `openingHours`.
+- [x] **Enriquecer el JSON-LD de `ProfessionalService`:** `founder` (`Person`: Ronald Fonseca, ingeniero de software, con LinkedIn personal `[PENDIENTE: URL]`), `knowsAbout` (diseño web, SEO local, automatización, Next.js…), `priceRange`, `slogan`, `foundingDate` `[PENDIENTE]` y `openingHours` `[PENDIENTE]`. → `src/lib/structured-data.ts`. Hecho: `founder` con LinkedIn, `knowsAbout` y `slogan`. Sin `priceRange` (solo admite una franja subjetiva tipo «€€»; los precios reales ya van en cada `Service`). `foundingDate` (23 jun 2026), `openingHoursSpecification` (todos los días, de 9:00 a 21:00) y dirección completa añadidos el 22 oct 2026.
 - [x] **`FAQPage` en cada página de servicio** con 3 a 5 preguntas reales por servicio (precio, plazo, qué necesito aportar, qué pasa si…). Las IA citan mucho las FAQ.
 - [x] **Blog / guías** (la oferta Web Pro incluye blog; la propia web no lo tiene). Hecho: `/guias` con 4 guías, enlazadas desde su servicio. Artículos que respondan preguntas exactas de dueños de negocio, ver §5.
 - [ ] **Página «Sobre nosotros»**: quién está detrás, experiencia real, forma de trabajar. Es la señal de confianza (E-E-A-T) que más falta y la que las IA usan para describir una empresa. Solo con datos reales del propietario.
@@ -163,5 +163,5 @@ Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de pu
 - Guías: se montan con MDX (`@next/mdx`), aprobado por el propietario.
 - `[PENDIENTE]` URL de Google Business Profile y de Facebook (cuando existan).
 - `[PENDIENTE]` Trayectoria resumida y foto del fundador (para «Sobre nosotros»; el propietario la aporta más adelante).
-- `[PENDIENTE]` Fecha de inicio de la actividad y horario de atención.
-- `[PENDIENTE]` Decidir si se publica la dirección completa en el JSON-LD (hoy solo la provincia; es un domicilio de autónomo).
+- Fecha de inicio de la actividad: 23 jun 2026. Horario: todos los días, de 9:00 a 21:00 (también visible en /contacto).
+- Dirección completa publicada en el JSON-LD (decisión del propietario).

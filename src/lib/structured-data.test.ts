@@ -29,6 +29,15 @@ describe("businessJsonLd", () => {
     });
   });
 
+  it("gives the full address, founding date and daily opening hours", () => {
+    expect(business).toMatchObject({
+      foundingDate: "2026-06-23",
+      address: { streetAddress: "Rúa Linares Rivas 9 bajo", postalCode: "15160", addressLocality: "Sada" },
+      openingHoursSpecification: { opens: "09:00", closes: "21:00" },
+    });
+    expect(business.openingHoursSpecification.dayOfWeek).toHaveLength(7);
+  });
+
   it("names the founder with his LinkedIn profile, the slogan and the areas of expertise", () => {
     expect(business).toMatchObject({
       slogan: "Tecnología que trabaja para tu negocio.",

@@ -2,7 +2,7 @@ import type { FaqItem } from "@/content/faq";
 import type { Guide } from "@/content/guides";
 import { prices } from "@/content/pricing";
 import type { Service } from "@/content/services";
-import { contact, expertise, founder, site, socialLinks } from "@/content/site";
+import { address, contact, expertise, founder, openingHours, site, socialLinks } from "@/content/site";
 import { siteUrl } from "./site-url";
 
 const businessId = `${siteUrl}/#business`;
@@ -22,7 +22,21 @@ export function businessJsonLd() {
     image: `${siteUrl}/opengraph-image`,
     telephone: contact.phoneHref.replace("tel:", ""),
     email: contact.email,
-    address: { "@type": "PostalAddress", addressRegion: "A Coruña", addressCountry: "ES" },
+    foundingDate: site.foundingDate,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: address.street,
+      postalCode: address.postalCode,
+      addressLocality: address.locality,
+      addressRegion: address.region,
+      addressCountry: "ES",
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: openingHours.opens,
+      closes: openingHours.closes,
+    },
     areaServed: spain,
     knowsAbout: expertise,
     founder: { "@type": "Person", name: founder.name, jobTitle: founder.jobTitle, sameAs: [founder.linkedin] },

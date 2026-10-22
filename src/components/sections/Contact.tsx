@@ -1,6 +1,6 @@
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { contactPage } from "@/content/contact";
-import { contact } from "@/content/site";
+import { contact, openingHours } from "@/content/site";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
@@ -10,6 +10,7 @@ const infoItems = [
   { icon: MessageCircle, label: contactPage.labels.whatsapp, value: contact.phone, href: contact.whatsappHref },
   { icon: Phone, label: contactPage.labels.phone, value: contact.phone, href: contact.phoneHref },
   { icon: Mail, label: contactPage.labels.email, value: contact.email, href: contact.emailHref },
+  { icon: Clock, label: contactPage.labels.hours, value: openingHours.label, href: undefined },
   { icon: MapPin, label: contactPage.labels.zone, value: contact.zone, href: undefined },
 ];
 

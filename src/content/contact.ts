@@ -6,7 +6,7 @@ export const contactPage = {
   description: "Cuéntanos qué necesitas y te respondemos con una propuesta clara.",
   metaDescription:
     "Cuéntanos qué necesitas y te respondemos con una propuesta clara. Escríbenos por el formulario, por WhatsApp o por email.",
-  labels: { whatsapp: "WhatsApp", phone: "Teléfono", email: "Email", zone: "Zona" },
+  labels: { whatsapp: "WhatsApp", phone: "Teléfono", email: "Email", hours: "Horario", zone: "Zona" },
 };
 
 export const contactForm = {
