@@ -62,26 +62,26 @@ Producción hoy solo envía `Strict-Transport-Security`. Faltan:
 | `X-Frame-Options` | `DENY` | Respaldo de `frame-ancestors` para navegadores antiguos |
 | `Strict-Transport-Security` | añadir `includeSubDomains` | Solo si **todos** los subdominios (incluido el correo web, si lo hay) van por HTTPS `[PENDIENTE: confirmar]` |
 
-- [ ] Añadirlas con `headers()` en `next.config.ts`, empezando con la CSP en modo `Content-Security-Policy-Report-Only` durante unos días para no romper GA4 ni Vercel Analytics. Después, pasarla a modo bloqueante.
+- [x] Añadirlas con `headers()` en `next.config.ts`, empezando con la CSP en modo `Content-Security-Policy-Report-Only` durante unos días para no romper GA4 ni Vercel Analytics. Después, pasarla a modo bloqueante.
 - [ ] `'unsafe-inline'` en `script-src` hace falta por los scripts en línea (banner de cookies, inicialización de GA4 y los de Next). Más adelante se puede sustituir por *nonces* generados en `proxy.ts`, a cambio de que las páginas dejen de ser estáticas. No compensa ahora.
-- [ ] Revisar la CSP contra la documentación de la versión instalada (`node_modules/next/dist/docs/`, guía de CSP), como pide `AGENTS.md`.
+- [x] Revisar la CSP contra la documentación de la versión instalada (`node_modules/next/dist/docs/`, guía de CSP), como pide `AGENTS.md`.
 
 ### 3.3 Media: endurecer el formulario
 
 `src/lib/contact-schema.ts` valida tipos y mínimos, pero no máximos:
 
-- [ ] **Longitudes máximas:** `name` ≤ 100, `email` ≤ 254, `phone` ≤ 20 (ya lo limita la expresión regular), `message` ≤ 5.000, `website` ≤ 200. Hoy se puede enviar un mensaje de varios MB, que llega entero al correo.
-- [ ] **`name` sin saltos de línea ni caracteres de control:** va en el asunto (`Nuevo contacto de ${name}`). Resend lo envía por API JSON, así que no hay inyección de cabeceras SMTP conocida, pero un nombre con saltos de línea ensucia el asunto y no es un dato válido.
-- [ ] **`service` limitado a la lista** (`serviceOptions`) o vacío. Hoy acepta cualquier texto, que se copia en el email.
-- [ ] **Comprobar `Origin`** en `src/app/api/contact/route.ts`: rechazar con 403 si existe y no es `https://youngdigisoft.es` (o el dominio de la *preview*). No hay sesión que robar, así que no es CSRF, pero frena el spam automatizado desde otras webs. Coste: 3 líneas.
-- [ ] Límite del tamaño del cuerpo: rechazar con 413 si `Content-Length` supera unos 20 KB, antes de leer el JSON.
+- [x] **Longitudes máximas:** `name` ≤ 100, `email` ≤ 254, `phone` ≤ 20 (ya lo limita la expresión regular), `message` ≤ 5.000, `website` ≤ 200. Hoy se puede enviar un mensaje de varios MB, que llega entero al correo.
+- [x] **`name` sin saltos de línea ni caracteres de control:** va en el asunto (`Nuevo contacto de ${name}`). Resend lo envía por API JSON, así que no hay inyección de cabeceras SMTP conocida, pero un nombre con saltos de línea ensucia el asunto y no es un dato válido.
+- [x] **`service` limitado a la lista** (`serviceOptions`) o vacío. Hoy acepta cualquier texto, que se copia en el email.
+- [x] **Comprobar `Origin`** en `src/app/api/contact/route.ts`: rechazar con 403 si existe y no es `https://youngdigisoft.es` (o el dominio de la *preview*). No hay sesión que robar, así que no es CSRF, pero frena el spam automatizado desde otras webs. Coste: 3 líneas.
+- [x] Límite del tamaño del cuerpo: rechazar con 413 antes de leer el JSON. Hecho con 32 KB en `src/lib/request-guards.ts`.
 
 ### 3.4 Baja
 
 - [x] **`.pnpm-runner/` en git** (466 archivos, 48 MB, binarios y scripts de pnpm). Quedó tras `chore: migrate package manager from pnpm to npm`. Es código de terceros versionado que nadie revisa. `git rm -r --cached .pnpm-runner` y añadirlo a `.gitignore`. El historial conserva los archivos; limpiarlo del historial no compensa. **Requiere permiso del propietario** (regla 7 de `CLAUDE.md`).
 - [ ] **Límite de envíos por instancia** (`src/lib/rate-limit.ts`): con varias instancias de Vercel, el límite real es 5 × número de instancias. Opciones: Vercel Firewall (regla de *rate limit* en `/api/contact`, sin código) o un almacén compartido del Marketplace. Ya está anotado en `PLAN-WEB.md`.
 - [ ] **IP del límite de envíos:** se toma el primer valor de `x-forwarded-for`. En Vercel lo fija la plataforma, así que es fiable; si algún día se despliega fuera de Vercel, revisarlo.
-- [ ] **`/.well-known/security.txt`** con `Contact: mailto:info@youngdigisoft.es`, `Expires` y `Preferred-Languages: es, en`, para que quien encuentre un fallo sepa a quién avisar.
+- [x] **`/.well-known/security.txt`** con `Contact: mailto:info@youngdigisoft.es`, `Expires` y `Preferred-Languages: es, en`, para que quien encuentre un fallo sepa a quién avisar.
 
 ### 3.5 CI y cadena de suministro
 
@@ -98,7 +98,7 @@ Producción hoy solo envía `Strict-Transport-Security`. Faltan:
 
 - [x] Doble factor (2FA) en GitHub, Vercel, Google (1206roka@gmail.com), Resend y OVH. Desactivado en las cinco al revisarlo el 21 oct 2026; activado por el propietario el mismo día (confirmado por él, no comprobado desde fuera).
 - [x] Clave de Resend: una sola (`young-digisoft`) con «Sending access». Dominio «All domains»: equivale a `youngdigisoft.es` mientras sea el único dominio en Resend; restringirla si se añade otro.
-- [x] Bloqueo de transferencia del dominio activado en OVH. DNSSEC solicitado en OVH el 21 oct 2026: la zona ya está firmada y falta que el registro `.es` publique el `DS` (hasta 24 h). `[PENDIENTE: comprobar el DS el 22 oct]`
+- [x] Bloqueo de transferencia del dominio activado en OVH. DNSSEC activo: el `.es` publica el `DS` y los resolutores validan la zona (comprobado el 22 oct 2026).
 - [ ] SPF (`include:mx.ovh.com`), DKIM de Resend y DMARC publicados. DMARC en `p=none` (solo vigila). El correo de OVH es un MX Plan de redirección sin buzones, así que solo Resend envía como `@youngdigisoft.es`. Endurecer a `p=quarantine` cuando se confirme que ningún otro servicio envía como el dominio. El propietario envía desde Zimbra (OVH) y desde Gmail como `info@`: antes de endurecer hay que confirmar el DKIM de Zimbra y el servidor SMTP de Gmail. `[PENDIENTE: resultados del prompt de Zimbra y Gmail]`
 
 ## 4. Plan de testing
@@ -172,9 +172,9 @@ test("accepting cookies loads Google Analytics without CSP errors", ...);
 
 ### Fase 4: propietario (cuando pueda)
 
-- [ ] 2FA en todas las cuentas, clave de Resend solo de envío, bloqueo del dominio, DMARC (§3.6).
+- [ ] 2FA en todas las cuentas, clave de Resend solo de envío, bloqueo del dominio, DMARC (§3.6). Hecho salvo endurecer DMARC (hoy `p=none`).
 - [x] *Secret scanning*, alertas de Dependabot y protección de `main` en GitHub (§3.5).
-- [ ] CSP en modo bloqueante tras revisar que no hay errores en la consola.
+- [x] CSP en modo bloqueante tras revisar que no hay errores en la consola.
 - [ ] Límite de envíos compartido o regla en Vercel Firewall (§3.4).
 
 ## 6. Revisión periódica
