@@ -24,7 +24,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/guias/[slug]">): Promise<Metadata> {
   const guide = findGuide(guides, (await params).slug);
   if (!guide) return {};
-  return pageMetadata({ title: guide.title, description: guide.description, path: `/guias/${guide.slug}` });
+  return pageMetadata({ title: guide.metaTitle, description: guide.description, path: `/guias/${guide.slug}` });
 }
 
 export default async function GuidePage({ params }: PageProps<"/guias/[slug]">) {

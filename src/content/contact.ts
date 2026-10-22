@@ -1,7 +1,7 @@
 import { legalEntity } from "./legal";
 
 export const contactPage = {
-  metaTitle: "Contacto",
+  metaTitle: "Contacto y presupuesto sin compromiso",
   title: "¿Hablamos de tu negocio?",
   description: "Cuéntanos qué necesitas y te respondemos con una propuesta clara.",
   metaDescription:

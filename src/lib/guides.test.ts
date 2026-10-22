@@ -3,11 +3,13 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { type Guide, guides } from "@/content/guides";
 import { services } from "@/content/services";
+import { site } from "@/content/site";
 import { findGuide, formatGuideDate, guidesForService, newestFirst } from "./guides";
 
 const guide = (slug: string, updatedAt: string): Guide => ({
   slug,
   title: slug,
+  metaTitle: slug,
   description: slug,
   publishedAt: "2026-01-01",
   updatedAt,
@@ -32,6 +34,10 @@ describe("guides content", () => {
 
   it("links each guide to an existing service", () => {
     for (const { serviceSlug } of guides) expect(services.map((s) => s.slug)).toContain(serviceSlug);
+  });
+
+  it("keeps every Google title, brand included, within 60 characters", () => {
+    for (const { metaTitle } of guides) expect(`${metaTitle} — ${site.name}`.length).toBeLessThanOrEqual(60);
   });
 });
 
