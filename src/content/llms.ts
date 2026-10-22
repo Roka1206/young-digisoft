@@ -3,6 +3,7 @@ import { launchOffer } from "./pricing";
 // Headings and fixed lines of /llms.txt, the plain-text summary for AI assistants.
 export const llmsText = {
   services: "Servicios",
+  guides: "Guías",
   plans: "Planes",
   launchNote: `Precios de lanzamiento ${launchOffer.audience}, hasta ${launchOffer.endsOn}. Antes de empezar se confirma un precio cerrado por escrito.`,
   contact: "Contacto",

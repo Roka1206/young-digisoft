@@ -1,4 +1,5 @@
 import type { FaqItem } from "@/content/faq";
+import type { Guide } from "@/content/guides";
 import { prices } from "@/content/pricing";
 import type { Service } from "@/content/services";
 import { contact, expertise, founder, site, socialLinks } from "@/content/site";
@@ -51,6 +52,22 @@ export function serviceJsonLd(service: Service) {
         },
       };
     }),
+  };
+}
+
+export function articleJsonLd(guide: Guide) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: guide.title,
+    description: guide.description,
+    url: `${siteUrl}/guias/${guide.slug}`,
+    image: `${siteUrl}/opengraph-image`,
+    inLanguage: "es-ES",
+    datePublished: guide.publishedAt,
+    dateModified: guide.updatedAt,
+    author: { "@type": "Person", name: founder.name, jobTitle: founder.jobTitle, sameAs: [founder.linkedin] },
+    publisher: { "@id": businessId },
   };
 }
 
