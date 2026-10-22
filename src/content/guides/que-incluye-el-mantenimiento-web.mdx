@@ -1,0 +1,50 @@
+import { prices } from "@/content/pricing";
+import { services } from "@/content/services";
+import { formatPrice } from "@/lib/pricing";
+
+export const [maintenance] = services.find((service) => service.slug === "mantenimiento").plans;
+
+Una web no es algo que se hace una vez y se olvida. Igual que un local necesita que alguien revise la luz o cambie una bombilla, una web necesita que alguien vigile que sigue funcionando, la mantenga al día y haga los pequeños cambios del negocio. A eso se le llama mantenimiento. Te contamos qué incluye, cuándo lo necesitas y qué preguntar antes de contratarlo.
+
+## Qué incluye un buen mantenimiento
+
+- **Alojamiento y publicación.** Que la web esté en un servidor fiable y que los cambios se publiquen sin romper nada.
+- **Copias de seguridad.** Para poder recuperar la web si algo sale mal.
+- **Vigilancia.** Un aviso automático si la web deja de responder, para revisarla cuanto antes.
+- **Actualizaciones.** Las piezas con las que está hecha una web reciben arreglos, muchos de seguridad. Si no se aplican, la web se queda expuesta.
+- **Cambios pequeños.** Un horario nuevo, un precio, una foto o un texto. Lo normal es que entre un número de horas al mes.
+
+## Qué no suele incluir
+
+- **Secciones o funciones nuevas.** Una página más, una tienda o un sistema de reservas son proyectos aparte.
+- **El dominio.** Se paga al proveedor, normalmente una vez al año, y debería estar a tu nombre.
+- **Textos o fotos nuevos**, si hay que crearlos desde cero.
+
+## Cuándo lo necesitas
+
+Te conviene si se cumple alguna de estas situaciones:
+
+- Tu web te trae clientes y no puedes permitirte que deje de funcionar.
+- No tienes tiempo ni ganas de ocuparte de la parte técnica.
+- Cambias a menudo horarios, precios o servicios.
+- Tu web tiene formulario de contacto o recoge datos de clientes, y quieres que siga siendo segura.
+
+Si tu web apenas cambia y sabes publicarla y actualizarla tú, quizá no lo necesites. Pero entonces esas tareas son tuyas.
+
+## Qué pasa si no se mantiene
+
+No suele romperse de un día para otro. Lo habitual es que se vaya quedando atrás: deja de actualizarse, aparece un fallo que nadie ve durante semanas, el formulario deja de enviar mensajes sin que te enteres o los datos ya no coinciden con tu negocio. Muchas veces el primero en darse cuenta es un cliente.
+
+## Qué preguntar antes de contratarlo
+
+1. ¿Qué incluye exactamente cada mes y cuántos cambios entran?
+2. ¿Hay permanencia? ¿Cómo me doy de baja?
+3. ¿El dominio y el hosting están a mi nombre?
+4. ¿Qué pasa si la web se cae? ¿Quién se entera y cómo se arregla?
+5. ¿Hacéis copias de seguridad? ¿Cada cuánto?
+
+## Nuestro mantenimiento
+
+El {maintenance.name} cuesta {formatPrice(prices.maintenance.launch, prices.maintenance.unit)} con precio de lanzamiento. Incluye {new Intl.ListFormat("es").format(maintenance.includes).toLowerCase()}. No tiene permanencia y también mantenemos webs que no hemos hecho nosotros, después de revisarlas.
+
+Si quieres olvidarte de la parte técnica de tu web, [cuéntanos cómo es tu web](/contacto) o mira el [servicio de mantenimiento](/servicios/mantenimiento).

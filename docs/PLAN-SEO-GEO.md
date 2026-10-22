@@ -107,7 +107,7 @@ Cada pieza responde a una búsqueda o pregunta concreta. Sin cifras inventadas: 
 - [x] **Guía: «¿Cuánto cuesta una página web para un pequeño negocio en 2026?»** Qué influye en el precio, rangos «desde» propios, qué preguntar antes de contratar. Objetivo: búsquedas de precio y la pregunta 3 de la tabla.
 - [x] **Guía: «Cómo aparecer en Google Maps con tu negocio: ficha de Google paso a paso».** Encaja con Web Esencial + Google.
 - [x] **Guía: «5 tareas que un pequeño negocio puede automatizar»** (citas, presupuestos, avisos por WhatsApp, facturas). Encaja con Automatización exprés.
-- [ ] **Guía: «Qué incluye el mantenimiento de una web y cuándo lo necesitas».**
+- [x] **Guía: «Qué incluye el mantenimiento de una web y cuándo lo necesitas».**
 - [ ] **Página «Sobre nosotros».** `[PENDIENTE: datos reales del fundador, trayectoria y foto]`
 - [ ] **Casos de estudio** de cada piloto, con permiso por escrito.
 
@@ -135,7 +135,7 @@ Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de pu
 ### Fase C: contenido (mes 1 a 3)
 
 - [x] Ampliar las tres páginas de servicio cortas hasta ≈450 palabras útiles, cada una con su FAQ y `FAQPage`.
-- [ ] Sección `/guias` con las 4 guías de §5 (1 cada 2 semanas).
+- [x] Sección `/guias` con las 4 guías de §5. Publicadas las 4 entre el 21 y el 22 oct 2026.
 - [ ] Página «Sobre nosotros» con datos reales.
 
 ### Fase D: autoridad y GEO (continuo, desde el mes 1)

@@ -10,6 +10,15 @@ export type Guide = {
 
 export const guides: Guide[] = [
   {
+    slug: "que-incluye-el-mantenimiento-web",
+    title: "Qué incluye el mantenimiento de una web y cuándo lo necesitas",
+    description:
+      "Copias de seguridad, vigilancia, actualizaciones y pequeños cambios: qué incluye el mantenimiento de una web, qué no, cuándo te conviene y qué preguntar antes.",
+    publishedAt: "2026-10-22",
+    updatedAt: "2026-10-22",
+    serviceSlug: "mantenimiento",
+  },
+  {
     slug: "como-aparecer-en-google-maps",
     title: "Cómo aparecer en Google Maps con tu negocio, paso a paso",
     description:
