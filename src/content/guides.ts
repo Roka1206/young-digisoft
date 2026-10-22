@@ -10,6 +10,15 @@ export type Guide = {
 
 export const guides: Guide[] = [
   {
+    slug: "tareas-que-puede-automatizar-un-pequeno-negocio",
+    title: "5 tareas que un pequeño negocio puede automatizar",
+    description:
+      "Contactos, citas, presupuestos, facturas y reseñas: cinco tareas que puedes dejar de hacer a mano, cómo elegir por cuál empezar y qué tener en cuenta antes.",
+    publishedAt: "2026-10-22",
+    updatedAt: "2026-10-22",
+    serviceSlug: "automatizacion",
+  },
+  {
     slug: "cuanto-cuesta-una-pagina-web",
     title: "¿Cuánto cuesta una página web para un pequeño negocio?",
     description:

@@ -1,0 +1,49 @@
+import { prices } from "@/content/pricing";
+import { services } from "@/content/services";
+import { formatPrice } from "@/lib/pricing";
+
+export const [automation] = services.find((service) => service.slug === "automatizacion").plans;
+
+En un pequeño negocio, muchas horas se van en tareas que no venden: copiar datos de un sitio a otro, confirmar citas por teléfono o preparar el mismo presupuesto una y otra vez. Automatizar es conseguir que esas tareas se hagan solas, siempre de la misma forma y sin olvidos. Aquí tienes cinco que casi cualquier negocio puede automatizar, y cómo saber por cuál empezar.
+
+## 1. Los contactos que llegan desde tu web
+
+Cuando alguien rellena el formulario de tu web, el mensaje suele quedarse en el correo, mezclado con todo lo demás. Se puede hacer que cada contacto se guarde solo en una hoja de cálculo o en tu CRM y que te llegue un aviso por WhatsApp o email en el momento. Así respondes antes y ningún cliente se queda sin respuesta.
+
+## 2. Las citas y sus recordatorios
+
+Si das citas por teléfono o por WhatsApp, cada reserva es una conversación de ida y vuelta para cuadrar horarios. Con un sistema de reservas, el cliente elige el hueco libre, la cita aparece en tu agenda y le llega un recordatorio antes de venir. Encaja muy bien en peluquerías, clínicas, talleres o academias.
+
+## 3. Los presupuestos
+
+Si tus presupuestos se parecen mucho entre sí, se pueden generar a partir de una plantilla con los datos del cliente y del trabajo, en lugar de escribirlos cada vez desde cero. Tardas menos, todos tienen el mismo formato y es más difícil equivocarse con un precio.
+
+## 4. Las facturas
+
+Cuando un trabajo se termina o se cobra, la factura se puede crear con los datos que ya tienes y enviarse al cliente, en vez de copiarlos a mano. Ojo: la facturación tiene reglas fiscales, así que conviene revisarlo con tu gestoría.
+
+## 5. Pedir una reseña en Google
+
+Las reseñas ayudan mucho a que te encuentren y te elijan en Google, pero pedirlas se olvida. Se puede enviar un mensaje automático unos días después del servicio con el enlace directo para dejar la reseña. Una petición amable y en el momento adecuado funciona mejor que acordarse de vez en cuando.
+
+## Cómo elegir por dónde empezar
+
+No hace falta automatizarlo todo. Empieza por una sola tarea que cumpla tres condiciones:
+
+1. **Se repite mucho**, cada día o cada semana.
+2. **Siempre se hace igual**, con pocos casos especiales.
+3. **Si falla o se olvida, pierdes dinero o clientes.**
+
+Y al revés: si una tarea cambia cada vez o necesita tu criterio, como atender una queja, es mejor que la sigas haciendo tú.
+
+## Antes de automatizar, ten en cuenta
+
+- **Las herramientas que ya usas.** Muchas veces se puede automatizar con tu email, tu hoja de cálculo o WhatsApp, sin cambiar de programa.
+- **El coste de las herramientas.** Algunas tienen cuota propia. Conviene saberlo antes de empezar.
+- **Los datos de tus clientes.** Si la automatización guarda o envía datos personales, hay que cumplir el RGPD.
+
+## Cuánto cuesta
+
+Nuestra {automation.name} cuesta {formatPrice(prices.automation.launch, prices.automation.unit)} con precio de lanzamiento, e incluye un diagnóstico gratuito de 30 minutos para elegir la tarea que más te conviene. Plazo: {automation.timeline}.
+
+Si quieres saber qué podrías automatizar en tu negocio, [cuéntanos cómo trabajas hoy](/contacto) o mira el [servicio de automatización](/servicios/automatizacion).
