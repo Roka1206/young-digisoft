@@ -31,6 +31,8 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // The site renders no next/image, so keep the /_next/image optimizer endpoint off (smaller attack surface).
+  images: { unoptimized: true },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

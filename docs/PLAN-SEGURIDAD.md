@@ -47,7 +47,7 @@
 
 - [x] **Acción:** `npm install next@16.3.8` (misma versión menor, sin cambios de API) y, si existe la misma versión, `eslint-config-next@16.3.8`. Después, `format:check`, `lint`, `typecheck`, tests, build y e2e.
 - [ ] Las alertas de `eslint-config-next` → `micromatch`/`braces` son de **desarrollo** (DoS por patrones anidados al hacer lint), no llegan a producción. `npm audit fix --force` propone bajar a la versión 14: **no hacerlo**. Esperar a que Next publique la corrección.
-- [ ] Opcional: desactivar el optimizador de imágenes mientras no se use (`images: { unoptimized: true }`) para cerrar esa superficie del todo.
+- [x] Opcional: desactivar el optimizador de imágenes mientras no se use (`images: { unoptimized: true }`) para cerrar esa superficie del todo. Hecho el 22 oct 2026: `/_next/image` responde 404. Si algún día se usa `next/image`, quitarlo.
 
 ### 3.2 Media: cabeceras de seguridad
 
