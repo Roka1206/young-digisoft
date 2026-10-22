@@ -1,4 +1,5 @@
 import type { Guide } from "@/content/guides";
+import { aboutPage } from "@/content/about";
 import { llmsText } from "@/content/llms";
 import { prices } from "@/content/pricing";
 import type { Service } from "@/content/services";
@@ -20,6 +21,8 @@ export function buildLlmsTxt(baseUrl: string, services: Service[], guides: Guide
     serviceLines.join("\n"),
     `## ${llmsText.guides}`,
     guides.map(({ slug, title, description }) => `- [${title}](${baseUrl}/guias/${slug}): ${description}`).join("\n"),
+    `## ${aboutPage.label}`,
+    `- [${aboutPage.title}](${baseUrl}${aboutPage.path}): ${aboutPage.metaDescription}`,
     `## ${llmsText.contact}`,
     [
       `- ${llmsText.email}: ${contact.email}`,

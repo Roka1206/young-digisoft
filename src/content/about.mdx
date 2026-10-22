@@ -1,0 +1,42 @@
+import { address, contact, openingHours, site } from "@/content/site";
+
+export const since = new Intl.DateTimeFormat("es-ES", { month: "long", year: "numeric", timeZone: "UTC" }).format(
+  new Date(site.foundingDate),
+);
+
+## Un proyecto pequeño, a propósito
+
+Young Digisoft no es una agencia con varios departamentos. Hablas siempre con la misma persona, la que diseña, programa y mantiene tu web. Sin intermediarios ni mensajes que se pierden entre equipos, y con alguien que conoce tu proyecto de principio a fin.
+
+## Trayectoria
+
+Más de 10 años en el sector tecnológico, que empezaron en el soporte técnico y la administración de sistemas y redes y siguieron en el desarrollo de software y la dirección de proyectos:
+
+- **Desarrollo web:** aplicaciones con React, Vue y Next.js, con atención al SEO y al rendimiento.
+- **Comercio electrónico y webs de negocio:** tiendas online, gestión de alquileres y webs de viajes.
+- **Dirección de proyectos:** planificación, estimación del alcance y coordinación de equipos con Scrum, en contacto directo con el cliente.
+- **Software para empresas:** herramientas internas y software de gestión.
+
+Desde 2019 desarrolla y dirige proyectos de software para empresas de A Coruña.
+
+## Formación
+
+- Ingeniería en Ciencias Informáticas.
+- Especialización en seguridad informática.
+- Metodologías ágiles de desarrollo con Scrum.
+- Cloud Computing (Google Actívate).
+- Formación en dirección de proyectos (Project Management Institute).
+
+## Lo que eso significa para tu negocio
+
+- **Plazos y alcance claros desde el principio:** años de estimar proyectos sirven para darte un precio cerrado y un plazo realista, por escrito.
+- **Webs rápidas y seguras:** código propio, sin plantillas pesadas ni complementos innecesarios, con las prácticas de seguridad de un ingeniero que se especializó en ello.
+- **Pensado para vender:** experiencia en comercio electrónico y en procesos de venta aplicada a que tu web traiga contactos, no solo a que quede bonita.
+- **Tuyo desde el primer día:** el dominio y el alojamiento, siempre a tu nombre.
+
+## Datos de {site.name}
+
+- **Actividad desde:** {since}.
+- **Sede:** {address.locality} ({address.region}). Trabajamos en toda España.
+- **Horario:** {openingHours.label}.
+- **Contacto:** {contact.phone} · {contact.email}.

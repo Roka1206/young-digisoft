@@ -1,3 +1,4 @@
+import { aboutPage } from "@/content/about";
 import type { FaqItem } from "@/content/faq";
 import type { Guide } from "@/content/guides";
 import { prices } from "@/content/pricing";
@@ -54,6 +55,24 @@ export function websiteJsonLd() {
     url: siteUrl,
     inLanguage: "es-ES",
     publisher: { "@id": businessId },
+  };
+}
+
+export function aboutPageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    url: `${siteUrl}${aboutPage.path}`,
+    name: aboutPage.title,
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    mainEntity: {
+      "@type": "Person",
+      name: founder.name,
+      jobTitle: founder.jobTitle,
+      image: `${siteUrl}${aboutPage.photo.src}`,
+      sameAs: [founder.linkedin],
+      worksFor: { "@id": businessId },
+    },
   };
 }
 

@@ -58,10 +58,10 @@ La web está lista para posicionar, pero hoy Google y las IA tienen **muy poca i
 - [x] **Enriquecer el JSON-LD de `ProfessionalService`:** `founder` (`Person`: Ronald Fonseca, ingeniero de software, con LinkedIn personal `[PENDIENTE: URL]`), `knowsAbout` (diseño web, SEO local, automatización, Next.js…), `priceRange`, `slogan`, `foundingDate` `[PENDIENTE]` y `openingHours` `[PENDIENTE]`. → `src/lib/structured-data.ts`. Hecho: `founder` con LinkedIn, `knowsAbout` y `slogan`. Sin `priceRange` (solo admite una franja subjetiva tipo «€€»; los precios reales ya van en cada `Service`). `foundingDate` (23 jun 2026), `openingHoursSpecification` (todos los días, de 9:00 a 21:00) y dirección completa añadidos el 22 oct 2026.
 - [x] **`FAQPage` en cada página de servicio** con 3 a 5 preguntas reales por servicio (precio, plazo, qué necesito aportar, qué pasa si…). Las IA citan mucho las FAQ.
 - [x] **Blog / guías** (la oferta Web Pro incluye blog; la propia web no lo tiene). Hecho: `/guias` con 4 guías, enlazadas desde su servicio. Artículos que respondan preguntas exactas de dueños de negocio, ver §5.
-- [ ] **Página «Sobre nosotros»**: quién está detrás, experiencia real, forma de trabajar. Es la señal de confianza (E-E-A-T) que más falta y la que las IA usan para describir una empresa. Solo con datos reales del propietario.
+- [x] **Página «Sobre nosotros»**: quién está detrás, experiencia real, forma de trabajar. Es la señal de confianza (E-E-A-T) que más falta y la que las IA usan para describir una empresa. Solo con datos reales del propietario.
 - [ ] **Portfolio y casos de estudio** en cuanto haya pilotos (ya previsto en `portfolio.ts`): con `CreativeWork` o `Article` en JSON-LD.
 - [ ] **Páginas por sector** solo cuando haya un caso real del sector (por ejemplo «Webs para clínicas de fisioterapia»), como ya dice `PLAN-WEB.md`.
-- [ ] **Imágenes propias.** La web no tiene ninguna imagen de contenido: capturas de trabajos o una foto del fundador ayudan a Google Imágenes y a la confianza. Con `next/image` y `alt` descriptivo.
+- [ ] **Imágenes propias.** Hecho en parte: foto del fundador en «Sobre nosotros»; faltan capturas de trabajos. La web no tiene ninguna imagen de contenido: capturas de trabajos o una foto del fundador ayudan a Google Imágenes y a la confianza. Con `next/image` y `alt` descriptivo.
 
 ## 4. GEO: cómo hacer que las IA conozcan y citen a Young Digisoft
 
@@ -109,7 +109,7 @@ Cada pieza responde a una búsqueda o pregunta concreta. Sin cifras inventadas: 
 - [x] **Guía: «5 tareas que un pequeño negocio puede automatizar»** (citas, presupuestos, avisos por WhatsApp, facturas). Encaja con Automatización exprés.
 - [x] **Guía: «Qué incluye el mantenimiento de una web y cuándo lo necesitas».**
 - [x] **Guía: «Web a medida, WordPress o Wix: qué le conviene a tu negocio».** Fuera del plan inicial; refuerza la diferenciación (código propio) sin desprestigiar a nadie. Encaja con Diseño web.
-- [ ] **Página «Sobre nosotros».** `[PENDIENTE: datos reales del fundador, trayectoria y foto]`
+- [x] **Página «Sobre nosotros».** Publicada en `/sobre-nosotros` con datos de LinkedIn (sin nombrar empresas, por decisión del propietario), foto y `AboutPage` en JSON-LD.
 - [ ] **Casos de estudio** de cada piloto, con permiso por escrito.
 
 Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de publicación y de actualización, enlaces internos al servicio relacionado y una sola llamada a la acción.
@@ -137,7 +137,7 @@ Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de pu
 
 - [x] Ampliar las tres páginas de servicio cortas hasta ≈450 palabras útiles, cada una con su FAQ y `FAQPage`.
 - [x] Sección `/guias` con las 4 guías de §5. Publicadas las 4 entre el 21 y el 22 oct 2026.
-- [ ] Página «Sobre nosotros» con datos reales.
+- [x] Página «Sobre nosotros» con datos reales.
 
 ### Fase D: autoridad y GEO (continuo, desde el mes 1)
 
@@ -162,6 +162,6 @@ Formato: `/guias/[slug]` con `Article` en JSON-LD, autor (`Person`), fecha de pu
 - LinkedIn del fundador (Ronald Fonseca): <https://www.linkedin.com/in/rfonsecah92>.
 - Guías: se montan con MDX (`@next/mdx`), aprobado por el propietario.
 - `[PENDIENTE]` URL de Google Business Profile y de Facebook (cuando existan).
-- `[PENDIENTE]` Trayectoria resumida y foto del fundador (para «Sobre nosotros»; el propietario la aporta más adelante).
+- Trayectoria y foto del fundador: en `/sobre-nosotros` (foto en `public/images/ronald.jpg`).
 - Fecha de inicio de la actividad: 23 jun 2026. Horario: todos los días, de 9:00 a 21:00 (también visible en /contacto).
 - Dirección completa publicada en el JSON-LD (decisión del propietario).

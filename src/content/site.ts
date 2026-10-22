@@ -40,6 +40,7 @@ export const navLinks = [
   { label: "Cómo trabajamos", href: "/#como-trabajamos" },
   { label: "Preguntas", href: "/#preguntas" },
   { label: "Guías", href: "/guias" },
+  { label: "Sobre nosotros", href: "/sobre-nosotros" },
   { label: "Contacto", href: "/contacto" },
 ] as const;
 

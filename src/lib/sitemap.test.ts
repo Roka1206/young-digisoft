@@ -7,10 +7,11 @@ const baseUrl = "https://youngdigisoft.es";
 const urls = buildSitemap(baseUrl, services, guides).map((entry) => entry.url);
 
 describe("buildSitemap", () => {
-  it("lists the homepage, contact and legal pages", () => {
+  it("lists the homepage, about, contact and legal pages", () => {
     expect(urls).toEqual(
       expect.arrayContaining([
         baseUrl,
+        `${baseUrl}/sobre-nosotros`,
         `${baseUrl}/contacto`,
         `${baseUrl}/aviso-legal`,
         `${baseUrl}/privacidad`,

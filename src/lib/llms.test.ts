@@ -25,6 +25,12 @@ describe("buildLlmsTxt", () => {
     for (const { slug, description } of guides) expect(text).toContain(`(${baseUrl}/guias/${slug}): ${description}`);
   });
 
+  it("links the about page with its summary", () => {
+    expect(text).toContain(`## Sobre nosotros
+
+- [Quién está detrás de Young Digisoft](${baseUrl}/sobre-nosotros): Conoce a Ronald Fonseca`);
+  });
+
   it("includes the contact details and the contact page", () => {
     expect(text).toContain("info@youngdigisoft.es");
     expect(text).toContain("655 08 73 21");

@@ -3,6 +3,7 @@ import { faq } from "@/content/faq";
 import { guides } from "@/content/guides";
 import { services } from "@/content/services";
 import {
+  aboutPageJsonLd,
   articleJsonLd,
   breadcrumbJsonLd,
   businessJsonLd,
@@ -66,6 +67,22 @@ describe("websiteJsonLd", () => {
       name: "Young Digisoft",
       url: "https://youngdigisoft.es",
       publisher: { "@id": "https://youngdigisoft.es/#business" },
+    });
+  });
+});
+
+describe("aboutPageJsonLd", () => {
+  it("presents the founder with his photo, LinkedIn and the business he runs", () => {
+    expect(aboutPageJsonLd()).toMatchObject({
+      "@type": "AboutPage",
+      url: "https://youngdigisoft.es/sobre-nosotros",
+      mainEntity: {
+        "@type": "Person",
+        name: "Ronald Fonseca",
+        image: "https://youngdigisoft.es/images/ronald.jpg",
+        sameAs: ["https://www.linkedin.com/in/rfonsecah92"],
+        worksFor: { "@id": "https://youngdigisoft.es/#business" },
+      },
     });
   });
 });
