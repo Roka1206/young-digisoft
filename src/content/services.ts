@@ -200,13 +200,13 @@ export const services: Service[] = [
           "Copias de seguridad",
           "Monitorización",
           "Actualizaciones",
-          "Bolsa pequeña de cambios",
+          "Hasta 1 hora al mes de cambios pequeños",
         ],
       },
     ],
     excludes: [
       "Secciones o funciones nuevas, que se presupuestan aparte",
-      "Los cambios que superen la bolsa mensual",
+      "Los cambios que superen la hora mensual incluida",
       "El coste del dominio",
     ],
     highlights: {
@@ -223,7 +223,7 @@ export const services: Service[] = [
         {
           title: "Al día y con pequeños cambios",
           description:
-            "Aplicamos las actualizaciones y hacemos los cambios pequeños que nos pidas, como un horario, un precio o una foto nueva.",
+            "Aplicamos las actualizaciones y hacemos los cambios pequeños que nos pidas, como un horario, un precio o una foto nueva, hasta 1 hora al mes.",
         },
       ],
     },
@@ -244,6 +244,25 @@ export const services: Service[] = [
         question: "¿Qué pasa si mi web se cae?",
         answer: [
           "La vigilancia nos avisa y lo revisamos. Si hace falta, la recuperamos a partir de una copia de seguridad.",
+        ],
+      },
+      {
+        question: "¿Cuántos cambios entran cada mes?",
+        answer: [
+          "Hasta 1 hora al mes de cambios pequeños, como actualizar un horario, un precio, un texto o una foto. Las horas que no uses no se acumulan.",
+          "Si necesitas algo más grande, como una sección nueva, te lo presupuestamos aparte antes de hacerlo.",
+        ],
+      },
+      {
+        question: "¿Hay permanencia?",
+        answer: [
+          "No. Se paga mes a mes y puedes darlo de baja cuando quieras: deja de cobrarse a partir del mes siguiente.",
+        ],
+      },
+      {
+        question: "¿Podéis mantener una web que no habéis hecho vosotros?",
+        answer: [
+          "Sí. Antes la revisamos para ver en qué estado está. Si necesita arreglos para poder mantenerla bien, te los presupuestamos aparte.",
         ],
       },
       {

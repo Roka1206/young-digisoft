@@ -52,7 +52,7 @@ Hay 4 ofertas. No añadas servicios nuevos a la web sin que el propietario lo de
 | **Web Esencial + Google** | Web de 1 a 5 secciones, SEO local básico, ficha de Google Business Profile, formulario, WhatsApp y textos legales | 590 € | 990 € |
 | **Web Pro** | 5 a 8 secciones, blog, más personalización | 990 € | 1.400 a 1.800 € |
 | **Automatización exprés** | Diagnóstico gratuito de 30 min y una automatización concreta (formulario a CRM o hoja de cálculo con aviso por WhatsApp o email, citas, presupuestos, facturas) | 400 a 600 € | 600 a 1.200 € |
-| **Mantenimiento mensual** | Hosting y despliegues, copias de seguridad, monitorización, actualizaciones y bolsa pequeña de cambios | 39 a 49 €/mes | 59 a 89 €/mes |
+| **Mantenimiento mensual** | Hosting y despliegues, copias de seguridad, monitorización, actualizaciones y hasta 1 h/mes de cambios pequeños (no acumulable). Sin permanencia: baja efectiva el mes siguiente. Acepta webs de terceros tras revisarlas | 39 a 49 €/mes | 59 a 89 €/mes |
 | **Diagnóstico digital (consultoría)** | Sesión de 60 min y recomendaciones priorizadas de web, Google, procesos, herramientas y seguridad | **60 €/hora** | 60 €/hora |
 
 Notas:
