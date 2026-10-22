@@ -32,6 +32,7 @@ export const priceText = {
   units: { oneOff: "", monthly: "/mes", hourly: "/hora" },
   launch: "Precio de lanzamiento",
   regular: "Precio normal",
+  vatIncluded: "IVA incluido",
   until: "Hasta",
   timeline: "Plazo estimado",
 };

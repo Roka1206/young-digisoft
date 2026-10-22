@@ -48,6 +48,7 @@ export function serviceJsonLd(service: Service) {
           "@type": "UnitPriceSpecification",
           minPrice: launch.from,
           priceCurrency: "EUR",
+          valueAddedTaxIncluded: true,
           unitCode: unitCodes[unit],
         },
       };

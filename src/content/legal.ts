@@ -28,6 +28,7 @@ export const avisoLegalSections: LegalSection[] = [
     title: "2. Objeto",
     paragraphs: [
       "El presente aviso legal regula el uso del sitio web, cuyo objeto es informar sobre los servicios de desarrollo web, automatización, mantenimiento y consultoría tecnológica ofrecidos por Young Digisoft, así como permitir el contacto con clientes potenciales.",
+      "Los precios publicados en este sitio web son precios «desde» e incluyen el IVA. El precio final de cada proyecto se confirma por escrito en el presupuesto antes de empezar.",
     ],
   },
   {

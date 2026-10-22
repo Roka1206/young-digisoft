@@ -60,7 +60,7 @@ Notas:
 - El Diagnóstico digital se descuenta si el cliente contrata después una web o una automatización. Incluye un resumen escrito con las recomendaciones priorizadas; un informe detallado se presupuesta aparte.
 - El precio de lanzamiento es válido hasta el 31 de enero de 2027 o hasta completar 5 clientes, lo que ocurra antes.
 - Qué no incluye cada servicio y las rondas de revisión (2 en web, 1 en automatización) están en `src/content/services.ts`.
-- La web publica precios "desde". **Todos los importes viven en un único archivo** (`src/content/pricing.ts`), nunca escritos a mano en los componentes.
+- La web publica precios "desde", **con IVA incluido** (así se indica junto a cada precio, en el aviso legal y en el JSON-LD). **Todos los importes viven en un único archivo** (`src/content/pricing.ts`), nunca escritos a mano en los componentes.
 - Fuera de los primeros 6 meses: apps a medida, tiendas online complejas, reparación de hardware, redes. Si llega un encargo así, se valora aparte.
 
 ## 3. Cliente objetivo

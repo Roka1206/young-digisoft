@@ -63,6 +63,12 @@ describe("serviceJsonLd", () => {
     expect(serviceJsonLd(webService).offers.map((offer) => offer.priceSpecification.minPrice)).toEqual([590, 990]);
   });
 
+  it("states that prices include VAT", () => {
+    expect(serviceJsonLd(webService).offers.every((offer) => offer.priceSpecification.valueAddedTaxIncluded)).toBe(
+      true,
+    );
+  });
+
   it("marks recurring prices with their unit", () => {
     expect(serviceJsonLd(maintenance).offers[0].priceSpecification.unitCode).toBe("MON");
   });
