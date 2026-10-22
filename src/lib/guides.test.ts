@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { type Guide, guides } from "@/content/guides";
 import { services } from "@/content/services";
 import { site } from "@/content/site";
-import { findGuide, formatGuideDate, guidesForService, newestFirst } from "./guides";
+import { findGuide, formatGuideDate, guideImagePath, guidesForService, newestFirst } from "./guides";
 
 const guide = (slug: string, updatedAt: string): Guide => ({
   slug,
@@ -46,6 +46,10 @@ describe("guide helpers", () => {
     const list = [guide("a", "2026-01-01")];
     expect(findGuide(list, "a")).toBe(list[0]);
     expect(findGuide(list, "missing")).toBeUndefined();
+  });
+
+  it("points each guide to its own preview image route", () => {
+    expect(guideImagePath("precio")).toBe("/guias/precio/opengraph-image");
   });
 
   it("formats dates in Spanish without shifting the day", () => {

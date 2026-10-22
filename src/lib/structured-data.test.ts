@@ -118,6 +118,7 @@ describe("articleJsonLd", () => {
     expect(articleJsonLd(guide)).toMatchObject({
       "@type": "Article",
       headline: guide.title,
+      image: `https://youngdigisoft.es/guias/${guide.slug}/opengraph-image`,
       url: `https://youngdigisoft.es/guias/${guide.slug}`,
       datePublished: guide.publishedAt,
       dateModified: guide.updatedAt,

@@ -4,6 +4,7 @@ import type { Guide } from "@/content/guides";
 import { prices } from "@/content/pricing";
 import { servicePageText, type Service } from "@/content/services";
 import { address, contact, expertise, founder, openingHours, site, socialLinks } from "@/content/site";
+import { guideImagePath } from "./guides";
 import { siteUrl } from "./site-url";
 
 const businessId = `${siteUrl}/#business`;
@@ -109,7 +110,7 @@ export function articleJsonLd(guide: Guide) {
     headline: guide.title,
     description: guide.description,
     url: `${siteUrl}/guias/${guide.slug}`,
-    image: `${siteUrl}/opengraph-image`,
+    image: `${siteUrl}${guideImagePath(guide.slug)}`,
     inLanguage: "es-ES",
     datePublished: guide.publishedAt,
     dateModified: guide.updatedAt,
