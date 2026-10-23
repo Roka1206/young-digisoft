@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps<"/servicios/[slug]"
   const service = findService(services, (await params).slug);
   if (!service) return {};
   return pageMetadata({
-    title: service.headline ?? service.name,
+    title: service.metaTitle ?? service.headline ?? service.name,
     description: service.summary,
     path: `/servicios/${service.slug}`,
   });

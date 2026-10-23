@@ -84,7 +84,7 @@ export const whyUs: { title: string; items: Feature[] } = {
     },
     {
       title: "En toda España",
-      description: "Tenemos la sede en A Coruña y trabajamos con negocios de toda España.",
+      description: "Tenemos la sede en Sada (A Coruña) y trabajamos con negocios de toda España.",
       icon: MapPin,
     },
   ],

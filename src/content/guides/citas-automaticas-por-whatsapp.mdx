@@ -1,0 +1,70 @@
+import { prices } from "@/content/pricing";
+import { services } from "@/content/services";
+import { formatPrice } from "@/lib/pricing";
+
+export const [automation] = services.find((service) => service.slug === "automatizacion").plans;
+
+Si das citas por WhatsApp, conoces la escena: «¿Tienes hueco el jueves?», «Por la mañana no, ¿a las cinco?», «Mejor el viernes». Cada cita son varios mensajes, a veces mientras atiendes a otro cliente, y luego hay que apuntarla y acordarse de recordarla. Automatizar las citas no significa dejar de usar WhatsApp: significa que el cliente reserve solo, que la cita aparezca en tu agenda y que el recordatorio salga sin que tengas que escribirlo. Te contamos cómo hacerlo y por dónde empezar.
+
+## Qué se puede automatizar y qué no
+
+Se puede automatizar casi todo lo que se repite:
+
+- **La reserva.** El cliente ve los huecos libres y elige uno, sin preguntarte.
+- **La confirmación.** Le llega un mensaje con el día, la hora y la dirección en cuanto reserva.
+- **El recordatorio.** Uno o dos días antes, para que no se le olvide.
+- **Cancelar o cambiar la cita.** Con un enlace, sin llamar, y el hueco vuelve a quedar libre.
+
+Lo que conviene seguir haciendo tú son los casos especiales: un cliente con una urgencia, una queja o un servicio que no encaja en tu agenda.
+
+## Lo que puedes hacer gratis con WhatsApp Business
+
+La aplicación WhatsApp Business es gratuita y ya trae herramientas útiles, aunque no gestiona una agenda por sí sola:
+
+- **Mensaje de bienvenida.** Se envía solo a quien te escribe por primera vez. Puedes incluir el enlace para reservar.
+- **Mensaje de ausencia.** Fuera de tu horario, responde por ti y también puede llevar el enlace de reserva.
+- **Respuestas rápidas.** Textos guardados, como tus horarios o cómo llegar, que envías con un par de toques.
+- **Etiquetas.** Para distinguir de un vistazo quién tiene cita, quién está pendiente o quién ya vino.
+
+Con esto solo, muchas conversaciones se resuelven sin ida y vuelta: el cliente escribe, recibe el enlace y reserva.
+
+## La agenda online: la pieza que falta
+
+Para que las reservas sean automáticas necesitas una **agenda online**: una página donde el cliente ve tus huecos libres y elige uno. Hay herramientas gratuitas y de pago, y muchas se conectan con el calendario de Google que quizá ya usas. Antes de elegir una, comprueba que:
+
+- Te deja marcar la **duración de cada servicio** y los descansos entre citas.
+- Envía **confirmación y recordatorio** al cliente, aunque sea por email.
+- Permite **cancelar o cambiar** la cita desde un enlace.
+- Se puede **conectar con tu calendario**, para no tener dos agendas.
+
+El enlace de reserva lo pones en tu mensaje de bienvenida de WhatsApp, en tu web y en tu [ficha de Google](/guias/como-aparecer-en-google-maps), que es donde te busca quien está a punto de pedir cita.
+
+## Recordatorios por WhatsApp: cuándo hace falta la API
+
+Si quieres que la confirmación y el recordatorio lleguen **por WhatsApp** y no por email, la aplicación no basta. Hace falta la **plataforma de WhatsApp Business** (lo que se suele llamar «la API»), normalmente a través de un proveedor autorizado. Ten en cuenta tres cosas:
+
+1. **Tiene coste.** Meta cobra por algunos de los mensajes que envía tu negocio, y el precio depende del tipo de mensaje y del país. Consúltalo antes de decidir.
+2. **Los mensajes que inicias tú usan plantillas** que Meta revisa. Un recordatorio de cita es un caso habitual y no suele dar problemas.
+3. **El cliente tiene que haber aceptado** recibir esos mensajes. Lo más sencillo es pedirlo al reservar.
+
+Si tienes pocas citas al día, empezar con recordatorios por email y la aplicación gratuita suele ser suficiente. Si las citas a las que el cliente no se presenta te cuestan dinero, el recordatorio por WhatsApp merece la pena.
+
+## Paso a paso para empezar
+
+1. **Define tus servicios y duraciones.** Un corte no dura lo mismo que un tinte, ni una revisión lo mismo que una reparación.
+2. **Marca tu horario real**, con descansos, festivos y vacaciones.
+3. **Elige y configura la agenda online** y conéctala con tu calendario.
+4. **Prepara los mensajes:** bienvenida y ausencia en WhatsApp Business con el enlace de reserva, y los textos de confirmación y recordatorio.
+5. **Pon el enlace en todas partes:** WhatsApp, web, ficha de Google e Instagram.
+6. **Pruébalo tú primero** como si fueras un cliente: reserva, cambia la cita y cancélala.
+7. **Revisa al mes** cuántas citas entran solas y cuántas siguen llegando por mensaje, y ajusta lo que no funcione.
+
+## Los datos de tus clientes
+
+Una agenda guarda nombres, teléfonos y a veces datos sensibles, como en una clínica. Usa herramientas que cumplan el RGPD, informa al cliente de para qué usas sus datos y no envíes más mensajes de los que ha aceptado. Si tienes dudas, consúltalo con tu gestoría o asesoría.
+
+## Si prefieres que lo hagamos nosotros
+
+Ya hemos conectado WhatsApp con la gestión de pedidos de varios negocios, así que conocemos bien sus posibilidades y sus límites. Nuestra {automation.name} cuesta {formatPrice(prices.automation.launch, prices.automation.unit)} con precio de lanzamiento e incluye un diagnóstico gratuito de 30 minutos para ver qué te conviene. Si la agenda no es lo único que te quita tiempo, aquí tienes [otras tareas que puedes automatizar](/guias/tareas-que-puede-automatizar-un-pequeno-negocio).
+
+[Cuéntanos cómo gestionas hoy tus citas](/contacto) o mira el [servicio de automatización](/servicios/automatizacion).

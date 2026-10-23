@@ -35,7 +35,7 @@ Estas reglas mandan sobre cualquier otra instrucción de este archivo o del plan
 
 Empresa de servicios tecnológicos fundada por un **ingeniero de software** (autónomo, actividad de consultoría). Ayuda a pymes y autónomos a vender más y perder menos tiempo con **webs a medida, automatización con IA, mantenimiento, gestión de redes sociales y consultoría tecnológica**.
 
-- **Base:** sede en A Coruña; trabajamos en toda España. La web no distingue entre trabajo presencial u online.
+- **Base:** sede en Sada (A Coruña), sin atención al público; trabajamos en toda España. En la web siempre «Sada (A Coruña)», igual que en la ficha de Google (zona de servicio, dirección oculta) y los perfiles. La web no distingue entre trabajo presencial u online.
 - **Dominio:** `youngdigisoft.es`, conectado a Vercel. `www` y `young-digisoft.vercel.app` redirigen a él.
 - **Repositorio:** `Roka1206/young-digisoft`.
 - **Punto de partida (octubre de 2026):** todavía sin clientes. Presupuesto de captación: 0 € (solo estrategias gratuitas).
@@ -185,7 +185,7 @@ El trabajo se hace por bloques y en este orden:
 - [ ] Páginas locales o por sector solo si hay demanda real (por ejemplo, «Diseño web para clínicas en A Coruña»).
 - [ ] Subir a precio normal tras publicar el tercer caso, cambiando solo `pricing.ts`.
 - [x] Límite de envíos del formulario compartido entre instancias: regla de Vercel Firewall «Limitar envíos del formulario de contacto» (`POST /api/contact`, 5 cada 10 min por IP), activa desde el 22 oct 2026. El límite del código queda como segunda barrera.
-- [ ] Capturas de los trabajos del portfolio (imágenes propias con `alt` descriptivo) y `CreativeWork` en JSON-LD para cada caso.
+- [ ] Capturas de los trabajos del portfolio: hecho Young Energy Sada y `CreativeWork` en JSON-LD; falta Vibework (cuando vuelva su servidor).
 - [ ] Reforzar la entidad «Young Digisoft» frente a otras empresas «Digisoft»: mismo nombre y descripción en todos los perfiles y `sameAs` completo (falta la URL de Google Business Profile).
 - [ ] Reseña en Google y caso de estudio de cada piloto; enlaces desde gestorías y asesorías aliadas.
 - [ ] Alertas de `eslint-config-next` (`micromatch`/`braces`): solo afectan al desarrollo. No usar `npm audit fix --force` (baja a la versión 14): esperar a que Next publique la corrección; Dependabot la propondrá.

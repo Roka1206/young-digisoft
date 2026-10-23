@@ -37,6 +37,12 @@ describe("buildLlmsTxt", () => {
     expect(text).toContain(`(${baseUrl}/contacto)`);
   });
 
+  it("gives the address and opening hours next to the service area", () => {
+    expect(text).toContain(
+      "Toda España, desde Sada (A Coruña): Rúa Linares Rivas 9 bajo, 15160 Sada (A Coruña). Horario: todos los días, de 9:00 a 21:00.",
+    );
+  });
+
   it("puts the legal pages in the Optional section", () => {
     expect(text.split("## Optional")[1]).toContain(`(${baseUrl}/aviso-legal)`);
   });

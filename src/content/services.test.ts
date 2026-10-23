@@ -17,3 +17,11 @@ describe("web design FAQ", () => {
     for (const plan of web.plans) expect(answer).toContain(`${plan.name}: ${plan.timeline}.`);
   });
 });
+
+describe("service titles for Google", () => {
+  it("keeps every title, brand included, within 60 characters", () => {
+    for (const { metaTitle, headline, name } of services) {
+      expect(`${metaTitle ?? headline ?? name} — Young Digisoft`.length).toBeLessThanOrEqual(60);
+    }
+  });
+});

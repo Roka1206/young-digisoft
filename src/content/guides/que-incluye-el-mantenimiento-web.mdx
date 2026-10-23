@@ -3,6 +3,7 @@ import { services } from "@/content/services";
 import { formatPrice } from "@/lib/pricing";
 
 export const [maintenance] = services.find((service) => service.slug === "mantenimiento").plans;
+export const yearlyPrice = formatPrice({ from: prices.maintenance.launch.from * 12 }, "oneOff");
 
 Una web no es algo que se hace una vez y se olvida. Igual que un local necesita que alguien revise la luz o cambie una bombilla, una web necesita que alguien vigile que sigue funcionando, la mantenga al día y haga los pequeños cambios del negocio. A eso se le llama mantenimiento. Te contamos qué incluye, cuándo lo necesitas y qué preguntar antes de contratarlo.
 
@@ -34,6 +35,18 @@ Si tu web apenas cambia y sabes publicarla y actualizarla tú, quizá no lo nece
 ## Qué pasa si no se mantiene
 
 No suele romperse de un día para otro. Lo habitual es que se vaya quedando atrás: deja de actualizarse, aparece un fallo que nadie ve durante semanas, el formulario deja de enviar mensajes sin que te enteres o los datos ya no coinciden con tu negocio. Muchas veces el primero en darse cuenta es un cliente.
+
+## Cuánto cuesta mantener una web al año
+
+El coste anual de una web se reparte en varias partidas. Cuando compares, pregunta siempre cuáles están incluidas y cuáles van aparte:
+
+- **El dominio**, tu dirección en internet. Se renueva cada año con el proveedor y debería estar a tu nombre.
+- **El alojamiento (hosting)**, el servidor donde vive la web. Según el proveedor y el plan, se paga al mes o al año.
+- **El mantenimiento**, que es todo lo de esta guía: copias, vigilancia, actualizaciones y pequeños cambios.
+- **Licencias de terceros**, si tu web las usa: plantillas o complementos de pago en WordPress, la cuota de un constructor como Wix o herramientas externas como una agenda online. Si tienes dudas sobre qué tipo de web te conviene, mira [web a medida, WordPress o Wix](/guias/web-a-medida-wordpress-o-wix).
+- **Los cambios grandes**, como una sección nueva o un rediseño, que se presupuestan aparte.
+
+Desconfía de un precio muy bajo que no aclara qué incluye: lo barato sale caro si la web se cae y nadie se entera, o si cada pequeño cambio se cobra aparte. Con nuestro plan, el alojamiento y el mantenimiento te cuestan {yearlyPrice} al año con precio de lanzamiento; el dominio lo pagas tú al proveedor.
 
 ## Qué preguntar antes de contratarlo
 

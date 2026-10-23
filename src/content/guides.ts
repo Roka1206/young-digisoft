@@ -12,6 +12,26 @@ export type Guide = {
 
 export const guides: Guide[] = [
   {
+    slug: "citas-automaticas-por-whatsapp",
+    title: "Cómo automatizar las citas de tu negocio con WhatsApp",
+    metaTitle: "Citas automáticas por WhatsApp, paso a paso",
+    description:
+      "Reserva online, confirmación y recordatorio sin mensajes de ida y vuelta: qué puedes hacer gratis con WhatsApp Business, cuándo hace falta la API y cómo empezar.",
+    publishedAt: "2026-10-23",
+    updatedAt: "2026-10-23",
+    serviceSlug: "automatizacion",
+  },
+  {
+    slug: "como-conseguir-resenas-en-google",
+    title: "Cómo conseguir reseñas en Google sin saltarte las normas",
+    metaTitle: "Cómo conseguir reseñas en Google",
+    description:
+      "Cuándo y cómo pedir reseñas a tus clientes, cómo responder a las buenas y a las malas, qué prohíbe Google y cómo conseguir que pedirlas no dependa de tu memoria.",
+    publishedAt: "2026-10-23",
+    updatedAt: "2026-10-23",
+    serviceSlug: "web",
+  },
+  {
     slug: "redes-sociales-para-pequenos-negocios",
     title: "Redes sociales para un pequeño negocio: qué publicar y cada cuánto",
     metaTitle: "Redes sociales para un pequeño negocio",
@@ -34,11 +54,11 @@ export const guides: Guide[] = [
   {
     slug: "que-incluye-el-mantenimiento-web",
     title: "Qué incluye el mantenimiento de una web y cuándo lo necesitas",
-    metaTitle: "Mantenimiento web: qué incluye y cuándo",
+    metaTitle: "Mantenimiento web: precio y qué incluye",
     description:
-      "Copias de seguridad, vigilancia, actualizaciones y pequeños cambios: qué incluye el mantenimiento de una web, qué no, cuándo te conviene y qué preguntar antes.",
+      "Qué incluye el mantenimiento de una web, qué no, cuánto cuesta mantenerla al año, cuándo te conviene y qué preguntar antes de contratarlo.",
     publishedAt: "2026-10-22",
-    updatedAt: "2026-10-22",
+    updatedAt: "2026-10-23",
     serviceSlug: "mantenimiento",
   },
   {
@@ -68,7 +88,7 @@ export const guides: Guide[] = [
     description:
       "Qué hace subir o bajar el precio de una web, qué debería incluir, qué se paga aparte y qué preguntar antes de contratar, con nuestros precios como referencia.",
     publishedAt: "2026-10-21",
-    updatedAt: "2026-10-21",
+    updatedAt: "2026-10-23",
     serviceSlug: "web",
   },
 ];
@@ -82,4 +102,6 @@ export const guidesPageText = {
   updated: "Actualizada el",
   readGuide: "Leer la guía",
   relatedService: "Servicio relacionado",
+  by: "Por",
+  relatedGuides: "Sigue leyendo",
 };
