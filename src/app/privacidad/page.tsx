@@ -20,7 +20,7 @@ export default function PrivacidadPage() {
     <>
       <JsonLd data={breadcrumbJsonLd([{ name: title, path: "/privacidad" }])} />
       <Header />
-      <main className="flex-1">
+      <main id="contenido" className="flex-1">
         <Container className="max-w-3xl py-20">
           <h1 className="text-3xl font-bold text-foreground sm:text-4xl">{title}</h1>
           <p className="mt-3 text-sm text-muted">{legalUpdatedAt}</p>

@@ -22,7 +22,7 @@ export default function AboutPage() {
       <JsonLd data={aboutPageJsonLd()} />
       <JsonLd data={breadcrumbJsonLd([{ name: aboutPage.label, path: aboutPage.path }])} />
       <Header />
-      <main className="flex-1">
+      <main id="contenido" className="flex-1">
         <PageHero title={aboutPage.title} description={aboutPage.description}>
           <Image
             src={aboutPage.photo.src}

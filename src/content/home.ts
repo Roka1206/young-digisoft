@@ -1,4 +1,5 @@
 import { Code2, Compass, Handshake, MapPin, Receipt, Repeat, Search, type LucideIcon } from "lucide-react";
+import { founder, site } from "./site";
 
 type Feature = { title: string; description: string; icon: LucideIcon };
 
@@ -38,6 +39,7 @@ export const offers = {
   description: "Precios cerrados: antes de empezar te confirmamos por escrito el importe exacto de tu proyecto.",
   launchNote: "a cambio de",
   detailsLink: "Ver detalles",
+  groups: { oneOff: "Proyectos con precio cerrado", recurring: "Cuotas mensuales y consultoría" },
 };
 
 export const howWeWork = {
@@ -90,6 +92,12 @@ export const whyUs: { title: string; items: Feature[] } = {
   ],
 };
 
+export const founderSection = {
+  title: "Quién está detrás",
+  text: `${site.name} es el proyecto de ${founder.name}, ingeniero de software con más de 10 años en el sector tecnológico. Hablas siempre con la persona que diseña, programa y mantiene tu web.`,
+  link: "Conoce su trayectoria",
+};
+
 export const portfolioSection = {
   title: "Trabajos realizados",
   description: "Proyectos reales, publicados con permiso de cada cliente.",
@@ -103,4 +111,11 @@ export const closing = {
   title: "¿Empezamos?",
   description: "Cuéntanos tu idea y te preparamos una propuesta con precio cerrado, sin compromiso.",
   whatsappCta: "Escríbenos por WhatsApp",
+};
+
+export const exitIntent = {
+  title: "¿Ya te vas?",
+  description: "Cuéntanos qué necesita tu negocio y te preparamos un presupuesto sin compromiso.",
+  cta: "Hablar por WhatsApp",
+  close: "Cerrar",
 };

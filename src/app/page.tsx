@@ -3,6 +3,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { Faq } from "@/components/sections/Faq";
+import { Founder } from "@/components/sections/Founder";
 import { Hero } from "@/components/sections/Hero";
 import { Offers } from "@/components/sections/Offers";
 import { Portfolio } from "@/components/sections/Portfolio";
@@ -20,12 +21,13 @@ export default function Home() {
     <>
       <JsonLd data={websiteJsonLd()} />
       <Header />
-      <main className="flex-1">
+      <main id="contenido" className="flex-1">
         <Hero />
         <Problems />
         <Offers />
         <Process />
         <WhyUs />
+        <Founder />
         <Portfolio />
         <Faq />
         <CtaBanner />

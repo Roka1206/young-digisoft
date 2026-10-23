@@ -46,8 +46,8 @@ export default async function ServicePage({ params }: PageProps<"/servicios/[slu
       <JsonLd data={serviceJsonLd(service)} />
       <JsonLd data={breadcrumbJsonLd([{ name: service.name, path: `/servicios/${service.slug}` }])} />
       <Header />
-      <main className="flex-1">
-        <PageHero title={service.headline ?? service.name} description={service.summary}>
+      <main id="contenido" className="flex-1">
+        <PageHero title={service.headline ?? service.name} description={service.summary} layout="centered">
           <p className="leading-relaxed">
             <strong className="font-medium text-action">{servicePageText.audience}:</strong> {service.audience}
           </p>

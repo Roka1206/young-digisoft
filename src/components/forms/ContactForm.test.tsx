@@ -24,4 +24,26 @@ describe("ContactForm", () => {
     await screen.findByText(/introduce tu nombre/i);
     expect(screen.queryByText(/teléfono válido/i)).not.toBeInTheDocument();
   });
+
+  it("lets the browser autofill name, email and phone, with a phone keypad on mobile", () => {
+    render(<ContactForm />);
+
+    expect(screen.getByLabelText("Nombre")).toHaveAttribute("autocomplete", "name");
+    expect(screen.getByLabelText("Email")).toHaveAttribute("autocomplete", "email");
+    expect(screen.getByLabelText(/teléfono/i)).toHaveAttribute("autocomplete", "tel");
+    expect(screen.getByLabelText(/teléfono/i)).toHaveAttribute("type", "tel");
+  });
+
+  it("marks invalid fields and links each one to its error message", async () => {
+    const user = userEvent.setup();
+    render(<ContactForm />);
+
+    await user.click(screen.getByRole("button", { name: /enviar mensaje/i }));
+
+    const name = screen.getByLabelText("Nombre");
+    await screen.findByText(/introduce tu nombre/i);
+    expect(name).toHaveAttribute("aria-invalid", "true");
+    expect(name).toHaveAccessibleDescription(/introduce tu nombre/i);
+    expect(screen.getByLabelText(/teléfono/i)).not.toHaveAttribute("aria-invalid");
+  });
 });

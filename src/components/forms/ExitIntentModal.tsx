@@ -1,7 +1,8 @@
 "use client";
 
 import { X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { exitIntent } from "@/content/home";
 import { contact } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 
@@ -36,7 +37,27 @@ export function ExitIntentModal() {
     return () => document.removeEventListener("mouseleave", onMouseLeave);
   }, []);
 
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  // Focus moves into the dialog while it is open and returns to where it was when it closes.
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.activeElement as HTMLElement | null;
+    dialogRef.current?.querySelector<HTMLElement>("button")?.focus();
+    return () => previous?.focus();
+  }, [open]);
+
   const close = () => setOpen(false);
+
+  const onKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Escape") return close();
+    if (event.key !== "Tab") return;
+    const focusable = [...(dialogRef.current?.querySelectorAll<HTMLElement>("a, button") ?? [])];
+    const edge = event.shiftKey ? focusable[0] : focusable.at(-1);
+    if (document.activeElement !== edge) return;
+    event.preventDefault();
+    (event.shiftKey ? focusable.at(-1) : focusable[0])?.focus();
+  };
 
   if (!open) return null;
 
@@ -46,28 +67,31 @@ export function ExitIntentModal() {
       onClick={close}
     >
       <div
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="exit-intent-title"
+        aria-describedby="exit-intent-description"
         onClick={(event) => event.stopPropagation()}
+        onKeyDown={onKeyDown}
         className="relative w-full max-w-sm rounded-xl border border-border bg-surface p-6 text-center shadow-xl motion-safe:animate-rise"
       >
         <button
           type="button"
           onClick={close}
-          aria-label="Cerrar"
+          aria-label={exitIntent.close}
           className="absolute top-3 right-3 inline-flex size-8 items-center justify-center rounded-full text-muted transition-colors hover:bg-action/10 hover:text-action"
         >
-          <X size={16} />
+          <X aria-hidden size={16} />
         </button>
-        <h3 id="exit-intent-title" className="text-xl font-medium text-foreground">
-          ¿Ya te vas?
-        </h3>
-        <p className="mt-2 text-sm text-muted">
-          Cuéntanos qué necesita tu negocio y te preparamos un presupuesto sin compromiso.
+        <h2 id="exit-intent-title" className="text-xl font-medium text-foreground">
+          {exitIntent.title}
+        </h2>
+        <p id="exit-intent-description" className="mt-2 text-sm text-muted">
+          {exitIntent.description}
         </p>
         <Button href={contact.whatsappHref} className="mt-5 w-full justify-center" onClick={close}>
-          Hablar por WhatsApp
+          {exitIntent.cta}
         </Button>
       </div>
     </div>

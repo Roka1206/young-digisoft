@@ -50,7 +50,7 @@ export default async function GuidePage({ params }: PageProps<"/guias/[slug]">) 
         ])}
       />
       <Header />
-      <main className="flex-1">
+      <main id="contenido" className="flex-1">
         <PageHero title={guide.title} description={guide.description}>
           <p className="text-sm text-muted">
             {guidesPageText.by}{" "}

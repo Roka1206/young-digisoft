@@ -2,17 +2,28 @@ import { Check } from "lucide-react";
 import type { ReactNode } from "react";
 import { launchOffer, priceText, prices } from "@/content/pricing";
 import type { Plan } from "@/content/services";
+import { cn } from "@/lib/cn";
 import { formatPrice, hasLaunchDiscount } from "@/lib/pricing";
 import { Badge } from "./Badge";
 import { Card } from "./Card";
 
-export function PriceCard({ plan, children }: { plan: Plan; children?: ReactNode }) {
+export function PriceCard({
+  plan,
+  headingLevel: Heading = "h3",
+  className,
+  children,
+}: {
+  plan: Plan;
+  headingLevel?: "h3" | "h4";
+  className?: string;
+  children?: ReactNode;
+}) {
   const price = prices[plan.id];
   const discounted = hasLaunchDiscount(price);
 
   return (
-    <Card className="flex h-full flex-col gap-5">
-      <h3 className="text-xl/7 font-medium text-foreground">{plan.name}</h3>
+    <Card className={cn("flex h-full flex-col gap-5", className)}>
+      <Heading className="text-xl/7 font-bold text-foreground">{plan.name}</Heading>
       <div>
         {discounted && <Badge>{priceText.launch}</Badge>}
         <p className="mt-2 text-3xl font-bold text-foreground">
@@ -21,7 +32,8 @@ export function PriceCard({ plan, children }: { plan: Plan; children?: ReactNode
         </p>
         {discounted && (
           <p className="mt-1 text-sm text-muted">
-            {priceText.regular}: {formatPrice(price.regular, price.unit)} · {priceText.until} {launchOffer.endsOn}
+            {priceText.regular}: <s>{formatPrice(price.regular, price.unit)}</s> · {priceText.until}{" "}
+            {launchOffer.endsOn}
           </p>
         )}
       </div>
@@ -34,7 +46,7 @@ export function PriceCard({ plan, children }: { plan: Plan; children?: ReactNode
         ))}
       </ul>
       {plan.timeline && (
-        <p className="font-mono text-[13px]/5 text-muted">
+        <p className="text-sm text-muted">
           {priceText.timeline}: {plan.timeline}
         </p>
       )}

@@ -18,8 +18,8 @@ export default function ContactPage() {
     <>
       <JsonLd data={breadcrumbJsonLd([{ name: contactPage.breadcrumb, path: "/contacto" }])} />
       <Header />
-      <main className="flex-1">
-        <PageHero title={contactPage.title} description={contactPage.description} />
+      <main id="contenido" className="flex-1">
+        <PageHero title={contactPage.title} description={contactPage.description} layout="wide" />
         <Contact />
       </main>
       <Footer />

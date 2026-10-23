@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function CtaBanner({ whatsappHref = contact.whatsappHref }: { whatsappHref?: string }) {
   return (
-    <section className="py-20">
+    <section className="py-14 sm:py-20">
       <Container>
         <Reveal className="flex flex-col items-center gap-6 rounded-3xl bg-brand px-6 py-12 text-center text-ink sm:px-12">
           <h2 className="text-2xl/8 font-bold sm:text-[1.75rem]/9">{closing.title}</h2>

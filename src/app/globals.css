@@ -28,7 +28,8 @@
 .dark {
   --background: var(--color-ink);
   --foreground: var(--color-brand-fg);
-  --surface: var(--color-ink);
+  /* Slightly lighter than the background so alternate sections and cards stay visible (brand text 4.95:1). */
+  --surface: color-mix(in srgb, var(--color-brand-fg) 6%, var(--color-ink));
   --border: color-mix(in srgb, var(--color-brand-fg) 10%, transparent);
   --muted: color-mix(in srgb, var(--color-brand-fg) 75%, var(--color-ink));
   --action: var(--color-brand);
