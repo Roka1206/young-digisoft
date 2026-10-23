@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { type Guide, guides } from "@/content/guides";
 import { services } from "@/content/services";
 import { site } from "@/content/site";
-import { findGuide, formatGuideDate, guideImagePath, guidesForService, newestFirst } from "./guides";
+import { findGuide, formatGuideDate, guideImagePath, guidesForService, newestFirst, relatedGuides } from "./guides";
 
 const guide = (slug: string, updatedAt: string): Guide => ({
   slug,
@@ -70,5 +70,17 @@ describe("guide helpers", () => {
     ];
     expect(guidesForService(list, "web").map((g) => g.slug)).toEqual(["web-new", "web-old"]);
     expect(guidesForService(list, "diagnostico-digital")).toEqual([]);
+  });
+
+  it("relates guides of the same service first, then the newest others, never the current one", () => {
+    const current = guide("current", "2026-06-01");
+    const list = [
+      current,
+      { ...guide("other-new", "2026-09-01"), serviceSlug: "mantenimiento" },
+      guide("web-old", "2026-01-01"),
+      { ...guide("other-old", "2026-02-01"), serviceSlug: "redes-sociales" },
+    ];
+    expect(relatedGuides(list, current).map((g) => g.slug)).toEqual(["web-old", "other-new"]);
+    expect(relatedGuides(list, current, 3).map((g) => g.slug)).toEqual(["web-old", "other-new", "other-old"]);
   });
 });

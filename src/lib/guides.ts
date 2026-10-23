@@ -10,5 +10,11 @@ export const formatGuideDate = (isoDate: string) => longDate.format(new Date(iso
 
 export const newestFirst = (guides: Guide[]) => [...guides].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
 
+// Other guides of the same service first, then the rest, newest first within each group.
+export const relatedGuides = (guides: Guide[], current: Guide, limit = 2) =>
+  newestFirst(guides.filter((guide) => guide.slug !== current.slug))
+    .sort((a, b) => Number(b.serviceSlug === current.serviceSlug) - Number(a.serviceSlug === current.serviceSlug))
+    .slice(0, limit);
+
 export const guidesForService = (guides: Guide[], serviceSlug: string) =>
   newestFirst(guides.filter((guide) => guide.serviceSlug === serviceSlug));

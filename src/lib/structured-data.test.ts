@@ -27,8 +27,20 @@ describe("businessJsonLd", () => {
       url: "https://youngdigisoft.es",
       telephone: "+34655087321",
       email: "info@youngdigisoft.es",
-      areaServed: { "@type": "Country", name: "España" },
     });
+  });
+
+  it("serves all of Spain and the province of A Coruña", () => {
+    expect(business.areaServed).toEqual([
+      { "@type": "Country", name: "España" },
+      { "@type": "AdministrativeArea", name: "A Coruña" },
+    ]);
+  });
+
+  it("links a Google Maps search for the full address", () => {
+    expect(business.hasMap).toBe(
+      "https://www.google.com/maps/search/?api=1&query=R%C3%BAa%20Linares%20Rivas%209%20bajo%2C%2015160%20Sada%20(A%20Coru%C3%B1a)",
+    );
   });
 
   it("gives the full address, founding date and daily opening hours", () => {
@@ -123,9 +135,19 @@ describe("articleJsonLd", () => {
       url: `https://youngdigisoft.es/guias/${guide.slug}`,
       datePublished: guide.publishedAt,
       dateModified: guide.updatedAt,
+      mainEntityOfPage: `https://youngdigisoft.es/guias/${guide.slug}`,
       author: { "@type": "Person", name: "Ronald Fonseca" },
       publisher: { "@id": "https://youngdigisoft.es/#business" },
     });
+  });
+});
+
+describe("founder entity", () => {
+  it("uses the same Person id as business founder, about page subject and guide author", () => {
+    const founderId = "https://youngdigisoft.es/sobre-nosotros#founder";
+    expect(businessJsonLd().founder["@id"]).toBe(founderId);
+    expect(aboutPageJsonLd().mainEntity["@id"]).toBe(founderId);
+    expect(articleJsonLd(guides[0]).author["@id"]).toBe(founderId);
   });
 });
 

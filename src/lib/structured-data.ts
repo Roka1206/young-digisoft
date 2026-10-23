@@ -4,11 +4,19 @@ import type { Guide } from "@/content/guides";
 import { prices } from "@/content/pricing";
 import type { PortfolioCase } from "@/content/portfolio";
 import { servicePageText, type Service } from "@/content/services";
-import { address, contact, expertise, founder, openingHours, site, socialLinks } from "@/content/site";
+import { address, contact, expertise, founder, fullAddress, openingHours, site, socialLinks } from "@/content/site";
 import { guideImagePath } from "./guides";
 import { siteUrl } from "./site-url";
 
 const businessId = `${siteUrl}/#business`;
+// One Person entity for the founder, shared by the business, the about page and every guide.
+const founderPerson = {
+  "@type": "Person",
+  "@id": `${siteUrl}${aboutPage.path}#founder`,
+  name: founder.name,
+  jobTitle: founder.jobTitle,
+  sameAs: [founder.linkedin],
+};
 const spain = { "@type": "Country", name: "España" };
 const unitCodes = { oneOff: undefined, monthly: "MON", hourly: "HUR" };
 
@@ -34,15 +42,16 @@ export function businessJsonLd() {
       addressRegion: address.region,
       addressCountry: "ES",
     },
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`,
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
       opens: openingHours.opens,
       closes: openingHours.closes,
     },
-    areaServed: spain,
+    areaServed: [spain, { "@type": "AdministrativeArea", name: address.region }],
     knowsAbout: expertise,
-    founder: { "@type": "Person", name: founder.name, jobTitle: founder.jobTitle, sameAs: [founder.linkedin] },
+    founder: founderPerson,
     sameAs: socialLinks.map((link) => link.href).filter((href) => !href.startsWith("https://wa.me")),
   };
 }
@@ -67,14 +76,7 @@ export function aboutPageJsonLd() {
     url: `${siteUrl}${aboutPage.path}`,
     name: aboutPage.title,
     isPartOf: { "@id": `${siteUrl}/#website` },
-    mainEntity: {
-      "@type": "Person",
-      name: founder.name,
-      jobTitle: founder.jobTitle,
-      image: `${siteUrl}${aboutPage.photo.src}`,
-      sameAs: [founder.linkedin],
-      worksFor: { "@id": businessId },
-    },
+    mainEntity: { ...founderPerson, image: `${siteUrl}${aboutPage.photo.src}`, worksFor: { "@id": businessId } },
   };
 }
 
@@ -105,17 +107,19 @@ export function serviceJsonLd(service: Service) {
 }
 
 export function articleJsonLd(guide: Guide) {
+  const url = `${siteUrl}/guias/${guide.slug}`;
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: guide.title,
     description: guide.description,
-    url: `${siteUrl}/guias/${guide.slug}`,
+    url,
+    mainEntityOfPage: url,
     image: `${siteUrl}${guideImagePath(guide.slug)}`,
     inLanguage: "es-ES",
     datePublished: guide.publishedAt,
     dateModified: guide.updatedAt,
-    author: { "@type": "Person", name: founder.name, jobTitle: founder.jobTitle, sameAs: [founder.linkedin] },
+    author: founderPerson,
     publisher: { "@id": businessId },
   };
 }

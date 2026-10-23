@@ -5,6 +5,7 @@ export const llmsText = {
   services: "Servicios",
   guides: "Guías",
   plans: "Planes",
+  hours: "Horario",
   launchNote: `Precios de lanzamiento ${launchOffer.audience}, hasta ${launchOffer.endsOn}. Todos los precios incluyen el IVA. Antes de empezar se confirma un precio cerrado por escrito.`,
   contact: "Contacto",
   email: "Email",

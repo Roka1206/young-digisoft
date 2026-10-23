@@ -19,6 +19,8 @@ export type Service = {
   revisionRounds?: string;
   note?: string;
   headline?: string;
+  // Title for Google when it differs from the headline; with the brand suffix it must fit in 60 characters.
+  metaTitle?: string;
   sectors?: string[];
   highlights?: { title: string; items: { title: string; description: string }[] };
   faq?: FaqItem[];
@@ -62,6 +64,7 @@ export const services: Service[] = [
     slug: "web",
     name: "Diseño web",
     headline: "Diseño web para pymes y autónomos",
+    metaTitle: "Diseño web para pymes en A Coruña",
     summary:
       "Te hacemos una web profesional y rápida, y configuramos tu ficha de Google para que los clientes de tu zona te encuentren y te escriban.",
     audience: "Negocios que quieren aparecer en Google y recibir contactos desde su web.",
@@ -127,6 +130,7 @@ export const services: Service[] = [
     slug: "automatizacion",
     name: "Automatización exprés",
     headline: "Automatización de tareas para pymes",
+    metaTitle: "Automatización con IA en A Coruña",
     summary:
       "Elegimos contigo una tarea que hoy haces a mano y la automatizamos: menos copiar y pegar, menos olvidos y más tiempo para tu negocio.",
     audience: "Negocios que pierden tiempo con tareas repetitivas.",
@@ -354,6 +358,7 @@ export const services: Service[] = [
     slug: "diagnostico-digital",
     name: "Diagnóstico digital",
     headline: "Diagnóstico digital para tu negocio",
+    metaTitle: "Consultoría tecnológica para pymes",
     summary:
       "En una sesión de 60 minutos revisamos tu web, tu presencia en Google, tus procesos y tus herramientas, y te damos una lista priorizada de qué mejorar.",
     audience: "Negocios que no saben qué herramientas necesitan ni por dónde empezar.",

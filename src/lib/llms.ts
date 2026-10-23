@@ -3,7 +3,7 @@ import { aboutPage } from "@/content/about";
 import { llmsText } from "@/content/llms";
 import { prices } from "@/content/pricing";
 import type { Service } from "@/content/services";
-import { contact, site } from "@/content/site";
+import { contact, fullAddress, openingHours, site } from "@/content/site";
 import { formatPrice } from "./pricing";
 
 // Follows the llms.txt proposal (llmstxt.org): title, summary quote, then linked sections.
@@ -16,7 +16,7 @@ export function buildLlmsTxt(baseUrl: string, services: Service[], guides: Guide
   return [
     `# ${site.name}`,
     `> ${site.descriptor}. ${site.description}`,
-    `${contact.zone}. ${llmsText.launchNote}`,
+    `${contact.zone}: ${fullAddress}. ${llmsText.hours}: ${openingHours.label.toLowerCase()}. ${llmsText.launchNote}`,
     `## ${llmsText.services}`,
     serviceLines.join("\n"),
     `## ${llmsText.guides}`,
