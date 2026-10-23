@@ -24,7 +24,6 @@ export const launchOffer = {
   conditions: [
     "un testimonio verificable con tu nombre",
     "permiso para mostrar el trabajo en nuestro portfolio",
-    "una reseña en Google",
   ],
 };
 
