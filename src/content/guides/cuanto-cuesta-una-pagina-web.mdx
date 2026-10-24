@@ -4,6 +4,19 @@ import { formatPrice } from "@/lib/pricing";
 
 export const [essential, pro] = services.find((service) => service.slug === "web").plans;
 export const price = (id, range = "launch") => formatPrice(prices[id][range], prices[id].unit);
+export const kitDigital = {
+  headers: ["Lo que exige el Kit Digital", "Qué significa para ti"],
+  rows: [
+    [
+      "Dominio y alojamiento durante al menos 12 meses",
+      "El dominio es tuyo y la web está publicada desde el primer día",
+    ],
+    ["Entre 3 y 5 páginas", "Suficiente para presentar tu negocio, tus servicios y tu contacto"],
+    ["Diseño adaptado a móvil y tableta", "Se ve bien en el móvil, desde donde te busca la mayoría"],
+    ["Plataforma para que la gestiones tú", "Puedes cambiar textos e imágenes sin depender del proveedor"],
+    ["Posicionamiento básico", "Palabras clave estudiadas y dos páginas preparadas para Google"],
+  ],
+};
 
 La respuesta corta es que depende de lo que necesites. En esta guía te contamos de qué depende el precio, qué debería incluir una web para un negocio local, qué se paga aparte y qué preguntar antes de contratar. Al final tienes nuestros precios, para que tengas una cifra concreta.
 
@@ -30,6 +43,46 @@ La respuesta corta es que depende de lo que necesites. En esta guía te contamos
 - **Los textos y las fotos profesionales**, si no los aportas tú.
 - **Tienda online, pagos o versiones en otros idiomas.**
 
+## Una referencia oficial: el Kit Digital
+
+Los precios de las agencias varían mucho y casi nunca dicen qué incluyen, así que es difícil compararlos. Hay una referencia pública que sí lo detalla: el programa **Kit Digital** del Gobierno fija en **2.000 €** la [ayuda máxima para la categoría «Sitio Web y Presencia básica en Internet»](https://www.acelerapyme.gob.es/kit-digital/sitio-web). A cambio, la web debe cumplir unos mínimos:
+
+<div className="mt-6 overflow-x-auto rounded-xl border border-border">
+  <table className="w-full text-left text-sm text-foreground">
+    <thead className="bg-surface font-bold">
+      <tr>
+        {kitDigital.headers.map((header) => (
+          <th key={header} scope="col" className="px-4 py-3">
+            {header}
+          </th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {kitDigital.rows.map((row) => (
+        <tr key={row[0]}>
+          {row.map((cell) => (
+            <td key={cell} className="border-t border-border px-4 py-3 align-top">
+              {cell}
+            </td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+No es un precio de mercado, sino el importe máximo de una ayuda pública, pero da una idea de cuánto vale una web básica **completa**. Si te ofrecen una web por mucho menos, pregunta qué parte de esta lista no incluye. Y si quieres pedir la ayuda, comprueba en la web oficial de AceleraPyme si hay una convocatoria abierta para tu caso.
+
+## Pago único o cuota mensual
+
+Hay dos formas habituales de pagar una web:
+
+- **Pago único y mantenimiento aparte.** Pagas la web al hacerla y, si quieres, un mantenimiento mensual sin permanencia. La web es tuya desde el principio.
+- **Cuota mensual con todo incluido.** No pagas nada al empezar, pero sí cada mes, a menudo con una permanencia de uno o dos años. Haz la cuenta de lo que pagarás en total y pregunta qué pasa con la web, el dominio y los textos si te das de baja.
+
+Ninguna es mala por sí misma. Lo importante es saber cuánto pagas en total y de quién es la web al final.
+
 ## Nuestros precios como referencia
 
 - **{essential.name}: {price(essential.id)}.** {essential.includes.join(", ")}. Plazo: {essential.timeline}.
@@ -55,6 +108,24 @@ Nuestros precios son los mismos en A Coruña que en el resto de España, y con I
 5. ¿Podré cambiar textos o fotos más adelante? ¿Cuánto cuesta?
 
 Si te responden con claridad a estas cinco preguntas, sabrás exactamente qué estás pagando.
+
+## Preguntas frecuentes
+
+### ¿Por qué hay webs por 200 € y otras por 5.000 €?
+
+Porque no son lo mismo. Una plantilla que rellenas tú no se parece a una web hecha a medida con textos revisados, ficha de Google configurada y textos legales. Compara siempre lo que incluye cada oferta, no solo la cifra.
+
+### ¿Los precios llevan el IVA incluido?
+
+Depende de quién te los dé: muchas agencias publican los precios sin IVA, que en España suele ser un 21 % más. Los nuestros siempre lo incluyen. Pregúntalo antes de comparar dos presupuestos.
+
+### ¿Cuánto se tarda en hacer una web?
+
+Una web sencilla para un negocio local puede estar en una o dos semanas si tienes los textos y las fotos a mano. Lo que más retrasa un proyecto suele ser esperar el contenido, no programarlo.
+
+### ¿Necesito una web si ya tengo Instagram y ficha de Google?
+
+No es obligatorio, pero ayuda. Las redes y la ficha de Google no son tuyas y cambian sus normas cuando quieren. Una web sí lo es: reúne toda tu información en un sitio, aparece en más búsquedas y da confianza a quien no te conoce.
 
 ## En resumen
 

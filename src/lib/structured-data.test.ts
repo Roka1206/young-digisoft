@@ -37,6 +37,10 @@ describe("businessJsonLd", () => {
     ]);
   });
 
+  it("summarises the starting prices for priceRange from the pricing file", () => {
+    expect(business.priceRange).toMatch(/^desde 39\s€\/mes · desde 400\s€ por proyecto \(IVA incluido\)$/);
+  });
+
   it("links a Google Maps search for the full address", () => {
     expect(business.hasMap).toBe(
       "https://www.google.com/maps/search/?api=1&query=R%C3%BAa%20Linares%20Rivas%209%20bajo%2C%2015160%20Sada%20(A%20Coru%C3%B1a)",

@@ -32,4 +32,5 @@ export const priceText = {
   vatIncluded: "IVA incluido",
   until: "Hasta",
   timeline: "Plazo estimado",
+  perProject: "por proyecto",
 };
