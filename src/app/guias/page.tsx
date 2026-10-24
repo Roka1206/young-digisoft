@@ -22,7 +22,7 @@ export default function GuidesPage() {
     <>
       <JsonLd data={breadcrumbJsonLd([{ name: guidesPageText.breadcrumb, path: "/guias" }])} />
       <Header />
-      <main className="flex-1">
+      <main id="contenido" className="flex-1">
         <PageHero title={guidesPageText.title} description={guidesPageText.description} />
         <Container className="max-w-3xl py-20">
           <ul className="flex flex-col gap-6">

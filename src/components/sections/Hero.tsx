@@ -11,9 +11,9 @@ const stagger = (index: number): CSSProperties => ({ animationDelay: `${100 + in
 // The `dark` class applies the dark-theme tokens here: BRAND.md puts the hero on ink.
 export function Hero() {
   return (
-    <section className="dark bg-background text-foreground">
+    <section className="dark border-b border-border bg-background text-foreground">
       <Container>
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 py-24 text-center sm:py-32">
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 py-16 text-center sm:py-32">
           <div className={rise} style={stagger(0)}>
             <Badge className="text-balance text-action">{hero.badge}</Badge>
           </div>

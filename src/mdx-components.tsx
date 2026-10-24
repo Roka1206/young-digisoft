@@ -10,6 +10,12 @@ const components: MDXComponents = {
   p: (props) => <p className="mt-4 leading-relaxed text-foreground" {...props} />,
   ul: (props) => <ul className="mt-4 list-disc space-y-2 pl-6 leading-relaxed text-foreground" {...props} />,
   ol: (props) => <ol className="mt-4 list-decimal space-y-2 pl-6 leading-relaxed text-foreground" {...props} />,
+  blockquote: (props) => (
+    <blockquote
+      className="mt-4 rounded-r-xl border-l-4 border-action bg-surface px-5 py-1 [&>p]:mt-3 [&>p:last-child]:mb-3"
+      {...props}
+    />
+  ),
   strong: (props) => <strong className="font-bold" {...props} />,
   a: ({ href = "", ...props }) =>
     href.startsWith("/") ? (

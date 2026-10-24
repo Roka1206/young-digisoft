@@ -6,6 +6,7 @@ import type { PortfolioCase } from "@/content/portfolio";
 import { servicePageText, type Service } from "@/content/services";
 import { address, contact, expertise, founder, fullAddress, openingHours, site, socialLinks } from "@/content/site";
 import { guideImagePath } from "./guides";
+import { priceRangeSummary } from "./pricing";
 import { siteUrl } from "./site-url";
 
 const businessId = `${siteUrl}/#business`;
@@ -42,6 +43,7 @@ export function businessJsonLd() {
       addressRegion: address.region,
       addressCountry: "ES",
     },
+    priceRange: priceRangeSummary(Object.values(prices)),
     hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`,
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",

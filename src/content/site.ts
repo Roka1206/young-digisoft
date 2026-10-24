@@ -38,6 +38,8 @@ export const expertise = [
   "Consultoría tecnológica para pymes",
 ];
 
+export const skipLink = { label: "Saltar al contenido", href: "#contenido" };
+
 export const navLinks = [
   { label: "Servicios", href: "/#servicios" },
   { label: "Cómo trabajamos", href: "/#como-trabajamos" },

@@ -12,6 +12,26 @@ export type Guide = {
 
 export const guides: Guide[] = [
   {
+    slug: "autodiagnostico-digital-para-tu-negocio",
+    title: "Diagnóstico digital de tu negocio: 10 preguntas para hacértelo tú",
+    metaTitle: "Diagnóstico digital en 10 preguntas",
+    description:
+      "Web, Google, procesos, herramientas y seguridad: diez preguntas para saber en pocos minutos dónde está tu negocio y qué mejorar primero, sin gastar nada.",
+    publishedAt: "2026-10-24",
+    updatedAt: "2026-10-24",
+    serviceSlug: "diagnostico-digital",
+  },
+  {
+    slug: "ciberseguridad-basica-para-un-pequeno-negocio",
+    title: "Ciberseguridad básica para un pequeño negocio: 8 medidas",
+    metaTitle: "Ciberseguridad para pequeños negocios",
+    description:
+      "Verificación en dos pasos, contraseñas, copias de seguridad, fraudes por correo y wifi de clientes: ocho medidas, casi todas gratis, para proteger tu negocio.",
+    publishedAt: "2026-10-24",
+    updatedAt: "2026-10-24",
+    serviceSlug: "diagnostico-digital",
+  },
+  {
     slug: "citas-automaticas-por-whatsapp",
     title: "Cómo automatizar las citas de tu negocio con WhatsApp",
     metaTitle: "Citas automáticas por WhatsApp, paso a paso",
@@ -58,7 +78,7 @@ export const guides: Guide[] = [
     description:
       "Qué incluye el mantenimiento de una web, qué no, cuánto cuesta mantenerla al año, cuándo te conviene y qué preguntar antes de contratarlo.",
     publishedAt: "2026-10-22",
-    updatedAt: "2026-10-23",
+    updatedAt: "2026-10-24",
     serviceSlug: "mantenimiento",
   },
   {
@@ -68,7 +88,7 @@ export const guides: Guide[] = [
     description:
       "Crea y completa tu ficha de Google Business Profile: categoría, zona, verificación, fotos y reseñas, sin trucos que te puedan costar la ficha y sin pagar nada.",
     publishedAt: "2026-10-22",
-    updatedAt: "2026-10-22",
+    updatedAt: "2026-10-24",
     serviceSlug: "web",
   },
   {
@@ -88,7 +108,7 @@ export const guides: Guide[] = [
     description:
       "Qué hace subir o bajar el precio de una web, qué debería incluir, qué se paga aparte y qué preguntar antes de contratar, con nuestros precios como referencia.",
     publishedAt: "2026-10-21",
-    updatedAt: "2026-10-23",
+    updatedAt: "2026-10-24",
     serviceSlug: "web",
   },
 ];

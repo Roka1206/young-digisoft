@@ -57,7 +57,7 @@ Hay 6 ofertas. No añadas servicios nuevos a la web sin que el propietario lo de
 | **Diagnóstico digital (consultoría)** | Sesión de 60 min y recomendaciones priorizadas de web, Google, procesos, herramientas y seguridad | **60 €/hora** | 60 €/hora |
 
 Notas:
-- El precio de lanzamiento tiene condiciones reales: testimonio verificable con nombre, permiso para mostrar el trabajo y reseña en Google. Debe mostrarse con fecha de caducidad.
+- El precio de lanzamiento tiene condiciones reales: testimonio verificable con nombre y permiso para mostrar el trabajo. Debe mostrarse con fecha de caducidad. La reseña en Google se pide aparte y nunca como condición del descuento: Google prohíbe incentivar reseñas (decidido el 23 oct 2026).
 - El Diagnóstico digital se descuenta si el cliente contrata después una web o una automatización. Incluye un resumen escrito con las recomendaciones priorizadas; un informe detallado se presupuesta aparte.
 - El precio de lanzamiento es válido hasta el 31 de enero de 2027 o hasta completar 5 clientes, lo que ocurra antes.
 - Qué no incluye cada servicio y las rondas de revisión (2 en web, 1 en automatización, 1 por plan mensual en redes sociales) están en `src/content/services.ts`.
@@ -189,7 +189,8 @@ El trabajo se hace por bloques y en este orden:
 - [ ] Reforzar la entidad «Young Digisoft» frente a otras empresas «Digisoft»: mismo nombre y descripción en todos los perfiles y `sameAs` completo (falta la URL de Google Business Profile).
 - [ ] Reseña en Google y caso de estudio de cada piloto; enlaces desde gestorías y asesorías aliadas.
 - [ ] Alertas de `eslint-config-next` (`micromatch`/`braces`): solo afectan al desarrollo. No usar `npm audit fix --force` (baja a la versión 14): esperar a que Next publique la corrección; Dependabot la propondrá.
-- Decidido no hacer por ahora: *smoke test* contra producción tras cada despliegue (los e2e ya corren en cada PR), *nonces* en la CSP (las páginas dejarían de ser estáticas), páginas por sector sin demanda real, Facebook y directorios.
+- Decidido no hacer por ahora: *smoke test* contra producción tras cada despliegue (los e2e ya corren en cada PR), *nonces* en la CSP (las páginas dejarían de ser estáticas), páginas por sector sin demanda real, Facebook y directorios generalistas.
+- Directorios: reabierto el 23 oct 2026 solo para Bing Places, Apple Business Connect y Páxinas Galegas (gratuitos, mismos datos que la web, dirección oculta). Al tener sus URL, añadirlas a `sameAs`.
 - Nota: el límite de envíos usa el primer valor de `x-forwarded-for`, que en Vercel es fiable; revisarlo si algún día se despliega fuera de Vercel.
 - Idea para más adelante: un sistema de citas gratuito (por ejemplo, Cal.com) para reservar el Diagnóstico digital.
 

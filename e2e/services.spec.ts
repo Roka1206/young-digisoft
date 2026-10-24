@@ -5,7 +5,7 @@ for (const service of services) {
   test(`/servicios/${service.slug} shows the service and its prices`, async ({ page }) => {
     await page.goto(`/servicios/${service.slug}`);
     await expect(page.getByRole("heading", { level: 1, name: service.headline ?? service.name })).toBeVisible();
-    await expect(page.getByRole("heading", { level: 3, name: service.plans[0].name })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 3, name: service.plans[0].name, exact: true })).toBeVisible();
   });
 }
 

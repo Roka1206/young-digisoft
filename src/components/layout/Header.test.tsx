@@ -23,4 +23,23 @@ describe("Header", () => {
       expect(screen.getAllByRole("link", { name: "Contacto" })).toHaveLength(1);
     });
   });
+
+  it("closes the mobile navigation with Escape and returns focus to the menu button", async () => {
+    const user = userEvent.setup();
+    render(<Header />);
+
+    await user.click(screen.getByRole("button", { name: /abrir menú/i }));
+    await user.keyboard("{Escape}");
+
+    const menuButton = await screen.findByRole("button", { name: /abrir menú/i });
+    expect(menuButton).toHaveFocus();
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("offers a skip link to the main content as its first link", () => {
+    render(<Header />);
+
+    expect(screen.getAllByRole("link")[0]).toHaveAttribute("href", "#contenido");
+    expect(screen.getAllByRole("link")[0]).toHaveTextContent("Saltar al contenido");
+  });
 });

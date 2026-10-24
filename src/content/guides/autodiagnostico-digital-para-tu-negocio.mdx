@@ -1,0 +1,46 @@
+import { prices } from "@/content/pricing";
+import { services } from "@/content/services";
+import { formatPrice } from "@/lib/pricing";
+
+export const diagnosis = services.find((service) => service.slug === "diagnostico-digital");
+
+Muchos negocios saben que «tendrían que hacer algo con lo digital», pero no saben por dónde empezar: ¿una web nueva?, ¿redes?, ¿un programa de gestión? Antes de gastar dinero, conviene saber dónde estás. Estas diez preguntas te ayudan a hacerte un diagnóstico rápido en unos minutos. Contesta con sinceridad: cada «no» es una mejora posible.
+
+## Tu web
+
+1. **¿Se ve bien y carga rápido en el móvil?** Ábrela desde tu teléfono con los datos móviles, no con el wifi de casa. Si tarda o hay que hacer zoom para leer, estás perdiendo clientes.
+2. **¿Se entiende en cinco segundos qué haces, dónde y cómo contactarte?** Pide a alguien que no te conozca que la mire y te lo cuente.
+3. **¿Recibes contactos desde la web?** Si nunca te escribe nadie desde ella, algo falla: que no te encuentran, que no se entiende o que es difícil contactar.
+
+## Tu presencia en Google
+
+4. **¿Apareces en Google Maps cuando alguien busca lo que haces en tu zona?** Búscate como lo haría un cliente, sin poner tu nombre.
+5. **¿Tu ficha de Google está completa y tiene reseñas recientes?** Horario, fotos reales, servicios y reseñas de los últimos meses. Si no, aquí tienes [cómo aparecer en Google Maps](/guias/como-aparecer-en-google-maps) y [cómo conseguir reseñas](/guias/como-conseguir-resenas-en-google).
+
+## Tus procesos
+
+6. **¿Hay alguna tarea que hagas a mano cada día y siempre igual?** Copiar datos, confirmar citas, preparar presupuestos parecidos. Son las primeras candidatas a [automatizar](/guias/tareas-que-puede-automatizar-un-pequeno-negocio).
+7. **¿Se te ha perdido alguna vez un cliente o un pedido** porque el mensaje se quedó en el correo, en WhatsApp o en un papel?
+
+## Tus herramientas
+
+8. **¿Tienes la información de tus clientes en un solo sitio?** Si está repartida entre el móvil, el correo y una libreta, cuesta encontrarla y es fácil perderla.
+9. **¿Pagas por programas que apenas usas?** Revisa las cuotas mensuales: a veces se pagan dos herramientas que hacen lo mismo.
+
+## Tu seguridad
+
+10. **¿Tienes copias de seguridad de tus datos y activada la verificación en dos pasos en tu correo?** Si mañana pierdes el móvil o te roban la contraseña, ¿podrías seguir trabajando? Aquí tienes [las medidas básicas de ciberseguridad](/guias/ciberseguridad-basica-para-un-pequeno-negocio).
+
+## Cómo interpretar tus respuestas
+
+- **De 0 a 3 «no»:** vas bien. Revisa esos puntos concretos y vuelve a hacerte el test dentro de unos meses.
+- **De 4 a 6 «no»:** hay margen de mejora. Empieza por lo que más te cuesta en dinero o en clientes, no por lo más fácil.
+- **7 o más «no»:** lo digital te está frenando. No intentes arreglarlo todo a la vez: elige una o dos mejoras y termínalas antes de empezar otras.
+
+Una regla útil para ordenar: primero lo que afecta a que te **encuentren** (web y Google), después lo que te hace **perder tiempo** (procesos y herramientas) y, en paralelo, lo que te puede **dejar sin trabajar** (seguridad).
+
+## Si prefieres que lo revisemos contigo
+
+El {diagnosis.name} es una sesión de 60 minutos en la que revisamos juntos tu web, tu ficha de Google, tus procesos, tus herramientas y tu seguridad. Después recibes un resumen escrito con las mejoras ordenadas por impacto y esfuerzo. Cuesta {formatPrice(prices.diagnosis.launch, prices.diagnosis.unit)} y {diagnosis.note.charAt(0).toLowerCase() + diagnosis.note.slice(1)}
+
+[Reserva tu diagnóstico](/contacto) o mira el [servicio de diagnóstico digital](/servicios/diagnostico-digital).

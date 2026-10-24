@@ -17,12 +17,12 @@ export function Section({
 }) {
   return (
     <section id={id} className={className}>
-      <Container className="py-20">
+      <Container className="py-14 sm:py-20">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="text-2xl/8 font-bold text-foreground sm:text-[1.75rem]/9">{title}</h2>
           {description && <p className="mt-4 leading-relaxed text-muted">{description}</p>}
         </Reveal>
-        <div className="mt-12">{children}</div>
+        <div className="mt-10 sm:mt-12">{children}</div>
       </Container>
     </section>
   );

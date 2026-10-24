@@ -17,7 +17,7 @@ const infoItems = [
 export function Contact() {
   return (
     <section id="contacto">
-      <Container className="grid gap-10 py-20 lg:grid-cols-2">
+      <Container className="grid gap-10 py-14 sm:py-20 lg:grid-cols-2">
         <Reveal className="flex flex-col gap-6">
           {infoItems.map(({ icon: Icon, label, value, href }) => {
             const content = (

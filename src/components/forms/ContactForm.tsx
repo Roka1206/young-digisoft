@@ -21,9 +21,13 @@ const labelClasses = "mb-1.5 block text-sm font-medium text-foreground";
 const inputClasses =
   "w-full rounded-xl border border-muted bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted transition-colors focus:border-action focus:outline-none focus:ring-2 focus:ring-action/30";
 
-function FieldError({ message }: { message?: string }) {
+function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
-  return <p className="mt-1.5 inline-flex rounded-md bg-error px-2 py-0.5 text-sm text-white">{message}</p>;
+  return (
+    <p id={id} className="mt-1.5 inline-flex rounded-md bg-error px-2 py-0.5 text-sm text-white">
+      {message}
+    </p>
+  );
 }
 
 export function ContactForm() {
@@ -34,6 +38,10 @@ export function ContactForm() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({ resolver: zodResolver(contactSchema) });
+
+  // Links each field to its error so screen readers announce it when the field gets focus.
+  const errorProps = (name: keyof ContactFormValues) =>
+    errors[name] ? { "aria-invalid": true, "aria-describedby": `${name}-error` } : {};
 
   const onSubmit = async (values: ContactFormValues) => {
     setStatus("idle");
@@ -61,24 +69,38 @@ export function ContactForm() {
         <label htmlFor="name" className={labelClasses}>
           {labels.name}
         </label>
-        <input id="name" className={inputClasses} {...register("name")} />
-        <FieldError message={errors.name?.message} />
+        <input id="name" autoComplete="name" className={inputClasses} {...errorProps("name")} {...register("name")} />
+        <FieldError id="name-error" message={errors.name?.message} />
       </div>
 
       <div>
         <label htmlFor="email" className={labelClasses}>
           {labels.email}
         </label>
-        <input id="email" type="email" className={inputClasses} {...register("email")} />
-        <FieldError message={errors.email?.message} />
+        <input
+          id="email"
+          type="email"
+          autoComplete="email"
+          className={inputClasses}
+          {...errorProps("email")}
+          {...register("email")}
+        />
+        <FieldError id="email-error" message={errors.email?.message} />
       </div>
 
       <div>
         <label htmlFor="phone" className={labelClasses}>
           {labels.phone}
         </label>
-        <input id="phone" className={inputClasses} {...register("phone")} />
-        <FieldError message={errors.phone?.message} />
+        <input
+          id="phone"
+          type="tel"
+          autoComplete="tel"
+          className={inputClasses}
+          {...errorProps("phone")}
+          {...register("phone")}
+        />
+        <FieldError id="phone-error" message={errors.phone?.message} />
       </div>
 
       <div>
@@ -99,8 +121,8 @@ export function ContactForm() {
         <label htmlFor="message" className={labelClasses}>
           {labels.message}
         </label>
-        <textarea id="message" rows={4} className={inputClasses} {...register("message")} />
-        <FieldError message={errors.message?.message} />
+        <textarea id="message" rows={4} className={inputClasses} {...errorProps("message")} {...register("message")} />
+        <FieldError id="message-error" message={errors.message?.message} />
       </div>
 
       <div aria-hidden className="sr-only">
@@ -114,6 +136,7 @@ export function ContactForm() {
             id="consent"
             type="checkbox"
             className="mt-0.5 size-4 shrink-0 accent-action"
+            {...errorProps("consent")}
             {...register("consent")}
           />
           <label htmlFor="consent">
@@ -125,7 +148,7 @@ export function ContactForm() {
           </label>
         </div>
         <p className="mt-1.5 text-sm text-muted">{contactForm.privacyNote}</p>
-        <FieldError message={errors.consent?.message} />
+        <FieldError id="consent-error" message={errors.consent?.message} />
       </div>
 
       {status !== "idle" && (

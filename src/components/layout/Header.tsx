@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
-import { contact, navLinks } from "@/content/site";
+import { useEffect, useRef, useState } from "react";
+import { contact, navLinks, skipLink } from "@/content/site";
+import { uiText } from "@/content/ui";
 import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -14,6 +15,7 @@ import { MobileNav } from "./MobileNav";
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -29,6 +31,17 @@ export function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      menuButton.current?.focus();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   return (
     <header
       className={cn(
@@ -36,6 +49,12 @@ export function Header() {
         scrolled ? "border-border bg-background/85 backdrop-blur-md" : "border-transparent bg-background",
       )}
     >
+      <a
+        href={skipLink.href}
+        className="sr-only rounded-full bg-action px-4 py-2 font-medium text-action-fg focus:not-sr-only focus:absolute focus:top-3 focus:left-4 focus:z-[70]"
+      >
+        {skipLink.label}
+      </a>
       <Container className="flex h-16 items-center justify-between">
         <Link href="/" onClick={() => setOpen(false)}>
           <Logo />
@@ -56,16 +75,18 @@ export function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <ThemeToggle />
           <Button href={contact.whatsappHref} size="sm">
-            Hablemos
+            {uiText.headerCta}
           </Button>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle />
           <button
+            ref={menuButton}
             type="button"
-            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            aria-label={open ? uiText.menu.close : uiText.menu.open}
             aria-expanded={open}
+            aria-controls="mobile-nav"
             onClick={() => setOpen((v) => !v)}
             className="inline-flex size-10 items-center justify-center rounded-full border border-border text-foreground"
           >

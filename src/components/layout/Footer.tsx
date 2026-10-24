@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { services } from "@/content/services";
 import { contact, navLinks, site } from "@/content/site";
+import { uiText } from "@/content/ui";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
 import { SocialLinks } from "@/components/ui/SocialLinks";
@@ -22,7 +23,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <h2 className="text-sm font-medium tracking-wide text-foreground uppercase">Navegación</h2>
+          <h2 className="text-sm font-medium tracking-wide text-foreground uppercase">{uiText.footer.navigation}</h2>
           {navLinks.map((link) => (
             <a key={link.href} href={link.href} className="text-sm text-muted transition-colors hover:text-action">
               {link.label}
@@ -31,7 +32,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <h2 className="text-sm font-medium tracking-wide text-foreground uppercase">Servicios</h2>
+          <h2 className="text-sm font-medium tracking-wide text-foreground uppercase">{uiText.footer.services}</h2>
           {services.map((service) => (
             <Link
               key={service.slug}
@@ -44,7 +45,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <h2 className="text-sm font-medium tracking-wide text-foreground uppercase">Contacto</h2>
+          <h2 className="text-sm font-medium tracking-wide text-foreground uppercase">{uiText.footer.contact}</h2>
           <a href={contact.phoneHref} className="text-sm text-muted transition-colors hover:text-action">
             {contact.phone}
           </a>
@@ -58,18 +59,14 @@ export function Footer() {
       <div className="border-t border-border">
         <Container className="flex flex-col gap-2 py-4 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {site.name}. Todos los derechos reservados.
+            © {year} {site.name}. {uiText.footer.rights}
           </p>
           <div className="flex flex-wrap gap-x-6">
-            <Link href="/aviso-legal" className={legalLink}>
-              Aviso legal
-            </Link>
-            <Link href="/privacidad" className={legalLink}>
-              Privacidad
-            </Link>
-            <Link href="/cookies" className={legalLink}>
-              Cookies
-            </Link>
+            {uiText.footer.legal.map((link) => (
+              <Link key={link.href} href={link.href} className={legalLink}>
+                {link.label}
+              </Link>
+            ))}
             <CookieSettingsButton className={legalLink} />
           </div>
         </Container>

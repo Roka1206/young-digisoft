@@ -20,4 +20,11 @@ describe("getPublishedCases", () => {
   it("returns an empty list when there are no cases", () => {
     expect(getPublishedCases([])).toEqual([]);
   });
+
+  it("puts cases with a screenshot first and keeps the order of the rest", () => {
+    const image = { src: "/images/portfolio/a.webp", alt: "Captura" };
+    const [first, second, third] = ["Primero", "Con captura", "Tercero"].map((name) => ({ ...baseCase, name }));
+    const ordered = getPublishedCases([first, { ...second, image }, third]);
+    expect(ordered.map((item) => item.name)).toEqual(["Con captura", "Primero", "Tercero"]);
+  });
 });
