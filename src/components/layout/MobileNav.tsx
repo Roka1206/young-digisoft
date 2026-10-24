@@ -1,6 +1,7 @@
 "use client";
 
 import { contact, navLinks } from "@/content/site";
+import { uiText } from "@/content/ui";
 import { Button } from "@/components/ui/Button";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 
@@ -23,7 +24,7 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
       </nav>
       <div className="flex flex-col gap-4 border-t border-border px-4 py-4">
         <Button href={contact.whatsappHref} onClick={onClose}>
-          Hablemos de tu negocio
+          {uiText.mobileCta}
         </Button>
         <SocialLinks />
       </div>

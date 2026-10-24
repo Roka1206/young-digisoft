@@ -3,6 +3,7 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/cn";
+import { uiText } from "@/content/ui";
 
 export function ThemeToggle({ className }: { className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
@@ -11,7 +12,7 @@ export function ThemeToggle({ className }: { className?: string }) {
     <button
       type="button"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      aria-label="Cambiar tema"
+      aria-label={uiText.themeToggle}
       className={cn(
         "inline-flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-action hover:text-action",
         className,

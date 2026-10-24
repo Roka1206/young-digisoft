@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { contact, navLinks, skipLink } from "@/content/site";
+import { uiText } from "@/content/ui";
 import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -74,7 +75,7 @@ export function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <ThemeToggle />
           <Button href={contact.whatsappHref} size="sm">
-            Hablemos
+            {uiText.headerCta}
           </Button>
         </div>
 
@@ -83,7 +84,7 @@ export function Header() {
           <button
             ref={menuButton}
             type="button"
-            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            aria-label={open ? uiText.menu.close : uiText.menu.open}
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((v) => !v)}
